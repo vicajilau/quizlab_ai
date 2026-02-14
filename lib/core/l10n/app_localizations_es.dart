@@ -352,7 +352,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get questionTypeTrueFalse => 'Verdadero/Falso';
 
   @override
-  String get questionTypeEssay => 'Ensayo';
+  String get questionTypeEssay => 'Desarrollo';
 
   @override
   String get questionTypeRandom => 'Todos';
@@ -970,7 +970,7 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aiEvaluationPromptSystemRole =>
-      'Eres un profesor experto evaluando la respuesta de un estudiante a una pregunta de ensayo. Tu tarea es proporcionar una evaluación detallada y constructiva. Responde en el mismo idioma que la respuesta del estudiante.';
+      'Eres un profesor experto evaluando la respuesta de un estudiante a una pregunta de desarrollo. Tu tarea es proporcionar una evaluación detallada y constructiva. Responde en el mismo idioma que la respuesta del estudiante.';
 
   @override
   String get aiEvaluationPromptQuestion => 'PREGUNTA:';
