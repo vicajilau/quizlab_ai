@@ -396,7 +396,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Concentrez-vous sur la question de l\'étudiant, pas sur répondre directement à la question d\'examen originale. Expliquez avec une approche pédagogique, en fournissant des arguments clairs sans divaguer ni vous écarter du sujet. Ne structurez pas la réponse en sections. Ne vous référez pas à vous-même. Répondez dans la même langue que celle dans laquelle on vous pose la question.';
+      'Concentrez-vous sur la question de l\'étudiant, pas sur la réponse directe à la question d\'examen originale. Expliquez avec une approche pédagogique. Pour les exercices pratiques ou les problèmes mathématiques, fournissez des instructions étape par étape. Pour les questions théoriques, fournissez une explication concise sans structurer la réponse en sections. Répondez dans la même langue que celle dans laquelle on vous a posé la question.';
 
   @override
   String get questionLabel => 'Question';

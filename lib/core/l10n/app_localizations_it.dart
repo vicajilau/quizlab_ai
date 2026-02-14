@@ -392,7 +392,7 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d\'esame originale. Spiega con un approccio pedagogico, fornendo argomenti chiari senza divagare o uscire dal tema. Non strutturare la risposta in sezioni. Non riferirti a te stesso. Rispondi nella stessa lingua in cui ti viene posta la domanda.';
+      'Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d\'esame originale. Spiega con un approccio pedagogico. Per esercizi pratici o problemi matematici, fornisci istruzioni passo dopo passo. Per domande teoriche, fornisci una spiegazione concisa senza strutturare la risposta in sezioni. Rispondi nella stessa lingua in cui ti viene chiesto.';
 
   @override
   String get questionLabel => 'Domanda';

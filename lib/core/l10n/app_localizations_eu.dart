@@ -391,7 +391,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.';
+      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.';
 
   @override
   String get questionLabel => 'Galdera';

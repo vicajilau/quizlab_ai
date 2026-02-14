@@ -478,7 +478,7 @@
   "@explanationTooltip": {
     "description": "Azalpen adierazle txartelaren tooltip testua"
   },
-  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.",
+  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.",
   "@aiPrompt": {
     "description": "AI laguntzailearen oinarrizko gonbita"
   },
