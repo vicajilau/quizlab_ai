@@ -1833,5 +1833,8 @@
         "example": "5"
       }
     }
-  }
+  },
+  "advancedSettingsTitle": "Ajustes Avanzados (Debug)",
+  "appLanguageLabel": "Idioma de la aplicación",
+  "appLanguageDescription": "Sobrescribir el idioma de la aplicación para pruebas"
 }

@@ -27,7 +27,7 @@ class AdvancedSettingsSection extends StatelessWidget {
             ),
             const SizedBox(width: 8),
             Text(
-              'Advanced Settings (Debug)',
+              AppLocalizations.of(context)!.advancedSettingsTitle,
               style: TextStyle(
                 fontFamily: 'Inter',
                 fontSize: 18,
@@ -55,7 +55,7 @@ class AdvancedSettingsSection extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'App Language',
+                          AppLocalizations.of(context)!.appLanguageLabel,
                           style: TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 16,
@@ -65,7 +65,7 @@ class AdvancedSettingsSection extends StatelessWidget {
                         ),
                         const SizedBox(height: 4),
                         Text(
-                          'Override application language for testing',
+                          AppLocalizations.of(context)!.appLanguageDescription,
                           style: TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 14,
