@@ -478,7 +478,7 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释，提供清晰的论据，不要跑题或离题。不要将回答分成章节。不要提及自己。用被问问题的相同语言回答。",
+  "aiPrompt": "专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释。对于实践练习或数学问题，提供逐步说明。对于理论问题，提供简明的解释，不要将回答分成章节。用被问到的相同语言回答。",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },

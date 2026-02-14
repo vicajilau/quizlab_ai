@@ -394,7 +394,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic, proporcionant arguments clars sense divagar ni sortir del tema. No estructureu la resposta en seccions. No us referiu a vosaltres mateixos. Responeu en la mateixa llengua en què se us pregunta.';
+      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic. Per a exercicis pràctics o problemes matemàtics, proporcioneu instruccions pas a pas. Per a preguntes teòriques, proporcioneu una explicació concisa sense estructurar la resposta en seccions. Responeu en la mateixa llengua en què se us pregunta.';
 
   @override
   String get questionLabel => 'Pregunta';
