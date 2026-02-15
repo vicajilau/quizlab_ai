@@ -153,5 +153,34 @@ void main() {
         ), // (0 - 0.5) / 2 * 100 = -25%
       ],
     );
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'calculates score correctly WITH penalty in STUDY MODE (penalty should be ignored)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion],
+            quizConfig: const QuizConfig(
+              questionCount: 1,
+              isStudyMode: true,
+              subtractPoints: true,
+              penaltyAmount: 0.5,
+            ),
+          ),
+        );
+        // Answer incorrectly
+        bloc.add(AnswerSelected(1, true)); // Option B (index 1) is wrong
+        bloc.add(QuizSubmitted());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(),
+        isA<QuizExecutionInProgress>(),
+        isA<QuizExecutionCompleted>().having(
+          (s) => s.score,
+          'score',
+          0.0,
+        ), // Score should be 0.0, not -50.0
+      ],
+    );
   });
 }

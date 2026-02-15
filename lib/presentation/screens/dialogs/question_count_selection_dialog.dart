@@ -522,7 +522,10 @@ class _QuestionCountSelectionDialogState
                             title: AppLocalizations.of(context)!.studyModeLabel,
                             icon: LucideIcons.bookOpen,
                             isSelected: _isStudyMode,
-                            onTap: () => setState(() => _isStudyMode = true),
+                            onTap: () => setState(() {
+                              _isStudyMode = true;
+                              _subtractPoints = false;
+                            }),
                             primaryColor: primaryColor,
                             defaultBgColor: controlBgColor,
                             defaultTextColor: subTextColor,
@@ -752,15 +755,17 @@ class _QuestionCountSelectionDialogState
                 ),
                 Switch(
                   value: _subtractPoints,
-                  onChanged: (value) {
-                    setState(() {
-                      _subtractPoints = value;
-                      if (_subtractPoints && _penaltyAmount <= 0.0) {
-                        _penaltyAmount = 0.05;
-                        _penaltyController.text = '0.05';
-                      }
-                    });
-                  },
+                  onChanged: _isStudyMode
+                      ? null
+                      : (value) {
+                          setState(() {
+                            _subtractPoints = value;
+                            if (_subtractPoints && _penaltyAmount <= 0.0) {
+                              _penaltyAmount = 0.05;
+                              _penaltyController.text = '0.05';
+                            }
+                          });
+                        },
                   activeTrackColor: primaryColor,
                   activeThumbColor: Colors.white,
                   inactiveThumbColor: Colors.white,

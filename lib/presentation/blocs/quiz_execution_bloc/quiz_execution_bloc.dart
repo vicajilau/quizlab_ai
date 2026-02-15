@@ -170,7 +170,9 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
         }
 
         // Calculate score
-        double penalty = currentState.quizConfig.subtractPoints
+        double penalty =
+            (currentState.quizConfig.subtractPoints &&
+                !currentState.quizConfig.isStudyMode)
             ? currentState.quizConfig.penaltyAmount
             : 0.0;
 
