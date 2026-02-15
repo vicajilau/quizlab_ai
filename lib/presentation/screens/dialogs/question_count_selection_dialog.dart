@@ -32,10 +32,14 @@ class _QuestionCountSelectionDialogState
   bool _isStudyMode = false; // false = Exam, true = Study
   bool _subtractPoints = false;
   double _penaltyAmount = 0.5;
+  bool _enableMaxIncorrectAnswers = false;
+  int _maxIncorrectAnswersLimit = 3;
   late TextEditingController _penaltyController;
   late TextEditingController _questionCountController;
+  late TextEditingController _maxIncorrectAnswersController;
   final FocusNode _questionCountFocusNode = FocusNode();
   final FocusNode _penaltyFocusNode = FocusNode();
+  final FocusNode _maxIncorrectAnswersFocusNode = FocusNode();
 
   @override
   void initState() {
@@ -45,6 +49,9 @@ class _QuestionCountSelectionDialogState
     );
     _questionCountController = TextEditingController(
       text: _selectedCount.toString(),
+    );
+    _maxIncorrectAnswersController = TextEditingController(
+      text: _maxIncorrectAnswersLimit.toString(),
     );
 
     _questionCountFocusNode.addListener(() {
@@ -77,6 +84,18 @@ class _QuestionCountSelectionDialogState
         }
       }
     });
+
+    _maxIncorrectAnswersFocusNode.addListener(() {
+      if (!_maxIncorrectAnswersFocusNode.hasFocus) {
+        if (_maxIncorrectAnswersController.text.isEmpty ||
+            int.tryParse(_maxIncorrectAnswersController.text) == 0) {
+          setState(() {
+            _maxIncorrectAnswersLimit = 1;
+            _maxIncorrectAnswersController.text = '1';
+          });
+        }
+      }
+    });
     _loadSavedSettings();
   }
 
@@ -84,8 +103,10 @@ class _QuestionCountSelectionDialogState
   void dispose() {
     _penaltyController.dispose();
     _questionCountController.dispose();
+    _maxIncorrectAnswersController.dispose();
     _questionCountFocusNode.dispose();
     _penaltyFocusNode.dispose();
+    _maxIncorrectAnswersFocusNode.dispose();
     super.dispose();
   }
 
@@ -118,6 +139,16 @@ class _QuestionCountSelectionDialogState
           _penaltyAmount = settings.penaltyAmount!;
           _penaltyController.text = _penaltyAmount.toStringAsFixed(2);
         }
+
+        if (settings.enableMaxIncorrectAnswers != null) {
+          _enableMaxIncorrectAnswers = settings.enableMaxIncorrectAnswers!;
+        }
+
+        if (settings.maxIncorrectAnswers != null) {
+          _maxIncorrectAnswersLimit = settings.maxIncorrectAnswers!;
+          _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
+              .toString();
+        }
       });
     }
   }
@@ -141,6 +172,34 @@ class _QuestionCountSelectionDialogState
       if (_selectedCount > 1) {
         _selectedCount--;
         _questionCountController.text = _selectedCount.toString();
+
+        // Ensure max incorrect limit doesn't exceed question count
+        if (_enableMaxIncorrectAnswers &&
+            _maxIncorrectAnswersLimit > _selectedCount) {
+          _maxIncorrectAnswersLimit = _selectedCount;
+          _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
+              .toString();
+        }
+      }
+    });
+  }
+
+  void _incrementMaxIncorrect() {
+    setState(() {
+      if (_maxIncorrectAnswersLimit < _selectedCount) {
+        _maxIncorrectAnswersLimit++;
+        _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
+            .toString();
+      }
+    });
+  }
+
+  void _decrementMaxIncorrect() {
+    setState(() {
+      if (_maxIncorrectAnswersLimit > 1) {
+        _maxIncorrectAnswersLimit--;
+        _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
+            .toString();
       }
     });
   }
@@ -210,6 +269,8 @@ class _QuestionCountSelectionDialogState
           isStudyMode: _isStudyMode,
           subtractPoints: _subtractPoints,
           penaltyAmount: _penaltyAmount,
+          enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
+          maxIncorrectAnswers: _maxIncorrectAnswersLimit,
         ),
       );
       context.pop(
@@ -221,6 +282,8 @@ class _QuestionCountSelectionDialogState
           subtractPoints: _subtractPoints,
           penaltyAmount: _penaltyAmount,
           useSelectedOnly: useSelectedOnly,
+          enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
+          maxIncorrectAnswers: _maxIncorrectAnswersLimit,
         ),
       );
     }
@@ -353,6 +416,16 @@ class _QuestionCountSelectionDialogState
                                             widget.totalQuestions - 1;
                                         _questionCountController.text =
                                             _selectedCount.toString();
+
+                                        // Ensure error limit doesn't exceed question count
+                                        if (_maxIncorrectAnswersLimit >
+                                            _selectedCount) {
+                                          _maxIncorrectAnswersLimit =
+                                              _selectedCount;
+                                          _maxIncorrectAnswersController.text =
+                                              _maxIncorrectAnswersLimit
+                                                  .toString();
+                                        }
                                       }
                                     });
                                   },
@@ -430,6 +503,17 @@ class _QuestionCountSelectionDialogState
                                           setState(() {
                                             _selectedCount = 1;
                                             _questionCountController.text = '1';
+
+                                            // Ensure error limit doesn't exceed question count
+                                            if (_maxIncorrectAnswersLimit >
+                                                _selectedCount) {
+                                              _maxIncorrectAnswersLimit =
+                                                  _selectedCount;
+                                              _maxIncorrectAnswersController
+                                                      .text =
+                                                  _maxIncorrectAnswersLimit
+                                                      .toString();
+                                            }
                                           });
                                         }
                                         _questionCountFocusNode.unfocus();
@@ -464,6 +548,17 @@ class _QuestionCountSelectionDialogState
                                                               .length,
                                                     ),
                                                   );
+                                            }
+
+                                            // Ensure error limit doesn't exceed question count
+                                            if (_maxIncorrectAnswersLimit >
+                                                _selectedCount) {
+                                              _maxIncorrectAnswersLimit =
+                                                  _selectedCount;
+                                              _maxIncorrectAnswersController
+                                                      .text =
+                                                  _maxIncorrectAnswersLimit
+                                                      .toString();
                                             }
                                           });
                                         }
@@ -525,6 +620,7 @@ class _QuestionCountSelectionDialogState
                             onTap: () => setState(() {
                               _isStudyMode = true;
                               _subtractPoints = false;
+                              _enableMaxIncorrectAnswers = false;
                             }),
                             primaryColor: primaryColor,
                             defaultBgColor: controlBgColor,
@@ -714,155 +810,321 @@ class _QuestionCountSelectionDialogState
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-            decoration: BoxDecoration(
-              color: isDark ? const Color(0xFF3F3F46) : const Color(0xFFF4F4F5),
-              borderRadius: BorderRadius.circular(12),
+          if (!_isStudyMode) ...[
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: isDark
+                    ? const Color(0xFF3F3F46)
+                    : const Color(0xFFF4F4F5),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppLocalizations.of(context)!.subtractPointsLabel,
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: textColor,
+                          ),
+                        ),
+                        if (_subtractPoints) ...[
+                          const SizedBox(height: 2),
+                          Text(
+                            AppLocalizations.of(context)!.penaltyPointsLabel(
+                              _penaltyAmount.toStringAsFixed(2),
+                            ),
+                            style: const TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 12,
+                              fontWeight: FontWeight.w400,
+                              color: AppTheme.errorColor,
+                            ),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                  Switch(
+                    value: _subtractPoints,
+                    onChanged: (value) {
+                      setState(() {
+                        _subtractPoints = value;
+                        if (_subtractPoints && _penaltyAmount <= 0.0) {
+                          _penaltyAmount = 0.05;
+                          _penaltyController.text = '0.05';
+                        }
+                      });
+                    },
+                    activeTrackColor: primaryColor,
+                    activeThumbColor: Colors.white,
+                    inactiveThumbColor: Colors.white,
+                    inactiveTrackColor: isDark
+                        ? AppTheme.zinc600
+                        : AppTheme.zinc300,
+                    trackOutlineColor: WidgetStateProperty.all(
+                      Colors.transparent,
+                    ),
+                  ),
+                ],
+              ),
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+            if (_subtractPoints) ...[
+              const SizedBox(height: 12),
+              // Reusing Question Count style for consistency
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.penaltyAmountLabel,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: subTextColor,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
                     children: [
-                      Text(
-                        AppLocalizations.of(context)!.subtractPointsLabel,
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 15,
-                          fontWeight: FontWeight.w500,
-                          color: textColor,
+                      _buildCountControl(
+                        icon: LucideIcons.minus,
+                        onTap: _decrementPenalty,
+                        bgColor: controlBgColor,
+                        iconColor: controlIconColor,
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: Container(
+                          height: 48,
+                          decoration: BoxDecoration(
+                            color: controlBgColor,
+                            borderRadius: BorderRadius.circular(12),
+                          ),
+                          alignment: Alignment.center,
+                          child: TextFormField(
+                            controller: _penaltyController,
+                            focusNode: _penaltyFocusNode,
+                            keyboardType: const TextInputType.numberWithOptions(
+                              decimal: true,
+                            ),
+                            inputFormatters: [
+                              FilteringTextInputFormatter.allow(
+                                RegExp(r'[0-9.,]'),
+                              ),
+                            ],
+                            textAlign: TextAlign.center,
+                            decoration: const InputDecoration(
+                              border: InputBorder.none,
+                              isDense: true,
+                              contentPadding: EdgeInsets.zero,
+                            ),
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 18,
+                              fontWeight: FontWeight.w600,
+                              color: textColor,
+                            ),
+                            onChanged: (value) {
+                              // Allow empty string while typing
+                              if (value.isEmpty) return;
+
+                              // Replace comma with dot for consistency
+                              final normalizedValue = value.replaceAll(
+                                ',',
+                                '.',
+                              );
+                              final val = double.tryParse(normalizedValue);
+
+                              if (val != null && val >= 0) {
+                                setState(() {
+                                  _penaltyAmount = val;
+                                });
+                              }
+                            },
+                          ),
                         ),
                       ),
-                      if (_subtractPoints) ...[
+                      const SizedBox(width: 16),
+                      _buildCountControl(
+                        icon: LucideIcons.plus,
+                        onTap: _incrementPenalty,
+                        bgColor: primaryColor,
+                        iconColor: Colors.white,
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ],
+            const SizedBox(height: 16),
+            Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                color: isDark
+                    ? const Color(0xFF3F3F46)
+                    : const Color(0xFFF4F4F5),
+                borderRadius: BorderRadius.circular(12),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          AppLocalizations.of(
+                            context,
+                          )!.maxIncorrectAnswersLabel,
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 15,
+                            fontWeight: FontWeight.w500,
+                            color: textColor,
+                          ),
+                        ),
                         const SizedBox(height: 2),
                         Text(
-                          AppLocalizations.of(context)!.penaltyPointsLabel(
-                            _penaltyAmount.toStringAsFixed(2),
-                          ),
-                          style: const TextStyle(
+                          AppLocalizations.of(
+                            context,
+                          )!.maxIncorrectAnswersDescription,
+                          style: TextStyle(
                             fontFamily: 'Inter',
                             fontSize: 12,
                             fontWeight: FontWeight.w400,
-                            color: AppTheme.errorColor,
+                            color: subTextColor,
                           ),
                         ),
                       ],
-                    ],
-                  ),
-                ),
-                Switch(
-                  value: _subtractPoints,
-                  onChanged: _isStudyMode
-                      ? null
-                      : (value) {
-                          setState(() {
-                            _subtractPoints = value;
-                            if (_subtractPoints && _penaltyAmount <= 0.0) {
-                              _penaltyAmount = 0.05;
-                              _penaltyController.text = '0.05';
-                            }
-                          });
-                        },
-                  activeTrackColor: primaryColor,
-                  activeThumbColor: Colors.white,
-                  inactiveThumbColor: Colors.white,
-                  inactiveTrackColor: isDark
-                      ? AppTheme.zinc600
-                      : AppTheme.zinc300,
-                  trackOutlineColor: WidgetStateProperty.all(
-                    Colors.transparent,
-                  ),
-                ),
-              ],
-            ),
-          ),
-          if (_subtractPoints) ...[
-            const SizedBox(height: 12),
-            // Reusing Question Count style for consistency
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  AppLocalizations.of(context)!.penaltyAmountLabel,
-                  style: TextStyle(
-                    fontFamily: 'Inter',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w500,
-                    color: subTextColor,
-                  ),
-                ),
-                const SizedBox(height: 12),
-                Row(
-                  children: [
-                    _buildCountControl(
-                      icon: LucideIcons.minus,
-                      onTap: _decrementPenalty,
-                      bgColor: controlBgColor,
-                      iconColor: controlIconColor,
                     ),
-                    const SizedBox(width: 16),
-                    Expanded(
-                      child: Container(
-                        height: 48,
-                        decoration: BoxDecoration(
-                          color: controlBgColor,
-                          borderRadius: BorderRadius.circular(12),
-                        ),
-                        alignment: Alignment.center,
-                        child: TextFormField(
-                          controller: _penaltyController,
-                          focusNode: _penaltyFocusNode,
-                          keyboardType: const TextInputType.numberWithOptions(
-                            decimal: true,
-                          ),
-                          inputFormatters: [
-                            FilteringTextInputFormatter.allow(
-                              RegExp(r'[0-9.,]'),
-                            ),
-                          ],
-                          textAlign: TextAlign.center,
-                          decoration: const InputDecoration(
-                            border: InputBorder.none,
-                            isDense: true,
-                            contentPadding: EdgeInsets.zero,
-                          ),
-                          style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w600,
-                            color: textColor,
-                          ),
-                          onChanged: (value) {
-                            // Allow empty string while typing
-                            if (value.isEmpty) return;
-
-                            // Replace comma with dot for consistency
-                            final normalizedValue = value.replaceAll(',', '.');
-                            final val = double.tryParse(normalizedValue);
-
-                            if (val != null && val >= 0) {
-                              setState(() {
-                                _penaltyAmount = val;
-                              });
-                            }
-                          },
-                        ),
+                  ),
+                  Switch(
+                    value: _enableMaxIncorrectAnswers,
+                    onChanged: (value) {
+                      setState(() {
+                        _enableMaxIncorrectAnswers = value;
+                      });
+                    },
+                    activeTrackColor: primaryColor,
+                    activeThumbColor: Colors.white,
+                    inactiveThumbColor: Colors.white,
+                    inactiveTrackColor: isDark
+                        ? AppTheme.zinc600
+                        : AppTheme.zinc300,
+                    trackOutlineColor: WidgetStateProperty.all(
+                      Colors.transparent,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            if (_enableMaxIncorrectAnswers) ...[
+              const SizedBox(height: 12),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.maxIncorrectAnswersLimitLabel,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                      color: subTextColor,
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Container(
+                    height: 56,
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    decoration: BoxDecoration(
+                      color: controlBgColor,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: borderColor.withValues(alpha: 0.5),
                       ),
                     ),
-                    const SizedBox(width: 16),
-                    _buildCountControl(
-                      icon: LucideIcons.plus,
-                      onTap: _incrementPenalty,
-                      bgColor: primaryColor,
-                      iconColor: Colors.white,
+                    child: Row(
+                      children: [
+                        _buildCountControl(
+                          icon: LucideIcons.minus,
+                          onTap: _decrementMaxIncorrect,
+                          bgColor: isDark
+                              ? AppTheme.zinc900.withValues(alpha: 0.5)
+                              : Colors.white,
+                          iconColor: primaryColor,
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
+                            child: Center(
+                              child: TextField(
+                                controller: _maxIncorrectAnswersController,
+                                focusNode: _maxIncorrectAnswersFocusNode,
+                                textAlign: TextAlign.center,
+                                keyboardType: TextInputType.number,
+                                style: TextStyle(
+                                  fontFamily: 'Inter',
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600,
+                                  color: textColor,
+                                ),
+                                decoration: const InputDecoration(
+                                  isDense: true,
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.zero,
+                                ),
+                                onChanged: (value) {
+                                  final val = int.tryParse(value);
+                                  if (val != null) {
+                                    setState(() {
+                                      _maxIncorrectAnswersLimit = val.clamp(
+                                        1,
+                                        _selectedCount,
+                                      );
+                                      if (val != _maxIncorrectAnswersLimit) {
+                                        _maxIncorrectAnswersController.text =
+                                            _maxIncorrectAnswersLimit
+                                                .toString();
+                                        _maxIncorrectAnswersController
+                                                .selection =
+                                            TextSelection.fromPosition(
+                                              TextPosition(
+                                                offset:
+                                                    _maxIncorrectAnswersController
+                                                        .text
+                                                        .length,
+                                              ),
+                                            );
+                                      }
+                                    });
+                                  }
+                                },
+                              ),
+                            ),
+                          ),
+                        ),
+                        _buildCountControl(
+                          icon: LucideIcons.plus,
+                          onTap: _incrementMaxIncorrect,
+                          bgColor: isDark
+                              ? AppTheme.zinc900.withValues(alpha: 0.5)
+                              : Colors.white,
+                          iconColor: primaryColor,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ],
         ],
       ),

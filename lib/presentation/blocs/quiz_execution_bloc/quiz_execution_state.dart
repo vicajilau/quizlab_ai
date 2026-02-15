@@ -20,12 +20,14 @@ class QuizExecutionInProgress extends QuizExecutionState {
   validatedQuestions; // Indices of questions that have been checked in Study Mode
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final int incorrectAnswersCount;
 
   QuizExecutionInProgress({
     required this.questions,
     required this.currentQuestionIndex,
     required this.userAnswers,
     required this.quizConfig,
+    this.incorrectAnswersCount = 0,
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
   }) : totalQuestions = questions.length,
@@ -92,6 +94,7 @@ class QuizExecutionInProgress extends QuizExecutionState {
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
     QuizConfig? quizConfig,
+    int? incorrectAnswersCount,
   }) {
     return QuizExecutionInProgress(
       questions: questions ?? this.questions,
@@ -100,6 +103,8 @@ class QuizExecutionInProgress extends QuizExecutionState {
       essayAnswers: essayAnswers ?? this.essayAnswers,
       validatedQuestions: validatedQuestions ?? this.validatedQuestions,
       quizConfig: quizConfig ?? this.quizConfig,
+      incorrectAnswersCount:
+          incorrectAnswersCount ?? this.incorrectAnswersCount,
     );
   }
 }
@@ -114,6 +119,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final double score; // percentage
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final bool wasLimitReached;
 
   QuizExecutionCompleted({
     required this.questions,
@@ -123,6 +129,7 @@ class QuizExecutionCompleted extends QuizExecutionState {
     required this.totalQuestions,
     required this.quizConfig,
     required this.score,
+    this.wasLimitReached = false,
   }) : isStudyMode = quizConfig.isStudyMode;
 
   /// Get details for each question

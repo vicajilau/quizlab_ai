@@ -182,5 +182,60 @@ void main() {
         ), // Score should be 0.0, not -50.0
       ],
     );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'ends quiz immediately when max incorrect answers limit is reached (EXAM MODE)',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: false,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly (limit is 1, so this should trigger completion)
+        bloc.add(AnswerSelected(1, true));
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionCompleted>().having(
+          (s) => s.wasLimitReached,
+          'wasLimitReached',
+          true,
+        ), // Completed immediately
+      ],
+    );
+
+    blocTest<QuizExecutionBloc, QuizExecutionState>(
+      'does NOT end quiz even if max incorrect answers is reached in STUDY MODE',
+      build: () => quizExecutionBloc,
+      act: (bloc) {
+        bloc.add(
+          QuizExecutionStarted(
+            [testQuestion, testQuestion], // 2 questions
+            quizConfig: const QuizConfig(
+              questionCount: 2,
+              isStudyMode: true,
+              enableMaxIncorrectAnswers: true,
+              maxIncorrectAnswers: 1,
+            ),
+          ),
+        );
+        // Answer incorrectly
+        bloc.add(AnswerSelected(1, true));
+        // Verify we are still in progress
+        bloc.add(NextQuestionRequested());
+      },
+      expect: () => [
+        isA<QuizExecutionInProgress>(), // Started
+        isA<QuizExecutionInProgress>(), // Answered (but still in progress)
+        isA<QuizExecutionInProgress>(), // Next question
+      ],
+    );
   });
 }
