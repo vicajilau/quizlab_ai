@@ -393,7 +393,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Concentre-se na pergunta do estudante, não em responder diretamente a pergunta original do exame. Explique com uma abordagem pedagógica, fornecendo argumentos claros sem divagar ou sair do tema. Não estruture a resposta em seções. Não se refira a si mesmo. Responda na mesma língua em que for questionado.';
+      'Concentre-se na pergunta do estudante, não em responder diretamente à pergunta original do exame. Explique com uma abordagem pedagógica. Para exercícios práticos ou problemas matemáticos, forneça instruções passo a passo. Para questões teóricas, forneça uma explicação concisa sem estruturar a resposta em seções. Responda no mesmo idioma em que foi perguntado.';
 
   @override
   String get questionLabel => 'Pergunta';

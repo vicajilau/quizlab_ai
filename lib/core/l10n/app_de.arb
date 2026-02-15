@@ -570,7 +570,7 @@
   "@explanationTooltip": {
     "description": "Tooltip-Text für das Erklärungs-Indikator-Badge"
   },
-  "aiPrompt": "Konzentrieren Sie sich auf die Frage des Studenten, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz und liefern Sie klare Argumente ohne abzuschweifen oder vom Thema abzukommen. Strukturieren Sie die Antwort nicht in Abschnitte. Beziehen Sie sich nicht auf sich selbst. Antworten Sie in derselben Sprache, in der Sie gefragt werden.",
+  "aiPrompt": "Konzentrieren Sie sich auf die Frage des Schülers, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz. Geben Sie bei praktischen Übungen oder mathematischen Problemen Schritt-für-Schritt-Anweisungen. Geben Sie bei theoretischen Fragen eine prägnante Erklärung, ohne die Antwort in Abschnitte zu gliedern. Antworten Sie in derselben Sprache, in der Sie gefragt wurden.",
   "@aiPrompt": {
     "description": "Basis-Prompt für KI-Assistenten"
   },

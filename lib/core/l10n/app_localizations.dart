@@ -773,7 +773,7 @@ abstract class AppLocalizations {
   /// Base prompt for AI assistant
   ///
   /// In en, this message translates to:
-  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.'**
+  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.'**
   String get aiPrompt;
 
   /// Label for question in AI dialog
