@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
 import 'package:quiz_app/presentation/utils/dialog_drop_guard.dart';
@@ -44,11 +43,9 @@ class _DialogDropZoneState extends State<DialogDropZone> {
   Widget build(BuildContext context) {
     return DropTarget(
       onDragEntered: (_) {
-        DialogDropGuard.activate();
         widget.onDragStateChanged?.call(true);
       },
       onDragExited: (_) {
-        DialogDropGuard.deactivate();
         widget.onDragStateChanged?.call(false);
       },
       onDragDone: (details) {
@@ -57,10 +54,6 @@ class _DialogDropZoneState extends State<DialogDropZone> {
         if (details.files.isNotEmpty) {
           widget.onFilesDropped(details);
         }
-
-        // Deactivate after all synchronous onDragDone handlers have fired
-        // so global handlers still see isActive=true in the same frame.
-        Future.microtask(() => DialogDropGuard.deactivate());
       },
       child: widget.child,
     );
