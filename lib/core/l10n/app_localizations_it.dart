@@ -1399,4 +1399,13 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Sovrascrivi la lingua dell\'applicazione per i test';
+
+  @override
+  String get pasteFromClipboard => 'Incolla dagli appunti';
+
+  @override
+  String get pasteImage => 'Incolla';
+
+  @override
+  String get clipboardNoImage => 'Nessuna immagine trovata negli appunti';
 }

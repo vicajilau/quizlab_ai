@@ -1408,4 +1408,13 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Anwendungssprache für Tests überschreiben';
+
+  @override
+  String get pasteFromClipboard => 'Aus Zwischenablage einfügen';
+
+  @override
+  String get pasteImage => 'Einfügen';
+
+  @override
+  String get clipboardNoImage => 'Kein Bild in der Zwischenablage gefunden';
 }

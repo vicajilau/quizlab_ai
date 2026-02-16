@@ -1771,5 +1771,8 @@
   "startWithSelectedQuestions": "Hasi {count} hautatuekin",
   "advancedSettingsTitle": "Ezarpen Aurreratuak (Debug)",
   "appLanguageLabel": "Aplikazioaren hizkuntza",
-  "appLanguageDescription": "Aplikazioaren hizkuntza gainidatzi probetarako"
+  "appLanguageDescription": "Aplikazioaren hizkuntza gainidatzi probetarako",
+  "pasteFromClipboard": "Itsatsi arbeletik",
+  "pasteImage": "Itsatsi",
+  "clipboardNoImage": "Ez da irudirik aurkitu arbelean"
 }

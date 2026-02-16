@@ -257,6 +257,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "10.3.10"
+  fixnum:
+    dependency: transitive
+    description:
+      name: fixnum
+      sha256: b6dc7065e46c974bc7c5f143080a6764ec7a4be6da1285ececdc37be96de53be
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.1"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -573,6 +581,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.2.0"
+  pasteboard:
+    dependency: "direct main"
+    description:
+      path: "packages/pasteboard"
+      ref: "feature/spm-support"
+      resolved-ref: "0da82d63ad17726aa609d89496398dcec8852418"
+      url: "https://github.com/vicajilau/flutter-plugins.git"
+    source: git
+    version: "0.4.0"
   path:
     dependency: transitive
     description:
@@ -854,26 +871,26 @@ packages:
     dependency: transitive
     description:
       name: test
-      sha256: "54c516bbb7cee2754d327ad4fca637f78abfc3cbcc5ace83b3eda117e42cd71a"
+      sha256: "77cc98ea27006c84e71a7356cf3daf9ddbde2d91d84f77dbfe64cf0e4d9611ae"
       url: "https://pub.dev"
     source: hosted
-    version: "1.29.0"
+    version: "1.28.0"
   test_api:
     dependency: transitive
     description:
       name: test_api
-      sha256: "93167629bfc610f71560ab9312acdda4959de4df6fac7492c89ff0d3886f6636"
+      sha256: "19a78f63e83d3a61f00826d09bc2f60e191bf3504183c001262be6ac75589fb8"
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.9"
+    version: "0.7.8"
   test_core:
     dependency: transitive
     description:
       name: test_core
-      sha256: "394f07d21f0f2255ec9e3989f21e54d3c7dc0e6e9dbce160e5a9c1a6be0e2943"
+      sha256: f1072617a6657e5fc09662e721307f7fb009b4ed89b19f47175d11d5254a62d4
       url: "https://pub.dev"
     source: hosted
-    version: "0.6.15"
+    version: "0.6.14"
   tuple:
     dependency: transitive
     description:
@@ -962,6 +979,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.1.5"
+  uuid:
+    dependency: transitive
+    description:
+      name: uuid
+      sha256: a11b666489b1954e01d992f3d601b1804a33937b5a8fe677bd26b8a9f96f96e8
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.5.2"
   vector_graphics:
     dependency: transitive
     description:

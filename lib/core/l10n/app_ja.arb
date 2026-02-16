@@ -1759,6 +1759,9 @@
   "advancedSettingsTitle": "詳細設定 (デバッグ)",
   "appLanguageLabel": "アプリの言語",
   "appLanguageDescription": "テスト用にアプリの言語を上書きする",
+  "pasteFromClipboard": "クリップボードから貼り付け",
+  "pasteImage": "貼り付け",
+  "clipboardNoImage": "クリップボードに画像が見つかりません",
   "maxIncorrectAnswersLabel": "不正解数を制限する",
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"

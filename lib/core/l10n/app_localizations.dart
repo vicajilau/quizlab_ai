@@ -2533,6 +2533,24 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Override application language for testing'**
   String get appLanguageDescription;
+
+  /// Label for the paste from clipboard button
+  ///
+  /// In en, this message translates to:
+  /// **'Paste from clipboard'**
+  String get pasteFromClipboard;
+
+  /// Short label for paste button when image is already present
+  ///
+  /// In en, this message translates to:
+  /// **'Paste'**
+  String get pasteImage;
+
+  /// Error message when no image is found in the clipboard
+  ///
+  /// In en, this message translates to:
+  /// **'No image found in clipboard'**
+  String get clipboardNoImage;
 }
 
 class _AppLocalizationsDelegate

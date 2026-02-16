@@ -1412,4 +1412,13 @@ class AppLocalizationsFr extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Remplacer la langue de l\'application pour les tests';
+
+  @override
+  String get pasteFromClipboard => 'Coller depuis le presse-papiers';
+
+  @override
+  String get pasteImage => 'Coller';
+
+  @override
+  String get clipboardNoImage => 'Aucune image trouvée dans le presse-papiers';
 }

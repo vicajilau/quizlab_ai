@@ -1759,6 +1759,9 @@
   "advancedSettingsTitle": "उन्नत सेटिंग्स (डिबग)",
   "appLanguageLabel": "ऐप की भाषा",
   "appLanguageDescription": "परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें",
+  "pasteFromClipboard": "क्लिपबोर्ड से पेस्ट करें",
+  "pasteImage": "पेस्ट",
+  "clipboardNoImage": "क्लिपबोर्ड में कोई छवि नहीं मिली",
   "maxIncorrectAnswersLabel": "गलत उत्तरों को सीमित करें",
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"

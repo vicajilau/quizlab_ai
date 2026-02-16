@@ -1756,6 +1756,9 @@
   "advancedSettingsTitle": "高级设置 (调试)",
   "appLanguageLabel": "应用语言",
   "appLanguageDescription": "覆盖用于测试的应用语言",
+  "pasteFromClipboard": "从剪贴板粘贴",
+  "pasteImage": "粘贴",
+  "clipboardNoImage": "剪贴板中未找到图片",
   "maxIncorrectAnswersLabel": "限制错误答案",
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"

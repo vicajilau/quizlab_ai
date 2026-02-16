@@ -1409,4 +1409,13 @@ class AppLocalizationsGl extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Sobrescribir o idioma da aplicación para probas';
+
+  @override
+  String get pasteFromClipboard => 'Pegar dende o portapapeis';
+
+  @override
+  String get pasteImage => 'Pegar';
+
+  @override
+  String get clipboardNoImage => 'Non se atopou imaxe no portapapeis';
 }

@@ -1942,5 +1942,17 @@
   "appLanguageDescription": "Override application language for testing",
   "@appLanguageDescription": {
     "description": "Description for the application language override setting"
+  },
+  "pasteFromClipboard": "Paste from clipboard",
+  "@pasteFromClipboard": {
+    "description": "Label for the paste from clipboard button"
+  },
+  "pasteImage": "Paste",
+  "@pasteImage": {
+    "description": "Short label for paste button when image is already present"
+  },
+  "clipboardNoImage": "No image found in clipboard",
+  "@clipboardNoImage": {
+    "description": "Error message when no image is found in the clipboard"
   }
 }

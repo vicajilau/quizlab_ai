@@ -1876,5 +1876,8 @@
   "startWithSelectedQuestions": "Mit {count} ausgewählten starten",
   "advancedSettingsTitle": "Erweiterte Einstellungen (Debug)",
   "appLanguageLabel": "App-Sprache",
-  "appLanguageDescription": "Anwendungssprache für Tests überschreiben"
+  "appLanguageDescription": "Anwendungssprache für Tests überschreiben",
+  "pasteFromClipboard": "Aus Zwischenablage einfügen",
+  "pasteImage": "Einfügen",
+  "clipboardNoImage": "Kein Bild in der Zwischenablage gefunden"
 }

@@ -488,6 +488,9 @@
   "advancedSettingsTitle": "Σύνθετες Ρυθμίσεις (Debug)",
   "appLanguageLabel": "Γλώσσα εφαρμογής",
   "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές",
+  "pasteFromClipboard": "Επικόλληση από πρόχειρο",
+  "pasteImage": "Επικόλληση",
+  "clipboardNoImage": "Δεν βρέθηκε εικόνα στο πρόχειρο",
   "maxIncorrectAnswersLabel": "Περιορισμός λανθασμένων απαντήσεων",
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"

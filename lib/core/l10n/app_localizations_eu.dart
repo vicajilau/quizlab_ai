@@ -1402,4 +1402,13 @@ class AppLocalizationsEu extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Aplikazioaren hizkuntza gainidatzi probetarako';
+
+  @override
+  String get pasteFromClipboard => 'Itsatsi arbeletik';
+
+  @override
+  String get pasteImage => 'Itsatsi';
+
+  @override
+  String get clipboardNoImage => 'Ez da irudirik aurkitu arbelean';
 }

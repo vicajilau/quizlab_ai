@@ -1819,5 +1819,8 @@
   "startWithSelectedQuestions": "Inizia con {count} selezionate",
   "advancedSettingsTitle": "Impostazioni avanzate (Debug)",
   "appLanguageLabel": "Lingua dell'app",
-  "appLanguageDescription": "Sovrascrivi la lingua dell'applicazione per i test"
+  "appLanguageDescription": "Sovrascrivi la lingua dell'applicazione per i test",
+  "pasteFromClipboard": "Incolla dagli appunti",
+  "pasteImage": "Incolla",
+  "clipboardNoImage": "Nessuna immagine trovata negli appunti"
 }

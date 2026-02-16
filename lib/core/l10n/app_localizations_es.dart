@@ -1404,4 +1404,13 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Sobrescribir el idioma de la aplicación para pruebas';
+
+  @override
+  String get pasteFromClipboard => 'Pegar desde portapapeles';
+
+  @override
+  String get pasteImage => 'Pegar';
+
+  @override
+  String get clipboardNoImage => 'No se encontró imagen en el portapapeles';
 }

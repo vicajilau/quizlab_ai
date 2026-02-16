@@ -1816,6 +1816,9 @@
   "advancedSettingsTitle": "إعدادات متقدمة (تصحيح الأخطاء)",
   "appLanguageLabel": "لغة التطبيق",
   "appLanguageDescription": "تجاوز لغة التطبيق للاختبار",
+  "pasteFromClipboard": "لصق من الحافظة",
+  "pasteImage": "لصق",
+  "clipboardNoImage": "لم يتم العثور على صورة في الحافظة",
   "maxIncorrectAnswersLabel": "تقييد الإجابات الخاطئة",
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"

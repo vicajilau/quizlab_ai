@@ -1405,4 +1405,14 @@ class AppLocalizationsPt extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Substituir o idioma do aplicativo para testes';
+
+  @override
+  String get pasteFromClipboard => 'Colar da área de transferência';
+
+  @override
+  String get pasteImage => 'Colar';
+
+  @override
+  String get clipboardNoImage =>
+      'Nenhuma imagem encontrada na área de transferência';
 }

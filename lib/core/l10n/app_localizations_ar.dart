@@ -1377,4 +1377,13 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get appLanguageDescription => 'تجاوز لغة التطبيق للاختبار';
+
+  @override
+  String get pasteFromClipboard => 'لصق من الحافظة';
+
+  @override
+  String get pasteImage => 'لصق';
+
+  @override
+  String get clipboardNoImage => 'لم يتم العثور على صورة في الحافظة';
 }

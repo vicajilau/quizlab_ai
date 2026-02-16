@@ -1334,4 +1334,13 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get appLanguageDescription => '覆盖用于测试的应用语言';
+
+  @override
+  String get pasteFromClipboard => '从剪贴板粘贴';
+
+  @override
+  String get pasteImage => '粘贴';
+
+  @override
+  String get clipboardNoImage => '剪贴板中未找到图片';
 }
