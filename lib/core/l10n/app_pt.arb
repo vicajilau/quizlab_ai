@@ -1803,5 +1803,8 @@
   "startWithSelectedQuestions": "Iniciar com {count} selecionadas",
   "advancedSettingsTitle": "Configurações Avançadas (Debug)",
   "appLanguageLabel": "Idioma do aplicativo",
-  "appLanguageDescription": "Substituir o idioma do aplicativo para testes"
+  "appLanguageDescription": "Substituir o idioma do aplicativo para testes",
+  "pasteFromClipboard": "Colar da área de transferência",
+  "pasteImage": "Colar",
+  "clipboardNoImage": "Nenhuma imagem encontrada na área de transferência"
 }

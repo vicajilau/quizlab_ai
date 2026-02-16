@@ -1395,4 +1395,13 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Sobreescriure l\'idioma de l\'aplicació per a proves';
+
+  @override
+  String get pasteFromClipboard => 'Enganxar des del porta-retalls';
+
+  @override
+  String get pasteImage => 'Enganxar';
+
+  @override
+  String get clipboardNoImage => 'No s\'ha trobat cap imatge al porta-retalls';
 }

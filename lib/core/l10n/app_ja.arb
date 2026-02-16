@@ -1758,5 +1758,8 @@
   "startWithSelectedQuestions": "{count}問を選択して開始",
   "advancedSettingsTitle": "詳細設定 (デバッグ)",
   "appLanguageLabel": "アプリの言語",
-  "appLanguageDescription": "テスト用にアプリの言語を上書きする"
+  "appLanguageDescription": "テスト用にアプリの言語を上書きする",
+  "pasteFromClipboard": "クリップボードから貼り付け",
+  "pasteImage": "貼り付け",
+  "clipboardNoImage": "クリップボードに画像が見つかりません"
 }

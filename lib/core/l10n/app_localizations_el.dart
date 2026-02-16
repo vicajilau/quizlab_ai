@@ -1398,4 +1398,13 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Παράκαμψη γλώσσας εφαρμογής για δοκιμές';
+
+  @override
+  String get pasteFromClipboard => 'Επικόλληση από πρόχειρο';
+
+  @override
+  String get pasteImage => 'Επικόλληση';
+
+  @override
+  String get clipboardNoImage => 'Δεν βρέθηκε εικόνα στο πρόχειρο';
 }

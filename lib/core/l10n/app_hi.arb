@@ -1758,5 +1758,8 @@
   "startWithSelectedQuestions": "{count} चयनित के साथ शुरू करें",
   "advancedSettingsTitle": "उन्नत सेटिंग्स (डिबग)",
   "appLanguageLabel": "ऐप की भाषा",
-  "appLanguageDescription": "परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें"
+  "appLanguageDescription": "परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें",
+  "pasteFromClipboard": "क्लिपबोर्ड से पेस्ट करें",
+  "pasteImage": "पेस्ट",
+  "clipboardNoImage": "क्लिपबोर्ड में कोई छवि नहीं मिली"
 }

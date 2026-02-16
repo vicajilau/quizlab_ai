@@ -487,5 +487,8 @@
   "startWithSelectedQuestions": "Έναρξη με {count} επιλεγμένες",
   "advancedSettingsTitle": "Σύνθετες Ρυθμίσεις (Debug)",
   "appLanguageLabel": "Γλώσσα εφαρμογής",
-  "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές"
+  "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές",
+  "pasteFromClipboard": "Επικόλληση από πρόχειρο",
+  "pasteImage": "Επικόλληση",
+  "clipboardNoImage": "Δεν βρέθηκε εικόνα στο πρόχειρο"
 }

@@ -1377,4 +1377,13 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें';
+
+  @override
+  String get pasteFromClipboard => 'क्लिपबोर्ड से पेस्ट करें';
+
+  @override
+  String get pasteImage => 'पेस्ट';
+
+  @override
+  String get clipboardNoImage => 'क्लिपबोर्ड में कोई छवि नहीं मिली';
 }

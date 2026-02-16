@@ -1380,4 +1380,13 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get appLanguageDescription =>
       'Override application language for testing';
+
+  @override
+  String get pasteFromClipboard => 'Paste from clipboard';
+
+  @override
+  String get pasteImage => 'Paste';
+
+  @override
+  String get clipboardNoImage => 'No image found in clipboard';
 }

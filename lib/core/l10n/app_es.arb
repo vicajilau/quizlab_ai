@@ -1836,5 +1836,8 @@
   },
   "advancedSettingsTitle": "Ajustes Avanzados (Debug)",
   "appLanguageLabel": "Idioma de la aplicación",
-  "appLanguageDescription": "Sobrescribir el idioma de la aplicación para pruebas"
+  "appLanguageDescription": "Sobrescribir el idioma de la aplicación para pruebas",
+  "pasteFromClipboard": "Pegar desde portapapeles",
+  "pasteImage": "Pegar",
+  "clipboardNoImage": "No se encontró imagen en el portapapeles"
 }

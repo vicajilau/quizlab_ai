@@ -1330,4 +1330,13 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get appLanguageDescription => 'テスト用にアプリの言語を上書きする';
+
+  @override
+  String get pasteFromClipboard => 'クリップボードから貼り付け';
+
+  @override
+  String get pasteImage => '貼り付け';
+
+  @override
+  String get clipboardNoImage => 'クリップボードに画像が見つかりません';
 }

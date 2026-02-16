@@ -1815,5 +1815,8 @@
   "startWithSelectedQuestions": "ابدأ بـ {count} محددة",
   "advancedSettingsTitle": "إعدادات متقدمة (تصحيح الأخطاء)",
   "appLanguageLabel": "لغة التطبيق",
-  "appLanguageDescription": "تجاوز لغة التطبيق للاختبار"
+  "appLanguageDescription": "تجاوز لغة التطبيق للاختبار",
+  "pasteFromClipboard": "لصق من الحافظة",
+  "pasteImage": "لصق",
+  "clipboardNoImage": "لم يتم العثور على صورة في الحافظة"
 }

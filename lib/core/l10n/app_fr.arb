@@ -1803,5 +1803,8 @@
   "startWithSelectedQuestions": "Commencer avec {count} sélectionnées",
   "advancedSettingsTitle": "Paramètres avancés (Debug)",
   "appLanguageLabel": "Langue de l'application",
-  "appLanguageDescription": "Remplacer la langue de l'application pour les tests"
+  "appLanguageDescription": "Remplacer la langue de l'application pour les tests",
+  "pasteFromClipboard": "Coller depuis le presse-papiers",
+  "pasteImage": "Coller",
+  "clipboardNoImage": "Aucune image trouvée dans le presse-papiers"
 }

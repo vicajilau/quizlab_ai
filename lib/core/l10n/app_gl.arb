@@ -1755,5 +1755,8 @@
   "startWithSelectedQuestions": "Iniciar con {count} seleccionadas",
   "advancedSettingsTitle": "Axustes Avanzados (Debug)",
   "appLanguageLabel": "Idioma da aplicación",
-  "appLanguageDescription": "Sobrescribir o idioma da aplicación para probas"
+  "appLanguageDescription": "Sobrescribir o idioma da aplicación para probas",
+  "pasteFromClipboard": "Pegar dende o portapapeis",
+  "pasteImage": "Pegar",
+  "clipboardNoImage": "Non se atopou imaxe no portapapeis"
 }

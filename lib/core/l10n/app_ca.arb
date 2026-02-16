@@ -1854,5 +1854,8 @@
   "startWithSelectedQuestions": "Iniciar amb {count} seleccionades",
   "advancedSettingsTitle": "Ajustes Avançats (Debug)",
   "appLanguageLabel": "Idioma de l'aplicació",
-  "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves"
+  "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves",
+  "pasteFromClipboard": "Enganxar des del porta-retalls",
+  "pasteImage": "Enganxar",
+  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls"
 }
