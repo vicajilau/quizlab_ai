@@ -387,9 +387,16 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
       setState(() {
         final indices = _selectedQuestions.toList()
           ..sort((a, b) => b.compareTo(a));
+
+        // Create a new list to avoid in-place mutation issues with state
+        final updatedQuestions = List<Question>.from(cachedQuizFile.questions);
+
         for (final index in indices) {
-          cachedQuizFile.questions.removeAt(index);
+          updatedQuestions.removeAt(index);
         }
+
+        // Update cachedQuizFile with the new list
+        cachedQuizFile = cachedQuizFile.copyWith(questions: updatedQuestions);
         _selectedQuestions.clear();
       });
     }
@@ -673,7 +680,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                         padding: const EdgeInsets.symmetric(horizontal: 24.0),
                         child: QuestionListWidget(
                           quizFile: cachedQuizFile,
-                          onFileChange: () {},
+                          onFileChange: () => setState(() {}),
                           isSelectionMode: _isSelectionMode,
                           selectedQuestions: _selectedQuestions,
                           onToggleSelection: _toggleQuestionSelection,
