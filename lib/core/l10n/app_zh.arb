@@ -1755,5 +1755,21 @@
   "startWithSelectedQuestions": "开始 {count} 道已选题目",
   "advancedSettingsTitle": "高级设置 (调试)",
   "appLanguageLabel": "应用语言",
-  "appLanguageDescription": "覆盖用于测试的应用语言"
+  "appLanguageDescription": "覆盖用于测试的应用语言",
+  "maxIncorrectAnswersLabel": "限制错误答案",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "如果达到此限制，测验将立即结束。",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersLimitLabel": "允许的最大错误数",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "quizFailedLimitReached": "测验停止：已达到错误限制",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  }
 }
