@@ -48,12 +48,7 @@ class FileBloc extends Bloc<FileEvent, FileState> {
             ),
           );
         } catch (e) {
-          emit(
-            FileError(
-              reason: FileErrorType.errorOpeningFile,
-              error: Exception(e),
-            ),
-          );
+          emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
         }
         return;
       }
@@ -64,17 +59,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
       try {
         final quizFile = await _fileRepository.loadQuizFile(event.filePath);
         emit(FileLoaded(quizFile)); // Emit the loaded file state
-      } on Exception catch (e) {
-        emit(
-          FileError(reason: FileErrorType.errorOpeningFile, error: e),
-        ); // Emit error if file saving fails
       } catch (e) {
-        emit(
-          FileError(
-            reason: FileErrorType.errorOpeningFile,
-            error: Exception(e),
-          ),
-        ); // Emit error if file loading fails
+        emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
       }
     });
 
@@ -91,17 +77,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
           description: event.description,
         );
         emit(FileLoaded(quizFile)); // Emit the loaded file state after creation
-      } on Exception catch (e) {
-        emit(
-          FileError(reason: FileErrorType.errorOpeningFile, error: e),
-        ); // Emit error if file creation fails
       } catch (e) {
-        emit(
-          FileError(
-            reason: FileErrorType.errorOpeningFile,
-            error: Exception(e),
-          ),
-        ); // Emit error if file creation fails
+        emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
       }
     });
 
@@ -119,17 +96,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
           questions: event.questions,
         );
         emit(FileLoaded(quizFile)); // Emit the loaded file state
-      } on Exception catch (e) {
-        emit(
-          FileError(reason: FileErrorType.errorOpeningFile, error: e),
-        ); // Emit error if file creation fails
       } catch (e) {
-        emit(
-          FileError(
-            reason: FileErrorType.errorOpeningFile,
-            error: Exception(e),
-          ),
-        ); // Emit error if file creation fails
+        emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
       }
     });
 
@@ -147,17 +115,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
           // Use the returned quizFile with updated path instead of modifying the event
           emit(FileSaved(quizFile));
         }
-      } on Exception catch (e) {
-        emit(
-          FileError(reason: FileErrorType.errorSavingQuizFile, error: e),
-        ); // Emit error if file saving fails
       } catch (e) {
-        emit(
-          FileError(
-            reason: FileErrorType.errorSavingQuizFile,
-            error: Exception(e),
-          ),
-        );
+        emit(FileError(reason: FileErrorType.errorSavingQuizFile, error: e));
       }
     });
 
@@ -187,17 +146,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
               ),
             );
           }
-          // If cancelled, do nothing (stay in current state) or re-emit current?
-          // Bloc events don't "stay", but state does.
-          // If we emitted loading, we must emit something back.
-          // I didn't emit Loading here yet.
         } catch (e) {
-          emit(
-            FileError(
-              reason: FileErrorType.errorOpeningFile,
-              error: Exception(e),
-            ),
-          );
+          emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
         }
         return;
       }
@@ -210,17 +160,8 @@ class FileBloc extends Bloc<FileEvent, FileState> {
         } else {
           emit(FileInitial()); // Emit initial state if no file is picked
         }
-      } on Exception catch (e) {
-        emit(
-          FileError(reason: FileErrorType.errorOpeningFile, error: e),
-        ); // Emit error if file picking fails
       } catch (e) {
-        emit(
-          FileError(
-            reason: FileErrorType.errorOpeningFile,
-            error: Exception(e),
-          ),
-        );
+        emit(FileError(reason: FileErrorType.errorOpeningFile, error: e));
       }
     });
 
