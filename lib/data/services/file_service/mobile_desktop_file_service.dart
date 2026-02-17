@@ -76,9 +76,13 @@ class QuizFileService implements IFileService {
     final content = jsonEncode(quizFile.toJson());
     final bytes = Uint8List.fromList(utf8.encode(content));
 
+    final String sanitizedFileName = fileName
+        .split(Platform.pathSeparator)
+        .last;
+
     String? outputFile = await FilePicker.platform.saveFile(
       dialogTitle: dialogTitle,
-      fileName: fileName,
+      fileName: sanitizedFileName,
       allowedExtensions: ['quiz'],
       type: FileType.custom,
       bytes: bytes,
