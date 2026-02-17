@@ -116,7 +116,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Sind Sie sicher, dass Sie ohne Speichern beenden möchten?';
+      'Es gibt ungespeicherte Änderungen. Möchten Sie verlassen und die Änderungen verwerfen?';
 
   @override
   String get exitButton => 'Beenden ohne zu speichern';

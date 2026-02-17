@@ -305,7 +305,7 @@ abstract class AppLocalizations {
   /// Message in the confirmation dialog for exiting.
   ///
   /// In en, this message translates to:
-  /// **'Are you sure you want to leave without saving?'**
+  /// **'There are unsaved changes. Do you want to leave and discard changes?'**
   String get confirmExitMessage;
 
   /// Exit button text.

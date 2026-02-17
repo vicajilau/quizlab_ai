@@ -115,7 +115,8 @@ class AppLocalizationsPt extends AppLocalizations {
   String get confirmExitTitle => 'Confirmar saída';
 
   @override
-  String get confirmExitMessage => 'Tem certeza de que deseja sair sem salvar?';
+  String get confirmExitMessage =>
+      'Existem alterações não salvas. Deseja sair e descartar as alterações?';
 
   @override
   String get exitButton => 'Sair sem guardar';

@@ -116,7 +116,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;';
+      'Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;';
 
   @override
   String get exitButton => 'Έξοδος χωρίς αποθήκευση';

@@ -116,7 +116,7 @@ class AppLocalizationsGl extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Estás seguro de que queres saír sen gardar?';
+      'Hai cambios sen gardar. Queres saír descartando os cambios?';
 
   @override
   String get exitButton => 'Saír sen gardar';

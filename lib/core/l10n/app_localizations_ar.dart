@@ -112,7 +112,8 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmExitTitle => 'تأكيد الخروج';
 
   @override
-  String get confirmExitMessage => 'هل أنت متأكد من أنك تريد الخروج بدون حفظ؟';
+  String get confirmExitMessage =>
+      'هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟';
 
   @override
   String get exitButton => 'خروج بدون حفظ';

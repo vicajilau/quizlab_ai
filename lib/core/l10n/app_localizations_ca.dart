@@ -115,7 +115,8 @@ class AppLocalizationsCa extends AppLocalizations {
   String get confirmExitTitle => 'Confirmar sortida';
 
   @override
-  String get confirmExitMessage => 'Esteu segur que voleu sortir sense desar?';
+  String get confirmExitMessage =>
+      'Hi ha canvis sense desar. Voleu sortir descartant els canvis?';
 
   @override
   String get exitButton => 'Sortir sense desar';

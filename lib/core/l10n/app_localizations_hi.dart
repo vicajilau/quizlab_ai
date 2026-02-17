@@ -115,7 +115,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?';
+      'बिना सहेजे गए बदलाव मौजूद हैं। क्या आप बदलावों को रद्द करके बाहर निकलना चाहते हैं?';
 
   @override
   String get exitButton => 'बिना सहेजे बाहर निकलें';

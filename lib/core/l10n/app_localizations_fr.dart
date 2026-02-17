@@ -116,7 +116,7 @@ class AppLocalizationsFr extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Êtes-vous sûr de vouloir quitter sans sauvegarder ?';
+      'Il y a des modifications non enregistrées. Voulez-vous quitter et ignorer les modifications ?';
 
   @override
   String get exitButton => 'Quitter sans enregistrer';

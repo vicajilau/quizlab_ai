@@ -110,7 +110,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirmExitTitle => '确认退出';
 
   @override
-  String get confirmExitMessage => '您确定要在不保存的情况下退出吗？';
+  String get confirmExitMessage => '有未保存的更改。您要放弃更改并离开吗？';
 
   @override
   String get exitButton => '退出不保存';

@@ -115,7 +115,8 @@ class AppLocalizationsEu extends AppLocalizations {
   String get confirmExitTitle => 'Irteera Berretsi';
 
   @override
-  String get confirmExitMessage => 'Ziur zaude gorde gabe irten nahi duzula?';
+  String get confirmExitMessage =>
+      'Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?';
 
   @override
   String get exitButton => 'Irten gorde gabe';

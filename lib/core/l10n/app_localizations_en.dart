@@ -114,7 +114,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Are you sure you want to leave without saving?';
+      'There are unsaved changes. Do you want to leave and discard changes?';
 
   @override
   String get exitButton => 'Exit without saving';

@@ -110,7 +110,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirmExitTitle => '終了の確認';
 
   @override
-  String get confirmExitMessage => '本当に保存せずに終了しますか？';
+  String get confirmExitMessage => '保存されていない変更があります。変更を破棄して終了しますか？';
 
   @override
   String get exitButton => '保存せずに終了';
