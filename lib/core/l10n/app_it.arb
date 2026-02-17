@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Titolo per la finestra di dialogo di conferma durante l'uscita."
   },
-  "confirmExitMessage": "Sei sicuro di voler uscire senza salvare?",
+  "confirmExitMessage": "Ci sono modifiche non salvate. Vuoi uscire scartando le modifiche?",
   "@confirmExitMessage": {
     "description": "Messaggio nella finestra di dialogo di conferma per l'uscita."
   },

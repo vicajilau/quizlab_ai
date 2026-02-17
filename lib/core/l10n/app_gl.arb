@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Título para o diálogo de confirmación en saír."
   },
-  "confirmExitMessage": "Estás seguro de que queres saír sen gardar?",
+  "confirmExitMessage": "Hai cambios sen gardar. Queres saír descartando os cambios?",
   "@confirmExitMessage": {
     "description": "Mensaxe no diálogo de confirmación para saír."
   },

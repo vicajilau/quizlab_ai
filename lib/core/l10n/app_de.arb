@@ -213,7 +213,7 @@
   "@confirmExitTitle": {
     "description": "Titel für den Bestätigungsdialog beim Beenden."
   },
-  "confirmExitMessage": "Sind Sie sicher, dass Sie ohne Speichern beenden möchten?",
+  "confirmExitMessage": "Es gibt ungespeicherte Änderungen. Möchten Sie verlassen und die Änderungen verwerfen?",
   "@confirmExitMessage": {
     "description": "Nachricht im Bestätigungsdialog für das Beenden."
   },

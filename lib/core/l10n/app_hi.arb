@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?",
+  "confirmExitMessage": "बिना सहेजे गए बदलाव मौजूद हैं। क्या आप बदलावों को रद्द करके बाहर निकलना चाहते हैं?",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },

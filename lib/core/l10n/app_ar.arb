@@ -213,7 +213,7 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "هل أنت متأكد من أنك تريد الخروج بدون حفظ؟",
+  "confirmExitMessage": "هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },

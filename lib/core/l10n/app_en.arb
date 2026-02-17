@@ -141,7 +141,7 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "Are you sure you want to leave without saving?",
+  "confirmExitMessage": "There are unsaved changes. Do you want to leave and discard changes?",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },

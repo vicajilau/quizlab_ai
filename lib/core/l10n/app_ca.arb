@@ -213,7 +213,7 @@
   "@confirmExitTitle": {
     "description": "Títol per al diàleg de confirmació en sortir."
   },
-  "confirmExitMessage": "Esteu segur que voleu sortir sense desar?",
+  "confirmExitMessage": "Hi ha canvis sense desar. Voleu sortir descartant els canvis?",
   "@confirmExitMessage": {
     "description": "Missatge al diàleg de confirmació per sortir."
   },

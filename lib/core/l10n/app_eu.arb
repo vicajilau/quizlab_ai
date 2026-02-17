@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Irtetzearen berrespen elkarrizketaren izenburua."
   },
-  "confirmExitMessage": "Ziur zaude gorde gabe irten nahi duzula?",
+  "confirmExitMessage": "Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?",
   "@confirmExitMessage": {
     "description": "Irtetzearen berrespen elkarrizketaren mezua."
   },

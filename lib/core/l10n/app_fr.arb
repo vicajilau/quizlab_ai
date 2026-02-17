@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Titre de la boîte de dialogue de confirmation lors de la sortie."
   },
-  "confirmExitMessage": "Êtes-vous sûr de vouloir quitter sans sauvegarder ?",
+  "confirmExitMessage": "Il y a des modifications non enregistrées. Voulez-vous quitter et ignorer les modifications ?",
   "@confirmExitMessage": {
     "description": "Message dans la boîte de dialogue de confirmation pour la sortie."
   },

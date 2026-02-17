@@ -78,7 +78,7 @@
   "confirmDeleteMessage": "Είστε σίγουροι ότι θέλετε να διαγράψετε τη διαδικασία `{processName}`;",
   "deleteButton": "Διαγραφή",
   "confirmExitTitle": "Επιβεβαίωση Εξόδου",
-  "confirmExitMessage": "Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;",
+  "confirmExitMessage": "Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;",
   "exitButton": "Έξοδος χωρίς αποθήκευση",
   "saveDialogTitle": "Παρακαλώ επιλέξτε αρχείο εξόδου:",
   "createQuizFileTitle": "Δημιουργία Αρχείου Quiz",

@@ -117,7 +117,7 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "您确定要在不保存的情况下退出吗？",
+  "confirmExitMessage": "有未保存的更改。您要放弃更改并离开吗？",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
