@@ -9,7 +9,7 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
-  String get abortQuizTitle => 'Ακύρωση κουίζ;';
+  String get abortQuizTitle => 'Ακύρωση Quiz;';
 
   @override
   String get abortQuizMessage =>
@@ -119,7 +119,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;';
 
   @override
-  String get exitButton => 'Έξοδος';
+  String get exitButton => 'Έξοδος χωρίς αποθήκευση';
 
   @override
   String get saveDialogTitle => 'Παρακαλώ επιλέξτε αρχείο εξόδου:';

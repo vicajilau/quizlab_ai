@@ -1,6 +1,6 @@
 {
   "@@locale": "el",
-  "abortQuizTitle": "Ακύρωση κουίζ;",
+  "abortQuizTitle": "Ακύρωση Quiz;",
   "abortQuizMessage": "Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.",
   "stopAndOpenButton": "Διακοπή & Άνοιγμα",
   "titleAppBar": "Κουίζ - Προσομοιωτής Εξετάσεων",
@@ -79,7 +79,7 @@
   "deleteButton": "Διαγραφή",
   "confirmExitTitle": "Επιβεβαίωση Εξόδου",
   "confirmExitMessage": "Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;",
-  "exitButton": "Έξοδος",
+  "exitButton": "Έξοδος χωρίς αποθήκευση",
   "saveDialogTitle": "Παρακαλώ επιλέξτε αρχείο εξόδου:",
   "createQuizFileTitle": "Δημιουργία Αρχείου Quiz",
   "editQuizFileTitle": "Επεξεργασία Αρχείου Κουίζ",

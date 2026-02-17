@@ -117,7 +117,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Are you sure you want to leave without saving?';
 
   @override
-  String get exitButton => 'Exit';
+  String get exitButton => 'Exit without saving';
 
   @override
   String get saveDialogTitle => 'Please select an output file:';

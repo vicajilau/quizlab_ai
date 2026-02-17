@@ -311,7 +311,7 @@ abstract class AppLocalizations {
   /// Exit button text.
   ///
   /// In en, this message translates to:
-  /// **'Exit'**
+  /// **'Exit without saving'**
   String get exitButton;
 
   /// Title for the save dialog.

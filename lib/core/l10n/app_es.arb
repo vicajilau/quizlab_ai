@@ -1,6 +1,6 @@
 {
   "@@locale": "es",
-  "abortQuizTitle": "¿Abortar cuestionario?",
+  "abortQuizTitle": "¿Abortar Quiz?",
   "abortQuizMessage": "Abrir un nuevo archivo detendrá el cuestionario actual.",
   "stopAndOpenButton": "Detener y Abrir",
   "titleAppBar": "Quiz - Simulador de exámenes",
@@ -157,7 +157,7 @@
   "@confirmExitMessage": {
     "description": "Mensaje en el diálogo de confirmación para salir."
   },
-  "exitButton": "Salir",
+  "exitButton": "Salir sin guardar",
   "@exitButton": {
     "description": "Texto del botón de salir."
   },

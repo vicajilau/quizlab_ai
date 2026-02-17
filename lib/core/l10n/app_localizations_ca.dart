@@ -9,7 +9,7 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
-  String get abortQuizTitle => 'Avortar qüestionari?';
+  String get abortQuizTitle => 'Avortar Quiz?';
 
   @override
   String get abortQuizMessage =>
@@ -118,7 +118,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get confirmExitMessage => 'Esteu segur que voleu sortir sense desar?';
 
   @override
-  String get exitButton => 'Sortir';
+  String get exitButton => 'Sortir sense desar';
 
   @override
   String get saveDialogTitle => 'Seleccioneu un fitxer de sortida:';

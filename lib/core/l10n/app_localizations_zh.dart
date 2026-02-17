@@ -9,7 +9,7 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
-  String get abortQuizTitle => '中止测验？';
+  String get abortQuizTitle => '中止Quiz？';
 
   @override
   String get abortQuizMessage => '打开新文件将停止当前测验。';
@@ -113,7 +113,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirmExitMessage => '您确定要在不保存的情况下退出吗？';
 
   @override
-  String get exitButton => '退出';
+  String get exitButton => '退出不保存';
 
   @override
   String get saveDialogTitle => '请选择输出文件：';

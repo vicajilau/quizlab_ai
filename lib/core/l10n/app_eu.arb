@@ -1,6 +1,6 @@
 {
   "@@locale": "eu",
-  "abortQuizTitle": "Galdetegia abortatu?",
+  "abortQuizTitle": "Quiz-a abortatu?",
   "abortQuizMessage": "Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.",
   "stopAndOpenButton": "Gelditu eta Ireki",
   "titleAppBar": "Quiz - Azterketa Simuladorea",
@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Irtetzearen berrespen elkarrizketaren mezua."
   },
-  "exitButton": "Irten",
+  "exitButton": "Irten gorde gabe",
   "@exitButton": {
     "description": "Irten botoiaren testua."
   },

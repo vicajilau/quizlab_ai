@@ -118,7 +118,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?';
 
   @override
-  String get exitButton => 'बाहर निकलें';
+  String get exitButton => 'बिना सहेजे बाहर निकलें';
 
   @override
   String get saveDialogTitle => 'कृपया आउटपुट फ़ाइल चुनें:';

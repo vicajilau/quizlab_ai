@@ -1,6 +1,6 @@
 {
   "@@locale": "ca",
-  "abortQuizTitle": "Avortar qüestionari?",
+  "abortQuizTitle": "Avortar Quiz?",
   "abortQuizMessage": "Obrir un fitxer nou aturarà el qüestionari actual.",
   "stopAndOpenButton": "Aturar i Obri",
   "titleAppBar": "Quiz - Simulador d'Exàmens",
@@ -217,7 +217,7 @@
   "@confirmExitMessage": {
     "description": "Missatge al diàleg de confirmació per sortir."
   },
-  "exitButton": "Sortir",
+  "exitButton": "Sortir sense desar",
   "@exitButton": {
     "description": "Text del botó Sortir."
   },

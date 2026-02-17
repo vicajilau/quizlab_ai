@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "बाहर निकलें",
+  "exitButton": "बिना सहेजे बाहर निकलें",
   "@exitButton": {
     "description": "Exit button text."
   },

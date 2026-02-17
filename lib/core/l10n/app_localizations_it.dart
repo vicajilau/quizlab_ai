@@ -9,7 +9,7 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
-  String get abortQuizTitle => 'Interrompere il quiz?';
+  String get abortQuizTitle => 'Interrompere il Quiz?';
 
   @override
   String get abortQuizMessage =>
@@ -118,7 +118,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get confirmExitMessage => 'Sei sicuro di voler uscire senza salvare?';
 
   @override
-  String get exitButton => 'Esci';
+  String get exitButton => 'Esci senza salvare';
 
   @override
   String get saveDialogTitle => 'Seleziona un file di output:';

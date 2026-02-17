@@ -1,6 +1,6 @@
 {
   "@@locale": "zh",
-  "abortQuizTitle": "中止测验？",
+  "abortQuizTitle": "中止Quiz？",
   "abortQuizMessage": "打开新文件将停止当前测验。",
   "stopAndOpenButton": "停止并打开",
   "titleAppBar": "测验 - 考试模拟器",
@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "退出",
+  "exitButton": "退出不保存",
   "@exitButton": {
     "description": "Exit button text."
   },

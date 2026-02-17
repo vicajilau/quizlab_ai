@@ -9,7 +9,7 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
-  String get abortQuizTitle => 'إلغاء الاختبار؟';
+  String get abortQuizTitle => 'إلغاء Quiz؟';
 
   @override
   String get abortQuizMessage =>
@@ -115,7 +115,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmExitMessage => 'هل أنت متأكد من أنك تريد الخروج بدون حفظ؟';
 
   @override
-  String get exitButton => 'خروج';
+  String get exitButton => 'خروج بدون حفظ';
 
   @override
   String get saveDialogTitle => 'يرجى اختيار ملف الإخراج:';

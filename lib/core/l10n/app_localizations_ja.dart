@@ -113,7 +113,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirmExitMessage => '本当に保存せずに終了しますか？';
 
   @override
-  String get exitButton => '終了';
+  String get exitButton => '保存せずに終了';
 
   @override
   String get saveDialogTitle => '出力ファイルを選択してください：';

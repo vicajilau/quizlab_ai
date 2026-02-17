@@ -1,6 +1,6 @@
 {
   "@@locale": "gl",
-  "abortQuizTitle": "Abortar cuestionario?",
+  "abortQuizTitle": "Abortar Quiz?",
   "abortQuizMessage": "Abrir un novo ficheiro deterá o cuestionario actual.",
   "stopAndOpenButton": "Deter e Abrir",
   "titleAppBar": "Quiz - Simulador de Exames",
@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Mensaxe no diálogo de confirmación para saír."
   },
-  "exitButton": "Saír",
+  "exitButton": "Saír sen gardar",
   "@exitButton": {
     "description": "Texto do botón Saír."
   },

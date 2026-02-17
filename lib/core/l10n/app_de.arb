@@ -217,7 +217,7 @@
   "@confirmExitMessage": {
     "description": "Nachricht im Bestätigungsdialog für das Beenden."
   },
-  "exitButton": "Beenden",
+  "exitButton": "Beenden ohne zu speichern",
   "@exitButton": {
     "description": "Beenden-Schaltflächentext."
   },

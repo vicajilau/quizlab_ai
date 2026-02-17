@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "終了",
+  "exitButton": "保存せずに終了",
   "@exitButton": {
     "description": "Exit button text."
   },

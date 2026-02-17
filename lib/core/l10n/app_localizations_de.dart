@@ -119,7 +119,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sind Sie sicher, dass Sie ohne Speichern beenden möchten?';
 
   @override
-  String get exitButton => 'Beenden';
+  String get exitButton => 'Beenden ohne zu speichern';
 
   @override
   String get saveDialogTitle => 'Bitte wählen Sie eine Ausgabedatei:';

@@ -1,6 +1,6 @@
 {
   "@@locale": "ar",
-  "abortQuizTitle": "إلغاء الاختبار؟",
+  "abortQuizTitle": "إلغاء Quiz؟",
   "abortQuizMessage": "سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.",
   "stopAndOpenButton": "إيقاف وفتح",
   "titleAppBar": "اختبار - محاكي الامتحان",
@@ -217,7 +217,7 @@
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "خروج",
+  "exitButton": "خروج بدون حفظ",
   "@exitButton": {
     "description": "Exit button text."
   },

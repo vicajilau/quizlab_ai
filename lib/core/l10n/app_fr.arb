@@ -1,6 +1,6 @@
 {
   "@@locale": "fr",
-  "abortQuizTitle": "Abandonner le quiz ?",
+  "abortQuizTitle": "Abandonner le Quiz ?",
   "abortQuizMessage": "L'ouverture d'un nouveau fichier arrêtera le quiz en cours.",
   "stopAndOpenButton": "Arrêter & Ouvrir",
   "titleAppBar": "Quiz - Simulateur d'Examens",
@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Message dans la boîte de dialogue de confirmation pour la sortie."
   },
-  "exitButton": "Quitter",
+  "exitButton": "Quitter sans enregistrer",
   "@exitButton": {
     "description": "Texte du bouton Quitter."
   },

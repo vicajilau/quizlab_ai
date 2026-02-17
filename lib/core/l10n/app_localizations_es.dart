@@ -9,7 +9,7 @@ class AppLocalizationsEs extends AppLocalizations {
   AppLocalizationsEs([String locale = 'es']) : super(locale);
 
   @override
-  String get abortQuizTitle => '¿Abortar cuestionario?';
+  String get abortQuizTitle => '¿Abortar Quiz?';
 
   @override
   String get abortQuizMessage =>
@@ -119,7 +119,7 @@ class AppLocalizationsEs extends AppLocalizations {
       '¿Estás seguro de que quieres salir sin guardar?';
 
   @override
-  String get exitButton => 'Salir';
+  String get exitButton => 'Salir sin guardar';
 
   @override
   String get saveDialogTitle => 'Por favor selecciona un archivo de salida:';

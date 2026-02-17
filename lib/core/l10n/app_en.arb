@@ -145,7 +145,7 @@
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "Exit",
+  "exitButton": "Exit without saving",
   "@exitButton": {
     "description": "Exit button text."
   },

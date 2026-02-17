@@ -1,6 +1,6 @@
 {
   "@@locale": "it",
-  "abortQuizTitle": "Interrompere il quiz?",
+  "abortQuizTitle": "Interrompere il Quiz?",
   "abortQuizMessage": "L'apertura di un nuovo file interromperà il quiz corrente.",
   "stopAndOpenButton": "Ferma e Apri",
   "titleAppBar": "Quiz - Simulatore d'Esame",
@@ -121,7 +121,7 @@
   "@confirmExitMessage": {
     "description": "Messaggio nella finestra di dialogo di conferma per l'uscita."
   },
-  "exitButton": "Esci",
+  "exitButton": "Esci senza salvare",
   "@exitButton": {
     "description": "Testo del pulsante Esci."
   },

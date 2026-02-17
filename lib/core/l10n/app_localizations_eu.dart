@@ -9,7 +9,7 @@ class AppLocalizationsEu extends AppLocalizations {
   AppLocalizationsEu([String locale = 'eu']) : super(locale);
 
   @override
-  String get abortQuizTitle => 'Galdetegia abortatu?';
+  String get abortQuizTitle => 'Quiz-a abortatu?';
 
   @override
   String get abortQuizMessage =>
@@ -118,7 +118,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get confirmExitMessage => 'Ziur zaude gorde gabe irten nahi duzula?';
 
   @override
-  String get exitButton => 'Irten';
+  String get exitButton => 'Irten gorde gabe';
 
   @override
   String get saveDialogTitle => 'Hautatu irteera fitxategia:';
