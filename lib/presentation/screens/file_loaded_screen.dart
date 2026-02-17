@@ -871,7 +871,7 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
 
                       ServiceLocator.instance.registerQuizFile(quizFileToUse);
                       ServiceLocator.instance.registerQuizConfig(quizConfig);
-                      context.go(AppRoutes.quizFileExecutionScreen);
+                      context.push(AppRoutes.quizFileExecutionScreen);
                     }
                   },
                 ),
