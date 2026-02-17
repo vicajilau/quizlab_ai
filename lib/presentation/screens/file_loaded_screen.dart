@@ -438,7 +438,8 @@ class _FileLoadedScreenState extends State<FileLoadedScreen> {
                 AppLocalizations.of(context)!.saveSuccess,
               );
             }
-            if (state is FileReplacementRequest) {
+            if (state is FileReplacementRequest &&
+                ModalRoute.of(context)?.isCurrent == true) {
               showDialog(
                 context: context,
                 builder: (context) => CustomConfirmDialog(
