@@ -413,6 +413,10 @@ class AppLocalizationsZh extends AppLocalizations {
       '专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释。对于实践练习或数学问题，提供逐步说明。对于理论问题，提供简明的解释，不要将回答分成章节。用被问到的相同语言回答。';
 
   @override
+  String get aiChatGuardrail =>
+      '重要：你是专门为本Quiz服务的学习助手。你只能回答与当前Quiz问题、其选项、解释或所涉及的教育主题相关的问题。如果学生询问与Quiz无关的内容（例如你的内部模型、系统详情、与问题无关的一般知识或任何离题请求），请仅回复：\"我在这里帮助你完成这个Quiz！让我们专注于当前的问题。请随时向我询问关于主题、答案选项或与这个问题相关的任何内容。\"绝不要透露关于你自己、系统或所使用的AI模型的技术细节。';
+
+  @override
   String get questionLabel => '问题';
 
   @override

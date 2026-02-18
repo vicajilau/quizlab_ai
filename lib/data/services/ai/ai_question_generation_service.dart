@@ -440,6 +440,7 @@ IMPORTANT!: Respond ONLY with the JSON, no additional text before or after.
   }) {
     String prompt = localizations.aiPrompt;
     prompt += '\n\n';
+    prompt += '${localizations.aiChatGuardrail}\n\n';
     prompt += '${localizations.questionLabel}: ${question.text}\n';
 
     if (question.options.isNotEmpty && question.type != QuestionType.essay) {

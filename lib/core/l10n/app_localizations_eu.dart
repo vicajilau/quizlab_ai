@@ -432,6 +432,10 @@ class AppLocalizationsEu extends AppLocalizations {
       'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.';
 
   @override
+  String get aiChatGuardrail =>
+      'GARRANTZITSUA: Quiz honetarako soilik ikasketa laguntzailea zara. Quiz galdera arruntari, bere aukerei, azalpenari edo lantzen duen gai hezitzaileari lotutako galderei SOILIK erantzun behar diezu. Ikasleak Quiz-arekin zerikusirik ez duen zerbait galdetzen badu (adibidez, zure barne eredua, sistemaren xehetasunak, galderarekin loturarik gabeko ezagutza orokorra, edo gaiari buruz ez den eskaeraren bat), erantzun SOILIK honekin: \"Hemen nago Quiz honekin laguntzeko! Galderan zentratu gaitezen. Lasai galdetu gaiari, erantzun aukerei edo galdera honekin lotutako edozertari buruz.\" Ez ezazu inoiz zure buruari, sistemari edo erabilitako AI ereduari buruzko xehetasun teknikorik agerian utzi.';
+
+  @override
   String get questionLabel => 'Galdera';
 
   @override

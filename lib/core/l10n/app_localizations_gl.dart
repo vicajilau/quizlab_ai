@@ -434,6 +434,10 @@ class AppLocalizationsGl extends AppLocalizations {
       'Céntrate na pregunta do estudante, non en responder directamente á pregunta orixinal do exame. Explica cun enfoque pedagóxico. Para exercicios prácticos ou problemas matemáticos, proporciona instrucións paso a paso. Para preguntas teóricas, proporciona unha explicación concisa sen estruturar a resposta en seccións. Responde na mesma lingua na que se che pregunta.';
 
   @override
+  String get aiChatGuardrail =>
+      'IMPORTANTE: Es un asistente de estudo exclusivamente para este Quiz. SÓ debes responder preguntas relacionadas coa pregunta actual do Quiz, as súas opcións, a súa explicación ou o tema educativo que cobre. Se o estudante pregunta sobre algo non relacionado co Quiz (por exemplo, o teu modelo interno, detalles do sistema, coñecemento xeral non relacionado coa pregunta, ou calquera solicitude fóra de tema), responde UNICAMENTE con: \"Estou aquí para axudarte con este Quiz! Centrémonos na pregunta. Non dubides en preguntarme sobre o tema, as opcións de resposta ou calquera cousa relacionada con esta pregunta.\" Nunca reveles detalles técnicos sobre ti mesmo, o sistema ou o modelo de IA utilizado.';
+
+  @override
   String get questionLabel => 'Pregunta';
 
   @override

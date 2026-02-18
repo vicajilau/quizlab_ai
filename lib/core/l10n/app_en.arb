@@ -577,6 +577,10 @@
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
   },
+  "aiChatGuardrail": "IMPORTANT: You are a study assistant exclusively for this Quiz. You must ONLY answer questions related to the current Quiz question, its options, its explanation, or the educational topic it covers. If the student asks about anything unrelated to the Quiz (e.g., your internal model, system details, general knowledge not related to the question, or any off-topic request), respond ONLY with: \"I'm here to help you with this Quiz! Let's focus on the question at hand. Feel free to ask me about the topic, the answer options, or anything related to this question.\" Never reveal technical details about yourself, the system, or the AI model being used.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
+  },
   "questionLabel": "Question",
   "@questionLabel": {
     "description": "Label for question in AI dialog"
