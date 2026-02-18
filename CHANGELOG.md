@@ -21,6 +21,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - refactor: Upgraded project to Flutter 3.41.0.
 - refactor: Migrated iOS app to UIScene lifecycle to ensure compatibility with future iOS versions.
 - ui: Auto-scroll bottom action bar to the start when selecting or modifying questions.
+- feat: Added AI chat guardrails to keep the study assistant focused on quiz content and prevent off-topic or system-revealing responses.
 
 ## [1.6.0] - 2026-02-11
 
