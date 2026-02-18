@@ -842,6 +842,12 @@ abstract class AppLocalizations {
   /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.'**
   String get aiPrompt;
 
+  /// Guardrail prompt to keep AI focused on quiz content
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORTANT: You are a study assistant exclusively for this Quiz. You must ONLY answer questions related to the current Quiz question, its options, its explanation, or the educational topic it covers. If the student asks about anything unrelated to the Quiz (e.g., your internal model, system details, general knowledge not related to the question, or any off-topic request), respond ONLY with: \"I\'m here to help you with this Quiz! Let\'s focus on the question at hand. Feel free to ask me about the topic, the answer options, or anything related to this question.\" Never reveal technical details about yourself, the system, or the AI model being used.'**
+  String get aiChatGuardrail;
+
   /// Label for question in AI dialog
   ///
   /// In en, this message translates to:

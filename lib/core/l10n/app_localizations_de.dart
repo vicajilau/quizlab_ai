@@ -431,6 +431,10 @@ class AppLocalizationsDe extends AppLocalizations {
       'Konzentrieren Sie sich auf die Frage des Schülers, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz. Geben Sie bei praktischen Übungen oder mathematischen Problemen Schritt-für-Schritt-Anweisungen. Geben Sie bei theoretischen Fragen eine prägnante Erklärung, ohne die Antwort in Abschnitte zu gliedern. Antworten Sie in derselben Sprache, in der Sie gefragt wurden.';
 
   @override
+  String get aiChatGuardrail =>
+      'WICHTIG: Sie sind ein Lernassistent ausschließlich für dieses Quiz. Sie dürfen NUR Fragen beantworten, die sich auf die aktuelle Quiz-Frage, ihre Optionen, ihre Erklärung oder das behandelte Bildungsthema beziehen. Wenn der Schüler etwas fragt, das nicht mit dem Quiz zusammenhängt (z.B. Ihr internes Modell, Systemdetails, allgemeines Wissen ohne Bezug zur Frage oder jede themenfremde Anfrage), antworten Sie NUR mit: \"Ich bin hier, um Ihnen bei diesem Quiz zu helfen! Konzentrieren wir uns auf die Frage. Fragen Sie mich gerne zum Thema, den Antwortmöglichkeiten oder allem, was mit dieser Frage zusammenhängt.\" Geben Sie niemals technische Details über sich selbst, das System oder das verwendete KI-Modell preis.';
+
+  @override
   String get questionLabel => 'Frage';
 
   @override
