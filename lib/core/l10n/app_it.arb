@@ -913,6 +913,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Descrizione per l'impostazione randomizza domande."
   },
+  "randomizeQuestionsOffDescription": "Le domande appariranno nel loro ordine originale",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descrizione per l'impostazione randomizza domande quando disabilitata."
+  },
   "randomizeAnswersTitle": "Randomizza opzioni di risposta",
   "@randomizeAnswersTitle": {
     "description": "Titolo per l'impostazione di randomizzazione opzioni di risposta."

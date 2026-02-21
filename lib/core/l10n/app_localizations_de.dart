@@ -736,7 +736,7 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get randomizeQuestionsOffDescription =>
-      'Questions will appear in their original order';
+      'Die Fragen erscheinen in ihrer ursprünglichen Reihenfolge';
 
   @override
   String get randomizeAnswersTitle => 'Antwortoptionen randomisieren';

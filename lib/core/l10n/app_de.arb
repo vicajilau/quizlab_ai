@@ -1009,6 +1009,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Beschreibung für die Einstellung zum Randomisieren von Fragen."
   },
+  "randomizeQuestionsOffDescription": "Die Fragen erscheinen in ihrer ursprünglichen Reihenfolge",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
   "randomizeAnswersTitle": "Antwortoptionen randomisieren",
   "@randomizeAnswersTitle": {
     "description": "Titel für die Einstellung zum Randomisieren von Antwortoptionen."

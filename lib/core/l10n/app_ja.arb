@@ -905,6 +905,10 @@
   "@randomizeQuestionsDescription": {
     "description": "問題のランダム化設定の説明"
   },
+  "randomizeQuestionsOffDescription": "問題は元の順序で表示されます",
+  "@randomizeQuestionsOffDescription": {
+    "description": "ランダム化設定が無効な場合の問題のランダム化説明。"
+  },
   "randomizeAnswersTitle": "回答選択肢をランダム化",
   "@randomizeAnswersTitle": {
     "description": "回答選択肢のランダム化設定のタイトル"

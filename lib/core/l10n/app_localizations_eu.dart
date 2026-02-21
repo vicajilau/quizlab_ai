@@ -735,7 +735,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get randomizeQuestionsOffDescription =>
-      'Questions will appear in their original order';
+      'Galderak jatorrizko ordenan agertuko dira';
 
   @override
   String get randomizeAnswersTitle => 'Erantzun Aukerak Ausazkotu';

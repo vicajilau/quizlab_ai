@@ -931,6 +931,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Descrición para a configuración de randomización de preguntas."
   },
+  "randomizeQuestionsOffDescription": "As preguntas aparecerán na súa orde orixinal",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas cando está desactivada."
+  },
   "randomizeAnswersTitle": "Aleatorizar opcións de resposta",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuración de aleatorización de opcións de resposta."

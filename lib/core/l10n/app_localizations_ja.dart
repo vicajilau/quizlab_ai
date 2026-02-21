@@ -697,8 +697,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get randomizeQuestionsDescription => 'クイズ実行中に問題の順序をシャッフル';
 
   @override
-  String get randomizeQuestionsOffDescription =>
-      'Questions will appear in their original order';
+  String get randomizeQuestionsOffDescription => '問題は元の順序で表示されます';
 
   @override
   String get randomizeAnswersTitle => '回答選択肢をランダム化';

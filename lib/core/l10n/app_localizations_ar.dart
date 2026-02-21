@@ -722,7 +722,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get randomizeQuestionsOffDescription =>
-      'Questions will appear in their original order';
+      'ستظهر الأسئلة بترتيبها الأصلي';
 
   @override
   String get randomizeAnswersTitle => 'عشوائية خيارات الإجابة';

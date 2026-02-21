@@ -1001,6 +1001,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Description for the randomize questions setting."
   },
+  "randomizeQuestionsOffDescription": "ستظهر الأسئلة بترتيبها الأصلي",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
   "randomizeAnswersTitle": "عشوائية خيارات الإجابة",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."

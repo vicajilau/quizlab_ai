@@ -1009,6 +1009,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Description for the randomize questions setting."
   },
+  "randomizeQuestionsOffDescription": "Les preguntes apareixeran en el seu ordre original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
   "randomizeAnswersTitle": "Aleatoritzar opcions de resposta",
   "@randomizeAnswersTitle": {
     "description": "Títol per la configuració d'aleatorització d'opcions de resposta."

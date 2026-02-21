@@ -913,6 +913,10 @@
   "@randomizeQuestionsDescription": {
     "description": "Galderak ausazkotze konfigurazioaren deskribapena."
   },
+  "randomizeQuestionsOffDescription": "Galderak jatorrizko ordenan agertuko dira",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena desgaituta dagoenean."
+  },
   "randomizeAnswersTitle": "Erantzun Aukerak Ausazkotu",
   "@randomizeAnswersTitle": {
     "description": "Erantzun aukeren ausazkotze konfigurazioaren izenburua."
