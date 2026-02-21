@@ -8,6 +8,7 @@ import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quiz_app/domain/models/quiz/question_order.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/count_control_button.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
@@ -37,6 +38,14 @@ class _QuestionCountSelectionDialogState
   double _penaltyAmount = 0.5;
   bool _enableMaxIncorrectAnswers = false;
   int _maxIncorrectAnswersLimit = 3;
+
+  // New relocated settings
+  QuestionOrder _questionOrder = QuestionOrder.random;
+  bool _randomizeAnswers = false;
+  bool _showCorrectAnswerCount = false;
+  bool _examTimeEnabled = false;
+  int _examTimeMinutes = 60;
+
   late TextEditingController _penaltyController;
   late TextEditingController _questionCountController;
   late TextEditingController _maxIncorrectAnswersController;
@@ -152,6 +161,30 @@ class _QuestionCountSelectionDialogState
           _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
               .toString();
         }
+
+        if (settings.questionOrder != null) {
+          _questionOrder = settings.questionOrder!;
+        }
+        if (settings.randomizeAnswers != null) {
+          _randomizeAnswers = settings.randomizeAnswers!;
+        }
+        if (settings.showCorrectAnswerCount != null) {
+          _showCorrectAnswerCount = settings.showCorrectAnswerCount!;
+        }
+
+        // Exam time settings are currently separate but we should load them
+        _loadExamTimeSettings();
+      });
+    }
+  }
+
+  Future<void> _loadExamTimeSettings() async {
+    final enabled = await ConfigurationService.instance.getExamTimeEnabled();
+    final minutes = await ConfigurationService.instance.getExamTimeMinutes();
+    if (mounted) {
+      setState(() {
+        _examTimeEnabled = enabled;
+        _examTimeMinutes = minutes;
       });
     }
   }
@@ -260,11 +293,6 @@ class _QuestionCountSelectionDialogState
       }
     }
 
-    final examTimeEnabled = await ConfigurationService.instance
-        .getExamTimeEnabled();
-    final examTimeMinutes = await ConfigurationService.instance
-        .getExamTimeMinutes();
-
     if (mounted) {
       ConfigurationService.instance.saveQuizConfigSettings(
         QuizConfigStoredSettings(
@@ -274,19 +302,29 @@ class _QuestionCountSelectionDialogState
           penaltyAmount: _penaltyAmount,
           enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
           maxIncorrectAnswers: _maxIncorrectAnswersLimit,
+          questionOrder: _questionOrder,
+          randomizeAnswers: _randomizeAnswers,
+          showCorrectAnswerCount: _showCorrectAnswerCount,
         ),
       );
+      // Also save exam time settings individually for now as they are still used elsewhere
+      ConfigurationService.instance.saveExamTimeEnabled(_examTimeEnabled);
+      ConfigurationService.instance.saveExamTimeMinutes(_examTimeMinutes);
+
       context.pop(
         QuizConfig(
           questionCount: finalCount,
           isStudyMode: _isStudyMode,
-          enableTimeLimit: examTimeEnabled,
-          timeLimitMinutes: examTimeMinutes,
+          enableTimeLimit: _examTimeEnabled,
+          timeLimitMinutes: _examTimeMinutes,
           subtractPoints: _subtractPoints,
           penaltyAmount: _penaltyAmount,
           useSelectedOnly: useSelectedOnly,
           enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
           maxIncorrectAnswers: _maxIncorrectAnswersLimit,
+          questionOrder: _questionOrder,
+          randomizeAnswers: _randomizeAnswers,
+          showCorrectAnswerCount: _showCorrectAnswerCount,
         ),
       );
     }
@@ -664,6 +702,21 @@ class _QuestionCountSelectionDialogState
                       },
                       onIncrementMaxIncorrect: _incrementMaxIncorrect,
                       onDecrementMaxIncorrect: _decrementMaxIncorrect,
+                      questionOrder: _questionOrder,
+                      onQuestionOrderChanged: (value) =>
+                          setState(() => _questionOrder = value),
+                      randomizeAnswers: _randomizeAnswers,
+                      onRandomizeAnswersChanged: (value) =>
+                          setState(() => _randomizeAnswers = value),
+                      showCorrectAnswerCount: _showCorrectAnswerCount,
+                      onShowCorrectAnswerCountChanged: (value) =>
+                          setState(() => _showCorrectAnswerCount = value),
+                      examTimeEnabled: _examTimeEnabled,
+                      onExamTimeEnabledChanged: (value) =>
+                          setState(() => _examTimeEnabled = value),
+                      examTimeMinutes: _examTimeMinutes,
+                      onExamTimeMinutesChanged: (value) =>
+                          setState(() => _examTimeMinutes = value),
                     ),
                   ],
                 ),

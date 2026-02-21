@@ -727,11 +727,26 @@ class AppLocalizationsCa extends AppLocalizations {
       'També podeu arrossegar i deixar anar fitxers .quiz aquí per importar preguntes';
 
   @override
+  String get randomizeQuestionsTitle => 'Aleatoritzar preguntes';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Barrejar l\'ordre de les preguntes durant l\'execució del quiz';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
   String get randomizeAnswersTitle => 'Aleatoritzar opcions de resposta';
 
   @override
   String get randomizeAnswersDescription =>
       'Barrejar l\'ordre de les opcions de resposta durant l\'execució del quiz';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Les opcions de resposta apareixeran en el seu ordre original';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -740,6 +755,10 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Mostrar el nombre de respostes correctes en preguntes d\'elecció múltiple';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'El nombre de respostes correctes no es mostrarà en les preguntes d\'opció múltiple';
 
   @override
   String correctAnswersCount(int count) {
@@ -1239,6 +1258,9 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get close => 'Tancar';
+
+  @override
+  String get scoringAndLimitsTitle => 'Puntuació i límits';
 
   @override
   String get congratulations => '🎉 Enhorabona! 🎉';

@@ -714,6 +714,17 @@ class AppLocalizationsAr extends AppLocalizations {
       'يمكنك أيضاً سحب وإفلات ملفات .quiz هنا لاستيراد الأسئلة';
 
   @override
+  String get randomizeQuestionsTitle => 'عشوائية الأسئلة';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'خلط ترتيب الأسئلة أثناء تنفيذ الاختبار';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
   String get randomizeAnswersTitle => 'عشوائية خيارات الإجابة';
 
   @override
@@ -721,11 +732,19 @@ class AppLocalizationsAr extends AppLocalizations {
       'خلط ترتيب خيارات الإجابة أثناء تنفيذ الاختبار';
 
   @override
+  String get randomizeAnswersOffDescription =>
+      'ستظهر خيارات الإجابة بترتيبها الأصلي';
+
+  @override
   String get showCorrectAnswerCountTitle => 'إظهار عدد الإجابات الصحيحة';
 
   @override
   String get showCorrectAnswerCountDescription =>
       'عرض عدد الإجابات الصحيحة في أسئلة الاختيار المتعدد';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'لن يتم عرض عدد الإجابات الصحيحة لأسئلة الاختيار من متعدد';
 
   @override
   String correctAnswersCount(int count) {
@@ -1214,6 +1233,9 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get close => 'إغلاق';
+
+  @override
+  String get scoringAndLimitsTitle => 'الدرجات والحدود';
 
   @override
   String get congratulations => '🎉 تهانينا! 🎉';

@@ -718,6 +718,17 @@ class AppLocalizationsHi extends AppLocalizations {
       'प्रश्न आयात करने के लिए आप .quiz फ़ाइलों को यहाँ ड्रैग और ड्रॉप भी कर सकते हैं';
 
   @override
+  String get randomizeQuestionsTitle => 'प्रश्नों को मिलाएं';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'क्विज़ निष्पादन के दौरान प्रश्नों का क्रम बदलें';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'प्रश्न अपने मूल क्रम में दिखाई देंगे';
+
+  @override
   String get randomizeAnswersTitle => 'उत्तर विकल्पों को मिलाएं';
 
   @override
@@ -725,11 +736,19 @@ class AppLocalizationsHi extends AppLocalizations {
       'क्विज़ निष्पादन के दौरान उत्तर विकल्पों का क्रम मिलाएं';
 
   @override
+  String get randomizeAnswersOffDescription =>
+      'उत्तर विकल्प अपने मूल क्रम में दिखाई देंगे';
+
+  @override
   String get showCorrectAnswerCountTitle => 'सही उत्तर संख्या दिखाएं';
 
   @override
   String get showCorrectAnswerCountDescription =>
       'बहुविकल्पीय प्रश्नों में सही उत्तरों की संख्या प्रदर्शित करें';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'बहुविकल्पीय प्रश्नों के लिए सही उत्तरों की संख्या नहीं दिखाई जाएगी';
 
   @override
   String correctAnswersCount(int count) {
@@ -1223,6 +1242,9 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get close => 'बंद करें';
+
+  @override
+  String get scoringAndLimitsTitle => 'स्कोरिंग और सीमाएँ';
 
   @override
   String get congratulations => '🎉 बधाई हो! 🎉';

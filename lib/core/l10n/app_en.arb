@@ -969,6 +969,18 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
+  "randomizeQuestionsTitle": "Randomize Questions",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Shuffle the order of questions during quiz execution",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "Questions will appear in their original order",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
   "randomizeAnswersTitle": "Randomize Answer Options",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
@@ -977,6 +989,10 @@
   "@randomizeAnswersDescription": {
     "description": "Description for the randomize answers setting."
   },
+  "randomizeAnswersOffDescription": "Answer options will appear in their original order",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
   "showCorrectAnswerCountTitle": "Show Correct Answer Count",
   "@showCorrectAnswerCountTitle": {
     "description": "Title for the setting to show correct answer count."
@@ -984,6 +1000,10 @@
   "showCorrectAnswerCountDescription": "Display the number of correct answers in multiple choice questions",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "The number of correct answers will not be shown for multiple-choice questions",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Select {count} correct answers",
   "@correctAnswersCount": {
@@ -1683,6 +1703,10 @@
   "close": "Close",
   "@close": {
     "description": "Close button text"
+  },
+  "scoringAndLimitsTitle": "Scoring and Limits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Congratulations! 🎉",
   "@congratulations": {

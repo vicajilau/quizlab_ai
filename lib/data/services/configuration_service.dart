@@ -290,6 +290,19 @@ class ConfigurationService {
         settings.maxIncorrectAnswers!,
       );
     }
+
+    if (settings.questionOrder != null) {
+      await prefs.setString(_questionOrderKey, settings.questionOrder!.value);
+    }
+    if (settings.randomizeAnswers != null) {
+      await prefs.setBool(_randomizeAnswersKey, settings.randomizeAnswers!);
+    }
+    if (settings.showCorrectAnswerCount != null) {
+      await prefs.setBool(
+        _showCorrectAnswerCountKey,
+        settings.showCorrectAnswerCount!,
+      );
+    }
   }
 
   /// Gets the Quiz Config settings
@@ -305,6 +318,11 @@ class ConfigurationService {
         _lastQuizEnableMaxIncorrectAnswersKey,
       ),
       maxIncorrectAnswers: prefs.getInt(_lastQuizMaxIncorrectAnswersKey),
+      questionOrder: QuestionOrder.fromString(
+        prefs.getString(_questionOrderKey),
+      ),
+      randomizeAnswers: prefs.getBool(_randomizeAnswersKey),
+      showCorrectAnswerCount: prefs.getBool(_showCorrectAnswerCountKey),
     );
   }
 

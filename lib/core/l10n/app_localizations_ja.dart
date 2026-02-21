@@ -691,16 +691,32 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dragDropHintText => '問題をインポートするために.quizファイルをここにドラッグ&ドロップすることもできます';
 
   @override
+  String get randomizeQuestionsTitle => '問題をランダム化';
+
+  @override
+  String get randomizeQuestionsDescription => 'クイズ実行中に問題の順序をシャッフル';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
   String get randomizeAnswersTitle => '回答選択肢をランダム化';
 
   @override
   String get randomizeAnswersDescription => 'クイズ実行中に回答選択肢の順序をシャッフル';
 
   @override
+  String get randomizeAnswersOffDescription => '回答の選択肢は元の順序で表示されます';
+
+  @override
   String get showCorrectAnswerCountTitle => '正解数を表示';
 
   @override
   String get showCorrectAnswerCountDescription => '複数選択問題で正解の数を表示';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '選択式問題の正解数は表示されません';
 
   @override
   String correctAnswersCount(int count) {
@@ -1180,6 +1196,9 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get close => '閉じる';
+
+  @override
+  String get scoringAndLimitsTitle => 'スコアと制限';
 
   @override
   String get congratulations => '🎉 おめでとうございます！ 🎉';

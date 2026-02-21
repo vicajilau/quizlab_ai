@@ -727,6 +727,17 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak inportatzeko .quiz fitxategiak hona arrastatu eta utz ditzakezu ere';
 
   @override
+  String get randomizeQuestionsTitle => 'Galderak Ausazkotu';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Quiz exekuzioan galderen ordena nahastu';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
   String get randomizeAnswersTitle => 'Erantzun Aukerak Ausazkotu';
 
   @override
@@ -734,11 +745,19 @@ class AppLocalizationsEu extends AppLocalizations {
       'Quiz exekuzioan erantzun aukeren ordena nahastu';
 
   @override
+  String get randomizeAnswersOffDescription =>
+      'Erantzun-aukerak jatorrizko ordenan agertuko dira';
+
+  @override
   String get showCorrectAnswerCountTitle => 'Erantzun Zuzen Kopurua Erakutsi';
 
   @override
   String get showCorrectAnswerCountDescription =>
-      'Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi';
+      'Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko';
 
   @override
   String correctAnswersCount(int count) {
@@ -1236,6 +1255,9 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get close => 'Itxi';
+
+  @override
+  String get scoringAndLimitsTitle => 'Puntuazioa eta mugak';
 
   @override
   String get congratulations => '🎉 Zorionak! 🎉';

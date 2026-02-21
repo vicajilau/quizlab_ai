@@ -993,6 +993,14 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
+  "randomizeQuestionsTitle": "عشوائية الأسئلة",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "خلط ترتيب الأسئلة أثناء تنفيذ الاختبار",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
   "randomizeAnswersTitle": "عشوائية خيارات الإجابة",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
@@ -1008,6 +1016,10 @@
   "showCorrectAnswerCountDescription": "عرض عدد الإجابات الصحيحة في أسئلة الاختيار المتعدد",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "لن يتم عرض عدد الإجابات الصحيحة لأسئلة الاختيار من متعدد",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "اختر {count} إجابات صحيحة",
   "@correctAnswersCount": {
@@ -1566,6 +1578,14 @@
   "close": "إغلاق",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "ستظهر خيارات الإجابة بترتيبها الأصلي",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "الدرجات والحدود",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 تهانينا! 🎉",
   "@congratulations": {

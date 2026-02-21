@@ -1001,6 +1001,14 @@
   "@dragDropHintText": {
     "description": "Text de pista mostrat quan la llista de preguntes està buida, indicant funcionalitat d'arrossegar i deixar anar."
   },
+  "randomizeQuestionsTitle": "Aleatoritzar preguntes",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Barrejar l'ordre de les preguntes durant l'execució del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
   "randomizeAnswersTitle": "Aleatoritzar opcions de resposta",
   "@randomizeAnswersTitle": {
     "description": "Títol per la configuració d'aleatorització d'opcions de resposta."
@@ -1016,6 +1024,10 @@
   "showCorrectAnswerCountDescription": "Mostrar el nombre de respostes correctes en preguntes d'elecció múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descripció per la configuració mostrar nombre de respostes correctes."
+  },
+  "showCorrectAnswerCountOffDescription": "El nombre de respostes correctes no es mostrarà en les preguntes d'opció múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Seleccioneu {count} respostes correctes",
   "@correctAnswersCount": {
@@ -1602,6 +1614,14 @@
   "close": "Tancar",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Les opcions de resposta apareixeran en el seu ordre original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuació i límits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Enhorabona! 🎉",
   "@congratulations": {

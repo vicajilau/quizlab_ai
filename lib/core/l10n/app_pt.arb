@@ -919,7 +919,11 @@
   },
   "showCorrectAnswerCountDescription": "Exibir o número de respostas corretas em perguntas de múltipla escolha",
   "@showCorrectAnswerCountDescription": {
-    "description": "Descrição para a configuração mostrar número de respostas corretas."
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "O número de respostas corretas não será mostrado para perguntas de múltipla escolha",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Selecione {count} respostas corretas",
   "@correctAnswersCount": {
@@ -1545,6 +1549,26 @@
   "close": "Fechar",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeQuestionsTitle": "Aleatorizar perguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Misturar a ordem das perguntas durante a execução do quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "As perguntas aparecerão na sua ordem original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersOffDescription": "As opções de resposta aparecerão na ordem original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Pontuação e limites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Parabéns! 🎉",
   "@congratulations": {

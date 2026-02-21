@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app/core/service_locator.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_options.dart';
 
@@ -27,12 +26,10 @@ class _QuizOptionsWrapperState extends State<QuizOptionsWrapper> {
   }
 
   Future<void> _loadConfiguration() async {
-    final showCorrectAnswerCount = await ConfigurationService.instance
-        .getShowCorrectAnswerCount();
-
-    // Get Study Mode setting from ServiceLocator
+    // Get settings from ServiceLocator
     final quizConfig = ServiceLocator.instance.getQuizConfig();
     final isStudyMode = quizConfig?.isStudyMode ?? false;
+    final showCorrectAnswerCount = quizConfig?.showCorrectAnswerCount ?? false;
 
     if (mounted) {
       setState(() {

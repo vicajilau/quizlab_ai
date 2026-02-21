@@ -897,6 +897,18 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
+  "randomizeQuestionsTitle": "प्रश्नों को मिलाएं",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "क्विज़ निष्पादन के दौरान प्रश्नों का क्रम बदलें",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "प्रश्न अपने मूल क्रम में दिखाई देंगे",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
   "randomizeAnswersTitle": "उत्तर विकल्पों को मिलाएं",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
@@ -912,6 +924,10 @@
   "showCorrectAnswerCountDescription": "बहुविकल्पीय प्रश्नों में सही उत्तरों की संख्या प्रदर्शित करें",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "बहुविकल्पीय प्रश्नों के लिए सही उत्तरों की संख्या नहीं दिखाई जाएगी",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "{count} सही उत्तर चुनें",
   "@correctAnswersCount": {
@@ -1509,6 +1525,14 @@
   "close": "बंद करें",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "उत्तर विकल्प अपने मूल क्रम में दिखाई देंगे",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "स्कोरिंग और सीमाएँ",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 बधाई हो! 🎉",
   "@congratulations": {

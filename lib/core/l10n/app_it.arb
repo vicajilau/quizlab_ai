@@ -905,6 +905,14 @@
   "@dragDropHintText": {
     "description": "Testo di suggerimento mostrato quando la lista domande è vuota, indicando la funzionalità drag and drop."
   },
+  "randomizeQuestionsTitle": "Randomizza domande",
+  "@randomizeQuestionsTitle": {
+    "description": "Titolo per l'impostazione di randomizzazione domande."
+  },
+  "randomizeQuestionsDescription": "Mescola l'ordine delle domande durante l'esecuzione del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descrizione per l'impostazione randomizza domande."
+  },
   "randomizeAnswersTitle": "Randomizza opzioni di risposta",
   "@randomizeAnswersTitle": {
     "description": "Titolo per l'impostazione di randomizzazione opzioni di risposta."
@@ -919,7 +927,11 @@
   },
   "showCorrectAnswerCountDescription": "Visualizza il numero di risposte corrette nelle domande a scelta multipla",
   "@showCorrectAnswerCountDescription": {
-    "description": "Descrizione per l'impostazione mostra numero risposte corrette."
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "Il numero di risposte corrette non verrà mostrato per le domande a scelta multipla",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Seleziona {count} risposte corrette",
   "@correctAnswersCount": {
@@ -1545,6 +1557,14 @@
   "close": "Chiudi",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Le opzioni di risposta appariranno nel loro ordine originale",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Punteggio e limiti",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Congratulazioni! 🎉",
   "@congratulations": {

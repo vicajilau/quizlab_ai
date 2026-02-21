@@ -687,16 +687,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dragDropHintText => '您也可以将.quiz文件拖拽到这里导入问题';
 
   @override
+  String get randomizeQuestionsTitle => '随机问题';
+
+  @override
+  String get randomizeQuestionsDescription => '在测验执行期间打乱问题顺序';
+
+  @override
+  String get randomizeQuestionsOffDescription => '问题将按其原始顺序出现';
+
+  @override
   String get randomizeAnswersTitle => '随机化答案选项';
 
   @override
   String get randomizeAnswersDescription => '在测验执行期间打乱答案选项的顺序';
 
   @override
+  String get randomizeAnswersOffDescription => '答案选项将按原始顺序出现';
+
+  @override
   String get showCorrectAnswerCountTitle => '显示正确答案数量';
 
   @override
   String get showCorrectAnswerCountDescription => '在多选题中显示正确答案的数量';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '多选题将不显示正确答案的数量';
 
   @override
   String correctAnswersCount(int count) {
@@ -1173,6 +1188,9 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get close => '关闭';
+
+  @override
+  String get scoringAndLimitsTitle => '评分和限制';
 
   @override
   String get congratulations => '🎉 恭喜！ 🎉';

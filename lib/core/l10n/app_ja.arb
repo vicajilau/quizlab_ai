@@ -643,67 +643,67 @@
   },
   "openaiApiKeyLabel": "OpenAI APIキー",
   "@openaiApiKeyLabel": {
-    "description": "Label for OpenAI API Key field"
+    "description": "OpenAI APIキー入力フィールドのラベル"
   },
   "openaiApiKeyHint": "OpenAI APIキーを入力してください（sk-...）",
   "@openaiApiKeyHint": {
-    "description": "Hint text for OpenAI API Key field"
+    "description": "OpenAI APIキー入力フィールドのヒントテキスト"
   },
   "openaiApiKeyDescription": "OpenAI連携に必要です。OpenAIキーは安全に保存されます。",
   "@openaiApiKeyDescription": {
-    "description": "Description for OpenAI API Key field"
+    "description": "OpenAI APIキー入力フィールドの説明"
   },
   "aiAssistantRequiresApiKeyError": "AI学習アシスタントにはOpenAI APIキーが必要です。APIキーを入力するか、AIアシスタントを無効にしてください。",
   "@aiAssistantRequiresApiKeyError": {
-    "description": "Error message when AI Assistant is enabled but no API key is provided"
+    "description": "AIアシスタントが有効になっているがAPIキーが提供されていないときのエラーメッセージ"
   },
   "getApiKeyTooltip": "OpenAIからAPIキーを取得",
   "@getApiKeyTooltip": {
-    "description": "Tooltip for the button to get API key from OpenAI"
+    "description": "OpenAIからAPIキーを取得するボタンのツールチップ"
   },
   "deleteAction": "削除",
   "@deleteAction": {
-    "description": "Delete action text shown when swiping to delete"
+    "description": "スワイプして削除するときに表示されるアクションテキスト"
   },
   "explanationLabel": "解説（任意）",
   "@explanationLabel": {
-    "description": "Label for the explanation input field"
+    "description": "解説入力フィールドのラベル"
   },
   "explanationHint": "正解の解説を入力してください",
   "@explanationHint": {
-    "description": "Hint text for the explanation input field"
+    "description": "解説入力フィールドのヒントテキスト"
   },
   "explanationTitle": "解説",
   "@explanationTitle": {
-    "description": "Title for the explanation section in quiz results"
+    "description": "クイズ結果の解説セクションのタイトル"
   },
   "imageLabel": "画像",
   "@imageLabel": {
-    "description": "Label for the image section in question editor"
+    "description": "問題エディタの画像セクションのラベル"
   },
   "changeImage": "画像を変更",
   "@changeImage": {
-    "description": "Text for button to change current image"
+    "description": "現在の画像を変更するボタンのテキスト"
   },
   "removeImage": "画像を削除",
   "@removeImage": {
-    "description": "Text for button to remove current image"
+    "description": "現在の画像を削除するボタンのテキスト"
   },
   "addImageTap": "タップして画像を追加",
   "@addImageTap": {
-    "description": "Instructional text for adding an image"
+    "description": "画像追加のための説明テキスト"
   },
   "imageFormats": "形式：JPG、PNG、GIF",
   "@imageFormats": {
-    "description": "Text indicating supported image formats"
+    "description": "サポートされている画像形式を示すテキスト"
   },
   "imageLoadError": "画像読み込みエラー",
   "@imageLoadError": {
-    "description": "Error message when image cannot be loaded"
+    "description": "画像が読み込めないときのエラーメッセージ"
   },
   "imagePickError": "画像読み込みエラー：{error}",
   "@imagePickError": {
-    "description": "Error message when image selection fails",
+    "description": "画像選択に失敗したときのエラーメッセージ",
     "placeholders": {
       "error": {
         "type": "String",
@@ -713,71 +713,71 @@
   },
   "tapToZoom": "タップして拡大",
   "@tapToZoom": {
-    "description": "Instructional text to indicate image can be zoomed"
+    "description": "画像が拡大できることを示すための説明テキスト"
   },
   "trueLabel": "真",
   "@trueLabel": {
-    "description": "Label for true option in true/false questions"
+    "description": "正誤問題の「真」の選択肢のラベル"
   },
   "falseLabel": "偽",
   "@falseLabel": {
-    "description": "Label for false option in true/false questions"
+    "description": "正誤問題の「偽」の選択肢のラベル"
   },
   "addQuestion": "問題を追加",
   "@addQuestion": {
-    "description": "Title for adding a new question dialog"
+    "description": "新しい問題を追加するダイアログのタイトル"
   },
   "editQuestion": "問題を編集",
   "@editQuestion": {
-    "description": "Title for editing an existing question dialog"
+    "description": "既存の問題を編集するダイアログのタイトル"
   },
   "questionText": "問題文",
   "@questionText": {
-    "description": "Label for question text input field"
+    "description": "問題文入力フィールドのラベル"
   },
   "questionType": "問題の種類",
   "@questionType": {
-    "description": "Label for question type dropdown"
+    "description": "問題の種類ドロップダウンのラベル"
   },
   "addOption": "選択肢を追加",
   "@addOption": {
-    "description": "Label for add option button"
+    "description": "選択肢を追加するボタンのラベル"
   },
   "optionLabel": "選択肢",
   "@optionLabel": {
-    "description": "Label for individual option input field"
+    "description": "個々の選択肢入力フィールドのラベル"
   },
   "questionTextRequired": "問題文は必須です",
   "@questionTextRequired": {
-    "description": "Error message when question text is empty"
+    "description": "問題文が空の場合のエラーメッセージ"
   },
   "atLeastOneOptionRequired": "少なくとも1つの選択肢にテキストが必要です",
   "@atLeastOneOptionRequired": {
-    "description": "Error message when all options are empty"
+    "description": "すべての選択肢が空の場合のエラーメッセージ"
   },
   "atLeastOneCorrectAnswerRequired": "少なくとも1つの正解を選択する必要があります",
   "@atLeastOneCorrectAnswerRequired": {
-    "description": "Error message when no correct answer is selected"
+    "description": "正解が選択されていないときのエラーメッセージ"
   },
   "onlyOneCorrectAnswerAllowed": "この問題の種類では正解は1つのみ許可されています",
   "@onlyOneCorrectAnswerAllowed": {
-    "description": "Error message when multiple correct answers are selected for single choice questions"
+    "description": "単一選択問題で複数の正解が選択されたときのエラーメッセージ"
   },
   "removeOption": "選択肢を削除",
   "@removeOption": {
-    "description": "Tooltip for remove option button"
+    "description": "選択肢を削除するボタンのツールチップ"
   },
   "selectCorrectAnswer": "正解を選択",
   "@selectCorrectAnswer": {
-    "description": "Tooltip for radio button to select correct answer"
+    "description": "正解を選択するためのラジオボタンのツールチップ"
   },
   "selectCorrectAnswers": "正解を選択",
   "@selectCorrectAnswers": {
-    "description": "Tooltip for checkbox to select correct answers"
+    "description": "正解を選択するためのチェックボックスのツールチップ"
   },
   "emptyOptionsError": "選択肢{optionNumbers}が空です。テキストを追加するか削除してください。",
   "@emptyOptionsError": {
-    "description": "Error message when some options are empty",
+    "description": "一部の選択肢が空の場合のエラーメッセージ",
     "placeholders": {
       "optionNumbers": {
         "type": "String",
@@ -787,7 +787,7 @@
   },
   "emptyOptionError": "選択肢{optionNumber}が空です。テキストを追加するか削除してください。",
   "@emptyOptionError": {
-    "description": "Error message when one option is empty",
+    "description": "1つの選択肢が空の場合のエラーメッセージ",
     "placeholders": {
       "optionNumber": {
         "type": "String",
@@ -797,19 +797,19 @@
   },
   "optionEmptyError": "この選択肢を空にすることはできません",
   "@optionEmptyError": {
-    "description": "Error message for individual empty option field"
+    "description": "個々の空の選択肢フィールドのエラーメッセージ"
   },
   "hasImage": "画像",
   "@hasImage": {
-    "description": "Label indicating that a question has an image"
+    "description": "問題に画像があることを示すラベル"
   },
   "hasExplanation": "解説",
   "@hasExplanation": {
-    "description": "Label indicating that a question has an explanation"
+    "description": "問題に解説があることを示すラベル"
   },
   "errorLoadingSettings": "設定の読み込みエラー：{error}",
   "@errorLoadingSettings": {
-    "description": "Message displayed when there is an error while loading application settings.",
+    "description": "アプリケーション設定の読み込み中にエラーが発生した場合に表示されるメッセージ",
     "placeholders": {
       "error": {
         "type": "String",
@@ -819,21 +819,21 @@
   },
   "couldNotOpenUrl": "{url}を開けませんでした",
   "@couldNotOpenUrl": {
-    "description": "Message displayed when a URL cannot be opened.",
+    "description": "URLを開けなかったときに表示されるメッセージ",
     "placeholders": {
       "url": {
         "type": "String",
-        "description": "The URL that could not be opened"
+        "description": "開けなかったURL"
       }
     }
   },
   "loadingAiServices": "AIサービスを読み込み中...",
   "@loadingAiServices": {
-    "description": "Message displayed while loading available AI services."
+    "description": "利用可能なAIサービスを読み込み中に表示されるメッセージ"
   },
   "usingAiService": "使用中：{serviceName}",
   "@usingAiService": {
-    "description": "Message displayed showing which AI service is being used.",
+    "description": "使用中のAIサービスを示すメッセージ",
     "placeholders": {
       "serviceName": {
         "type": "String",
@@ -843,19 +843,19 @@
   },
   "aiServiceLabel": "AIサービス：",
   "@aiServiceLabel": {
-    "description": "Label for the AI service selector."
+    "description": "AIサービスセレクタのラベル"
   },
   "aiModelLabel": "モデル：",
   "@aiModelLabel": {
-    "description": "Label for the AI model selector."
+    "description": "AIモデルセレクタのラベル"
   },
   "importQuestionsTitle": "問題をインポート",
   "@importQuestionsTitle": {
-    "description": "Title for the import questions dialog."
+    "description": "問題をインポートダイアログのタイトル"
   },
   "importQuestionsMessage": "\"{fileName}\"に{count}個の問題が見つかりました。どこにインポートしますか？",
   "@importQuestionsMessage": {
-    "description": "Message asking where to import questions from another file.",
+    "description": "別のファイルから問題をインポートする場所を尋ねるメッセージ",
     "placeholders": {
       "count": {
         "type": "int",
@@ -869,19 +869,19 @@
   },
   "importQuestionsPositionQuestion": "これらの問題をどこに追加しますか？",
   "@importQuestionsPositionQuestion": {
-    "description": "Question asking about import position."
+    "description": "インポート位置に関する質問"
   },
   "importAtBeginning": "最初",
   "@importAtBeginning": {
-    "description": "Button to import questions at the beginning of the list."
+    "description": "リストの先頭に問題をインポートするボタン"
   },
   "importAtEnd": "最後",
   "@importAtEnd": {
-    "description": "Button to import questions at the end of the list."
+    "description": "リストの最後に問題をインポートするボタン"
   },
   "questionsImportedSuccess": "{count}個の問題を正常にインポートしました",
   "@questionsImportedSuccess": {
-    "description": "Success message when questions are imported.",
+    "description": "問題が正常にインポートされたときの成功メッセージ",
     "placeholders": {
       "count": {
         "type": "int",
@@ -891,27 +891,39 @@
   },
   "importQuestionsTooltip": "別のクイズファイルから問題をインポート",
   "@importQuestionsTooltip": {
-    "description": "Tooltip for the import questions button."
+    "description": "インポートする問題ボタンのツールチップ"
   },
   "dragDropHintText": "問題をインポートするために.quizファイルをここにドラッグ&ドロップすることもできます",
   "@dragDropHintText": {
-    "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
+    "description": "問題リストが空のときに表示されるヒントテキスト。ドラッグ＆ドロップ機能を示します。"
+  },
+  "randomizeQuestionsTitle": "問題をランダム化",
+  "@randomizeQuestionsTitle": {
+    "description": "問題のランダム化設定のタイトル"
+  },
+  "randomizeQuestionsDescription": "クイズ実行中に問題の順序をシャッフル",
+  "@randomizeQuestionsDescription": {
+    "description": "問題のランダム化設定の説明"
   },
   "randomizeAnswersTitle": "回答選択肢をランダム化",
   "@randomizeAnswersTitle": {
-    "description": "Title for the setting to randomize answer options."
+    "description": "回答選択肢のランダム化設定のタイトル"
   },
   "randomizeAnswersDescription": "クイズ実行中に回答選択肢の順序をシャッフル",
   "@randomizeAnswersDescription": {
-    "description": "Description for the randomize answers setting."
+    "description": "回答選択肢のランダム化設定の説明"
   },
   "showCorrectAnswerCountTitle": "正解数を表示",
   "@showCorrectAnswerCountTitle": {
-    "description": "Title for the setting to show correct answer count."
+    "description": "正解数表示設定のタイトル"
   },
   "showCorrectAnswerCountDescription": "複数選択問題で正解の数を表示",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "選択式問題の正解数は表示されません",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "{count}つの正解を選択",
   "@correctAnswersCount": {
@@ -925,59 +937,59 @@
   },
   "correctSelectedLabel": "正解",
   "@correctSelectedLabel": {
-    "description": "Label for correctly selected answers in quiz results."
+    "description": "クイズ結果で正しく選択された回答のラベル"
   },
   "correctMissedLabel": "正解",
   "@correctMissedLabel": {
-    "description": "Label for correct answers that were not selected in quiz results."
+    "description": "クイズ結果で選択されなかった正解のラベル"
   },
   "incorrectSelectedLabel": "不正解",
   "@incorrectSelectedLabel": {
-    "description": "Label for incorrectly selected answers in quiz results."
+    "description": "クイズ結果で不正に選択された回答のラベル"
   },
   "generateQuestionsWithAI": "AIで問題を生成",
   "@generateQuestionsWithAI": {
-    "description": "Tooltip for the generate questions with AI button."
+    "description": "AIで問題を生成するボタンのツールチップ"
   },
   "addQuestionsWithAI": "AIで質問を追加",
   "@addQuestionsWithAI": {
-    "description": "Label for the button to add more questions using AI when some already exist."
+    "description": "AIで質問を追加するボタンのラベル"
   },
   "aiGenerateDialogTitle": "AIで問題を生成",
   "@aiGenerateDialogTitle": {
-    "description": "Title of the AI question generation dialog."
+    "description": "AIで問題を生成するダイアログのタイトル"
   },
   "aiQuestionCountLabel": "問題数（任意）",
   "@aiQuestionCountLabel": {
-    "description": "Label for the question count field."
+    "description": "問題数フィールドのラベル"
   },
   "aiQuestionCountHint": "AIに決めさせる場合は空白のままにしてください",
   "@aiQuestionCountHint": {
-    "description": "Hint text for the question count field."
+    "description": "問題数フィールドのヒントテキスト"
   },
   "aiQuestionCountValidation": "1から50までの数字である必要があります",
   "@aiQuestionCountValidation": {
-    "description": "Validation message for question count."
+    "description": "問題数フィールドのバリデーションメッセージ"
   },
   "aiQuestionTypeLabel": "問題の種類",
   "@aiQuestionTypeLabel": {
-    "description": "Label for the question type selector."
+    "description": "問題の種類セレクターのラベル"
   },
   "aiQuestionTypeRandom": "ランダム（混合）",
   "@aiQuestionTypeRandom": {
-    "description": "Random type option for questions."
+    "description": "問題のランダムタイプオプション"
   },
   "aiLanguageLabel": "問題の言語",
   "@aiLanguageLabel": {
-    "description": "Label for the language selector."
+    "description": "言語セレクターのラベル"
   },
   "aiContentLabel": "問題生成元のコンテンツ",
   "@aiContentLabel": {
-    "description": "Label for the content field."
+    "description": "コンテンツフィールドのラベル"
   },
   "aiWordCount": "{current} / {max} 語",
   "@aiWordCount": {
-    "description": "Word counter for content.",
+    "description": "コンテンツのワードカウンター",
     "placeholders": {
       "current": {
         "type": "int",
@@ -991,15 +1003,15 @@
   },
   "aiContentHint": "問題を生成したいテキスト、トピック、またはコンテンツを入力してください...",
   "@aiContentHint": {
-    "description": "Hint text for the content field."
+    "description": "コンテンツフィールドのヒントテキスト"
   },
   "aiContentHelperText": "AIはこのコンテンツに基づいて問題を作成します",
   "@aiContentHelperText": {
-    "description": "Additional helper text for the content field."
+    "description": "コンテンツフィールドの追加ヘルパーテキスト"
   },
   "aiWordLimitError": "{max}語の制限を超えています",
   "@aiWordLimitError": {
-    "description": "Error when word limit is exceeded.",
+    "description": "ワード制限を超えたときのバリデーションエラー",
     "placeholders": {
       "max": {
         "type": "int",
@@ -1009,11 +1021,11 @@
   },
   "aiContentRequiredError": "問題を生成するためにコンテンツを提供する必要があります",
   "@aiContentRequiredError": {
-    "description": "Error when no content is provided."
+    "description": "コンテンツが提供されていないときのバリデーションエラー"
   },
   "aiContentLimitError": "コンテンツが{max}語の制限を超えています",
   "@aiContentLimitError": {
-    "description": "Validation error for word limit.",
+    "description": "ワード制限を超えたときのバリデーションエラー",
     "placeholders": {
       "max": {
         "type": "int",
@@ -1023,115 +1035,115 @@
   },
   "aiMinWordsError": "質の高い問題を生成するために少なくとも10語を提供してください",
   "@aiMinWordsError": {
-    "description": "Error when content is too short."
+    "description": "コンテンツが短すぎる場合のバリデーションエラー"
   },
   "aiInfoTitle": "情報",
   "@aiInfoTitle": {
-    "description": "Title of the information section."
+    "description": "情報セクションのタイトル"
   },
   "aiInfoDescription": "• AIがコンテンツを分析して関連する問題を生成します\n• 10語未満であれば「トピックモード」になり、特定のテーマについて質問します\n• 10語以上であれば「コンテンツモード」になり、入力されたテキストに基づいて質問します（単語数が多いほど、精度が高まります）\n• テキスト、定義、説明、または任意の教育材料を含めることができます\n• 問題には回答選択肢と解説が含まれます\n• 処理には数秒かかる場合があります",
   "@aiInfoDescription": {
-    "description": "Informative description about the AI generation process."
+    "description": "AI生成プロセスの説明"
   },
   "aiGenerateButton": "問題を生成",
   "@aiGenerateButton": {
-    "description": "Text for the generate questions button."
+    "description": "問題を生成するボタンのテキスト"
   },
   "languageSpanish": "Español",
   "@languageSpanish": {
-    "description": "Spanish language name."
+    "description": "スペイン語の言語名"
   },
   "languageEnglish": "English",
   "@languageEnglish": {
-    "description": "English language name."
+    "description": "英語の言語名"
   },
   "languageFrench": "Français",
   "@languageFrench": {
-    "description": "French language name."
+    "description": "フランス語の言語名"
   },
   "languageGerman": "Deutsch",
   "@languageGerman": {
-    "description": "German language name."
+    "description": "ドイツ語の言語名"
   },
   "languageGreek": "Ελληνικά",
   "@languageGreek": {
-    "description": "Greek language name."
+    "description": "ギリシャ語の言語名"
   },
   "languageItalian": "Italiano",
   "@languageItalian": {
-    "description": "Italian language name."
+    "description": "イタリア語の言語名"
   },
   "languagePortuguese": "Português",
   "@languagePortuguese": {
-    "description": "Portuguese language name."
+    "description": "ポルトガル語の言語名"
   },
   "languageCatalan": "Català",
   "@languageCatalan": {
-    "description": "Catalan language name."
+    "description": "カタルーニャ語の言語名"
   },
   "languageBasque": "Euskera",
   "@languageBasque": {
-    "description": "Basque language name."
+    "description": "バスク語の言語名"
   },
   "languageGalician": "Galego",
   "@languageGalician": {
-    "description": "Galician language name."
+    "description": "ガリシア語の言語名"
   },
   "languageHindi": "हिन्दी",
   "@languageHindi": {
-    "description": "Hindi language name."
+    "description": "ヒンディー語の言語名"
   },
   "languageChinese": "中文",
   "@languageChinese": {
-    "description": "Chinese language name."
+    "description": "中国語の言語名"
   },
   "languageArabic": "العربية",
   "@languageArabic": {
-    "description": "Arabic language name."
+    "description": "アラビア語の言語名"
   },
   "languageJapanese": "日本語",
   "@languageJapanese": {
-    "description": "Japanese language name."
+    "description": "日本語の言語名"
   },
   "aiServicesLoading": "AIサービスを読み込み中...",
   "@aiServicesLoading": {
-    "description": "Message shown while loading available AI services."
+    "description": "利用可能なAIサービスを読み込み中に表示されるメッセージ"
   },
   "aiServicesNotConfigured": "AIサービスが設定されていません",
   "@aiServicesNotConfigured": {
-    "description": "Message shown when no AI services are configured."
+    "description": "AIサービスが設定されていないときに表示されるメッセージ"
   },
   "aiGeneratedQuestions": "AI生成",
   "@aiGeneratedQuestions": {
-    "description": "Name for AI generated questions in the import dialog."
+    "description": "インポートダイアログでのAI生成問題の名前"
   },
   "aiApiKeyRequired": "AI生成を使用するには、設定で少なくとも1つのAI APIキーを設定してください。",
   "@aiApiKeyRequired": {
-    "description": "Message shown when no API keys are configured for AI."
+    "description": "AIのAPIキーが設定されていないときに表示されるメッセージ"
   },
   "aiGenerationFailed": "問題を生成できませんでした。異なるコンテンツで試してください。",
   "@aiGenerationFailed": {
-    "description": "Message shown when AI question generation fails."
+    "description": "AIによる問題生成に失敗したときに表示されるメッセージ"
   },
   "aiGenerationErrorTitle": "問題生成エラー",
   "@aiGenerationErrorTitle": {
-    "description": "AIによる問題生成時のエラーダイアログのタイトル。"
+    "description": "AIによる問題生成時のエラーダイアログのタイトル"
   },
   "noQuestionsInFile": "インポートされたファイルに問題が見つかりませんでした",
   "@noQuestionsInFile": {
-    "description": "Message shown when an imported file contains no questions."
+    "description": "インポートされたファイルに問題が見つからなかったときに表示されるメッセージ"
   },
   "couldNotAccessFile": "選択されたファイルにアクセスできませんでした",
   "@couldNotAccessFile": {
-    "description": "Message shown when a selected file cannot be accessed."
+    "description": "選択されたファイルにアクセスできなかったときに表示されるメッセージ"
   },
   "defaultOutputFileName": "output-file.quiz",
   "@defaultOutputFileName": {
-    "description": "Default name for output files."
+    "description": "出力ファイルのデフォルト名"
   },
   "aiServiceLimitsWithChars": "制限：{words}語または{chars}文字",
   "@aiServiceLimitsWithChars": {
-    "description": "Description of AI service limits with both word and character limits.",
+    "description": "単語数と文字数の両方の制限があるAIサービスの制限の説明",
     "placeholders": {
       "words": {
         "type": "int",
@@ -1145,7 +1157,7 @@
   },
   "aiServiceLimitsWordsOnly": "制限：{words}語",
   "@aiServiceLimitsWordsOnly": {
-    "description": "Description of AI service limits with only word limit.",
+    "description": "単語数のみの制限があるAIサービスの制限の説明",
     "placeholders": {
       "words": {
         "type": "int",
@@ -1329,35 +1341,35 @@
   },
   "aiAttachFile": "ファイルを添付",
   "@aiAttachFile": {
-    "description": "Label for the attach file button in AI generation dialog"
+    "description": "AI生成ダイアログのファイル添付ボタンのラベル"
   },
   "aiRemoveFile": "ファイルを削除",
   "@aiRemoveFile": {
-    "description": "Tooltip for the remove file button"
+    "description": "ファイル削除ボタンのツールチップ"
   },
   "aiFileMode": "ファイルモード",
   "@aiFileMode": {
-    "description": "Title for the file mode indicator"
+    "description": "ファイルモードインジケーターのタイトル"
   },
   "aiFileModeDescription": "添付されたファイルから質問が生成されます",
   "@aiFileModeDescription": {
-    "description": "Description for the file mode indicator"
+    "description": "ファイルモードインジケーターの説明"
   },
   "aiCommentsLabel": "コメント（任意）",
   "@aiCommentsLabel": {
-    "description": "Label for the comments field when a file is attached"
+    "description": "添付ファイルがある場合のコメントフィールドのラベル"
   },
   "aiCommentsHint": "添付ファイルに関する指示やコメントを追加...",
   "@aiCommentsHint": {
-    "description": "Hint text for the comments field when a file is attached"
+    "description": "添付ファイルがある場合のコメントフィールドのヒントテキスト"
   },
   "aiCommentsHelperText": "必要に応じて、ファイルから質問を生成する方法に関する指示を追加してください",
   "@aiCommentsHelperText": {
-    "description": "Helper text for the comments field when a file is attached"
+    "description": "添付ファイルがある場合のコメントフィールドのヘルパーテキスト"
   },
   "aiFilePickerError": "選択したファイルを読み込めませんでした",
   "@aiFilePickerError": {
-    "description": "Error message when file picker fails"
+    "description": "ファイルピッカーが失敗したときのエラーメッセージ"
   },
   "studyModeLabel": "学習モード",
   "studyModeDescription": "即時フィードバック、タイマーなし",
@@ -1375,7 +1387,7 @@
   "disable": "無効化",
   "reorderQuestionsTooltip": "質問を並べ替える",
   "@reorderQuestionsTooltip": {
-    "description": "Tooltip for the reorder questions button"
+    "description": "質問並べ替えボタンのツールチップ"
   },
   "quizPreviewTitle": "クイズプレビュー",
   "select": "選択",
@@ -1390,15 +1402,15 @@
   "deleteMultipleQuestionsConfirmation": "{count} 個の質問を削除してもよろしいですか？",
   "missingExplanation": "説明がありません",
   "@missingExplanation": {
-    "description": "Label indicating that a question is missing an explanation"
+    "description": "説明がない質問を示すラベル"
   },
   "missingExplanationTooltip": "この質問には説明がありません",
   "@missingExplanationTooltip": {
-    "description": "Tooltip text for the missing explanation badge"
+    "description": "説明欠落バッジのツールチップテキスト"
   },
   "questionTypeTooltip": "質問の種類: {type}",
   "@questionTypeTooltip": {
-    "description": "Tooltip text for the question type badge",
+    "description": "質問タイプバッジのツールチップテキスト",
     "placeholders": {
       "type": {
         "type": "String",
@@ -1423,11 +1435,11 @@
   "aiAttachFileHint": "ファイルを添付 (PDF, TXT, MP3, MP4,...)",
   "dropAttachmentHere": "ファイルをここにドロップ",
   "@dropAttachmentHere": {
-    "description": "Hint shown when dragging a file over the attachment area"
+    "description": "ファイルを添付領域にドラッグしたときに表示されるヒント"
   },
   "dropImageHere": "画像をここにドロップ",
   "@dropImageHere": {
-    "description": "Hint shown when dragging an image over the image section"
+    "description": "画像を画像セクションにドラッグしたときに表示されるヒント"
   },
   "aiNumberQuestionsLabel": "質問数",
   "backButton": "戻る",
@@ -1436,19 +1448,19 @@
   "aiTextModeCount": "テキストモード ({count} 語)",
   "aiGenerationCategoryLabel": "コンテンツモード",
   "@aiGenerationCategoryLabel": {
-    "description": "Label for AI generation category selector"
+    "description": "AI生成カテゴリセレクタのラベル"
   },
   "aiGenerationCategoryTheory": "理論",
   "@aiGenerationCategoryTheory": {
-    "description": "Label for theory category"
+    "description": "理論カテゴリのラベル"
   },
   "aiGenerationCategoryExercises": "演習",
   "@aiGenerationCategoryExercises": {
-    "description": "Label for exercises category"
+    "description": "演習カテゴリのラベル"
   },
   "aiGenerationCategoryBoth": "混合",
   "@aiGenerationCategoryBoth": {
-    "description": "Label for mixed category"
+    "description": "混合カテゴリのラベル"
   },
   "allLabel": "すべて",
   "@allLabel": {
@@ -1456,7 +1468,7 @@
   },
   "finishQuizUnansweredQuestions": "{unansweredCount,plural, =1{1 問の未回答があります}other{{unansweredCount} 問の未回答があります}}。クイズを終了してもよろしいですか？",
   "@finishQuizUnansweredQuestions": {
-    "description": "Message shown when there are unanswered questions.",
+    "description": "未回答の質問があるときに表示されるメッセージ",
     "placeholders": {
       "unansweredCount": {
         "type": "int",
@@ -1466,15 +1478,15 @@
   },
   "subtractPointsLabel": "不正解でポイントを減点",
   "@subtractPointsLabel": {
-    "description": "Label for the checkbox to subtract points for incorrect answers"
+    "description": "不正解でポイントを減点するチェックボックスのラベル"
   },
   "penaltyAmountLabel": "ペナルティ額",
   "@penaltyAmountLabel": {
-    "description": "Label for the input field to set the penalty amount"
+    "description": "ペナルティ額を設定する入力フィールドのラベル"
   },
   "penaltyPointsLabel": "-{amount} 点 / 誤答",
   "@penaltyPointsLabel": {
-    "description": "Label showing the points deducted per mistake",
+    "description": "誤答ごとに減点されるポイントを示すラベル",
     "placeholders": {
       "amount": {
         "type": "String",
@@ -1492,26 +1504,34 @@
   "clipboardNoImage": "クリップボードに画像が見つかりません",
   "maxIncorrectAnswersLabel": "不正解数を制限する",
   "@maxIncorrectAnswersLabel": {
-    "description": "Label for the toggle to limit incorrect answers"
+    "description": "不正解数を制限するトグルのラベル"
   },
   "maxIncorrectAnswersDescription": "制限に達するとクイズは直ちに終了します。",
   "@maxIncorrectAnswersDescription": {
-    "description": "Description for the limit incorrect answers feature"
+    "description": "不正解数制限機能の説明"
   },
   "maxIncorrectAnswersLimitLabel": "最大許容エラー数",
   "@maxIncorrectAnswersLimitLabel": {
-    "description": "Label for the input field of maximum incorrect answers"
+    "description": "最大許容エラー数の入力フィールドのラベル"
   },
   "quizFailedLimitReached": "クイズ停止：エラー制限に達しました",
   "@quizFailedLimitReached": {
-    "description": "Title for the results screen when the error limit is reached"
+    "description": "エラー制限に達したときの結果画面のタイトル"
   },
   "close": "閉じる",
   "@close": {
-    "description": "Close button text"
+    "description": "閉じるボタンのテキスト"
+  },
+  "randomizeAnswersOffDescription": "回答の選択肢は元の順序で表示されます",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "スコアと制限",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 おめでとうございます！ 🎉",
   "@congratulations": {
-    "description": "Congratulations message in winner dialog"
+    "description": "勝者ダイアログの「おめでとうございます」メッセージ"
   }
 }

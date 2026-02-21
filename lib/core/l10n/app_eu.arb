@@ -905,6 +905,14 @@
   "@dragDropHintText": {
     "description": "Galdera zerrenda hutsik dagoenean erakusten den aholku testua, arrastatu eta utzi funtzionalitatea adierazten."
   },
+  "randomizeQuestionsTitle": "Galderak Ausazkotu",
+  "@randomizeQuestionsTitle": {
+    "description": "Galderak ausazkotze konfigurazioaren izenburua."
+  },
+  "randomizeQuestionsDescription": "Quiz exekuzioan galderen ordena nahastu",
+  "@randomizeQuestionsDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena."
+  },
   "randomizeAnswersTitle": "Erantzun Aukerak Ausazkotu",
   "@randomizeAnswersTitle": {
     "description": "Erantzun aukeren ausazkotze konfigurazioaren izenburua."
@@ -1506,6 +1514,22 @@
   "close": "Itxi",
   "@close": {
     "description": "Close button text"
+  },
+  "showCorrectAnswerCountDescription": "Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan",
+  "@showCorrectAnswerCountDescription": {
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
+  },
+  "randomizeAnswersOffDescription": "Erantzun-aukerak jatorrizko ordenan agertuko dira",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuazioa eta mugak",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Zorionak! 🎉",
   "@congratulations": {

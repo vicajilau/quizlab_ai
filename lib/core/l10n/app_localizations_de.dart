@@ -728,11 +728,26 @@ class AppLocalizationsDe extends AppLocalizations {
       'Sie können auch .quiz-Dateien hierher ziehen und ablegen, um Fragen zu importieren';
 
   @override
+  String get randomizeQuestionsTitle => 'Fragen randomisieren';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Reihenfolge der Fragen während der Quiz-Ausführung mischen';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
   String get randomizeAnswersTitle => 'Antwortoptionen randomisieren';
 
   @override
   String get randomizeAnswersDescription =>
       'Reihenfolge der Antwortoptionen während der Quiz-Ausführung mischen';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Die Antwortoptionen erscheinen in ihrer ursprünglichen Reihenfolge';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -741,6 +756,10 @@ class AppLocalizationsDe extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Anzahl der richtigen Antworten in Mehrfachauswahl-Fragen anzeigen';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Die Anzahl der richtigen Antworten wird bei Multiple-Choice-Fragen nicht angezeigt';
 
   @override
   String correctAnswersCount(int count) {
@@ -1240,6 +1259,9 @@ class AppLocalizationsDe extends AppLocalizations {
 
   @override
   String get close => 'Schließen';
+
+  @override
+  String get scoringAndLimitsTitle => 'Bewertung und Limits';
 
   @override
   String get congratulations => '🎉 Herzlichen Glückwunsch! 🎉';

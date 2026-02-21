@@ -923,6 +923,14 @@
   "@dragDropHintText": {
     "description": "Texto de suxestión mostrado cando a lista de preguntas está baleira, indicando funcionalidade de arrastrar e soltar."
   },
+  "randomizeQuestionsTitle": "Randomizar Preguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Título para a configuración de randomización de preguntas."
+  },
+  "randomizeQuestionsDescription": "Baraxar a orde das preguntas durante a execución do quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas."
+  },
   "randomizeAnswersTitle": "Aleatorizar opcións de resposta",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuración de aleatorización de opcións de resposta."
@@ -938,6 +946,10 @@
   "showCorrectAnswerCountDescription": "Mostrar o número de respostas correctas en preguntas de elección múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descrición para a configuración mostrar número de respostas correctas."
+  },
+  "showCorrectAnswerCountOffDescription": "O número de respostas correctas non se mostrará nas preguntas de opción múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Selecciona {count} respostas correctas",
   "@correctAnswersCount": {
@@ -1506,6 +1518,14 @@
   "close": "Pechar",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "As opcións de resposta aparecerán na súa orde orixinal",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuación e límites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Parabéns! 🎉",
   "@congratulations": {

@@ -905,6 +905,18 @@
   "@dragDropHintText": {
     "description": "Texte d'indication affiché lorsque la liste de questions est vide, indiquant la fonctionnalité glisser-déposer."
   },
+  "randomizeQuestionsTitle": "Randomiser les Questions",
+  "@randomizeQuestionsTitle": {
+    "description": "Titre pour le paramètre de randomisation des questions."
+  },
+  "randomizeQuestionsDescription": "Mélanger l'ordre des questions pendant l'exécution du quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description pour le paramètre de randomisation des questions."
+  },
+  "randomizeQuestionsOffDescription": "Les questions apparaîtront dans leur ordre d'origine",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description pour le paramètre de randomisation des questions lorsqu'il est désactivé."
+  },
   "randomizeAnswersTitle": "Randomiser les Options de Réponse",
   "@randomizeAnswersTitle": {
     "description": "Titre pour le paramètre de randomisation des options de réponse."
@@ -913,6 +925,10 @@
   "@randomizeAnswersDescription": {
     "description": "Description pour le paramètre de randomisation des réponses."
   },
+  "randomizeAnswersOffDescription": "Les options de réponse apparaîtront dans leur ordre original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description pour le paramètre de randomisation des réponses lorsqu'il est désactivé."
+  },
   "showCorrectAnswerCountTitle": "Afficher le Nombre de Réponses Correctes",
   "@showCorrectAnswerCountTitle": {
     "description": "Titre pour le paramètre d'affichage du nombre de réponses correctes."
@@ -920,6 +936,10 @@
   "showCorrectAnswerCountDescription": "Afficher le nombre de réponses correctes dans les questions à choix multiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Description pour le paramètre d'affichage du nombre de réponses correctes."
+  },
+  "showCorrectAnswerCountOffDescription": "Le nombre de réponses correctes ne sera pas affiché pour les questions à choix multiples",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description pour le paramètre d'affichage du nombre de réponses correctes lorsqu'il est désactivé."
   },
   "correctAnswersCount": "Sélectionnez {count} réponses correctes",
   "@correctAnswersCount": {
@@ -1545,6 +1565,10 @@
   "close": "Fermer",
   "@close": {
     "description": "Close button text"
+  },
+  "scoringAndLimitsTitle": "Score et limites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Félicitations ! 🎉",
   "@congratulations": {

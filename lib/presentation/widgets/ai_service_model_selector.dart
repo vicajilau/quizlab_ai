@@ -324,7 +324,7 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
                     children: [
                       // AI Service Selector
                       buildSelector(
-                        label: '${localizations.aiServiceLabel}:',
+                        label: localizations.aiServiceLabel,
                         value: _selectedService?.serviceName,
                         items: _availableServices
                             .map(

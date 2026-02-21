@@ -1352,6 +1352,24 @@ abstract class AppLocalizations {
   /// **'You can also drag and drop .quiz files here to import questions'**
   String get dragDropHintText;
 
+  /// Title for the setting to randomize questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Randomize Questions'**
+  String get randomizeQuestionsTitle;
+
+  /// Description for the randomize questions setting.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle the order of questions during quiz execution'**
+  String get randomizeQuestionsDescription;
+
+  /// Description for the randomize questions setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions will appear in their original order'**
+  String get randomizeQuestionsOffDescription;
+
   /// Title for the setting to randomize answer options.
   ///
   /// In en, this message translates to:
@@ -1364,6 +1382,12 @@ abstract class AppLocalizations {
   /// **'Shuffle the order of answer options during quiz execution'**
   String get randomizeAnswersDescription;
 
+  /// Description for the randomize answers setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer options will appear in their original order'**
+  String get randomizeAnswersOffDescription;
+
   /// Title for the setting to show correct answer count.
   ///
   /// In en, this message translates to:
@@ -1375,6 +1399,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Display the number of correct answers in multiple choice questions'**
   String get showCorrectAnswerCountDescription;
+
+  /// Description for the show correct answer count setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'The number of correct answers will not be shown for multiple-choice questions'**
+  String get showCorrectAnswerCountOffDescription;
 
   /// Text showing how many correct answers to select in a multiple choice question.
   ///
@@ -2245,6 +2275,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Close'**
   String get close;
+
+  /// Title for the scoring and limits section in advanced settings
+  ///
+  /// In en, this message translates to:
+  /// **'Scoring and Limits'**
+  String get scoringAndLimitsTitle;
 
   /// Congratulations message in winner dialog
   ///

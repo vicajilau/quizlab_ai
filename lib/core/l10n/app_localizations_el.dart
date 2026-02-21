@@ -731,11 +731,26 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μπορείτε επίσης να σύρετε και να αποθέσετε αρχεία .quiz εδώ για εισαγωγή ερωτήσεων';
 
   @override
+  String get randomizeQuestionsTitle => 'Τυχαία Σειρά Ερωτήσεων';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Ανακάτεμα της σειράς των ερωτήσεων κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά';
+
+  @override
   String get randomizeAnswersTitle => 'Τυχαία Σειρά Απαντήσεων';
 
   @override
   String get randomizeAnswersDescription =>
       'Ανακάτεμα της σειράς των επιλογών απάντησης κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Οι επιλογές απάντησης θα εμφανίζονται με την αρχική τους σειρά';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -744,6 +759,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Εμφάνιση του αριθμού των σωστών απαντήσεων σε ερωτήσεις πολλαπλής επιλογής';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Ο αριθμός των σωστών απαντήσεων δεν θα εμφανίζεται για ερωτήσεις πολλαπλής επιλογής';
 
   @override
   String correctAnswersCount(int count) {
@@ -1244,6 +1263,9 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get close => 'Κλείσιμο';
+
+  @override
+  String get scoringAndLimitsTitle => 'Βαθμολογία και όρια';
 
   @override
   String get congratulations => '🎉 Συγχαρητήρια! 🎉';

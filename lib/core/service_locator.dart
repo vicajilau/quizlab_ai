@@ -53,7 +53,7 @@ class ServiceLocator {
     if (getIt.isRegistered<QuizConfig>()) {
       getIt.unregister<QuizConfig>();
     }
-    getIt.registerLazySingleton<QuizConfig>(() => config);
+    getIt.registerSingleton<QuizConfig>(config);
   }
 
   // Function to get the registered quiz configuration

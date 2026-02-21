@@ -257,10 +257,20 @@
   "questionsImportedSuccess": "Εισήχθησαν επιτυχώς {count} ερωτήσεις",
   "importQuestionsTooltip": "Εισαγωγή ερωτήσεων από άλλο αρχείο quiz",
   "dragDropHintText": "Μπορείτε επίσης να σύρετε και να αποθέσετε αρχεία .quiz εδώ για εισαγωγή ερωτήσεων",
+  "randomizeQuestionsTitle": "Τυχαία Σειρά Ερωτήσεων",
+  "randomizeQuestionsDescription": "Ανακάτεμα της σειράς των ερωτήσεων κατά την εκτέλεση του κουίζ",
+  "randomizeQuestionsOffDescription": "Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά",
   "randomizeAnswersTitle": "Τυχαία Σειρά Απαντήσεων",
   "randomizeAnswersDescription": "Ανακάτεμα της σειράς των επιλογών απάντησης κατά την εκτέλεση του κουίζ",
   "showCorrectAnswerCountTitle": "Εμφάνιση Αριθμού Σωστών Απαντήσεων",
   "showCorrectAnswerCountDescription": "Εμφάνιση του αριθμού των σωστών απαντήσεων σε ερωτήσεις πολλαπλής επιλογής",
+  "@showCorrectAnswerCountDescription": {
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "Ο αριθμός των σωστών απαντήσεων δεν θα εμφανίζεται για ερωτήσεις πολλαπλής επιλογής",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
+  },
   "correctAnswersCount": "Επιλέξτε {count} σωστές απαντήσεις",
   "correctSelectedLabel": "Σωστό",
   "correctMissedLabel": "Σωστό",
@@ -470,6 +480,14 @@
   "close": "Κλείσιμο",
   "@close": {
     "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Οι επιλογές απάντησης θα εμφανίζονται με την αρχική τους σειρά",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Βαθμολογία και όρια",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
   },
   "congratulations": "🎉 Συγχαρητήρια! 🎉",
   "@congratulations": {
