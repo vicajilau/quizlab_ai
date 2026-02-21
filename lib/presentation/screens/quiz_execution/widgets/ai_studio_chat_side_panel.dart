@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
@@ -255,13 +255,14 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
   @override
   Widget build(BuildContext context) {
     final localizations = AppLocalizations.of(context)!;
-    final isDark = Theme.of(context).brightness == Brightness.dark;
-    final colors = context.appColors;
-    final borderColor = isDark ? Colors.transparent : AppTheme.borderColor;
+    final aiTheme = Theme.of(context).extension<AiAssistantTheme>()!;
+    final borderColor = aiTheme.sidebarBorderColor;
+    final sidebarBg = aiTheme.sidebarBg;
+    final headerBtnBg = aiTheme.sidebarHeaderBtnBg;
 
     return Container(
       decoration: BoxDecoration(
-        color: colors.card,
+        color: sidebarBg,
         border: widget.isFullScreen
             ? null
             : Border(left: BorderSide(color: borderColor, width: 1)),
@@ -285,7 +286,7 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                         const Icon(
                           LucideIcons.sparkles,
                           color: AppTheme.primaryColor,
-                          size: 24,
+                          size: 22,
                         ),
                         const SizedBox(width: 12),
                         Flexible(
@@ -293,9 +294,9 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                             localizations.aiAssistantTitle,
                             style: TextStyle(
                               fontFamily: 'Inter',
-                              fontSize: 20,
+                              fontSize: 18,
                               fontWeight: FontWeight.w700,
-                              color: colors.title,
+                              color: aiTheme.chatTitleColor,
                             ),
                             overflow: TextOverflow.ellipsis,
                           ),
@@ -307,29 +308,28 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                     width: 36,
                     height: 36,
                     decoration: BoxDecoration(
-                      color: colors.surface,
+                      color: headerBtnBg,
                       borderRadius: BorderRadius.circular(18),
                     ),
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         LucideIcons.panelRightClose,
-                        color: colors.subtitle,
+                        color: AppTheme.zinc400,
                         size: 18,
                       ),
                       onPressed: widget.onClose,
                       padding: EdgeInsets.zero,
                       constraints: const BoxConstraints(),
                       style: IconButton.styleFrom(
-                        backgroundColor: colors.surface,
+                        backgroundColor: headerBtnBg,
                         shape: const CircleBorder(),
                       ),
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 16),
+              const SizedBox(height: 20),
 
-              // Service/Model Selector
               AiServiceModelSelector(
                 onServiceChanged: (service) {
                   setState(() => _selectedService = service);
@@ -339,7 +339,7 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                 },
                 saveToPreferences: true,
               ),
-              const SizedBox(height: 12),
+              const SizedBox(height: 20),
 
               // Chat Area
               Expanded(child: _buildChatList(context, localizations)),
@@ -352,30 +352,26 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                   Expanded(
                     child: Container(
                       decoration: BoxDecoration(
-                        color: isDark ? AppTheme.borderColorDark : Colors.white,
-                        borderRadius: BorderRadius.circular(12),
-                        border: isDark
-                            ? null
-                            : Border.all(color: AppTheme.borderColor),
+                        color: aiTheme.inputFillColor,
+                        borderRadius: BorderRadius.circular(24),
+                        border: Border.all(color: borderColor),
                       ),
                       child: TextField(
                         controller: _questionController,
                         decoration: InputDecoration(
                           hintText: localizations.askAIHint,
                           hintStyle: TextStyle(
-                            color: isDark
-                                ? AppTheme.zinc400
-                                : AppTheme.textSecondaryColor,
+                            color: aiTheme.inputHintColor,
                             fontFamily: 'Inter',
                           ),
                           border: InputBorder.none,
                           contentPadding: const EdgeInsets.symmetric(
-                            horizontal: 16,
-                            vertical: 14,
+                            horizontal: 20,
+                            vertical: 12,
                           ),
                         ),
                         style: TextStyle(
-                          color: colors.title,
+                          color: aiTheme.chatTitleColor,
                           fontFamily: 'Inter',
                         ),
                         maxLines: 3,
@@ -398,10 +394,8 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                           decoration: BoxDecoration(
                             color: canSend
                                 ? Theme.of(context).primaryColor
-                                : (isDark
-                                      ? AppTheme.borderColorDark
-                                      : AppTheme.borderColor),
-                            borderRadius: BorderRadius.circular(12),
+                                : aiTheme.sidebarBorderColor,
+                            borderRadius: BorderRadius.circular(24),
                           ),
                           alignment: Alignment.center,
                           child: _isLoading
