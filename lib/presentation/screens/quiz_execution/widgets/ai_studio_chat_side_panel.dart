@@ -3,6 +3,7 @@ import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
+import 'package:quiz_app/core/extensions/focus_node_extension.dart';
 import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
@@ -32,6 +33,7 @@ class AiStudioChatSidePanel extends StatefulWidget {
 class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
   final TextEditingController _questionController = TextEditingController();
   final ScrollController _scrollController = ScrollController();
+  final FocusNode _focusNode = FocusNode();
   bool _isLoading = false;
 
   final List<ChatMessage> _messages = [];
@@ -49,9 +51,16 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
   }
 
   @override
+  void initState() {
+    super.initState();
+    _focusNode.setupAiChatKeyHandler(_askAI);
+  }
+
+  @override
   void dispose() {
     _questionController.dispose();
     _scrollController.dispose();
+    _focusNode.dispose();
     super.dispose();
   }
 
@@ -358,6 +367,7 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                       ),
                       child: TextField(
                         controller: _questionController,
+                        focusNode: _focusNode,
                         decoration: InputDecoration(
                           hintText: localizations.askAIHint,
                           hintStyle: TextStyle(
@@ -376,7 +386,7 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                         ),
                         maxLines: 3,
                         minLines: 1,
-                        onSubmitted: (_) => _askAI(),
+                        textInputAction: TextInputAction.newline,
                       ),
                     ),
                   ),
