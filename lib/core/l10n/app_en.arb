@@ -447,7 +447,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "Random",
+  "questionOrderRandom": "Randomize Questions Order",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -985,7 +985,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Description for the randomize questions setting when disabled."
   },
-  "randomizeAnswersTitle": "Randomize Answer Options",
+  "randomizeAnswersTitle": "Randomize Answers Order",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },

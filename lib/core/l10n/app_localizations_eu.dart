@@ -338,7 +338,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak azkenatik 1era ordenean agertuko dira';
 
   @override
-  String get questionOrderRandom => 'Ausazkoa';
+  String get questionOrderRandom => 'Galderen ordena ausazkotu';
 
   @override
   String get questionOrderRandomDesc =>
@@ -741,7 +741,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak jatorrizko ordenan agertuko dira';
 
   @override
-  String get randomizeAnswersTitle => 'Erantzun Aukerak Ausazkotu';
+  String get randomizeAnswersTitle => 'Erantzunen ordena ausazkotu';
 
   @override
   String get randomizeAnswersDescription =>

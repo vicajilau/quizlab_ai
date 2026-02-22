@@ -341,7 +341,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι ερωτήσεις θα εμφανίζονται από το τέλος προς το 1';
 
   @override
-  String get questionOrderRandom => 'Τυχαία';
+  String get questionOrderRandom => 'Τυχαία σειρά ερωτήσεων';
 
   @override
   String get questionOrderRandomDesc =>
@@ -745,7 +745,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά';
 
   @override
-  String get randomizeAnswersTitle => 'Τυχαία Σειρά Απαντήσεων';
+  String get randomizeAnswersTitle => 'Τυχαία σειρά απαντήσεων';
 
   @override
   String get randomizeAnswersDescription =>

@@ -405,7 +405,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrição para a opção ordem decrescente das perguntas"
   },
-  "questionOrderRandom": "Aleatório",
+  "questionOrderRandom": "Aleatorizar a ordem das perguntas",
   "@questionOrderRandom": {
     "description": "Rótulo para a opção ordem aleatória das perguntas"
   },
@@ -905,7 +905,7 @@
   "@dragDropHintText": {
     "description": "Texto de dica mostrado quando a lista de perguntas está vazia, indicando funcionalidade drag and drop."
   },
-  "randomizeAnswersTitle": "Aleatorizar opções de resposta",
+  "randomizeAnswersTitle": "Aleatorizar a ordem das respostas",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuração de aleatorização das opções de resposta."
   },

@@ -322,7 +322,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get questionOrderDescendingDesc => '問題は最後から1まで表示されます';
 
   @override
-  String get questionOrderRandom => 'ランダム';
+  String get questionOrderRandom => '問題の順序をランダム化';
 
   @override
   String get questionOrderRandomDesc => '問題はランダム順で表示されます';
@@ -703,7 +703,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get randomizeQuestionsOffDescription => '問題は元の順序で表示されます';
 
   @override
-  String get randomizeAnswersTitle => '回答選択肢をランダム化';
+  String get randomizeAnswersTitle => '回答の順序をランダム化';
 
   @override
   String get randomizeAnswersDescription => 'クイズ実行中に回答選択肢の順序をシャッフル';

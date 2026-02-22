@@ -689,7 +689,7 @@ abstract class AppLocalizations {
   /// Label for random question order option
   ///
   /// In en, this message translates to:
-  /// **'Random'**
+  /// **'Randomize Questions Order'**
   String get questionOrderRandom;
 
   /// Description for random question order option
@@ -1379,7 +1379,7 @@ abstract class AppLocalizations {
   /// Title for the setting to randomize answer options.
   ///
   /// In en, this message translates to:
-  /// **'Randomize Answer Options'**
+  /// **'Randomize Answers Order'**
   String get randomizeAnswersTitle;
 
   /// Description for the randomize answers setting.

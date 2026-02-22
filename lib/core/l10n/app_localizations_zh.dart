@@ -322,7 +322,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get questionOrderDescendingDesc => '问题将从结尾到1显示';
 
   @override
-  String get questionOrderRandom => '随机';
+  String get questionOrderRandom => '随机化问题顺序';
 
   @override
   String get questionOrderRandomDesc => '问题将随机显示';
@@ -699,7 +699,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get randomizeQuestionsOffDescription => '问题将按其原始顺序出现';
 
   @override
-  String get randomizeAnswersTitle => '随机化答案选项';
+  String get randomizeAnswersTitle => '随机化答案顺序';
 
   @override
   String get randomizeAnswersDescription => '在测验执行期间打乱答案选项的顺序';

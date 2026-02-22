@@ -485,7 +485,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descripció per l'opció ordre descendent de les preguntes"
   },
-  "questionOrderRandom": "Aleatori",
+  "questionOrderRandom": "Aleatoritzar l'ordre de les preguntes",
   "@questionOrderRandom": {
     "description": "Etiqueta per l'opció ordre aleatori de les preguntes"
   },
@@ -1013,7 +1013,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Description for the randomize questions setting when disabled."
   },
-  "randomizeAnswersTitle": "Aleatoritzar opcions de resposta",
+  "randomizeAnswersTitle": "Aleatoritzar l'ordre de les respostes",
   "@randomizeAnswersTitle": {
     "description": "Títol per la configuració d'aleatorització d'opcions de resposta."
   },

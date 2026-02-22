@@ -333,7 +333,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get questionOrderDescendingDesc => 'प्रश्न अंत से 1 तक दिखेंगे';
 
   @override
-  String get questionOrderRandom => 'यादृच्छिक';
+  String get questionOrderRandom => 'प्रश्नों का क्रम यादृच्छिक करें';
 
   @override
   String get questionOrderRandomDesc => 'प्रश्न यादृच्छिक क्रम में दिखेंगे';
@@ -732,7 +732,7 @@ class AppLocalizationsHi extends AppLocalizations {
       'प्रश्न अपने मूल क्रम में दिखाई देंगे';
 
   @override
-  String get randomizeAnswersTitle => 'उत्तर विकल्पों को मिलाएं';
+  String get randomizeAnswersTitle => 'उत्तरों का क्रम यादृच्छिक करें';
 
   @override
   String get randomizeAnswersDescription =>

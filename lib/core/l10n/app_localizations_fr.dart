@@ -340,7 +340,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Les questions apparaîtront de la fin à 1';
 
   @override
-  String get questionOrderRandom => 'Aléatoire';
+  String get questionOrderRandom => 'Ordre aléatoire des questions';
 
   @override
   String get questionOrderRandomDesc =>
@@ -745,7 +745,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Les questions apparaîtront dans leur ordre d\'origine';
 
   @override
-  String get randomizeAnswersTitle => 'Randomiser les Options de Réponse';
+  String get randomizeAnswersTitle => 'Ordre aléatoire des réponses';
 
   @override
   String get randomizeAnswersDescription =>

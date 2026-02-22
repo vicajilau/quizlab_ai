@@ -331,7 +331,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get questionOrderDescendingDesc => 'ستظهر الأسئلة من النهاية إلى 1';
 
   @override
-  String get questionOrderRandom => 'عشوائي';
+  String get questionOrderRandom => 'ترتيب عشوائي للأسئلة';
 
   @override
   String get questionOrderRandomDesc => 'ستظهر الأسئلة بترتيب عشوائي';
@@ -728,7 +728,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'ستظهر الأسئلة بترتيبها الأصلي';
 
   @override
-  String get randomizeAnswersTitle => 'عشوائية خيارات الإجابة';
+  String get randomizeAnswersTitle => 'ترتيب عشوائي للإجابات';
 
   @override
   String get randomizeAnswersDescription =>

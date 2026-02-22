@@ -493,7 +493,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "عشوائي",
+  "questionOrderRandom": "ترتيب عشوائي للأسئلة",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -1005,7 +1005,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Description for the randomize questions setting when disabled."
   },
-  "randomizeAnswersTitle": "عشوائية خيارات الإجابة",
+  "randomizeAnswersTitle": "ترتيب عشوائي للإجابات",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },

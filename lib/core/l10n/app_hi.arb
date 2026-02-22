@@ -397,7 +397,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "यादृच्छिक",
+  "questionOrderRandom": "प्रश्नों का क्रम यादृच्छिक करें",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -909,7 +909,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Description for the randomize questions setting when disabled."
   },
-  "randomizeAnswersTitle": "उत्तर विकल्पों को मिलाएं",
+  "randomizeAnswersTitle": "उत्तरों का क्रम यादृच्छिक करें",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },

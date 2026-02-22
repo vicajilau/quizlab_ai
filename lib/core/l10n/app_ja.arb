@@ -397,7 +397,7 @@
   "@questionOrderDescendingDesc": {
     "description": "降順問題順序設定オプションの説明。"
   },
-  "questionOrderRandom": "ランダム",
+  "questionOrderRandom": "問題の順序をランダム化",
   "@questionOrderRandom": {
     "description": "ランダム問題順序設定オプション。"
   },
@@ -909,7 +909,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "ランダム化設定が無効な場合の問題のランダム化説明。"
   },
-  "randomizeAnswersTitle": "回答選択肢をランダム化",
+  "randomizeAnswersTitle": "回答の順序をランダム化",
   "@randomizeAnswersTitle": {
     "description": "回答選択肢のランダム化設定のタイトル"
   },

@@ -389,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "随机",
+  "questionOrderRandom": "随机化问题顺序",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -889,7 +889,7 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
-  "randomizeAnswersTitle": "随机化答案选项",
+  "randomizeAnswersTitle": "随机化答案顺序",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },

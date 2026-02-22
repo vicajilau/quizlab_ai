@@ -389,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Galderen orden beherakorrarentzako deskribapena"
   },
-  "questionOrderRandom": "Ausazkoa",
+  "questionOrderRandom": "Galderen ordena ausazkotu",
   "@questionOrderRandom": {
     "description": "Galderen orden ausazkoaren etiketa"
   },
@@ -917,7 +917,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Galderak ausazkotze konfigurazioaren deskribapena desgaituta dagoenean."
   },
-  "randomizeAnswersTitle": "Erantzun Aukerak Ausazkotu",
+  "randomizeAnswersTitle": "Erantzunen ordena ausazkotu",
   "@randomizeAnswersTitle": {
     "description": "Erantzun aukeren ausazkotze konfigurazioaren izenburua."
   },

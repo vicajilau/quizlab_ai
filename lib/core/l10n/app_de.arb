@@ -501,7 +501,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Beschreibung für die absteigende Fragenreihenfolge-Option"
   },
-  "questionOrderRandom": "Zufällig",
+  "questionOrderRandom": "Fragenreihenfolge zufällig anordnen",
   "@questionOrderRandom": {
     "description": "Beschriftung für die zufällige Fragenreihenfolge-Option"
   },
@@ -1013,7 +1013,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Description for the randomize questions setting when disabled."
   },
-  "randomizeAnswersTitle": "Antwortoptionen randomisieren",
+  "randomizeAnswersTitle": "Antwortreihenfolge zufällig anordnen",
   "@randomizeAnswersTitle": {
     "description": "Titel für die Einstellung zum Randomisieren von Antwortoptionen."
   },

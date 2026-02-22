@@ -389,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrición para a opción orde descendente das preguntas"
   },
-  "questionOrderRandom": "Aleatorio",
+  "questionOrderRandom": "Aleatorizar a orde das preguntas",
   "@questionOrderRandom": {
     "description": "Etiqueta para a opción orde aleatorio das preguntas"
   },
@@ -935,7 +935,7 @@
   "@randomizeQuestionsOffDescription": {
     "description": "Descrición para a configuración de randomización de preguntas cando está desactivada."
   },
-  "randomizeAnswersTitle": "Aleatorizar opcións de resposta",
+  "randomizeAnswersTitle": "Aleatorizar a orde das respostas",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuración de aleatorización de opcións de resposta."
   },
