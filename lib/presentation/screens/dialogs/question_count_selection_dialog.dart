@@ -101,9 +101,10 @@ class _QuestionCountSelectionDialogState
 
     _maxIncorrectAnswersFocusNode.addListener(() {
       if (!_maxIncorrectAnswersFocusNode.hasFocus) {
+        final parsedLimit = int.tryParse(_maxIncorrectAnswersController.text);
         if (_maxIncorrectAnswersController.text.isEmpty ||
-            int.tryParse(_maxIncorrectAnswersController.text) == null ||
-            int.tryParse(_maxIncorrectAnswersController.text)! < 0) {
+            parsedLimit == null ||
+            parsedLimit < 0) {
           setState(() {
             _maxIncorrectAnswersLimit = 0;
             _maxIncorrectAnswersController.text = '0';
