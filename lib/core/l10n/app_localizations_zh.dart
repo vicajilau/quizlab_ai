@@ -1199,7 +1199,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get congratulations => '🎉 恭喜！ 🎉';
 
   @override
-  String get validationMin1Error => 'Minimum 1 minute';
+  String get validationMin1Error => '最少1分钟';
 
   @override
   String remainingTimeWithDays(
@@ -1208,7 +1208,7 @@ class AppLocalizationsZh extends AppLocalizations {
     String minutes,
     String seconds,
   ) {
-    return '${days}d $hours:$minutes:$seconds';
+    return '$days天 $hours:$minutes:$seconds';
   }
 
   @override
@@ -1219,11 +1219,11 @@ class AppLocalizationsZh extends AppLocalizations {
     String minutes,
     String seconds,
   ) {
-    return '${weeks}w ${days}d $hours:$minutes:$seconds';
+    return '$weeks周 $days天 $hours:$minutes:$seconds';
   }
 
   @override
-  String get validationMax30DaysError => 'Maximum 30 days';
+  String get validationMax30DaysError => '最多30天';
 
   @override
   String get validationMin0GenericError => '至少 0';

@@ -1268,7 +1268,7 @@ class AppLocalizationsPt extends AppLocalizations {
   String get congratulations => '🎉 Parabéns! 🎉';
 
   @override
-  String get validationMin1Error => 'Minimum 1 minute';
+  String get validationMin1Error => 'Mínimo 1 minuto';
 
   @override
   String remainingTimeWithDays(
@@ -1288,11 +1288,11 @@ class AppLocalizationsPt extends AppLocalizations {
     String minutes,
     String seconds,
   ) {
-    return '${weeks}w ${days}d $hours:$minutes:$seconds';
+    return '${weeks}sem ${days}d $hours:$minutes:$seconds';
   }
 
   @override
-  String get validationMax30DaysError => 'Maximum 30 days';
+  String get validationMax30DaysError => 'Máximo 30 dias';
 
   @override
   String get validationMin0GenericError => 'Mínimo 0';
