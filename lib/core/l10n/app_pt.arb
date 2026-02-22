@@ -353,9 +353,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Rótulo para a alternância de limitar respostas incorretas"
   },
-  "maxIncorrectAnswersDescription": "O quiz terminará imediatamente se atingir este limite.",
+  "maxIncorrectAnswersDescription": "Exame de Apto/Não Apto. Não há nota numérica, você é aprovado ou reprovado.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrição para a funcionalidade de limitar respostas incorretas"
+  },
+  "maxIncorrectAnswersOffDescription": "O exame tem uma nota numérica de 0 a 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Máximo de erros permitidos",
   "@maxIncorrectAnswersLimitLabel": {
@@ -405,7 +409,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrição para a opção ordem decrescente das perguntas"
   },
-  "questionOrderRandom": "Aleatório",
+  "questionOrderRandom": "Aleatorizar a ordem das perguntas",
   "@questionOrderRandom": {
     "description": "Rótulo para a opção ordem aleatória das perguntas"
   },
@@ -425,9 +429,13 @@
   "@examTimeLimitTitle": {
     "description": "Título para a seção limite de tempo do exame"
   },
-  "examTimeLimitDescription": "Defina um limite de tempo para o exame. Quando habilitado, um cronômetro regressivo será exibido durante o quiz.",
+  "examTimeLimitDescription": "Defina um limite de tempo para o exame. Um cronômetro regressivo será exibido durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrição para a funcionalidade limite de tempo do exame"
+  },
+  "examTimeLimitOffDescription": "Não há limite de tempo para este exame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Habilitar limite de tempo",
   "@enableTimeLimit": {
@@ -905,7 +913,7 @@
   "@dragDropHintText": {
     "description": "Texto de dica mostrado quando a lista de perguntas está vazia, indicando funcionalidade drag and drop."
   },
-  "randomizeAnswersTitle": "Aleatorizar opções de resposta",
+  "randomizeAnswersTitle": "Aleatorizar a ordem das respostas",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuração de aleatorização das opções de resposta."
   },
@@ -919,7 +927,11 @@
   },
   "showCorrectAnswerCountDescription": "Exibir o número de respostas corretas em perguntas de múltipla escolha",
   "@showCorrectAnswerCountDescription": {
-    "description": "Descrição para a configuração mostrar número de respostas corretas."
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "O número de respostas corretas não será mostrado para perguntas de múltipla escolha",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Selecione {count} respostas corretas",
   "@correctAnswersCount": {
@@ -1371,7 +1383,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantâneo e sem cronômetro",
+  "studyModeDescription": "Assistência de IA disponível. Feedback instantâneo após cada resposta, sem limites de tempo ou penalidades.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1379,7 +1391,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Cronômetro padrão e resultados no final",
+  "examModeDescription": "Sem assistência de IA. Podem aplicar-se limites de tempo e penalidades por respostas incorretas.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1517,8 +1529,13 @@
     }
   },
   "subtractPointsLabel": "Subtrair pontos por resposta errada",
+  "subtractPointsDescription": "Subtrai pontos por cada resposta incorreta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Respostas incorretas não subtraem pontos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Valor da penalidade",
   "@penaltyAmountLabel": {
@@ -1546,8 +1563,89 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeQuestionsTitle": "Aleatorizar perguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Misturar a ordem das perguntas durante a execução do quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "As perguntas aparecerão na sua ordem original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersOffDescription": "As opções de resposta aparecerão na ordem original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Pontuação e limites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Parabéns! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Configuração do exame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin0GenericError": "Mínimo 0",
+  "validationMin1Error": "Mínimo 1 minuto",
+  "@validationMin1Error": {
+    "description": "Validation message indicating the time limit must be at least 1 minute."
+  },
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithDays": {
+    "description": "Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)",
+    "placeholders": {
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "remainingTimeWithWeeks": "{weeks}sem {days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithWeeks": {
+    "description": "Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)",
+    "placeholders": {
+      "weeks": {
+        "type": "String",
+        "example": "1"
+      },
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "validationMax30DaysError": "Máximo 30 dias",
+  "@validationMax30DaysError": {
+    "description": "Validation message indicating the time limit cannot exceed 30 days."
   }
 }

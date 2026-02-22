@@ -52,6 +52,12 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
     }
   }
 
+  // Helper to get effective randomize answers setting
+  bool _getEffectiveRandomizeAnswers(QuizConfig? quizConfig) {
+    if (quizConfig != null) return quizConfig.randomizeAnswers;
+    return _randomizeAnswers;
+  }
+
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
@@ -186,8 +192,9 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
         quizConfig?.questionCount ?? widget.quizFile.questions.length;
 
     // Get the configured question order
-    final questionOrder = await ConfigurationService.instance
+    final storedQuestionOrder = await ConfigurationService.instance
         .getQuestionOrder();
+    final questionOrder = quizConfig?.questionOrder ?? storedQuestionOrder;
 
     // Filter out disabled questions first
     final enabledQuestions = widget.quizFile.questions
@@ -201,8 +208,12 @@ class _QuizFileExecutionScreenState extends State<QuizFileExecutionScreen> {
       order: questionOrder,
     );
 
+    // Priority 1: Use QuizConfig from ServiceLocator (fresh from the dialog)
+    // Priority 2: Use local state (loaded from ConfigurationService)
+    final effectiveRandomizeAnswers = _getEffectiveRandomizeAnswers(quizConfig);
+
     // Apply answer randomization if enabled
-    if (_randomizeAnswers) {
+    if (effectiveRandomizeAnswers) {
       selectedQuestions = QuizService.randomizeQuestionsAnswers(
         selectedQuestions,
       );

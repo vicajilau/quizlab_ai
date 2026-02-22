@@ -449,9 +449,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Bezeichnung für den Schalter zum Begrenzen falscher Antworten"
   },
-  "maxIncorrectAnswersDescription": "Das Quiz wird sofort beendet, wenn Sie dieses Limit erreichen.",
+  "maxIncorrectAnswersDescription": "Bestanden/Nicht bestanden Prüfung. Es gibt keine numerische Note.",
   "@maxIncorrectAnswersDescription": {
     "description": "Beschreibung für die Funktion zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersOffDescription": "Die Prüfung hat eine numerische Note von 0 bis 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Maximal zulässige Fehler",
   "@maxIncorrectAnswersLimitLabel": {
@@ -501,7 +505,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Beschreibung für die absteigende Fragenreihenfolge-Option"
   },
-  "questionOrderRandom": "Zufällig",
+  "questionOrderRandom": "Fragenreihenfolge zufällig anordnen",
   "@questionOrderRandom": {
     "description": "Beschriftung für die zufällige Fragenreihenfolge-Option"
   },
@@ -521,9 +525,13 @@
   "@examTimeLimitTitle": {
     "description": "Titel für den Prüfungszeit-Limit-Bereich"
   },
-  "examTimeLimitDescription": "Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.",
+  "examTimeLimitDescription": "Legen Sie ein Zeitlimit für die Prüfung fest. Während des Quiz wird ein Countdown-Timer angezeigt.",
   "@examTimeLimitDescription": {
     "description": "Beschreibung für die Prüfungszeit-Limit-Funktion"
+  },
+  "examTimeLimitOffDescription": "Für diese Prüfung gibt es kein Zeitlimit.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Zeitlimit aktivieren",
   "@enableTimeLimit": {
@@ -1001,7 +1009,19 @@
   "@dragDropHintText": {
     "description": "Hinweistext, der angezeigt wird, wenn die Fragenliste leer ist, und die Drag-and-Drop-Funktionalität anzeigt."
   },
-  "randomizeAnswersTitle": "Antwortoptionen randomisieren",
+  "randomizeQuestionsTitle": "Fragen randomisieren",
+  "@randomizeQuestionsTitle": {
+    "description": "Titel für die Einstellung zum Randomisieren von Fragen."
+  },
+  "randomizeQuestionsDescription": "Reihenfolge der Fragen während der Quiz-Ausführung mischen",
+  "@randomizeQuestionsDescription": {
+    "description": "Beschreibung für die Einstellung zum Randomisieren von Fragen."
+  },
+  "randomizeQuestionsOffDescription": "Die Fragen erscheinen in ihrer ursprünglichen Reihenfolge",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Antwortreihenfolge zufällig anordnen",
   "@randomizeAnswersTitle": {
     "description": "Titel für die Einstellung zum Randomisieren von Antwortoptionen."
   },
@@ -1016,6 +1036,10 @@
   "showCorrectAnswerCountDescription": "Anzahl der richtigen Antworten in Mehrfachauswahl-Fragen anzeigen",
   "@showCorrectAnswerCountDescription": {
     "description": "Beschreibung für die Einstellung zur Anzeige der Anzahl richtiger Antworten."
+  },
+  "showCorrectAnswerCountOffDescription": "Die Anzahl der richtigen Antworten wird bei Multiple-Choice-Fragen nicht angezeigt",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Wählen Sie {count} richtige Antworten",
   "@correctAnswersCount": {
@@ -1467,7 +1491,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Sofortiges Feedback und kein Timer",
+  "studyModeDescription": "KI-Unterstützung verfügbar. Sofortiges Feedback nach jeder Antwort, ohne Zeitlimits oder Punktabzüge.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1475,7 +1499,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard-Timer und Ergebnisse am Ende",
+  "examModeDescription": "Keine KI-Unterstützung. Zeitlimits und Punktabzüge für falsche Antworten können anfallen.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1574,8 +1598,13 @@
     }
   },
   "subtractPointsLabel": "Punkte für falsche Antwort abziehen",
+  "subtractPointsDescription": "Punkte für jede falsche Antwort abziehen.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Falsche Antworten führen nicht zu Punktabzug.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Strafbetrag",
   "@penaltyAmountLabel": {
@@ -1603,8 +1632,25 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeAnswersOffDescription": "Die Antwortoptionen erscheinen in ihrer ursprünglichen Reihenfolge",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Bewertung und Limits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Herzlichen Glückwunsch! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Prüfungskonfiguration",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mindestens 1 Minute",
+  "remainingTimeWithDays": "{days}T {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}W {days}T {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Maximal 30 Tage",
+  "validationMin0GenericError": "Mindestens 0"
 }

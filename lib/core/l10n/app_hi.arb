@@ -397,7 +397,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "यादृच्छिक",
+  "questionOrderRandom": "प्रश्नों का क्रम यादृच्छिक करें",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -417,9 +417,13 @@
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "परीक्षा के लिए समय सीमा निर्धारित करें। सक्षम होने पर, क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।",
+  "examTimeLimitDescription": "परीक्षा के लिए समय सीमा निर्धारित करें। क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
+  },
+  "examTimeLimitOffDescription": "इस परीक्षा के लिए कोई समय सीमा नहीं है।",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "समय सीमा सक्षम करें",
   "@enableTimeLimit": {
@@ -897,7 +901,19 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
-  "randomizeAnswersTitle": "उत्तर विकल्पों को मिलाएं",
+  "randomizeQuestionsTitle": "प्रश्नों को मिलाएं",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "क्विज़ निष्पादन के दौरान प्रश्नों का क्रम बदलें",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "प्रश्न अपने मूल क्रम में दिखाई देंगे",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "उत्तरों का क्रम यादृच्छिक करें",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },
@@ -912,6 +928,10 @@
   "showCorrectAnswerCountDescription": "बहुविकल्पीय प्रश्नों में सही उत्तरों की संख्या प्रदर्शित करें",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "बहुविकल्पीय प्रश्नों के लिए सही उत्तरों की संख्या नहीं दिखाई जाएगी",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "{count} सही उत्तर चुनें",
   "@correctAnswersCount": {
@@ -1360,9 +1380,9 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "अध्ययन मोड",
-  "studyModeDescription": "तत्काल प्रतिक्रिया और कोई टाइमर नहीं",
+  "studyModeDescription": "AI सहायता उपलब्ध है। समय सीमा या दंड के बिना प्रत्येक उत्तर के बाद त्वरित प्रतिक्रिया।",
   "examModeLabel": "परीक्षा मोड",
-  "examModeDescription": "मानक समय और अंत में परिणाम",
+  "examModeDescription": "कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।",
   "checkAnswer": "जांचें",
   "quizModeTitle": "क्विज़ मोड",
   "askAiAssistant": "AI सहायक से पूछें",
@@ -1465,8 +1485,13 @@
     }
   },
   "subtractPointsLabel": "गलत उत्तर के लिए अंक घटाएं",
+  "subtractPointsDescription": "प्रत्येक गलत उत्तर के लिए अंक घटाएं।",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "गलत उत्तर अंक नहीं घटाते हैं।",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "दंड राशि",
   "@penaltyAmountLabel": {
@@ -1494,9 +1519,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "यदि आप इस सीमा तक पहुँच जाते हैं तो क्विज़ तुरंत समाप्त हो जाएगी।",
+  "maxIncorrectAnswersDescription": "उत्तीर्ण/अनुत्तीर्ण परीक्षा। कोई संख्यात्मक ग्रेड नहीं है।",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "परीक्षा में 0 से 100 तक संख्यात्मक ग्रेड होता है।",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "अधिकतम अनुमत त्रुटियां",
   "@maxIncorrectAnswersLimitLabel": {
@@ -1510,8 +1539,25 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeAnswersOffDescription": "उत्तर विकल्प अपने मूल क्रम में दिखाई देंगे",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "स्कोरिंग और सीमाएँ",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 बधाई हो! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "परीक्षा कॉन्फ़िगरेशन",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "न्यूनतम 1 मिनट",
+  "remainingTimeWithDays": "{days}दिन {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}सप्ताह {days}दिन {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "अधिकतम 30 दिन",
+  "validationMin0GenericError": "न्यूनतम 0"
 }

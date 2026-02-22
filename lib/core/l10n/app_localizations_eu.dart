@@ -294,7 +294,11 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.';
+      'Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Azterketak 0 eta 100 arteko zenbakizko nota du.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Gehienezko errore kopurua';
@@ -338,7 +342,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak azkenatik 1era ordenean agertuko dira';
 
   @override
-  String get questionOrderRandom => 'Ausazkoa';
+  String get questionOrderRandom => 'Galderen ordena ausazkotu';
 
   @override
   String get questionOrderRandomDesc =>
@@ -354,11 +358,18 @@ class AppLocalizationsEu extends AppLocalizations {
   String get save => 'Gorde';
 
   @override
+  String get examConfigurationTitle => 'Azterketaren konfigurazioa';
+
+  @override
   String get examTimeLimitTitle => 'Azterketaren Denbora Muga';
 
   @override
   String get examTimeLimitDescription =>
-      'Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.';
+      'Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Azterketa honetarako ez dago denbora mugarik.';
 
   @override
   String get enableTimeLimit => 'Denbora muga gaitu';
@@ -727,18 +738,37 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak inportatzeko .quiz fitxategiak hona arrastatu eta utz ditzakezu ere';
 
   @override
-  String get randomizeAnswersTitle => 'Erantzun Aukerak Ausazkotu';
+  String get randomizeQuestionsTitle => 'Galderak Ausazkotu';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Quiz exekuzioan galderen ordena nahastu';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Galderak jatorrizko ordenan agertuko dira';
+
+  @override
+  String get randomizeAnswersTitle => 'Erantzunen ordena ausazkotu';
 
   @override
   String get randomizeAnswersDescription =>
       'Quiz exekuzioan erantzun aukeren ordena nahastu';
 
   @override
+  String get randomizeAnswersOffDescription =>
+      'Erantzun-aukerak jatorrizko ordenan agertuko dira';
+
+  @override
   String get showCorrectAnswerCountTitle => 'Erantzun Zuzen Kopurua Erakutsi';
 
   @override
   String get showCorrectAnswerCountDescription =>
-      'Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi';
+      'Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko';
 
   @override
   String correctAnswersCount(int count) {
@@ -1109,13 +1139,15 @@ class AppLocalizationsEu extends AppLocalizations {
   String get studyModeLabel => 'Ikasteko Modua';
 
   @override
-  String get studyModeDescription => 'Berehalako feedbacka eta denborarik gabe';
+  String get studyModeDescription =>
+      'AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.';
 
   @override
   String get examModeLabel => 'Azterketa Modua';
 
   @override
-  String get examModeDescription => 'Denbora estandarra eta emaitzak amaieran';
+  String get examModeDescription =>
+      'AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.';
 
   @override
   String get checkAnswer => 'Egiaztatu';
@@ -1200,6 +1232,14 @@ class AppLocalizationsEu extends AppLocalizations {
   String get subtractPointsLabel => 'Kendu puntuak erantzun okerrengatik';
 
   @override
+  String get subtractPointsDescription =>
+      'Kendu puntuak erantzun oker bakoitzeko.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Erantzun okerrek ez dute punturik kentzen.';
+
+  @override
   String get penaltyAmountLabel => 'Penalizazio kopurua';
 
   @override
@@ -1238,5 +1278,38 @@ class AppLocalizationsEu extends AppLocalizations {
   String get close => 'Itxi';
 
   @override
+  String get scoringAndLimitsTitle => 'Puntuazioa eta mugak';
+
+  @override
   String get congratulations => '🎉 Zorionak! 🎉';
+
+  @override
+  String get validationMin1Error => 'Gutxienez minutu 1';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}a ${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Gehienez 30 egun';
+
+  @override
+  String get validationMin0GenericError => 'Gutxienez 0';
 }

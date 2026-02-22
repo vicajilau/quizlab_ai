@@ -30,9 +30,6 @@ class QuizService {
       case QuestionOrder.ascending:
         orderedQuestions = List<Question>.from(allQuestions);
         break;
-      case QuestionOrder.descending:
-        orderedQuestions = List<Question>.from(allQuestions.reversed);
-        break;
       case QuestionOrder.random:
         orderedQuestions = List<Question>.from(allQuestions);
         orderedQuestions.shuffle(_random);
@@ -97,22 +94,35 @@ class QuizService {
   /// - [question]: The question whose options should be randomized
   /// - Returns: A new Question with randomized options
   static Question randomizeAnswerOptions(Question question) {
-    // Create a copy of the question with shuffled options
-    final shuffledOptions = List<String>.from(question.options);
-    shuffledOptions.shuffle(_random);
+    // Create a list of pairs (originalIndex, optionText)
+    final indexedOptions = List.generate(
+      question.options.length,
+      (i) => MapEntry(i, question.options[i]),
+    );
+
+    // Shuffle the pairs
+    final shuffledIndexedOptions = List<MapEntry<int, String>>.from(
+      indexedOptions,
+    )..shuffle(_random);
+
+    // Extract newest options list
+    final shuffledOptions = shuffledIndexedOptions.map((e) => e.value).toList();
 
     // Create mapping from old index to new index
     final indexMapping = <int, int>{};
-    for (int i = 0; i < question.options.length; i++) {
-      final originalOption = question.options[i];
-      final newIndex = shuffledOptions.indexOf(originalOption);
-      indexMapping[i] = newIndex;
+    for (
+      int newIndex = 0;
+      newIndex < shuffledIndexedOptions.length;
+      newIndex++
+    ) {
+      final oldIndex = shuffledIndexedOptions[newIndex].key;
+      indexMapping[oldIndex] = newIndex;
     }
 
     // Update correct answers based on the new positions
     final newCorrectAnswers = question.correctAnswers.map((oldIndex) {
       return indexMapping[oldIndex] ?? oldIndex;
-    }).toList();
+    }).toList()..sort();
 
     return Question(
       type: question.type,

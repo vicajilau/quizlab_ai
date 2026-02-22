@@ -389,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrición para a opción orde descendente das preguntas"
   },
-  "questionOrderRandom": "Aleatorio",
+  "questionOrderRandom": "Aleatorizar a orde das preguntas",
   "@questionOrderRandom": {
     "description": "Etiqueta para a opción orde aleatorio das preguntas"
   },
@@ -409,9 +409,13 @@
   "@examTimeLimitTitle": {
     "description": "Título para a sección límite de tempo do exame"
   },
-  "examTimeLimitDescription": "Estabelece un límite de tempo para o exame. Cando se active, mostrarásee un temporizador de conta atrás durante o quiz.",
+  "examTimeLimitDescription": "Establece un límite de tempo para o exame. Mostrarase un cronómetro durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrición para a funcionalidade límite de tempo do exame"
+  },
+  "examTimeLimitOffDescription": "Non hai límite de tempo para este exame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Activar límite de tempo",
   "@enableTimeLimit": {
@@ -425,9 +429,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etiqueta para a configuración do límite de erros"
   },
-  "maxIncorrectAnswersDescription": "Establece un límite de respostas incorrectas para o exame. Se se chega a este límite, o quiz deterase inmediatamente.",
+  "maxIncorrectAnswersDescription": "Exame de Apto/Non Apto. Non hai nota numérica, aprobas ou suspendes.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrición da funcionalidade do límite de erros"
+  },
+  "maxIncorrectAnswersOffDescription": "O exame ten unha nota numérica do 0 ao 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Número máximo de erros",
   "@maxIncorrectAnswersLimitLabel": {
@@ -923,7 +931,19 @@
   "@dragDropHintText": {
     "description": "Texto de suxestión mostrado cando a lista de preguntas está baleira, indicando funcionalidade de arrastrar e soltar."
   },
-  "randomizeAnswersTitle": "Aleatorizar opcións de resposta",
+  "randomizeQuestionsTitle": "Randomizar Preguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Título para a configuración de randomización de preguntas."
+  },
+  "randomizeQuestionsDescription": "Baraxar a orde das preguntas durante a execución do quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas."
+  },
+  "randomizeQuestionsOffDescription": "As preguntas aparecerán na súa orde orixinal",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas cando está desactivada."
+  },
+  "randomizeAnswersTitle": "Aleatorizar a orde das respostas",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuración de aleatorización de opcións de resposta."
   },
@@ -938,6 +958,10 @@
   "showCorrectAnswerCountDescription": "Mostrar o número de respostas correctas en preguntas de elección múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descrición para a configuración mostrar número de respostas correctas."
+  },
+  "showCorrectAnswerCountOffDescription": "O número de respostas correctas non se mostrará nas preguntas de opción múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Selecciona {count} respostas correctas",
   "@correctAnswersCount": {
@@ -1386,9 +1410,9 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Modo estudo",
-  "studyModeDescription": "Retroalimentación instantánea e sen tempo",
+  "studyModeDescription": "Asistencia de IA dispoñible. Feedback instantáneo tras cada resposta, sen límites de tiempo nin penalizacións.",
   "examModeLabel": "Modo exame",
-  "examModeDescription": "Tempo estándar e resultados ao final",
+  "examModeDescription": "Sen asistencia de IA. Poden aplicarse límites de tempo e penalizacións por respostas incorrectas.",
   "checkAnswer": "Comprobar",
   "quizModeTitle": "Modo cuestionario",
   "skip": "Saltar",
@@ -1478,8 +1502,13 @@
     }
   },
   "subtractPointsLabel": "Restar puntos por resposta incorrecta",
+  "subtractPointsDescription": "Resta puntos por cada resposta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "As respostas incorrectas no restan puntos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Cantidade de penalización",
   "@penaltyAmountLabel": {
@@ -1507,8 +1536,25 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeAnswersOffDescription": "As opcións de resposta aparecerán na súa orde orixinal",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuación e límites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Parabéns! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configuración do exame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mínimo 1 minuto",
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Máximo 30 días",
+  "validationMin0GenericError": "Minimum 0"
 }

@@ -292,7 +292,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'The quiz will end immediately if you reach this limit.';
+      'Pass/Fail Exam. No numeric grade; you either pass or fail.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'The exam has a numeric grade from 0 to 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Maximum allowed errors';
@@ -334,7 +338,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Questions will appear from the end to 1';
 
   @override
-  String get questionOrderRandom => 'Random';
+  String get questionOrderRandom => 'Randomize Questions Order';
 
   @override
   String get questionOrderRandomDesc => 'Questions will appear in random order';
@@ -349,11 +353,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get save => 'Save';
 
   @override
+  String get examConfigurationTitle => 'Exam Configuration';
+
+  @override
   String get examTimeLimitTitle => 'Exam Time Limit';
 
   @override
   String get examTimeLimitDescription =>
-      'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.';
+      'Set a time limit for the exam. A countdown timer will be displayed during the quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'There is no time limit for this exam.';
 
   @override
   String get enableTimeLimit => 'Enable time limit';
@@ -720,11 +731,26 @@ class AppLocalizationsEn extends AppLocalizations {
       'You can also drag and drop .quiz files here to import questions';
 
   @override
-  String get randomizeAnswersTitle => 'Randomize Answer Options';
+  String get randomizeQuestionsTitle => 'Randomize Questions';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Shuffle the order of questions during quiz execution';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
+  String get randomizeAnswersTitle => 'Randomize Answers Order';
 
   @override
   String get randomizeAnswersDescription =>
       'Shuffle the order of answer options during quiz execution';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Answer options will appear in their original order';
 
   @override
   String get showCorrectAnswerCountTitle => 'Show Correct Answer Count';
@@ -732,6 +758,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Display the number of correct answers in multiple choice questions';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'The number of correct answers will not be shown for multiple-choice questions';
 
   @override
   String correctAnswersCount(int count) {
@@ -1100,13 +1130,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get studyModeLabel => 'Study Mode';
 
   @override
-  String get studyModeDescription => 'Instant feedback and no timer';
+  String get studyModeDescription =>
+      'AI assistance available. Instant feedback after each answer with no time limits or penalties.';
 
   @override
   String get examModeLabel => 'Exam Mode';
 
   @override
-  String get examModeDescription => 'Standard timer and results at the end';
+  String get examModeDescription =>
+      'No AI assistance. Time limits and penalties for incorrect answers may apply.';
 
   @override
   String get checkAnswer => 'Check Answer';
@@ -1190,6 +1222,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subtractPointsLabel => 'Subtract points for wrong answer';
 
   @override
+  String get subtractPointsDescription =>
+      'Subtract points for each incorrect answer.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Incorrect answers do not deduct points.';
+
+  @override
   String get penaltyAmountLabel => 'Penalty amount';
 
   @override
@@ -1228,5 +1268,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get close => 'Close';
 
   @override
+  String get scoringAndLimitsTitle => 'Scoring and Limits';
+
+  @override
   String get congratulations => '🎉 Congratulations! 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimum 1 minute';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}w ${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Maximum 30 days';
+
+  @override
+  String get validationMin0GenericError => 'Minimum 0';
 }

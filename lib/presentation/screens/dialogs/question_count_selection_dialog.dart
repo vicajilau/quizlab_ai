@@ -8,6 +8,7 @@ import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quiz_app/domain/models/quiz/question_order.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/count_control_button.dart';
 import 'package:quiz_app/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
@@ -37,6 +38,16 @@ class _QuestionCountSelectionDialogState
   double _penaltyAmount = 0.5;
   bool _enableMaxIncorrectAnswers = false;
   int _maxIncorrectAnswersLimit = 3;
+
+  // New relocated settings
+  QuestionOrder _questionOrder = QuestionOrder.random;
+  bool _randomizeAnswers = false;
+  bool _showCorrectAnswerCount = false;
+  bool _examTimeEnabled = false;
+  int _examTimeMinutes = 60;
+  bool _hasExamTimeError = false;
+  bool _hasMaxIncorrectError = false;
+
   late TextEditingController _penaltyController;
   late TextEditingController _questionCountController;
   late TextEditingController _maxIncorrectAnswersController;
@@ -90,11 +101,13 @@ class _QuestionCountSelectionDialogState
 
     _maxIncorrectAnswersFocusNode.addListener(() {
       if (!_maxIncorrectAnswersFocusNode.hasFocus) {
+        final parsedLimit = int.tryParse(_maxIncorrectAnswersController.text);
         if (_maxIncorrectAnswersController.text.isEmpty ||
-            int.tryParse(_maxIncorrectAnswersController.text) == 0) {
+            parsedLimit == null ||
+            parsedLimit < 0) {
           setState(() {
-            _maxIncorrectAnswersLimit = 1;
-            _maxIncorrectAnswersController.text = '1';
+            _maxIncorrectAnswersLimit = 0;
+            _maxIncorrectAnswersController.text = '0';
           });
         }
       }
@@ -152,6 +165,30 @@ class _QuestionCountSelectionDialogState
           _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
               .toString();
         }
+
+        if (settings.questionOrder != null) {
+          _questionOrder = settings.questionOrder!;
+        }
+        if (settings.randomizeAnswers != null) {
+          _randomizeAnswers = settings.randomizeAnswers!;
+        }
+        if (settings.showCorrectAnswerCount != null) {
+          _showCorrectAnswerCount = settings.showCorrectAnswerCount!;
+        }
+
+        // Exam time settings are currently separate but we should load them
+        _loadExamTimeSettings();
+      });
+    }
+  }
+
+  Future<void> _loadExamTimeSettings() async {
+    final enabled = await ConfigurationService.instance.getExamTimeEnabled();
+    final minutes = await ConfigurationService.instance.getExamTimeMinutes();
+    if (mounted) {
+      setState(() {
+        _examTimeEnabled = enabled;
+        _examTimeMinutes = minutes;
       });
     }
   }
@@ -199,7 +236,7 @@ class _QuestionCountSelectionDialogState
 
   void _decrementMaxIncorrect() {
     setState(() {
-      if (_maxIncorrectAnswersLimit > 1) {
+      if (_maxIncorrectAnswersLimit > 0) {
         _maxIncorrectAnswersLimit--;
         _maxIncorrectAnswersController.text = _maxIncorrectAnswersLimit
             .toString();
@@ -260,11 +297,6 @@ class _QuestionCountSelectionDialogState
       }
     }
 
-    final examTimeEnabled = await ConfigurationService.instance
-        .getExamTimeEnabled();
-    final examTimeMinutes = await ConfigurationService.instance
-        .getExamTimeMinutes();
-
     if (mounted) {
       ConfigurationService.instance.saveQuizConfigSettings(
         QuizConfigStoredSettings(
@@ -274,19 +306,29 @@ class _QuestionCountSelectionDialogState
           penaltyAmount: _penaltyAmount,
           enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
           maxIncorrectAnswers: _maxIncorrectAnswersLimit,
+          questionOrder: _questionOrder,
+          randomizeAnswers: _randomizeAnswers,
+          showCorrectAnswerCount: _showCorrectAnswerCount,
         ),
       );
+      // Also save exam time settings individually for now as they are still used elsewhere
+      ConfigurationService.instance.saveExamTimeEnabled(_examTimeEnabled);
+      ConfigurationService.instance.saveExamTimeMinutes(_examTimeMinutes);
+
       context.pop(
         QuizConfig(
           questionCount: finalCount,
           isStudyMode: _isStudyMode,
-          enableTimeLimit: examTimeEnabled,
-          timeLimitMinutes: examTimeMinutes,
+          enableTimeLimit: _examTimeEnabled,
+          timeLimitMinutes: _examTimeMinutes,
           subtractPoints: _subtractPoints,
           penaltyAmount: _penaltyAmount,
           useSelectedOnly: useSelectedOnly,
           enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
           maxIncorrectAnswers: _maxIncorrectAnswersLimit,
+          questionOrder: _questionOrder,
+          randomizeAnswers: _randomizeAnswers,
+          showCorrectAnswerCount: _showCorrectAnswerCount,
         ),
       );
     }
@@ -603,67 +645,96 @@ class _QuestionCountSelectionDialogState
                     ),
 
                     const SizedBox(height: 12),
-                    AdvancedSettingsSection(
-                      isStudyMode: _isStudyMode,
+                    _CollapsibleExamConfig(
                       isDark: isDark,
-                      textColor: textColor,
-                      subTextColor: subTextColor,
-                      borderColor: borderColor,
-                      primaryColor: primaryColor,
-                      controlBgColor: controlBgColor,
-                      controlIconColor: controlIconColor,
-                      subtractPoints: _subtractPoints,
-                      penaltyAmount: _penaltyAmount,
-                      penaltyController: _penaltyController,
-                      penaltyFocusNode: _penaltyFocusNode,
-                      onSubtractPointsChanged: (value) {
-                        setState(() {
-                          _subtractPoints = value;
-                          if (_subtractPoints && _penaltyAmount <= 0.0) {
-                            _penaltyAmount = 0.05;
-                            _penaltyController.text = '0.05';
-                          }
-                        });
-                      },
-                      onPenaltyAmountChanged: (val) {
-                        setState(() {
-                          _penaltyAmount = val;
-                        });
-                      },
-                      onIncrementPenalty: _incrementPenalty,
-                      onDecrementPenalty: _decrementPenalty,
-                      enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
-                      maxIncorrectAnswersLimit: _maxIncorrectAnswersLimit,
-                      maxIncorrectAnswersController:
-                          _maxIncorrectAnswersController,
-                      maxIncorrectAnswersFocusNode:
-                          _maxIncorrectAnswersFocusNode,
-                      onEnableMaxIncorrectAnswersChanged: (value) {
-                        setState(() {
-                          _enableMaxIncorrectAnswers = value;
-                        });
-                      },
-                      onMaxIncorrectAnswersLimitChanged: (val) {
-                        setState(() {
-                          _maxIncorrectAnswersLimit = val.clamp(
-                            1,
-                            _selectedCount,
-                          );
-                          if (val != _maxIncorrectAnswersLimit) {
-                            _maxIncorrectAnswersController.text =
-                                _maxIncorrectAnswersLimit.toString();
-                            _maxIncorrectAnswersController
-                                .selection = TextSelection.fromPosition(
-                              TextPosition(
-                                offset:
-                                    _maxIncorrectAnswersController.text.length,
-                              ),
+                      child: AdvancedSettingsSection(
+                        isStudyMode: _isStudyMode,
+                        isDark: isDark,
+                        textColor: textColor,
+                        subTextColor: subTextColor,
+                        borderColor: borderColor,
+                        primaryColor: primaryColor,
+                        controlBgColor: controlBgColor,
+                        controlIconColor: controlIconColor,
+                        subtractPoints: _subtractPoints,
+                        penaltyAmount: _penaltyAmount,
+                        penaltyController: _penaltyController,
+                        penaltyFocusNode: _penaltyFocusNode,
+                        onSubtractPointsChanged: (value) {
+                          setState(() {
+                            _subtractPoints = value;
+                            if (_subtractPoints && _penaltyAmount <= 0.0) {
+                              _penaltyAmount = 0.05;
+                              _penaltyController.text = '0.05';
+                            }
+                          });
+                        },
+                        onPenaltyAmountChanged: (val) {
+                          setState(() {
+                            _penaltyAmount = val;
+                          });
+                        },
+                        onIncrementPenalty: _incrementPenalty,
+                        onDecrementPenalty: _decrementPenalty,
+                        enableMaxIncorrectAnswers: _enableMaxIncorrectAnswers,
+                        maxIncorrectAnswersLimit: _maxIncorrectAnswersLimit,
+                        maxIncorrectAnswersController:
+                            _maxIncorrectAnswersController,
+                        maxIncorrectAnswersFocusNode:
+                            _maxIncorrectAnswersFocusNode,
+                        onEnableMaxIncorrectAnswersChanged: (value) {
+                          setState(() {
+                            _enableMaxIncorrectAnswers = value;
+                          });
+                        },
+                        onMaxIncorrectAnswersLimitChanged: (val) {
+                          setState(() {
+                            _maxIncorrectAnswersLimit = val.clamp(
+                              0,
+                              _selectedCount,
                             );
+                            if (val != _maxIncorrectAnswersLimit) {
+                              _maxIncorrectAnswersController.text =
+                                  _maxIncorrectAnswersLimit.toString();
+                              _maxIncorrectAnswersController.selection =
+                                  TextSelection.fromPosition(
+                                    TextPosition(
+                                      offset: _maxIncorrectAnswersController
+                                          .text
+                                          .length,
+                                    ),
+                                  );
+                            }
+                          });
+                        },
+                        onIncrementMaxIncorrect: _incrementMaxIncorrect,
+                        onDecrementMaxIncorrect: _decrementMaxIncorrect,
+                        onMaxIncorrectErrorChanged: (hasError) {
+                          if (mounted) {
+                            setState(() => _hasMaxIncorrectError = hasError);
                           }
-                        });
-                      },
-                      onIncrementMaxIncorrect: _incrementMaxIncorrect,
-                      onDecrementMaxIncorrect: _decrementMaxIncorrect,
+                        },
+                        questionOrder: _questionOrder,
+                        onQuestionOrderChanged: (value) =>
+                            setState(() => _questionOrder = value),
+                        randomizeAnswers: _randomizeAnswers,
+                        onRandomizeAnswersChanged: (value) =>
+                            setState(() => _randomizeAnswers = value),
+                        showCorrectAnswerCount: _showCorrectAnswerCount,
+                        onShowCorrectAnswerCountChanged: (value) =>
+                            setState(() => _showCorrectAnswerCount = value),
+                        examTimeEnabled: _examTimeEnabled,
+                        onExamTimeEnabledChanged: (value) =>
+                            setState(() => _examTimeEnabled = value),
+                        examTimeMinutes: _examTimeMinutes,
+                        onExamTimeMinutesChanged: (value) =>
+                            setState(() => _examTimeMinutes = value),
+                        onExamTimeErrorChanged: (hasError) {
+                          if (mounted) {
+                            setState(() => _hasExamTimeError = hasError);
+                          }
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -675,7 +746,11 @@ class _QuestionCountSelectionDialogState
             // Start with selected questions button
             if (widget.selectedQuestionCount > 0) ...[
               OutlinedButton(
-                onPressed: () => _startQuiz(useSelectedOnly: true),
+                onPressed:
+                    ((_examTimeEnabled && _hasExamTimeError) ||
+                        (_enableMaxIncorrectAnswers && _hasMaxIncorrectError))
+                    ? null
+                    : () => _startQuiz(useSelectedOnly: true),
                 style: OutlinedButton.styleFrom(
                   foregroundColor: primaryColor,
                   elevation: 0,
@@ -708,7 +783,11 @@ class _QuestionCountSelectionDialogState
 
             // Start Button
             ElevatedButton(
-              onPressed: () => _startQuiz(),
+              onPressed:
+                  ((_examTimeEnabled && _hasExamTimeError) ||
+                      (_enableMaxIncorrectAnswers && _hasMaxIncorrectError))
+                  ? null
+                  : () => _startQuiz(),
               style: ElevatedButton.styleFrom(
                 backgroundColor: primaryColor,
                 foregroundColor: Colors.white,
@@ -735,6 +814,105 @@ class _QuestionCountSelectionDialogState
           ],
         ),
       ),
+    );
+  }
+}
+
+class _CollapsibleExamConfig extends StatefulWidget {
+  final bool isDark;
+  final Widget child;
+
+  const _CollapsibleExamConfig({required this.isDark, required this.child});
+
+  @override
+  State<_CollapsibleExamConfig> createState() => _CollapsibleExamConfigState();
+}
+
+class _CollapsibleExamConfigState extends State<_CollapsibleExamConfig> {
+  bool _isExpanded = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final borderColor = widget.isDark
+        ? const Color(0xFF3F3F46)
+        : const Color(0xFFE4E4E7);
+    final headerBgColor = widget.isDark
+        ? const Color(0xFF3F3F46)
+        : const Color(0xFFF4F4F5);
+    final bodyBgColor = widget.isDark
+        ? const Color(0xFF1E1E22)
+        : const Color(0xFFFAFAFA);
+    final iconColor = widget.isDark
+        ? const Color(0xFFA1A1AA)
+        : const Color(0xFF71717A);
+    final titleColor = widget.isDark ? Colors.white : const Color(0xFF18181B);
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        GestureDetector(
+          onTap: () {
+            setState(() {
+              _isExpanded = !_isExpanded;
+            });
+          },
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
+            decoration: BoxDecoration(
+              color: headerBgColor,
+              borderRadius: _isExpanded
+                  ? const BorderRadius.vertical(top: Radius.circular(12))
+                  : BorderRadius.circular(12),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Row(
+                  children: [
+                    Icon(LucideIcons.settings, size: 18, color: iconColor),
+                    const SizedBox(width: 8),
+                    Text(
+                      AppLocalizations.of(context)!.examConfigurationTitle,
+                      style: TextStyle(
+                        fontFamily: 'Inter',
+                        fontSize: 14,
+                        fontWeight: FontWeight.w600,
+                        color: titleColor,
+                      ),
+                    ),
+                  ],
+                ),
+                Icon(
+                  _isExpanded ? LucideIcons.chevronUp : LucideIcons.chevronDown,
+                  size: 18,
+                  color: iconColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+        AnimatedSize(
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          child: _isExpanded
+              ? Container(
+                  padding: const EdgeInsets.fromLTRB(16, 20, 16, 16),
+                  decoration: BoxDecoration(
+                    color: bodyBgColor,
+                    borderRadius: const BorderRadius.vertical(
+                      bottom: Radius.circular(12),
+                    ),
+                    border: Border(
+                      left: BorderSide(color: borderColor),
+                      right: BorderSide(color: borderColor),
+                      bottom: BorderSide(color: borderColor),
+                    ),
+                  ),
+                  child: widget.child,
+                )
+              : const SizedBox(width: double.infinity),
+        ),
+      ],
     );
   }
 }

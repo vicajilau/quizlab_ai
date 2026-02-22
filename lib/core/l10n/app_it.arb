@@ -353,9 +353,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etichetta per l'interruttore di limitazione delle risposte errate"
   },
-  "maxIncorrectAnswersDescription": "Il quiz terminerà immediatamente se raggiungi questo limite.",
+  "maxIncorrectAnswersDescription": "Esame Idoneo/Non Idoneo. Non c'è voto numerico, sei promosso o bocciato.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descrizione per la funzionalità di limitazione delle risposte errate"
+  },
+  "maxIncorrectAnswersOffDescription": "L'esame ha un voto numerico da 0 a 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Massimo errori consentiti",
   "@maxIncorrectAnswersLimitLabel": {
@@ -405,7 +409,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrizione per l'opzione ordine decrescente delle domande"
   },
-  "questionOrderRandom": "Casuale",
+  "questionOrderRandom": "Ordine casuale delle domande",
   "@questionOrderRandom": {
     "description": "Etichetta per l'opzione ordine casuale delle domande"
   },
@@ -425,9 +429,13 @@
   "@examTimeLimitTitle": {
     "description": "Titolo per la sezione limite di tempo esame"
   },
-  "examTimeLimitDescription": "Imposta un limite di tempo per l'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.",
+  "examTimeLimitDescription": "Imposta un limite di tempo per l'esame. Verrà visualizzato un timer di conto alla rovescia durante il quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrizione per la funzionalità limite di tempo esame"
+  },
+  "examTimeLimitOffDescription": "Non c'è limite de tempo per questo esame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Abilita limite di tempo",
   "@enableTimeLimit": {
@@ -905,7 +913,19 @@
   "@dragDropHintText": {
     "description": "Testo di suggerimento mostrato quando la lista domande è vuota, indicando la funzionalità drag and drop."
   },
-  "randomizeAnswersTitle": "Randomizza opzioni di risposta",
+  "randomizeQuestionsTitle": "Randomizza domande",
+  "@randomizeQuestionsTitle": {
+    "description": "Titolo per l'impostazione di randomizzazione domande."
+  },
+  "randomizeQuestionsDescription": "Mescola l'ordine delle domande durante l'esecuzione del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descrizione per l'impostazione randomizza domande."
+  },
+  "randomizeQuestionsOffDescription": "Le domande appariranno nel loro ordine originale",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descrizione per l'impostazione randomizza domande quando disabilitata."
+  },
+  "randomizeAnswersTitle": "Ordine casuale delle risposte",
   "@randomizeAnswersTitle": {
     "description": "Titolo per l'impostazione di randomizzazione opzioni di risposta."
   },
@@ -919,7 +939,11 @@
   },
   "showCorrectAnswerCountDescription": "Visualizza il numero di risposte corrette nelle domande a scelta multipla",
   "@showCorrectAnswerCountDescription": {
-    "description": "Descrizione per l'impostazione mostra numero risposte corrette."
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "Il numero di risposte corrette non verrà mostrato per le domande a scelta multipla",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Seleziona {count} risposte corrette",
   "@correctAnswersCount": {
@@ -1371,7 +1395,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback immediato e nessun timer",
+  "studyModeDescription": "Assistenza AI disponibile. Feedback istantaneo dopo ogni risposta, senza limiti di tempo o penalità.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1379,7 +1403,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Timer standard e risultati alla fine",
+  "examModeDescription": "Nessuna assistenza AI. Potrebbero essere applicati limiti di tempo e penalità per le risposte errate.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1517,8 +1541,13 @@
     }
   },
   "subtractPointsLabel": "Sottrai punti per risposta errata",
+  "subtractPointsDescription": "Sottrae punti per ogni risposta errata.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Le risposte errate non sottraggono punti.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Importo penalità",
   "@penaltyAmountLabel": {
@@ -1546,8 +1575,25 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeAnswersOffDescription": "Le opzioni di risposta appariranno nel loro ordine originale",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Punteggio e limiti",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Congratulazioni! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configurazione dell'esame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Minimo 1 minuto",
+  "remainingTimeWithDays": "{days}g {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}g {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Massimo 30 giorni",
+  "validationMin0GenericError": "Minimo 0"
 }

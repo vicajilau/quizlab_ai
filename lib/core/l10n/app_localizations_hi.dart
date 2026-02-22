@@ -292,7 +292,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'यदि आप इस सीमा तक पहुँच जाते हैं तो क्विज़ तुरंत समाप्त हो जाएगी।';
+      'उत्तीर्ण/अनुत्तीर्ण परीक्षा। कोई संख्यात्मक ग्रेड नहीं है।';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'परीक्षा में 0 से 100 तक संख्यात्मक ग्रेड होता है।';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'अधिकतम अनुमत त्रुटियां';
@@ -333,7 +337,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get questionOrderDescendingDesc => 'प्रश्न अंत से 1 तक दिखेंगे';
 
   @override
-  String get questionOrderRandom => 'यादृच्छिक';
+  String get questionOrderRandom => 'प्रश्नों का क्रम यादृच्छिक करें';
 
   @override
   String get questionOrderRandomDesc => 'प्रश्न यादृच्छिक क्रम में दिखेंगे';
@@ -348,11 +352,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get save => 'सेव करें';
 
   @override
+  String get examConfigurationTitle => 'परीक्षा कॉन्फ़िगरेशन';
+
+  @override
   String get examTimeLimitTitle => 'परीक्षा समय सीमा';
 
   @override
   String get examTimeLimitDescription =>
-      'परीक्षा के लिए समय सीमा निर्धारित करें। सक्षम होने पर, क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+      'परीक्षा के लिए समय सीमा निर्धारित करें। क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'इस परीक्षा के लिए कोई समय सीमा नहीं है।';
 
   @override
   String get enableTimeLimit => 'समय सीमा सक्षम करें';
@@ -718,11 +729,26 @@ class AppLocalizationsHi extends AppLocalizations {
       'प्रश्न आयात करने के लिए आप .quiz फ़ाइलों को यहाँ ड्रैग और ड्रॉप भी कर सकते हैं';
 
   @override
-  String get randomizeAnswersTitle => 'उत्तर विकल्पों को मिलाएं';
+  String get randomizeQuestionsTitle => 'प्रश्नों को मिलाएं';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'क्विज़ निष्पादन के दौरान प्रश्नों का क्रम बदलें';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'प्रश्न अपने मूल क्रम में दिखाई देंगे';
+
+  @override
+  String get randomizeAnswersTitle => 'उत्तरों का क्रम यादृच्छिक करें';
 
   @override
   String get randomizeAnswersDescription =>
       'क्विज़ निष्पादन के दौरान उत्तर विकल्पों का क्रम मिलाएं';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'उत्तर विकल्प अपने मूल क्रम में दिखाई देंगे';
 
   @override
   String get showCorrectAnswerCountTitle => 'सही उत्तर संख्या दिखाएं';
@@ -730,6 +756,10 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'बहुविकल्पीय प्रश्नों में सही उत्तरों की संख्या प्रदर्शित करें';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'बहुविकल्पीय प्रश्नों के लिए सही उत्तरों की संख्या नहीं दिखाई जाएगी';
 
   @override
   String correctAnswersCount(int count) {
@@ -1096,13 +1126,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get studyModeLabel => 'अध्ययन मोड';
 
   @override
-  String get studyModeDescription => 'तत्काल प्रतिक्रिया और कोई टाइमर नहीं';
+  String get studyModeDescription =>
+      'AI सहायता उपलब्ध है। समय सीमा या दंड के बिना प्रत्येक उत्तर के बाद त्वरित प्रतिक्रिया।';
 
   @override
   String get examModeLabel => 'परीक्षा मोड';
 
   @override
-  String get examModeDescription => 'मानक समय और अंत में परिणाम';
+  String get examModeDescription =>
+      'कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।';
 
   @override
   String get checkAnswer => 'जांचें';
@@ -1187,6 +1219,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get subtractPointsLabel => 'गलत उत्तर के लिए अंक घटाएं';
 
   @override
+  String get subtractPointsDescription =>
+      'प्रत्येक गलत उत्तर के लिए अंक घटाएं।';
+
+  @override
+  String get subtractPointsOffDescription => 'गलत उत्तर अंक नहीं घटाते हैं।';
+
+  @override
   String get penaltyAmountLabel => 'दंड राशि';
 
   @override
@@ -1225,5 +1264,38 @@ class AppLocalizationsHi extends AppLocalizations {
   String get close => 'बंद करें';
 
   @override
+  String get scoringAndLimitsTitle => 'स्कोरिंग और सीमाएँ';
+
+  @override
   String get congratulations => '🎉 बधाई हो! 🎉';
+
+  @override
+  String get validationMin1Error => 'न्यूनतम 1 मिनट';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysदिन $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksसप्ताह $daysदिन $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'अधिकतम 30 दिन';
+
+  @override
+  String get validationMin0GenericError => 'न्यूनतम 0';
 }

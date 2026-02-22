@@ -296,7 +296,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Το κουίζ θα τερματιστεί αμέσως εάν φτάσετε σε αυτό το όριο.';
+      'Εξέταση Επιτυχίας/Αποτυχίας. Δεν υπάρχει αριθμητική βαθμολογία.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Η εξέταση έχει αριθμητική βαθμολογία από 0 έως 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel =>
@@ -341,7 +345,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι ερωτήσεις θα εμφανίζονται από το τέλος προς το 1';
 
   @override
-  String get questionOrderRandom => 'Τυχαία';
+  String get questionOrderRandom => 'Τυχαία σειρά ερωτήσεων';
 
   @override
   String get questionOrderRandomDesc =>
@@ -357,11 +361,18 @@ class AppLocalizationsEl extends AppLocalizations {
   String get save => 'Αποθήκευση';
 
   @override
+  String get examConfigurationTitle => 'Διαμόρφωση Εξέτασης';
+
+  @override
   String get examTimeLimitTitle => 'Χρονικό Όριο Εξέτασης';
 
   @override
   String get examTimeLimitDescription =>
-      'Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+      'Ορίστε χρονικό όριο για την εξέταση. Θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.';
 
   @override
   String get enableTimeLimit => 'Ενεργοποίηση χρονικού ορίου';
@@ -731,11 +742,26 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μπορείτε επίσης να σύρετε και να αποθέσετε αρχεία .quiz εδώ για εισαγωγή ερωτήσεων';
 
   @override
-  String get randomizeAnswersTitle => 'Τυχαία Σειρά Απαντήσεων';
+  String get randomizeQuestionsTitle => 'Τυχαία Σειρά Ερωτήσεων';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Ανακάτεμα της σειράς των ερωτήσεων κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά';
+
+  @override
+  String get randomizeAnswersTitle => 'Τυχαία σειρά απαντήσεων';
 
   @override
   String get randomizeAnswersDescription =>
       'Ανακάτεμα της σειράς των επιλογών απάντησης κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Οι επιλογές απάντησης θα εμφανίζονται με την αρχική τους σειρά';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -744,6 +770,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Εμφάνιση του αριθμού των σωστών απαντήσεων σε ερωτήσεις πολλαπλής επιλογής';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Ο αριθμός των σωστών απαντήσεων δεν θα εμφανίζεται για ερωτήσεις πολλαπλής επιλογής';
 
   @override
   String correctAnswersCount(int count) {
@@ -1117,13 +1147,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Άμεση ανατροφοδότηση και χωρίς χρονόμετρο';
+      'Διαθέσιμη βοήθεια AI. Άμεση ανατροφοδότηση μετά από κάθε απάντηση, χωρίς χρονικά όρια ή ποινές.';
 
   @override
   String get examModeLabel => 'Λειτουργία Εξέτασης';
 
   @override
-  String get examModeDescription => 'Τυπικός χρόνος και αποτελέσματα στο τέλος';
+  String get examModeDescription =>
+      'Χωρίς βοήθεια AI. Ενδέχεται να ισχύουν χρονικά όρια και ποινές για λανθασμένες απαντήσεις.';
 
   @override
   String get checkAnswer => 'Έλεγχος';
@@ -1208,6 +1239,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subtractPointsLabel => 'Αφαίρεση πόντων για λάθος απάντηση';
 
   @override
+  String get subtractPointsDescription =>
+      'Αφαίρεση πόντων για κάθε λάθος απάντηση.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Οι λάθος απαντήσεις δεν αφαιρούν πόντους.';
+
+  @override
   String get penaltyAmountLabel => 'Ποσό ποινής';
 
   @override
@@ -1246,5 +1285,38 @@ class AppLocalizationsEl extends AppLocalizations {
   String get close => 'Κλείσιμο';
 
   @override
+  String get scoringAndLimitsTitle => 'Βαθμολογία και όρια';
+
+  @override
   String get congratulations => '🎉 Συγχαρητήρια! 🎉';
+
+  @override
+  String get validationMin1Error => 'Ελάχιστο 1 λεπτό';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksε $daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Μέγιστο 30 ημέρες';
+
+  @override
+  String get validationMin0GenericError => 'Minimum 0';
 }

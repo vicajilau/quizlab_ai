@@ -283,7 +283,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get maxIncorrectAnswersLabel => '限制错误答案';
 
   @override
-  String get maxIncorrectAnswersDescription => '如果达到此限制，测验将立即结束。';
+  String get maxIncorrectAnswersDescription => '及格/不及格考试。没有具体分数，只有及格或不及格。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '考试将有 0 到 100 的数值评分。';
 
   @override
   String get maxIncorrectAnswersLimitLabel => '允许的最大错误数';
@@ -322,7 +325,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get questionOrderDescendingDesc => '问题将从结尾到1显示';
 
   @override
-  String get questionOrderRandom => '随机';
+  String get questionOrderRandom => '随机化问题顺序';
 
   @override
   String get questionOrderRandomDesc => '问题将随机显示';
@@ -337,10 +340,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '考试配置';
+
+  @override
   String get examTimeLimitTitle => '考试时间限制';
 
   @override
-  String get examTimeLimitDescription => '为考试设置时间限制。启用后，测验期间将显示倒计时器。';
+  String get examTimeLimitDescription => '为考试设置时间限制。测验期间将显示倒计时器。';
+
+  @override
+  String get examTimeLimitOffDescription => '本次考试没有时间限制。';
 
   @override
   String get enableTimeLimit => '启用时间限制';
@@ -687,16 +696,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dragDropHintText => '您也可以将.quiz文件拖拽到这里导入问题';
 
   @override
-  String get randomizeAnswersTitle => '随机化答案选项';
+  String get randomizeQuestionsTitle => '随机问题';
+
+  @override
+  String get randomizeQuestionsDescription => '在测验执行期间打乱问题顺序';
+
+  @override
+  String get randomizeQuestionsOffDescription => '问题将按其原始顺序出现';
+
+  @override
+  String get randomizeAnswersTitle => '随机化答案顺序';
 
   @override
   String get randomizeAnswersDescription => '在测验执行期间打乱答案选项的顺序';
+
+  @override
+  String get randomizeAnswersOffDescription => '答案选项将按原始顺序出现';
 
   @override
   String get showCorrectAnswerCountTitle => '显示正确答案数量';
 
   @override
   String get showCorrectAnswerCountDescription => '在多选题中显示正确答案的数量';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '多选题将不显示正确答案的数量';
 
   @override
   String correctAnswersCount(int count) {
@@ -1049,13 +1073,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get studyModeLabel => '学习模式';
 
   @override
-  String get studyModeDescription => '即时反馈，无计时';
+  String get studyModeDescription => '提供 AI 辅助。每题回答后提供即时反馈，无时间限制或扣分。';
 
   @override
   String get examModeLabel => '考试模式';
 
   @override
-  String get examModeDescription => '标准计时，最后显示结果';
+  String get examModeDescription => '无 AI 辅助。可能适用时间限制和答错扣分。';
 
   @override
   String get checkAnswer => '检查';
@@ -1138,6 +1162,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get subtractPointsLabel => '答错扣分';
 
   @override
+  String get subtractPointsDescription => '每答错一题扣除分数。';
+
+  @override
+  String get subtractPointsOffDescription => '回答错误不会扣分。';
+
+  @override
   String get penaltyAmountLabel => '扣分金额';
 
   @override
@@ -1175,5 +1205,38 @@ class AppLocalizationsZh extends AppLocalizations {
   String get close => '关闭';
 
   @override
+  String get scoringAndLimitsTitle => '评分和限制';
+
+  @override
   String get congratulations => '🎉 恭喜！ 🎉';
+
+  @override
+  String get validationMin1Error => '最少1分钟';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$days天 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeks周 $days天 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => '最多30天';
+
+  @override
+  String get validationMin0GenericError => '至少 0';
 }

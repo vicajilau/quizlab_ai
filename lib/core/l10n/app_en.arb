@@ -395,9 +395,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Label for the toggle to limit incorrect answers"
   },
-  "maxIncorrectAnswersDescription": "The quiz will end immediately if you reach this limit.",
+  "maxIncorrectAnswersDescription": "Pass/Fail Exam. No numeric grade; you either pass or fail.",
   "@maxIncorrectAnswersDescription": {
     "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "The exam has a numeric grade from 0 to 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Maximum allowed errors",
   "@maxIncorrectAnswersLimitLabel": {
@@ -447,7 +451,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "Random",
+  "questionOrderRandom": "Randomize Questions Order",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -467,13 +471,21 @@
   "@save": {
     "description": "Label for the save button"
   },
+  "examConfigurationTitle": "Exam Configuration",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
   "examTimeLimitTitle": "Exam Time Limit",
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.",
+  "examTimeLimitDescription": "Set a time limit for the exam. A countdown timer will be displayed during the quiz.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
+  },
+  "examTimeLimitOffDescription": "There is no time limit for this exam.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Enable time limit",
   "@enableTimeLimit": {
@@ -969,13 +981,29 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
-  "randomizeAnswersTitle": "Randomize Answer Options",
+  "randomizeQuestionsTitle": "Randomize Questions",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Shuffle the order of questions during quiz execution",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "Questions will appear in their original order",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Randomize Answers Order",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },
   "randomizeAnswersDescription": "Shuffle the order of answer options during quiz execution",
   "@randomizeAnswersDescription": {
     "description": "Description for the randomize answers setting."
+  },
+  "randomizeAnswersOffDescription": "Answer options will appear in their original order",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
   },
   "showCorrectAnswerCountTitle": "Show Correct Answer Count",
   "@showCorrectAnswerCountTitle": {
@@ -984,6 +1012,10 @@
   "showCorrectAnswerCountDescription": "Display the number of correct answers in multiple choice questions",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "The number of correct answers will not be shown for multiple-choice questions",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Select {count} correct answers",
   "@correctAnswersCount": {
@@ -1515,7 +1547,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Instant feedback and no timer",
+  "studyModeDescription": "AI assistance available. Instant feedback after each answer with no time limits or penalties.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1523,7 +1555,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard timer and results at the end",
+  "examModeDescription": "No AI assistance. Time limits and penalties for incorrect answers may apply.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1625,8 +1657,13 @@
     "description": "Label for the option to select all questions"
   },
   "subtractPointsLabel": "Subtract points for wrong answer",
+  "subtractPointsDescription": "Subtract points for each incorrect answer.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Incorrect answers do not deduct points.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalty amount",
   "@penaltyAmountLabel": {
@@ -1684,8 +1721,72 @@
   "@close": {
     "description": "Close button text"
   },
+  "scoringAndLimitsTitle": "Scoring and Limits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Congratulations! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
+  },
+  "validationMin1Error": "Minimum 1 minute",
+  "@validationMin1Error": {
+    "description": "Validation message indicating the time limit must be at least 1 minute."
+  },
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithDays": {
+    "description": "Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)",
+    "placeholders": {
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "remainingTimeWithWeeks": "{weeks}w {days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithWeeks": {
+    "description": "Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)",
+    "placeholders": {
+      "weeks": {
+        "type": "String",
+        "example": "1"
+      },
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "validationMax30DaysError": "Maximum 30 days",
+  "@validationMax30DaysError": {
+    "description": "Validation message indicating the time limit cannot exceed 30 days."
+  },
+  "validationMin0GenericError": "Minimum 0",
+  "@validationMin0GenericError": {
+    "description": "Error message when a field requires a minimum value of 0 without specifying units."
   }
 }

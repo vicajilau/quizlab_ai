@@ -485,7 +485,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descripció per l'opció ordre descendent de les preguntes"
   },
-  "questionOrderRandom": "Aleatori",
+  "questionOrderRandom": "Aleatoritzar l'ordre de les preguntes",
   "@questionOrderRandom": {
     "description": "Etiqueta per l'opció ordre aleatori de les preguntes"
   },
@@ -505,9 +505,13 @@
   "@examTimeLimitTitle": {
     "description": "Títol per la secció límit de temps de l'examen"
   },
-  "examTimeLimitDescription": "Establiu un límit de temps per l'examen. Quan s'activi, es mostrarà un temporitzador de compte enrere durant el quiz.",
+  "examTimeLimitDescription": "Estableix un límit de temps per a l'examen. Es mostrarà un cronòmetre durant el quiz.",
   "@examTimeLimitDescription": {
     "description": "Descripció per la funcionalitat límit de temps de l'examen"
+  },
+  "examTimeLimitOffDescription": "No hi ha límit de temps per a aquest examen.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Activar límit de temps",
   "@enableTimeLimit": {
@@ -521,9 +525,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etiqueta per a la configuració del límit d'errors"
   },
-  "maxIncorrectAnswersDescription": "Estableix un límit de respostes incorrectes per a l'examen. Si s'arriba a aquest límit, el quiz s'aturarà immediatament.",
+  "maxIncorrectAnswersDescription": "Examen d'Apte/No Apte. No hi ha nota numèrica, aproves o suspens.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descripció de la funcionalitat del límit d'errors"
+  },
+  "maxIncorrectAnswersOffDescription": "L'examen té una nota numèrica del 0 al 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Nombre màxim d'errors",
   "@maxIncorrectAnswersLimitLabel": {
@@ -1001,7 +1009,19 @@
   "@dragDropHintText": {
     "description": "Text de pista mostrat quan la llista de preguntes està buida, indicant funcionalitat d'arrossegar i deixar anar."
   },
-  "randomizeAnswersTitle": "Aleatoritzar opcions de resposta",
+  "randomizeQuestionsTitle": "Aleatoritzar preguntes",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Barrejar l'ordre de les preguntes durant l'execució del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "Les preguntes apareixeran en el seu ordre original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Aleatoritzar l'ordre de les respostes",
   "@randomizeAnswersTitle": {
     "description": "Títol per la configuració d'aleatorització d'opcions de resposta."
   },
@@ -1016,6 +1036,10 @@
   "showCorrectAnswerCountDescription": "Mostrar el nombre de respostes correctes en preguntes d'elecció múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descripció per la configuració mostrar nombre de respostes correctes."
+  },
+  "showCorrectAnswerCountOffDescription": "El nombre de respostes correctes no es mostrarà en les preguntes d'opció múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Seleccioneu {count} respostes correctes",
   "@correctAnswersCount": {
@@ -1467,7 +1491,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantani i sense temporitzador",
+  "studyModeDescription": "Assistència d'IA disponible. Feedback instantani després de cada resposta, sense límits de temps ni penalitzacions.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1475,7 +1499,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Temporitzador estàndard i resultats al final",
+  "examModeDescription": "Sense assistència d'IA. Es poden aplicar límits de temps i penalitzacions per respostes incorrectes.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1574,8 +1598,13 @@
     }
   },
   "subtractPointsLabel": "Restar punts per resposta incorrecta",
+  "subtractPointsDescription": "Resta punts per cada resposta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Les respostes incorrectes no resten punts.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Quantitat de penalització",
   "@penaltyAmountLabel": {
@@ -1603,8 +1632,25 @@
   "@close": {
     "description": "Close button text"
   },
+  "randomizeAnswersOffDescription": "Les opcions de resposta apareixeran en el seu ordre original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuació i límits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Enhorabona! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configuració de l'examen",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mínim 1 minut",
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Màxim 30 dies",
+  "validationMin0GenericError": "Mínim 0"
 }

@@ -295,7 +295,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'Il quiz terminerà immediatamente se raggiungi questo limite.';
+      'Esame Idoneo/Non Idoneo. Non c\'è voto numerico, sei promosso o bocciato.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'L\'esame ha un voto numerico da 0 a 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'Massimo errori consentiti';
@@ -338,7 +342,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Le domande appariranno dalla fine a 1';
 
   @override
-  String get questionOrderRandom => 'Casuale';
+  String get questionOrderRandom => 'Ordine casuale delle domande';
 
   @override
   String get questionOrderRandomDesc =>
@@ -354,11 +358,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get save => 'Salva';
 
   @override
+  String get examConfigurationTitle => 'Configurazione dell\'esame';
+
+  @override
   String get examTimeLimitTitle => 'Limite di tempo esame';
 
   @override
   String get examTimeLimitDescription =>
-      'Imposta un limite di tempo per l\'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+      'Imposta un limite di tempo per l\'esame. Verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Non c\'è limite de tempo per questo esame.';
 
   @override
   String get enableTimeLimit => 'Abilita limite di tempo';
@@ -726,11 +737,26 @@ class AppLocalizationsIt extends AppLocalizations {
       'Puoi anche trascinare e rilasciare file .quiz qui per importare domande';
 
   @override
-  String get randomizeAnswersTitle => 'Randomizza opzioni di risposta';
+  String get randomizeQuestionsTitle => 'Randomizza domande';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Mescola l\'ordine delle domande durante l\'esecuzione del quiz';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Le domande appariranno nel loro ordine originale';
+
+  @override
+  String get randomizeAnswersTitle => 'Ordine casuale delle risposte';
 
   @override
   String get randomizeAnswersDescription =>
       'Mescola l\'ordine delle opzioni di risposta durante l\'esecuzione del quiz';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Le opzioni di risposta appariranno nel loro ordine originale';
 
   @override
   String get showCorrectAnswerCountTitle => 'Mostra numero risposte corrette';
@@ -738,6 +764,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Visualizza il numero di risposte corrette nelle domande a scelta multipla';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Il numero di risposte corrette non verrà mostrato per le domande a scelta multipla';
 
   @override
   String correctAnswersCount(int count) {
@@ -1105,13 +1135,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get studyModeLabel => 'Modalità studio';
 
   @override
-  String get studyModeDescription => 'Feedback immediato e nessun timer';
+  String get studyModeDescription =>
+      'Assistenza AI disponibile. Feedback istantaneo dopo ogni risposta, senza limiti di tempo o penalità.';
 
   @override
   String get examModeLabel => 'Modalità esame';
 
   @override
-  String get examModeDescription => 'Timer standard e risultati alla fine';
+  String get examModeDescription =>
+      'Nessuna assistenza AI. Potrebbero essere applicati limiti di tempo e penalità per le risposte errate.';
 
   @override
   String get checkAnswer => 'Controlla';
@@ -1195,6 +1227,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get subtractPointsLabel => 'Sottrai punti per risposta errata';
 
   @override
+  String get subtractPointsDescription =>
+      'Sottrae punti per ogni risposta errata.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Le risposte errate non sottraggono punti.';
+
+  @override
   String get penaltyAmountLabel => 'Importo penalità';
 
   @override
@@ -1233,5 +1273,38 @@ class AppLocalizationsIt extends AppLocalizations {
   String get close => 'Chiudi';
 
   @override
+  String get scoringAndLimitsTitle => 'Punteggio e limiti';
+
+  @override
   String get congratulations => '🎉 Congratulazioni! 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimo 1 minuto';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}s ${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Massimo 30 giorni';
+
+  @override
+  String get validationMin0GenericError => 'Minimo 0';
 }

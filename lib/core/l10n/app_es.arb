@@ -374,9 +374,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Etiqueta para el interruptor de limitar respuestas incorrectas"
   },
-  "maxIncorrectAnswersDescription": "El quiz terminará inmediatamente si alcanzas este límite.",
+  "maxIncorrectAnswersDescription": "Examen de Apto / No Apto. No hay nota numérica, apruebas o suspendes.",
   "@maxIncorrectAnswersDescription": {
     "description": "Descripción para la funcionalidad de limitar respuestas incorrectas"
+  },
+  "maxIncorrectAnswersOffDescription": "El examen tiene una nota numérica del 0 al 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Máximo de errores permitidos",
   "@maxIncorrectAnswersLimitLabel": {
@@ -414,7 +418,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descripción para la opción de orden descendente de preguntas"
   },
-  "questionOrderRandom": "Aleatorio",
+  "questionOrderRandom": "Aleatorizar el orden de las preguntas",
   "@questionOrderRandom": {
     "description": "Etiqueta para la opción de orden aleatorio de preguntas"
   },
@@ -434,9 +438,13 @@
   "@examTimeLimitTitle": {
     "description": "Título para la sección de límite de tiempo del examen"
   },
-  "examTimeLimitDescription": "Establece un límite de tiempo para el examen. Cuando esté habilitado, se mostrará un cronómetro durante el quiz.",
+  "examTimeLimitDescription": "Establece un límite de tiempo para el examen. Se mostrará un cronómetro durante el quiz.",
   "@examTimeLimitDescription": {
     "description": "Descripción para la funcionalidad de límite de tiempo del examen"
+  },
+  "examTimeLimitOffDescription": "No hay límite de tiempo para este examen.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Habilitar límite de tiempo",
   "@enableTimeLimit": {
@@ -932,13 +940,29 @@
   "@dragDropHintText": {
     "description": "Texto de sugerencia mostrado cuando la lista de preguntas está vacía, indicando la funcionalidad de arrastrar y soltar."
   },
-  "randomizeAnswersTitle": "Aleatorizar opciones de respuesta",
+  "randomizeQuestionsTitle": "Aleatorizar preguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Título para la configuración de aleatorizar preguntas."
+  },
+  "randomizeQuestionsDescription": "Mezclar el orden de las preguntas durante la ejecución del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descripción para la configuración de aleatorizar preguntas."
+  },
+  "randomizeQuestionsOffDescription": "Las preguntas aparecerán en su orden original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descripción para la configuración de aleatorizar preguntas cuando está desactivada."
+  },
+  "randomizeAnswersTitle": "Aleatorizar el orden de las respuestas",
   "@randomizeAnswersTitle": {
     "description": "Título para la configuración de aleatorizar opciones de respuesta."
   },
   "randomizeAnswersDescription": "Mezclar el orden de las opciones de respuesta durante la ejecución del quiz",
   "@randomizeAnswersDescription": {
     "description": "Descripción para la configuración de aleatorizar respuestas."
+  },
+  "randomizeAnswersOffDescription": "Las opciones de respuesta aparecerán en su orden original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Descripción para la configuración de aleatorizar respuestas cuando está desactivada."
   },
   "showCorrectAnswerCountTitle": "Mostrar número de respuestas correctas",
   "@showCorrectAnswerCountTitle": {
@@ -947,6 +971,10 @@
   "showCorrectAnswerCountDescription": "Mostrar el número de respuestas correctas en preguntas de opción múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descripción para la configuración de mostrar número de respuestas correctas."
+  },
+  "showCorrectAnswerCountOffDescription": "No se mostrará el número de respuestas correctas en las preguntas de opción múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Descripción para la configuración de mostrar el número de respuestas correctas cuando está desactivada."
   },
   "correctAnswersCount": "Selecciona {count} respuestas correctas",
   "@correctAnswersCount": {
@@ -1478,7 +1506,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantáneo y sin temporizador",
+  "studyModeDescription": "Asistencia de IA disponible. Feedback instantáneo tras cada respuesta, sin límites de tiempo ni penalizaciones.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1486,7 +1514,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Temporizador estándar y resultados al final",
+  "examModeDescription": "Sin asistencia de IA. Pueden aplicar límites de tiempo y penalizaciones por respuestas incorrectas.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1544,8 +1572,13 @@
     "description": "Etiqueta para la opción de seleccionar todas las preguntas"
   },
   "subtractPointsLabel": "Restar puntos por respuesta incorrecta",
+  "subtractPointsDescription": "Resta puntos por cada respuesta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Las respuestas incorrectas no restan puntos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Cantidad de penalización",
   "@penaltyAmountLabel": {
@@ -1582,8 +1615,21 @@
   "@close": {
     "description": "Close button text"
   },
+  "scoringAndLimitsTitle": "Puntuación y límites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 ¡Enhorabuena! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Configuración del examen",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mínimo 1 minuto",
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Máximo 30 días",
+  "validationMin0GenericError": "Mínimo 0"
 }

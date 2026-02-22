@@ -278,16 +278,6 @@ class AiSettingsSection extends StatelessWidget {
           if (geminiController.text.isValidGeminiApiKey ||
               openAiController.text.isValidOpenAIApiKey) ...[
             const SizedBox(height: 24),
-            Text(
-              AppLocalizations.of(context)!.aiDefaultModelTitle,
-              style: TextStyle(
-                fontFamily: 'Inter',
-                fontSize: 14,
-                fontWeight: FontWeight.w500,
-                color: colors.subtitle,
-              ),
-            ),
-            const SizedBox(height: 8),
             // Note: AiServiceModelSelector might need internal styling updates too,
             // but for now we place it here.
             AiServiceModelSelector(

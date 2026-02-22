@@ -9,19 +9,23 @@ import 'package:quiz_app/domain/models/quiz/question_order.dart';
 class QuestionSettingsSection extends StatefulWidget {
   final QuestionOrder selectedOrder;
   final bool randomizeAnswers;
+  final bool randomizeQuestions;
   final bool showCorrectAnswerCount;
   final ValueChanged<QuestionOrder> onOrderChanged;
   final ValueChanged<bool> onRandomizeAnswersChanged;
   final ValueChanged<bool> onShowCorrectAnswerCountChanged;
+  final ValueChanged<bool> onRandomizeQuestionsChanged;
 
   const QuestionSettingsSection({
     super.key,
     required this.selectedOrder,
     required this.randomizeAnswers,
+    required this.randomizeQuestions,
     required this.showCorrectAnswerCount,
     required this.onOrderChanged,
     required this.onRandomizeAnswersChanged,
     required this.onShowCorrectAnswerCountChanged,
+    required this.onRandomizeQuestionsChanged,
   });
 
   @override
@@ -113,13 +117,6 @@ class _QuestionSettingsSectionState extends State<QuestionSettingsSection> {
                         isSelected:
                             widget.selectedOrder == QuestionOrder.ascending,
                       ),
-                      const SizedBox(width: 12),
-                      _buildOrderOption(
-                        context,
-                        order: QuestionOrder.descending,
-                        isSelected:
-                            widget.selectedOrder == QuestionOrder.descending,
-                      ),
                     ],
                   ),
                 ),
@@ -176,6 +173,17 @@ class _QuestionSettingsSectionState extends State<QuestionSettingsSection> {
 
         const SizedBox(height: 12),
 
+        // Randomize Questions Toggle
+        _buildToggleRow(
+          context,
+          title: AppLocalizations.of(context)!.randomizeQuestionsTitle,
+          subtitle: AppLocalizations.of(context)!.randomizeQuestionsDescription,
+          value: widget.randomizeQuestions,
+          onChanged: widget.onRandomizeQuestionsChanged,
+        ),
+
+        const SizedBox(height: 12),
+
         // Randomize Answers Toggle
         _buildToggleRow(
           context,
@@ -214,9 +222,6 @@ class _QuestionSettingsSectionState extends State<QuestionSettingsSection> {
     switch (order) {
       case QuestionOrder.ascending:
         label = AppLocalizations.of(context)!.questionOrderAscending;
-        break;
-      case QuestionOrder.descending:
-        label = AppLocalizations.of(context)!.questionOrderDescending;
         break;
       case QuestionOrder.random:
         label = AppLocalizations.of(context)!.questionOrderRandom;

@@ -283,7 +283,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get maxIncorrectAnswersLabel => '不正解数を制限する';
 
   @override
-  String get maxIncorrectAnswersDescription => '制限に達するとクイズは直ちに終了します。';
+  String get maxIncorrectAnswersDescription => '合否試験。数字による成績はなく、合格か不合格かのみです。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '試験には0から100までの数字による成績があります。';
 
   @override
   String get maxIncorrectAnswersLimitLabel => '最大許容エラー数';
@@ -322,7 +325,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get questionOrderDescendingDesc => '問題は最後から1まで表示されます';
 
   @override
-  String get questionOrderRandom => 'ランダム';
+  String get questionOrderRandom => '問題の順序をランダム化';
 
   @override
   String get questionOrderRandomDesc => '問題はランダム順で表示されます';
@@ -337,11 +340,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '試験の設定';
+
+  @override
   String get examTimeLimitTitle => '試験時間制限';
 
   @override
   String get examTimeLimitDescription =>
-      '試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。';
+      '試験の時間制限を設定します。クイズ中にカウントダウンタイマーが表示されます。';
+
+  @override
+  String get examTimeLimitOffDescription => 'この試験には時間制限がありません。';
 
   @override
   String get enableTimeLimit => '時間制限を有効にする';
@@ -691,16 +700,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dragDropHintText => '問題をインポートするために.quizファイルをここにドラッグ&ドロップすることもできます';
 
   @override
-  String get randomizeAnswersTitle => '回答選択肢をランダム化';
+  String get randomizeQuestionsTitle => '問題をランダム化';
+
+  @override
+  String get randomizeQuestionsDescription => 'クイズ実行中に問題の順序をシャッフル';
+
+  @override
+  String get randomizeQuestionsOffDescription => '問題は元の順序で表示されます';
+
+  @override
+  String get randomizeAnswersTitle => '回答の順序をランダム化';
 
   @override
   String get randomizeAnswersDescription => 'クイズ実行中に回答選択肢の順序をシャッフル';
+
+  @override
+  String get randomizeAnswersOffDescription => '回答の選択肢は元の順序で表示されます';
 
   @override
   String get showCorrectAnswerCountTitle => '正解数を表示';
 
   @override
   String get showCorrectAnswerCountDescription => '複数選択問題で正解の数を表示';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '選択式問題の正解数は表示されません';
 
   @override
   String correctAnswersCount(int count) {
@@ -1056,13 +1080,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get studyModeLabel => '学習モード';
 
   @override
-  String get studyModeDescription => '即時フィードバック、タイマーなし';
+  String get studyModeDescription =>
+      'AIアシスタンス利用可能。回答直後のインスタント・フィードバック、時間制限や減点はありません。';
 
   @override
   String get examModeLabel => '試験モード';
 
   @override
-  String get examModeDescription => '標準時間、最後に結果表示';
+  String get examModeDescription => 'AIアシスタンスなし。時間制限や不正解による減点が適用される場合があります。';
 
   @override
   String get checkAnswer => '確認';
@@ -1145,6 +1170,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subtractPointsLabel => '不正解でポイントを減点';
 
   @override
+  String get subtractPointsDescription => '不正解ごとにポイントを減点します。';
+
+  @override
+  String get subtractPointsOffDescription => '不正解でも減点されません。';
+
+  @override
   String get penaltyAmountLabel => 'ペナルティ額';
 
   @override
@@ -1182,5 +1213,38 @@ class AppLocalizationsJa extends AppLocalizations {
   String get close => '閉じる';
 
   @override
+  String get scoringAndLimitsTitle => 'スコアと制限';
+
+  @override
   String get congratulations => '🎉 おめでとうございます！ 🎉';
+
+  @override
+  String get validationMin1Error => '最小 1 分';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeks週 $days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => '最大30日';
+
+  @override
+  String get validationMin0GenericError => '最小 0';
 }

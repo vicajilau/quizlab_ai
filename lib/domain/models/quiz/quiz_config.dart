@@ -1,3 +1,5 @@
+import 'package:quiz_app/domain/models/quiz/question_order.dart';
+
 /// Configuration settings for a quiz session.
 class QuizConfig {
   /// The total number of questions to be included in the quiz.
@@ -27,6 +29,15 @@ class QuizConfig {
   /// The maximum number of incorrect answers allowed before the quiz ends.
   final int? maxIncorrectAnswers;
 
+  /// The order in which questions should be presented.
+  final QuestionOrder questionOrder;
+
+  /// Whether to randomize the order of answers for each question.
+  final bool randomizeAnswers;
+
+  /// Whether to show the count of correct options for multiple-choice questions.
+  final bool showCorrectAnswerCount;
+
   /// Creates a [QuizConfig] instance with the specified settings.
   const QuizConfig({
     required this.questionCount,
@@ -38,6 +49,9 @@ class QuizConfig {
     this.useSelectedOnly = false,
     this.enableMaxIncorrectAnswers = false,
     this.maxIncorrectAnswers,
+    this.questionOrder = QuestionOrder.random,
+    this.randomizeAnswers = false,
+    this.showCorrectAnswerCount = false,
   });
 
   @override
@@ -53,7 +67,9 @@ class QuizConfig {
         other.penaltyAmount == penaltyAmount &&
         other.useSelectedOnly == useSelectedOnly &&
         other.enableMaxIncorrectAnswers == enableMaxIncorrectAnswers &&
-        other.maxIncorrectAnswers == maxIncorrectAnswers;
+        other.questionOrder == questionOrder &&
+        other.randomizeAnswers == randomizeAnswers &&
+        other.showCorrectAnswerCount == showCorrectAnswerCount;
   }
 
   @override
@@ -66,9 +82,12 @@ class QuizConfig {
       penaltyAmount.hashCode ^
       useSelectedOnly.hashCode ^
       enableMaxIncorrectAnswers.hashCode ^
-      maxIncorrectAnswers.hashCode;
+      maxIncorrectAnswers.hashCode ^
+      questionOrder.hashCode ^
+      randomizeAnswers.hashCode ^
+      showCorrectAnswerCount.hashCode;
 
   @override
   String toString() =>
-      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly, enableMaxIncorrectAnswers: $enableMaxIncorrectAnswers, maxIncorrectAnswers: $maxIncorrectAnswers)';
+      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly, enableMaxIncorrectAnswers: $enableMaxIncorrectAnswers, maxIncorrectAnswers: $maxIncorrectAnswers, questionOrder: $questionOrder, randomizeAnswers: $randomizeAnswers, showCorrectAnswerCount: $showCorrectAnswerCount)';
 }

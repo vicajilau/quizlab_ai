@@ -389,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Galderen orden beherakorrarentzako deskribapena"
   },
-  "questionOrderRandom": "Ausazkoa",
+  "questionOrderRandom": "Galderen ordena ausazkotu",
   "@questionOrderRandom": {
     "description": "Galderen orden ausazkoaren etiketa"
   },
@@ -409,9 +409,13 @@
   "@examTimeLimitTitle": {
     "description": "Azterketaren denbora muga atalaren izenburua"
   },
-  "examTimeLimitDescription": "Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.",
+  "examTimeLimitDescription": "Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.",
   "@examTimeLimitDescription": {
     "description": "Azterketaren denbora muga funtzionalitatearen deskribapena"
+  },
+  "examTimeLimitOffDescription": "Azterketa honetarako ez dago denbora mugarik.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Denbora muga gaitu",
   "@enableTimeLimit": {
@@ -425,9 +429,13 @@
   "@maxIncorrectAnswersLabel": {
     "description": "Errore muga konfiguratzeko etiketa"
   },
-  "maxIncorrectAnswersDescription": "Azterketarako erantzun okerren muga ezarri. Muga horretara iritsiz gero, quiz-a berehala geldituko da.",
+  "maxIncorrectAnswersDescription": "Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.",
   "@maxIncorrectAnswersDescription": {
     "description": "Errore muga funtzionalitatearen deskribapena"
+  },
+  "maxIncorrectAnswersOffDescription": "Azterketak 0 eta 100 arteko zenbakizko nota du.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
   },
   "maxIncorrectAnswersLimitLabel": "Gehienezko errore kopurua",
   "@maxIncorrectAnswersLimitLabel": {
@@ -905,7 +913,19 @@
   "@dragDropHintText": {
     "description": "Galdera zerrenda hutsik dagoenean erakusten den aholku testua, arrastatu eta utzi funtzionalitatea adierazten."
   },
-  "randomizeAnswersTitle": "Erantzun Aukerak Ausazkotu",
+  "randomizeQuestionsTitle": "Galderak Ausazkotu",
+  "@randomizeQuestionsTitle": {
+    "description": "Galderak ausazkotze konfigurazioaren izenburua."
+  },
+  "randomizeQuestionsDescription": "Quiz exekuzioan galderen ordena nahastu",
+  "@randomizeQuestionsDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena."
+  },
+  "randomizeQuestionsOffDescription": "Galderak jatorrizko ordenan agertuko dira",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena desgaituta dagoenean."
+  },
+  "randomizeAnswersTitle": "Erantzunen ordena ausazkotu",
   "@randomizeAnswersTitle": {
     "description": "Erantzun aukeren ausazkotze konfigurazioaren izenburua."
   },
@@ -917,9 +937,9 @@
   "@showCorrectAnswerCountTitle": {
     "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren izenburua."
   },
-  "showCorrectAnswerCountDescription": "Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi",
+  "showCorrectAnswerCountDescription": "Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan",
   "@showCorrectAnswerCountDescription": {
-    "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren deskribapena."
+    "description": "Description for the show correct answer count setting."
   },
   "correctAnswersCount": "Hautatu {count} erantzun zuzen",
   "@correctAnswersCount": {
@@ -1368,9 +1388,9 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Ikasteko Modua",
-  "studyModeDescription": "Berehalako feedbacka eta denborarik gabe",
+  "studyModeDescription": "AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.",
   "examModeLabel": "Azterketa Modua",
-  "examModeDescription": "Denbora estandarra eta emaitzak amaieran",
+  "examModeDescription": "AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.",
   "checkAnswer": "Egiaztatu",
   "quizModeTitle": "Galdetegi Modua",
   "skip": "Saltatu",
@@ -1478,8 +1498,13 @@
     }
   },
   "subtractPointsLabel": "Kendu puntuak erantzun okerrengatik",
+  "subtractPointsDescription": "Kendu puntuak erantzun oker bakoitzeko.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Erantzun okerrek ez dute punturik kentzen.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalizazio kopurua",
   "@penaltyAmountLabel": {
@@ -1507,8 +1532,29 @@
   "@close": {
     "description": "Close button text"
   },
+  "showCorrectAnswerCountOffDescription": "Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
+  },
+  "randomizeAnswersOffDescription": "Erantzun-aukerak jatorrizko ordenan agertuko dira",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuazioa eta mugak",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
   "congratulations": "🎉 Zorionak! 🎉",
   "@congratulations": {
     "description": "Congratulations message in winner dialog"
-  }
+  },
+  "examConfigurationTitle": "Azterketaren konfigurazioa",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Gutxienez minutu 1",
+  "remainingTimeWithDays": "{days}e {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}a {days}e {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Gehienez 30 egun",
+  "validationMin0GenericError": "Gutxienez 0"
 }

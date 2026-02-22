@@ -1,3 +1,5 @@
+import 'package:quiz_app/domain/models/quiz/question_order.dart';
+
 /// A Data Transfer Object (DTO) for storing quiz configuration settings.
 ///
 /// This class encapsulates the user's preferred settings for quiz execution,
@@ -21,6 +23,15 @@ class QuizConfigStoredSettings {
   /// The maximum number of incorrect answers allowed before the quiz ends.
   final int? maxIncorrectAnswers;
 
+  /// The order in which questions should be presented.
+  final QuestionOrder? questionOrder;
+
+  /// Whether to randomize the order of answers for each question.
+  final bool? randomizeAnswers;
+
+  /// Whether to show the count of correct options for multiple-choice questions.
+  final bool? showCorrectAnswerCount;
+
   /// Creates a [QuizConfigStoredSettings] instance.
   const QuizConfigStoredSettings({
     this.questionCount,
@@ -29,5 +40,8 @@ class QuizConfigStoredSettings {
     this.penaltyAmount,
     this.enableMaxIncorrectAnswers,
     this.maxIncorrectAnswers,
+    this.questionOrder,
+    this.randomizeAnswers,
+    this.showCorrectAnswerCount,
   });
 }

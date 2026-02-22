@@ -290,7 +290,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get maxIncorrectAnswersDescription =>
-      'سيتوقف الاختبار فورًا إذا وصلت إلى هذا الحد.';
+      'امتحان نجاح/رسوب. لا توجد درجة رقمية، إما أن تنجح أو ترسب.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'للامتحان درجة رقمية من 0 إلى 100.';
 
   @override
   String get maxIncorrectAnswersLimitLabel => 'الحد الأقصى للأخطاء المسموح بها';
@@ -331,7 +335,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get questionOrderDescendingDesc => 'ستظهر الأسئلة من النهاية إلى 1';
 
   @override
-  String get questionOrderRandom => 'عشوائي';
+  String get questionOrderRandom => 'ترتيب عشوائي للأسئلة';
 
   @override
   String get questionOrderRandomDesc => 'ستظهر الأسئلة بترتيب عشوائي';
@@ -346,11 +350,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get save => 'حفظ';
 
   @override
+  String get examConfigurationTitle => 'إعدادات الامتحان';
+
+  @override
   String get examTimeLimitTitle => 'حد وقت الامتحان';
 
   @override
   String get examTimeLimitDescription =>
-      'تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.';
+      'قم بتعيين حد زمني للاختبار. سيتم عرض مؤقت تنازلي أثناء الاختبار.';
+
+  @override
+  String get examTimeLimitOffDescription => 'لا يوجد حد زمني لهذا الاختبار.';
 
   @override
   String get enableTimeLimit => 'تفعيل الحد الزمني';
@@ -714,11 +724,26 @@ class AppLocalizationsAr extends AppLocalizations {
       'يمكنك أيضاً سحب وإفلات ملفات .quiz هنا لاستيراد الأسئلة';
 
   @override
-  String get randomizeAnswersTitle => 'عشوائية خيارات الإجابة';
+  String get randomizeQuestionsTitle => 'عشوائية الأسئلة';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'خلط ترتيب الأسئلة أثناء تنفيذ الاختبار';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'ستظهر الأسئلة بترتيبها الأصلي';
+
+  @override
+  String get randomizeAnswersTitle => 'ترتيب عشوائي للإجابات';
 
   @override
   String get randomizeAnswersDescription =>
       'خلط ترتيب خيارات الإجابة أثناء تنفيذ الاختبار';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'ستظهر خيارات الإجابة بترتيبها الأصلي';
 
   @override
   String get showCorrectAnswerCountTitle => 'إظهار عدد الإجابات الصحيحة';
@@ -726,6 +751,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'عرض عدد الإجابات الصحيحة في أسئلة الاختيار المتعدد';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'لن يتم عرض عدد الإجابات الصحيحة لأسئلة الاختيار من متعدد';
 
   @override
   String correctAnswersCount(int count) {
@@ -1089,13 +1118,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get studyModeLabel => 'وضع الدراسة';
 
   @override
-  String get studyModeDescription => 'ردود فعل فورية وبلا توقيت';
+  String get studyModeDescription =>
+      'مساعدة الذكاء الاصطناعي متاحة. تعليقات فورية بعد كل إجابة بدون حدود زمنية أو عقوبات.';
 
   @override
   String get examModeLabel => 'وضع الاختبار';
 
   @override
-  String get examModeDescription => 'توقيت قياسي ونتائج في النهاية';
+  String get examModeDescription =>
+      'بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.';
 
   @override
   String get checkAnswer => 'تحقق';
@@ -1179,6 +1210,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subtractPointsLabel => 'خصم نقاط للإجابة الخاطئة';
 
   @override
+  String get subtractPointsDescription => 'خصم نقاط عن كل إجابة خاطئة.';
+
+  @override
+  String get subtractPointsOffDescription => 'الإجابات الخاطئة لا تخصم نقاطا.';
+
+  @override
   String get penaltyAmountLabel => 'مبلغ الغرامة';
 
   @override
@@ -1216,5 +1253,38 @@ class AppLocalizationsAr extends AppLocalizations {
   String get close => 'إغلاق';
 
   @override
+  String get scoringAndLimitsTitle => 'الدرجات والحدود';
+
+  @override
   String get congratulations => '🎉 تهانينا! 🎉';
+
+  @override
+  String get validationMin1Error => 'دقيقة واحدة كحد أدنى';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksأ $daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'كحد أقصى 30 يومًا';
+
+  @override
+  String get validationMin0GenericError => 'بحد أدنى 0';
 }

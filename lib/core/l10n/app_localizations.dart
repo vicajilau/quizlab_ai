@@ -611,8 +611,14 @@ abstract class AppLocalizations {
   /// Description for the limit incorrect answers feature
   ///
   /// In en, this message translates to:
-  /// **'The quiz will end immediately if you reach this limit.'**
+  /// **'Pass/Fail Exam. No numeric grade; you either pass or fail.'**
   String get maxIncorrectAnswersDescription;
+
+  /// Description shown when max incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'The exam has a numeric grade from 0 to 100.'**
+  String get maxIncorrectAnswersOffDescription;
 
   /// Label for the input field of maximum incorrect answers
   ///
@@ -689,7 +695,7 @@ abstract class AppLocalizations {
   /// Label for random question order option
   ///
   /// In en, this message translates to:
-  /// **'Random'**
+  /// **'Randomize Questions Order'**
   String get questionOrderRandom;
 
   /// Description for random question order option
@@ -716,6 +722,12 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// Title for the advanced settings / exam configuration section
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Configuration'**
+  String get examConfigurationTitle;
+
   /// Title for exam time limit section
   ///
   /// In en, this message translates to:
@@ -725,8 +737,14 @@ abstract class AppLocalizations {
   /// Description for exam time limit feature
   ///
   /// In en, this message translates to:
-  /// **'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.'**
+  /// **'Set a time limit for the exam. A countdown timer will be displayed during the quiz.'**
   String get examTimeLimitDescription;
+
+  /// Description shown when time limit is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'There is no time limit for this exam.'**
+  String get examTimeLimitOffDescription;
 
   /// Label for enable exam time limit switch
   ///
@@ -1352,10 +1370,28 @@ abstract class AppLocalizations {
   /// **'You can also drag and drop .quiz files here to import questions'**
   String get dragDropHintText;
 
+  /// Title for the setting to randomize questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Randomize Questions'**
+  String get randomizeQuestionsTitle;
+
+  /// Description for the randomize questions setting.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle the order of questions during quiz execution'**
+  String get randomizeQuestionsDescription;
+
+  /// Description for the randomize questions setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions will appear in their original order'**
+  String get randomizeQuestionsOffDescription;
+
   /// Title for the setting to randomize answer options.
   ///
   /// In en, this message translates to:
-  /// **'Randomize Answer Options'**
+  /// **'Randomize Answers Order'**
   String get randomizeAnswersTitle;
 
   /// Description for the randomize answers setting.
@@ -1363,6 +1399,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Shuffle the order of answer options during quiz execution'**
   String get randomizeAnswersDescription;
+
+  /// Description for the randomize answers setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer options will appear in their original order'**
+  String get randomizeAnswersOffDescription;
 
   /// Title for the setting to show correct answer count.
   ///
@@ -1375,6 +1417,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Display the number of correct answers in multiple choice questions'**
   String get showCorrectAnswerCountDescription;
+
+  /// Description for the show correct answer count setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'The number of correct answers will not be shown for multiple-choice questions'**
+  String get showCorrectAnswerCountOffDescription;
 
   /// Text showing how many correct answers to select in a multiple choice question.
   ///
@@ -2009,7 +2057,7 @@ abstract class AppLocalizations {
   /// Description for study mode
   ///
   /// In en, this message translates to:
-  /// **'Instant feedback and no timer'**
+  /// **'AI assistance available. Instant feedback after each answer with no time limits or penalties.'**
   String get studyModeDescription;
 
   /// Label for exam mode option
@@ -2021,7 +2069,7 @@ abstract class AppLocalizations {
   /// Description for exam mode
   ///
   /// In en, this message translates to:
-  /// **'Standard timer and results at the end'**
+  /// **'No AI assistance. Time limits and penalties for incorrect answers may apply.'**
   String get examModeDescription;
 
   /// Button label to check the answer in study mode
@@ -2180,6 +2228,18 @@ abstract class AppLocalizations {
   /// **'Subtract points for wrong answer'**
   String get subtractPointsLabel;
 
+  /// No description provided for @subtractPointsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtract points for each incorrect answer.'**
+  String get subtractPointsDescription;
+
+  /// Description shown when subtract points for incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect answers do not deduct points.'**
+  String get subtractPointsOffDescription;
+
   /// Label for the input field to set the penalty amount
   ///
   /// In en, this message translates to:
@@ -2246,11 +2306,58 @@ abstract class AppLocalizations {
   /// **'Close'**
   String get close;
 
+  /// Title for the scoring and limits section in advanced settings
+  ///
+  /// In en, this message translates to:
+  /// **'Scoring and Limits'**
+  String get scoringAndLimitsTitle;
+
   /// Congratulations message in winner dialog
   ///
   /// In en, this message translates to:
   /// **'🎉 Congratulations! 🎉'**
   String get congratulations;
+
+  /// Validation message indicating the time limit must be at least 1 minute.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 1 minute'**
+  String get validationMin1Error;
+
+  /// Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{weeks}w {days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Validation message indicating the time limit cannot exceed 30 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 30 days'**
+  String get validationMax30DaysError;
+
+  /// Error message when a field requires a minimum value of 0 without specifying units.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 0'**
+  String get validationMin0GenericError;
 }
 
 class _AppLocalizationsDelegate
