@@ -257,7 +257,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct de $total respostes correctes';
   }
 
@@ -485,11 +485,36 @@ class AppLocalizationsCa extends AppLocalizations {
       'Ho sento, hi ha hagut un error en processar la vostra pregunta. Torneu-ho a provar.';
 
   @override
+  String get evaluatingResponses => 'Avaluant respostes...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count preguntes de desenvolupament pendents d\'avaluació per part de la IA',
+      one:
+          '1 pregunta de desenvolupament pendent d\'avaluació per part de la IA',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pendent';
+
+  @override
+  String get notEvaluatedStatus => 'No avaluada';
+
+  @override
   String get configureApiKeyMessage =>
       'Si us plau, configureu la vostra Clau API IA a la Configuració.';
 
   @override
   String get errorLabel => 'Error:';
+
+  @override
+  String get retryButton => 'Reintentar avaluació';
 
   @override
   String get noResponseReceived => 'Cap resposta rebuda';
@@ -1320,4 +1345,7 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Mínim 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

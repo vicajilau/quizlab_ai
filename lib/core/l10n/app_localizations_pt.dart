@@ -257,7 +257,7 @@ class AppLocalizationsPt extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct de $total respostas corretas';
   }
 
@@ -484,11 +484,34 @@ class AppLocalizationsPt extends AppLocalizations {
       'Desculpe, houve um erro ao processar sua pergunta. Tente novamente.';
 
   @override
+  String get evaluatingResponses => 'Avaliando respostas...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count perguntas de desenvolvimento aguardando avaliação de IA',
+      one: '1 pergunta de desenvolvimento aguardando avaliação de IA',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pendente';
+
+  @override
+  String get notEvaluatedStatus => 'Não avaliado';
+
+  @override
   String get configureApiKeyMessage =>
       'Por favor, configure sua Chave API IA nas Configurações.';
 
   @override
   String get errorLabel => 'Erro:';
+
+  @override
+  String get retryButton => 'Repetir avaliação';
 
   @override
   String get noResponseReceived => 'Nenhuma resposta recebida';
@@ -1320,4 +1343,7 @@ class AppLocalizationsPt extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Mínimo 0';
+
+  @override
+  String get errorStatus => 'Erro';
 }

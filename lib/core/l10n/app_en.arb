@@ -338,8 +338,8 @@
     "description": "Correct answers count",
     "placeholders": {
       "correct": {
-        "type": "int",
-        "example": "8"
+        "type": "String",
+        "example": "7.5"
       },
       "total": {
         "type": "int",
@@ -637,6 +637,28 @@
   "@aiErrorResponse": {
     "description": "Error message when AI request fails"
   },
+  "evaluatingResponses": "Evaluating responses...",
+  "@evaluatingResponses": {
+    "description": "Text shown in the results screen when AI evaluations are pending"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 development question pending AI evaluation} other{{count} development questions pending AI evaluation}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtitle showing the number of pending AI evaluations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pending",
+  "@pendingStatus": {
+    "description": "Status label for a pending AI evaluation"
+  },
+  "notEvaluatedStatus": "Not evaluated",
+  "@notEvaluatedStatus": {
+    "description": "Status label for an essay question that was not evaluated by AI"
+  },
   "configureApiKeyMessage": "Please configure your AI API Key in Settings.",
   "@configureApiKeyMessage": {
     "description": "Message to configure API key when not set"
@@ -644,6 +666,10 @@
   "errorLabel": "Error:",
   "@errorLabel": {
     "description": "Error label prefix for error messages"
+  },
+  "retryButton": "Retry Evaluation",
+  "@retryButton": {
+    "description": "Button text to retry an AI evaluation"
   },
   "noResponseReceived": "No response received",
   "@noResponseReceived": {
@@ -1796,5 +1822,9 @@
   "validationMin0GenericError": "Minimum 0",
   "@validationMin0GenericError": {
     "description": "Error message when a field requires a minimum value of 0 without specifying units."
+  },
+  "errorStatus": "Error",
+  "@errorStatus": {
+    "description": "Status label for a failed AI evaluation"
   }
 }

@@ -258,7 +258,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct από $total σωστές απαντήσεις';
   }
 
@@ -486,11 +486,34 @@ class AppLocalizationsEl extends AppLocalizations {
       'Λυπούμαστε, υπήρξε σφάλμα κατά την επεξεργασία της ερώτησής σας. Παρακαλώ δοκιμάστε ξανά.';
 
   @override
+  String get evaluatingResponses => 'Αξιολόγηση απαντήσεων...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ερωτήσεις ανάπτυξης σε αναμονή αξιολόγησης AI',
+      one: '1 ερώτηση ανάπτυξης σε αναμονή αξιολόγησης AI',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Σε εκκρεμότητα';
+
+  @override
+  String get notEvaluatedStatus => 'Δεν αξιολογήθηκε';
+
+  @override
   String get configureApiKeyMessage =>
       'Παρακαλώ ρυθμίστε το κλειδί API AI στις Ρυθμίσεις.';
 
   @override
   String get errorLabel => 'Σφάλμα:';
+
+  @override
+  String get retryButton => 'Επανάλυψη αξιολόγησης';
 
   @override
   String get noResponseReceived => 'Δεν ελήφθη απάντηση';
@@ -1325,4 +1348,7 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Minimum 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

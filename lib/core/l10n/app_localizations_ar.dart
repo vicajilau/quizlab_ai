@@ -252,7 +252,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct من $total إجابات صحيحة';
   }
 
@@ -474,11 +474,34 @@ class AppLocalizationsAr extends AppLocalizations {
       'عذراً، حدث خطأ في معالجة سؤالك. يرجى المحاولة مرة أخرى.';
 
   @override
+  String get evaluatingResponses => 'جاري تقييم الردود...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count أسئلة مقالية قيد انتظار تقييم الذكاء الاصطناعي',
+      one: 'سؤال مقالي واحد قيد انتظار تقييم الذكاء الاصطناعي',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'قيد الانتظار';
+
+  @override
+  String get notEvaluatedStatus => 'لم يتم التقييم';
+
+  @override
   String get configureApiKeyMessage =>
       'يرجى تكوين مفتاح API للذكاء الاصطناعي في الإعدادات.';
 
   @override
   String get errorLabel => 'خطأ:';
+
+  @override
+  String get retryButton => 'إعادة محاولة التقييم';
 
   @override
   String get noResponseReceived => 'لم يتم استلام رد';
@@ -1294,4 +1317,7 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'بحد أدنى 0';
+
+  @override
+  String get errorStatus => 'خطأ';
 }

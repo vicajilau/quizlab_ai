@@ -256,7 +256,7 @@ class AppLocalizationsEu extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct / $total erantzun zuzen';
   }
 
@@ -482,11 +482,34 @@ class AppLocalizationsEu extends AppLocalizations {
       'Barkatu, errore bat izan da zure galdera prozesatzean. Saiatu berriro.';
 
   @override
+  String get evaluatingResponses => 'Erantzunak baloratzen...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count garapen-galdera IA ebaluazioaren zain',
+      one: 'Garapen-galdera bat IA ebaluazioaren zain',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Zain';
+
+  @override
+  String get notEvaluatedStatus => 'Ebaluatu gabea';
+
+  @override
   String get configureApiKeyMessage =>
       'Mesedez, konfigura ezazu zure AI API Gakoa Ezarpenetan.';
 
   @override
   String get errorLabel => 'Errorea:';
+
+  @override
+  String get retryButton => 'Ebaluazioa berriro saiatu';
 
   @override
   String get noResponseReceived => 'Ez da erantzunik jaso';
@@ -1318,4 +1341,7 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'Gutxienez 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

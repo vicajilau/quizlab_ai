@@ -1,8 +1,17 @@
+import 'dart:convert';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
+import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
 import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
+import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
+import 'package:quiz_app/data/services/configuration_service.dart';
+import 'package:quiz_app/data/services/ai/ai_service.dart';
+import 'package:quiz_app/core/extensions/string_extensions.dart';
 
 /// BLoC for managing quiz execution state and logic.
 class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
@@ -70,11 +79,18 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.questions,
           newUserAnswers,
           currentState.essayAnswers,
+          currentState.quizConfig,
         ).incorrectAnswers;
+
+        final wasLimitReached =
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            incorrectCount >= currentState.quizConfig.maxIncorrectAnswers!;
 
         final newState = currentState.copyWith(
           userAnswers: newUserAnswers,
           incorrectAnswersCount: incorrectCount,
+          wasLimitReached: wasLimitReached,
         );
 
         emit(newState);
@@ -98,11 +114,18 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
           currentState.questions,
           currentState.userAnswers,
           newEssayAnswers,
+          currentState.quizConfig,
         ).incorrectAnswers;
+
+        final wasLimitReached =
+            currentState.quizConfig.enableMaxIncorrectAnswers &&
+            currentState.quizConfig.maxIncorrectAnswers != null &&
+            incorrectCount >= currentState.quizConfig.maxIncorrectAnswers!;
 
         final newState = currentState.copyWith(
           essayAnswers: newEssayAnswers,
           incorrectAnswersCount: incorrectCount,
+          wasLimitReached: wasLimitReached,
         );
 
         emit(newState);
@@ -134,56 +157,98 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
       }
     });
 
-    // Handle essay AI evaluation started
-    on<EssayAiEvaluationStarted>((event, emit) {
-      if (state is QuizExecutionInProgress) {
-        emit((state as QuizExecutionInProgress).copyWith(isAiEvaluating: true));
-      }
+    // Handle essay AI evaluation requested
+    on<EssayAiEvaluationRequested>((event, emit) async {
+      await _triggerAiEvaluation(
+        event.questionIndex,
+        event.localizations,
+        state,
+        emit,
+      );
     });
 
     // Handle essay AI evaluation received
     on<EssayAiEvaluationReceived>((event, emit) {
-      if (state is QuizExecutionInProgress) {
-        final currentState = state as QuizExecutionInProgress;
-        final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
-          currentState.aiEvaluations,
-        );
+      final currentState = state;
+      final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+        currentState.aiEvaluations,
+      );
 
-        newAiEvaluations[event.questionIndex] = EssayAiEvaluation(
-          evaluation: event.evaluation,
-          errorMessage: event.errorMessage,
-        );
+      newAiEvaluations[event.questionIndex] = event.evaluation;
 
+      if (currentState is QuizExecutionInProgress) {
         emit(
           currentState.copyWith(
             aiEvaluations: newAiEvaluations,
             isAiEvaluating: false,
           ),
         );
+      } else if (currentState is QuizExecutionCompleted) {
+        // Recalculate score with updated AI evaluations
+        final results = QuizScoringHelper.calculateResults(
+          currentState.questions,
+          currentState.userAnswers,
+          currentState.essayAnswers,
+          currentState.quizConfig,
+          aiEvaluations: newAiEvaluations,
+        );
+
+        emit(
+          currentState.copyWith(
+            aiEvaluations: newAiEvaluations,
+            correctAnswers: results.correctPoints,
+            score: results.score,
+          ),
+        );
       }
     });
 
+    // Handle retry for specific AI evaluation
+    on<EssayAiEvaluationRetryRequested>((event, emit) async {
+      final currentState = state;
+      final newAiEvaluations = Map<int, EssayAiEvaluation>.from(
+        currentState is QuizExecutionInProgress
+            ? currentState.aiEvaluations
+            : (currentState as QuizExecutionCompleted).aiEvaluations,
+      );
+
+      newAiEvaluations[event.questionIndex] = EssayAiEvaluation.pending();
+
+      if (currentState is QuizExecutionInProgress) {
+        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
+      } else if (currentState is QuizExecutionCompleted) {
+        emit(currentState.copyWith(aiEvaluations: newAiEvaluations));
+      }
+
+      await _triggerAiEvaluation(
+        event.questionIndex,
+        event.localizations,
+        state,
+        emit,
+      );
+    });
+
     // Handle next question
-    on<NextQuestionRequested>((event, emit) {
+    on<NextQuestionRequested>((event, emit) async {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
 
-        // Check for max incorrect answers limit (Deferred Check)
-        if (!currentState.isStudyMode &&
-            currentState.quizConfig.enableMaxIncorrectAnswers &&
-            currentState.quizConfig.maxIncorrectAnswers != null &&
-            currentState.incorrectAnswersCount >=
-                currentState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
+        // In Exam Mode, check if the limit was reached before allowing navigation
+        if (!currentState.quizConfig.isStudyMode &&
+            currentState.wasLimitReached) {
+          _emitQuizCompleted(
+            emit,
+            currentState,
+            isAiAvailable: await ConfigurationService.instance
+                .getIsAiAvailable(),
+          );
           return;
         }
 
-        if (!currentState.isLastQuestion) {
-          emit(
-            currentState.copyWith(
-              currentQuestionIndex: currentState.currentQuestionIndex + 1,
-            ),
-          );
+        final nextIndex = currentState.currentQuestionIndex + 1;
+
+        if (nextIndex < currentState.questions.length) {
+          emit(currentState.copyWith(currentQuestionIndex: nextIndex));
         }
       }
     });
@@ -192,12 +257,10 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<PreviousQuestionRequested>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
-        if (!currentState.isFirstQuestion) {
-          emit(
-            currentState.copyWith(
-              currentQuestionIndex: currentState.currentQuestionIndex - 1,
-            ),
-          );
+        final prevIndex = currentState.currentQuestionIndex - 1;
+
+        if (prevIndex >= 0) {
+          emit(currentState.copyWith(currentQuestionIndex: prevIndex));
         }
       }
     });
@@ -206,83 +269,217 @@ class QuizExecutionBloc extends Bloc<QuizExecutionEvent, QuizExecutionState> {
     on<QuizSubmitted>((event, emit) {
       if (state is QuizExecutionInProgress) {
         final currentState = state as QuizExecutionInProgress;
-
-        // Check for max incorrect answers limit (Deferred Check)
-        if (!currentState.isStudyMode &&
-            currentState.quizConfig.enableMaxIncorrectAnswers &&
-            currentState.quizConfig.maxIncorrectAnswers != null &&
-            currentState.incorrectAnswersCount >=
-                currentState.quizConfig.maxIncorrectAnswers!) {
-          _emitQuizCompleted(emit, currentState, wasLimitReached: true);
-        } else {
-          _emitQuizCompleted(emit, currentState);
-        }
+        _emitQuizCompleted(
+          emit,
+          currentState,
+          isAiAvailable: event.isAiAvailable,
+        );
       }
     });
 
     // Handle quiz restart
     on<QuizRestarted>((event, emit) {
       if (state is QuizExecutionCompleted) {
-        final completedState = state as QuizExecutionCompleted;
+        final currentState = state as QuizExecutionCompleted;
         emit(
           QuizExecutionInProgress(
-            questions: completedState.questions,
+            questions: currentState.questions,
             currentQuestionIndex: 0,
             userAnswers: {},
-            essayAnswers: {},
-            validatedQuestions: {},
-            aiEvaluations: {},
-            quizConfig: completedState.quizConfig,
+            quizConfig: currentState.quizConfig,
           ),
         );
       }
     });
+
+    // Handle retry failed questions
+    on<RetryFailedQuestionsRequested>((event, emit) {
+      if (state is QuizExecutionCompleted) {
+        final currentState = state as QuizExecutionCompleted;
+        final results = QuizScoringHelper.calculateResults(
+          currentState.questions,
+          currentState.userAnswers,
+          currentState.essayAnswers,
+          currentState.quizConfig,
+        );
+
+        if (results.failedQuestions.isNotEmpty) {
+          emit(
+            QuizExecutionInProgress(
+              questions: results.failedQuestions,
+              currentQuestionIndex: 0,
+              userAnswers: {},
+              quizConfig: currentState.quizConfig,
+            ),
+          );
+        }
+      }
+    });
   }
 
-  /// Helper to emit completion state
   void _emitQuizCompleted(
     Emitter<QuizExecutionState> emit,
     QuizExecutionInProgress currentState, {
-    bool wasLimitReached = false,
+    bool isAiAvailable = false,
   }) {
     final results = QuizScoringHelper.calculateResults(
       currentState.questions,
       currentState.userAnswers,
       currentState.essayAnswers,
-    );
-
-    // Re-evaluate wasLimitReached for the final result:
-    // Unanswered questions also count as failures for pass/fail.
-    bool finalLimitReached = wasLimitReached;
-    if (!finalLimitReached &&
-        currentState.quizConfig.enableMaxIncorrectAnswers &&
-        currentState.quizConfig.maxIncorrectAnswers != null) {
-      final totalFailures =
-          results.incorrectAnswers + results.unansweredAnswers;
-      if (totalFailures >= currentState.quizConfig.maxIncorrectAnswers!) {
-        finalLimitReached = true;
-      }
-    }
-
-    final scorePercentage = QuizScoringHelper.calculateScore(
-      results.correctAnswers,
-      results.incorrectAnswers,
-      currentState.totalQuestions,
       currentState.quizConfig,
     );
+
+    // Initialize AI evaluations map for essay questions
+    final aiEvaluations = <int, EssayAiEvaluation>{};
+    for (int i = 0; i < currentState.questions.length; i++) {
+      if (currentState.questions[i].type == QuestionType.essay) {
+        final answer = currentState.essayAnswers[i];
+        if (answer != null && answer.trim().isNotEmpty) {
+          if (isAiAvailable) {
+            aiEvaluations[i] = EssayAiEvaluation.pending();
+          } else {
+            aiEvaluations[i] = EssayAiEvaluation.notEvaluated();
+          }
+        }
+      }
+    }
 
     emit(
       QuizExecutionCompleted(
         questions: currentState.questions,
         userAnswers: currentState.userAnswers,
         essayAnswers: currentState.essayAnswers,
-        correctAnswers: results.correctAnswers,
-        totalQuestions: currentState.totalQuestions,
+        aiEvaluations: aiEvaluations,
+        correctAnswers: results.correctPoints,
+        totalQuestions: currentState.questions.length,
+        score: results.score,
         quizConfig: currentState.quizConfig,
-        score: scorePercentage,
-        wasLimitReached: finalLimitReached,
-        aiEvaluations: currentState.aiEvaluations,
+        wasLimitReached: currentState.wasLimitReached,
       ),
     );
+  }
+
+  Future<void> _triggerAiEvaluation(
+    int questionIndex,
+    AppLocalizations localizations,
+    QuizExecutionState currentState,
+    Emitter<QuizExecutionState> emit,
+  ) async {
+    // Extract question and answer from the current state securely
+    Question? question;
+    String? answer;
+
+    if (currentState is QuizExecutionInProgress) {
+      if (questionIndex >= 0 && questionIndex < currentState.questions.length) {
+        question = currentState.questions[questionIndex];
+        answer = currentState.essayAnswers[questionIndex];
+      }
+    } else if (currentState is QuizExecutionCompleted) {
+      if (questionIndex >= 0 && questionIndex < currentState.questions.length) {
+        question = currentState.questions[questionIndex];
+        answer = currentState.essayAnswers[questionIndex];
+      }
+    }
+
+    if (question == null || answer == null || answer.trim().isEmpty) {
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation.notEvaluated(),
+        ),
+      );
+      return;
+    }
+
+    try {
+      final availableServices = await AIServiceSelector.instance
+          .getAvailableServices();
+      if (availableServices.isEmpty) {
+        add(
+          EssayAiEvaluationReceived(
+            questionIndex,
+            EssayAiEvaluation.error(
+              localizations.aiAssistantRequiresApiKeyError,
+            ),
+          ),
+        );
+        return;
+      }
+
+      final savedServiceName = await ConfigurationService.instance
+          .getDefaultAIService();
+      final savedModel = await ConfigurationService.instance
+          .getDefaultAIModel();
+
+      AIService? service;
+      if (savedServiceName != null &&
+          availableServices.any((s) => s.serviceName == savedServiceName)) {
+        service = availableServices.firstWhere(
+          (s) => s.serviceName == savedServiceName,
+        );
+      } else {
+        service = availableServices.first;
+      }
+
+      String? model;
+      if (savedModel != null && service.availableModels.contains(savedModel)) {
+        model = savedModel;
+      } else {
+        model = service.defaultModel;
+      }
+
+      final prompt = AiQuestionGenerationService.buildEvaluationPrompt(
+        question.text,
+        answer,
+        question.explanation,
+        localizations,
+      );
+
+      final evaluationResponse = await service.getChatResponse(
+        prompt,
+        localizations,
+        model: model,
+      );
+
+      String feedback = evaluationResponse;
+      int? parsedScore;
+
+      try {
+        // Attempt to parse the structured JSON response
+        String cleanContent = evaluationResponse.trim();
+        final startIndex = cleanContent.indexOf('{');
+        final endIndex = cleanContent.lastIndexOf('}');
+
+        if (startIndex != -1 && endIndex != -1) {
+          cleanContent = cleanContent.substring(startIndex, endIndex + 1);
+          final json = jsonDecode(cleanContent) as Map<String, dynamic>;
+
+          if (json.containsKey('score')) {
+            parsedScore = (json['score'] as num?)?.toInt();
+          }
+          if (json.containsKey('feedback')) {
+            feedback = json['feedback'].toString();
+          }
+        }
+      } catch (e) {
+        // Fallback if the AI fails to return proper JSON, we'll keep the full response as feedback.
+      }
+
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation(evaluation: feedback, score: parsedScore),
+        ),
+      );
+    } catch (e) {
+      add(
+        EssayAiEvaluationReceived(
+          questionIndex,
+          EssayAiEvaluation.error(
+            localizations.aiEvaluationError(e.toString().cleanErrorMessage()),
+          ),
+        ),
+      );
+    }
   }
 }

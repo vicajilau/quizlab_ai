@@ -254,7 +254,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total में से $correct सही उत्तर';
   }
 
@@ -477,11 +477,35 @@ class AppLocalizationsHi extends AppLocalizations {
       'क्षमा करें, आपके प्रश्न को प्रोसेस करने में त्रुटि हुई। कृपया पुनः प्रयास करें।';
 
   @override
+  String get evaluatingResponses =>
+      'प्रतिक्रियाओं का मूल्यांकन किया जा रहा है...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count निबंध प्रश्न AI मूल्यांकन के लिए लंबित हैं',
+      one: '1 निबंध प्रश्न AI मूल्यांकन के लिए लंबित है',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'लंबित';
+
+  @override
+  String get notEvaluatedStatus => 'मूल्यांकन नहीं किया गया';
+
+  @override
   String get configureApiKeyMessage =>
       'कृपया सेटिंग्स में अपनी AI API Key कॉन्फ़िगर करें।';
 
   @override
   String get errorLabel => 'त्रुटि:';
+
+  @override
+  String get retryButton => 'मूल्यांकन पुन: प्रयास करें';
 
   @override
   String get noResponseReceived => 'कोई प्रतिक्रिया प्राप्त नहीं हुई';
@@ -1305,4 +1329,7 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get validationMin0GenericError => 'न्यूनतम 0';
+
+  @override
+  String get errorStatus => 'Error';
 }
