@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
 
 /// A button that opens the AI chat sidebar/panel for a specific question.
 ///

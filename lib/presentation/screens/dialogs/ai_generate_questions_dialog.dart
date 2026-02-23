@@ -1,17 +1,17 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
-import 'package:quiz_app/core/context_extension.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
-import 'package:quiz_app/domain/models/ai/ai_generation_stored_settings.dart';
-import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
-import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_generate_step1_widget.dart';
-import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_generate_step2_widget.dart';
-import 'package:quiz_app/presentation/utils/clipboard_image_helper.dart';
+import 'package:quizlab_ai/core/context_extension.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service_selector.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_generation_stored_settings.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_generate_step1_widget.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_generate_step2_widget.dart';
+import 'package:quizlab_ai/presentation/utils/clipboard_image_helper.dart';
 
 class AiGenerateQuestionsDialog extends StatefulWidget {
   const AiGenerateQuestionsDialog({super.key});

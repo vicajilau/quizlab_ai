@@ -1,4 +1,4 @@
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 
 /// Interface for file handling services, defining methods for reading,
 /// saving, and exporting `.quiz` files across different platforms.

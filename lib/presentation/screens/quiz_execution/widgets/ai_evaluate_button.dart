@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
 
 /// A button that triggers AI evaluation of an essay answer.
 ///

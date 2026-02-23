@@ -1,4 +1,4 @@
-import 'package:quiz_app/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
 
 /// Represents a single message in the AI chat history.
 ///

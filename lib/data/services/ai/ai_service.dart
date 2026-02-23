@@ -1,5 +1,5 @@
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
 
 abstract class AIService {
   /// Obtiene una respuesta del servicio de IA basado en el prompt proporcionado

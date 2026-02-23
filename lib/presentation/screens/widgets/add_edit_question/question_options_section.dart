@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/screens/widgets/add_edit_question/question_option_row.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/screens/widgets/add_edit_question/question_option_row.dart';
 
 class QuestionOptionsSection extends StatelessWidget {
   final QuestionType questionType;

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
 
 class QuizTryAgainButton extends StatelessWidget {
   const QuizTryAgainButton({super.key});

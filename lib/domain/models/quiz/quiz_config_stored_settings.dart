@@ -1,4 +1,4 @@
-import 'package:quiz_app/domain/models/quiz/question_order.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
 
 /// A Data Transfer Object (DTO) for storing quiz configuration settings.
 ///

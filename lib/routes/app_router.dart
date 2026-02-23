@@ -1,14 +1,14 @@
 import 'package:go_router/go_router.dart';
-import 'package:quiz_app/core/debug_print.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
-import 'package:quiz_app/presentation/screens/file_loaded_screen.dart';
-import 'package:quiz_app/presentation/screens/quiz_file_execution_screen.dart';
+import 'package:quizlab_ai/core/debug_print.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/presentation/screens/file_loaded_screen.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_file_execution_screen.dart';
 
-import 'package:quiz_app/core/service_locator.dart';
+import 'package:quizlab_ai/core/service_locator.dart';
 
-import 'package:quiz_app/domain/use_cases/check_file_changes_use_case.dart';
-import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
-import 'package:quiz_app/presentation/screens/home_screen.dart';
+import 'package:quizlab_ai/domain/use_cases/check_file_changes_use_case.dart';
+import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizlab_ai/presentation/screens/home_screen.dart';
 
 class AppRoutes {
   static const String home = '/';

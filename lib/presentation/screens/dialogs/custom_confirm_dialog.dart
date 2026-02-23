@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
 
 /// A custom confirmation dialog that matches the app's design language.
 ///

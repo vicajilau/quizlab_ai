@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/extensions/string_extensions.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
+import 'package:quizlab_ai/core/extensions/string_extensions.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
 import 'package:flutter/foundation.dart';
-import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});

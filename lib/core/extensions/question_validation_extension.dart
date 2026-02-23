@@ -1,6 +1,6 @@
 import 'package:collection/collection.dart';
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
 
 extension QuestionValidationExtension on Question {
   /// Checks if the provided user answers are correct for this question.

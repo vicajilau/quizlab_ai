@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/questions_overview_bottom_sheet.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/questions_overview_bottom_sheet.dart';
 
 class QuizProgressIndicator extends StatelessWidget {
   final QuizExecutionInProgress state;

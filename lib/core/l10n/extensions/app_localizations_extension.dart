@@ -1,4 +1,4 @@
-import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 
 /// Extension to provide helper methods for [AppLocalizations].
 extension AppLocalizationsExtension on AppLocalizations {

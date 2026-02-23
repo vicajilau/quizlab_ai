@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quiz_app/presentation/widgets/latex_text.dart';
+import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
 
 void main() {
   testWidgets('LaTeXText wraps text when it exceeds constraints', (

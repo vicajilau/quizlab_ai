@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:typed_data';
 
 import 'package:pasteboard/pasteboard.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
 
 class ClipboardImageHelper {
   ClipboardImageHelper._();

@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/routes/app_router.dart';
+import 'package:quizlab_ai/routes/app_router.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/file_handler.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/service_locator.dart';
-import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/file_handler.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/service_locator.dart';
+import 'package:quizlab_ai/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
-import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
-import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
+import 'package:quizlab_ai/presentation/blocs/file_bloc/file_event.dart';
+import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_cubit.dart';
+import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_state.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

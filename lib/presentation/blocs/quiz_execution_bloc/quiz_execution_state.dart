@@ -1,8 +1,8 @@
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
-import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// Abstract class representing the base state for quiz execution.
 abstract class QuizExecutionState {

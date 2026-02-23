@@ -1,7 +1,7 @@
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
-import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 
 /// Abstract class representing the base event for quiz execution operations.
 abstract class QuizExecutionEvent {}

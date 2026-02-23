@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/widgets/latex_text.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
 
-import 'package:quiz_app/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
 
 /// A dialog to preview how an option will appear with LaTeX rendering
 class LaTeXPreviewDialog extends StatelessWidget {

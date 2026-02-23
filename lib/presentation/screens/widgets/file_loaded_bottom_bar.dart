@@ -1,7 +1,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
 class FileLoadedBottomBar extends StatefulWidget {

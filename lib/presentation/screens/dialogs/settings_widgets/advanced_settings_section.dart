@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/l10n/extensions/app_localizations_extension.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
-import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/l10n/extensions/app_localizations_extension.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_cubit.dart';
+import 'package:quizlab_ai/presentation/blocs/locale_cubit/locale_state.dart';
 
 class AdvancedSettingsSection extends StatelessWidget {
   const AdvancedSettingsSection({super.key});

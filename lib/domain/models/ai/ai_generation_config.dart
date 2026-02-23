@@ -1,7 +1,7 @@
-import 'package:quiz_app/data/services/ai/ai_service.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
-import 'package:quiz_app/domain/models/ai/ai_generation_category.dart';
-import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_generation_category.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
 
 /// Configuration settings for AI-powered quiz question generation.
 class AiQuestionGenerationConfig {

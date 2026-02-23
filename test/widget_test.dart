@@ -6,8 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quiz_app/core/service_locator.dart';
-import 'package:quiz_app/main.dart';
+import 'package:quizlab_ai/core/service_locator.dart';
+import 'package:quizlab_ai/main.dart';
 
 void main() {
   ServiceLocator.instance.setup();

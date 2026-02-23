@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/domain/models/custom_exceptions/question_error_type.dart';
-import 'package:quiz_app/domain/models/custom_exceptions/process_error.dart';
+import 'package:quizlab_ai/domain/models/custom_exceptions/question_error_type.dart';
+import 'package:quizlab_ai/domain/models/custom_exceptions/process_error.dart';
 
 /// Implementation of [ProcessError] for question-specific validation issues.
 class QuestionError implements ProcessError {

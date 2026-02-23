@@ -3,15 +3,15 @@ import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
-import 'package:quiz_app/domain/models/quiz/question_order.dart';
-import 'package:quiz_app/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
-import 'package:quiz_app/presentation/screens/dialogs/count_selection/count_control_button.dart';
-import 'package:quiz_app/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/advanced_settings_section.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/count_control_button.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/count_selection/quiz_mode_selection.dart';
 
 class QuestionCountSelectionDialog extends StatefulWidget {
   final int totalQuestions;

@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:quiz_app/data/services/quiz_service.dart';
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/data/services/quiz_service.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
 
 void main() {
   group('QuizService Randomization Tests', () {

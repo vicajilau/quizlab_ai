@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
 
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
 
 /// A dialog that allows the user to create or edit quiz metadata.
 ///

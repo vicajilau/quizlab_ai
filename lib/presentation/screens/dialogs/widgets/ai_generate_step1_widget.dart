@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/l10n/extensions/app_localizations_extension.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
-import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
-import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/l10n/extensions/app_localizations_extension.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/widgets/ai_question_type_chip.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
 
 class AiGenerateStep1Widget extends StatelessWidget {
   final bool isLoadingServices;

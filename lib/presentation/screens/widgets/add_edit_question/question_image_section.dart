@@ -4,10 +4,10 @@ import 'package:desktop_drop/desktop_drop.dart';
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/context_extension.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/utils/clipboard_image_helper.dart';
-import 'package:quiz_app/presentation/widgets/dialog_drop_zone.dart';
+import 'package:quizlab_ai/core/context_extension.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/utils/clipboard_image_helper.dart';
+import 'package:quizlab_ai/presentation/widgets/dialog_drop_zone.dart';
 
 class QuestionImageSection extends StatefulWidget {
   final String? imageData;

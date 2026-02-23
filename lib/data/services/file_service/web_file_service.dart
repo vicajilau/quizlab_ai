@@ -4,10 +4,10 @@ import 'dart:js_interop';
 import 'dart:typed_data';
 
 import 'package:file_picker/file_picker.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 import 'package:web/web.dart';
 
-import 'package:quiz_app/data/services/file_service/i_file_service.dart';
+import 'package:quizlab_ai/data/services/file_service/i_file_service.dart';
 
 /// The `FileService` class provides functionalities for managing `.quiz` files.
 /// This includes reading, decoding, saving, and picking `.quiz` files across platforms.

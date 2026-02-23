@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quiz_app/core/extensions/string_extensions.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/widgets/ai_service_model_selector.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/core/extensions/string_extensions.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/widgets/ai_service_model_selector.dart';
 
 /// A widget that handles the AI Assistant settings section.
 ///

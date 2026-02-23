@@ -1,5 +1,5 @@
-import 'package:quiz_app/data/repositories/quiz_file_repository.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/data/repositories/quiz_file_repository.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 
 /// Use case for checking if a QuizFile has changed.
 class CheckFileChangesUseCase {

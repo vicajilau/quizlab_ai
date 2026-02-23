@@ -1,9 +1,9 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_file_attachment.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
 
 class GeminiService extends AIService {
   static const String _baseUrlBeta =

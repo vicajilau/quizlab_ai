@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/context_extension.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/quiz_progress_indicator.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_header.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/quiz_options_wrapper.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/quiz_navigation_buttons.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_studio_chat_side_panel.dart';
-import 'package:quiz_app/core/service_locator.dart';
-import 'package:quiz_app/presentation/screens/dialogs/back_press_handler.dart';
-import 'package:quiz_app/presentation/widgets/exam_timer.dart';
+import 'package:quizlab_ai/core/context_extension.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_progress_indicator.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_question_header.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_options_wrapper.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_navigation_buttons.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/ai_studio_chat_side_panel.dart';
+import 'package:quizlab_ai/core/service_locator.dart';
+import 'package:quizlab_ai/presentation/screens/dialogs/back_press_handler.dart';
+import 'package:quizlab_ai/presentation/widgets/exam_timer.dart';
 
 class QuizInProgressView extends StatefulWidget {
   final QuizExecutionInProgress state;

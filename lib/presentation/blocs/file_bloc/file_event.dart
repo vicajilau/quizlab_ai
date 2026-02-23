@@ -1,5 +1,5 @@
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 
 /// Abstract class representing the base event for file operations.
 abstract class FileEvent {}

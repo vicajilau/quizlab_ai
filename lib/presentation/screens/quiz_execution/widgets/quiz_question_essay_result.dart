@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/extensions/string_extensions.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
-import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
-import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluate_button.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/ai_service_selector.dart';
+import 'package:quizlab_ai/core/extensions/string_extensions.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/data/services/ai/ai_question_generation_service.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service_selector.dart';
+import 'package:quizlab_ai/data/services/configuration_service.dart';
+import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/ai_evaluate_button.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/ai_evaluation_result.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/ai_service_selector.dart';
 
 /// A widget that displays the result of an essay question.
 ///

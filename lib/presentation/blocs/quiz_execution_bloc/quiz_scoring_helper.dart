@@ -1,7 +1,7 @@
-import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quizlab_ai/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config.dart';
 
 /// Helper class for quiz scoring calculations.
 class QuizScoringHelper {

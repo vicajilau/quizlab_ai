@@ -1,5 +1,5 @@
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/constants/question_constants.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/constants/question_constants.dart';
 
 /// Utility class for translating question-related content in the presentation layer
 class QuestionTranslationHelper {

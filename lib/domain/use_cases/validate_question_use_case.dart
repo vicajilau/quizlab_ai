@@ -1,6 +1,6 @@
-import 'package:quiz_app/domain/models/custom_exceptions/question_error.dart';
-import 'package:quiz_app/domain/models/custom_exceptions/question_error_type.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/domain/models/custom_exceptions/question_error.dart';
+import 'package:quizlab_ai/domain/models/custom_exceptions/question_error_type.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 
 class ValidateQuestionUseCase {
   /// Validate a question for a quiz

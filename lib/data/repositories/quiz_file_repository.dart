@@ -1,10 +1,10 @@
-import 'package:quiz_app/core/debug_print.dart';
-import 'package:quiz_app/core/service_locator.dart';
-import 'package:quiz_app/data/services/file_service/i_file_service.dart';
+import 'package:quizlab_ai/core/debug_print.dart';
+import 'package:quizlab_ai/core/service_locator.dart';
+import 'package:quizlab_ai/data/services/file_service/i_file_service.dart';
 
-import 'package:quiz_app/domain/models/quiz/question.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_file.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_metadata.dart';
+import 'package:quizlab_ai/domain/models/quiz/question.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_metadata.dart';
 
 /// The `QuizFileRepository` class manages file-related operations such as loading, saving,
 /// and selecting quiz files. It delegates these tasks to an instance of `FileService`.

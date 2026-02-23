@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 
 /// Enumeration representing the different types of questions available in a quiz.
 enum QuestionType {

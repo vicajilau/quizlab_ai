@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quiz_app/presentation/utils/question_translation_helper.dart';
-import 'package:quiz_app/presentation/widgets/latex_text.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizlab_ai/presentation/utils/question_translation_helper.dart';
+import 'package:quizlab_ai/presentation/widgets/latex_text.dart';
 
 /// A widget representing a single option in a quiz question.
 ///

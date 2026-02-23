@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:lucide_icons/lucide_icons.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/core/theme/app_theme.dart';
-import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/core/theme/app_theme.dart';
+import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
 
 class AiQuestionTypeChip extends StatelessWidget {
   final AiQuestionType type;

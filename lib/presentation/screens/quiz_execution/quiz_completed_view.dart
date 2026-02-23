@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quiz_app/core/extensions/double_extensions.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/domain/models/quiz/question_type.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
-import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/quiz_question_result_card.dart';
-import 'package:quiz_app/presentation/screens/quiz_execution/widgets/quiz_completed_buttons.dart';
+import 'package:quizlab_ai/core/extensions/double_extensions.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_bloc.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_event.dart';
+import 'package:quizlab_ai/presentation/blocs/quiz_execution_bloc/quiz_execution_state.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/quiz_question_result_card.dart';
+import 'package:quizlab_ai/presentation/screens/quiz_execution/widgets/quiz_completed_buttons.dart';
 
 class QuizCompletedView extends StatefulWidget {
   const QuizCompletedView({super.key, required this.state});

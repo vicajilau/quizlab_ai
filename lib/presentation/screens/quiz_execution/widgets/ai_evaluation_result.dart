@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gpt_markdown/gpt_markdown.dart';
-import 'package:quiz_app/core/l10n/app_localizations.dart';
-import 'package:quiz_app/core/theme/extensions/ai_assistant_theme.dart';
-import 'package:quiz_app/data/services/ai/ai_service.dart';
+import 'package:quizlab_ai/core/l10n/app_localizations.dart';
+import 'package:quizlab_ai/core/theme/extensions/ai_assistant_theme.dart';
+import 'package:quizlab_ai/data/services/ai/ai_service.dart';
 
 /// A container that displays the result of an AI essay evaluation.
 ///

@@ -1,8 +1,8 @@
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:quiz_app/domain/models/quiz/question_order.dart';
-import 'package:quiz_app/domain/models/ai/ai_generation_stored_settings.dart';
-import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
-import 'package:quiz_app/core/security/encryption_service.dart';
+import 'package:quizlab_ai/domain/models/quiz/question_order.dart';
+import 'package:quizlab_ai/domain/models/ai/ai_generation_stored_settings.dart';
+import 'package:quizlab_ai/domain/models/quiz/quiz_config_stored_settings.dart';
+import 'package:quizlab_ai/core/security/encryption_service.dart';
 
 class ConfigurationService {
   static const String _questionOrderKey = 'question_order';
