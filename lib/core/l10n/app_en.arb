@@ -1,5 +1,8 @@
 {
   "@@locale": "en",
+  "abortQuizTitle": "Abort Quiz?",
+  "abortQuizMessage": "Opening a new file will stop the current quiz.",
+  "stopAndOpenButton": "Stop & Open",
   "titleAppBar": "Quiz - Exam Simulator",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -61,6 +64,22 @@
     }
   },
   "dropFileHere": "Click logo or drag a .quiz file to the screen",
+  "errorOpeningFile": "Error opening file",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Load new Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "A Quiz is already loaded. Do you want to replace it with the new file?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Load",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text displayed inside the drop area for dragging files."
   },
@@ -122,11 +141,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "Are you sure you want to leave without saving?",
+  "confirmExitMessage": "There are unsaved changes. Do you want to leave and discard changes?",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "Exit",
+  "exitButton": "Exit without saving",
   "@exitButton": {
     "description": "Exit button text."
   },
@@ -319,8 +338,8 @@
     "description": "Correct answers count",
     "placeholders": {
       "correct": {
-        "type": "int",
-        "example": "8"
+        "type": "String",
+        "example": "7.5"
       },
       "total": {
         "type": "int",
@@ -372,6 +391,34 @@
   "@startQuiz": {
     "description": "Button text to start the quiz"
   },
+  "maxIncorrectAnswersLabel": "Limit incorrect answers",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "Pass/Fail Exam. No numeric grade; you either pass or fail.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "The exam has a numeric grade from 0 to 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Maximum allowed errors",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "examFailedStatus": "Exam FAILED (Fail)",
+  "@examFailedStatus": {
+    "description": "Status of a failed exam"
+  },
+  "examPassedStatus": "Exam PASSED (Pass)",
+  "@examPassedStatus": {
+    "description": "Status of a passed exam"
+  },
+  "quizFailedLimitReached": "Exam Finished: Maximum error limit has been reached",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  },
   "errorInvalidNumber": "Please enter a valid number",
   "@errorInvalidNumber": {
     "description": "Error message for invalid number input"
@@ -412,7 +459,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "Random",
+  "questionOrderRandom": "Randomize Questions Order",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -432,13 +479,21 @@
   "@save": {
     "description": "Label for the save button"
   },
+  "examConfigurationTitle": "Exam Configuration",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
   "examTimeLimitTitle": "Exam Time Limit",
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.",
+  "examTimeLimitDescription": "Set a time limit for the exam. A countdown timer will be displayed during the quiz.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
+  },
+  "examTimeLimitOffDescription": "There is no time limit for this exam.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Enable time limit",
   "@enableTimeLimit": {
@@ -538,9 +593,13 @@
       }
     }
   },
-  "aiPrompt": "Focus on the student's question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.",
+  "aiPrompt": "Focus on the student's question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
+  },
+  "aiChatGuardrail": "IMPORTANT: You are a study assistant exclusively for this Quiz. You must ONLY answer questions related to the current Quiz question, its options, its explanation, or the educational topic it covers. If the student asks about anything unrelated to the Quiz (e.g., your internal model, system details, general knowledge not related to the question, or any off-topic request), respond ONLY with: \"I'm here to help you with this Quiz! Let's focus on the question at hand. Feel free to ask me about the topic, the answer options, or anything related to this question.\" Never reveal technical details about yourself, the system, or the AI model being used.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "Question",
   "@questionLabel": {
@@ -578,6 +637,28 @@
   "@aiErrorResponse": {
     "description": "Error message when AI request fails"
   },
+  "evaluatingResponses": "Evaluating responses...",
+  "@evaluatingResponses": {
+    "description": "Text shown in the results screen when AI evaluations are pending"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 development question pending AI evaluation} other{{count} development questions pending AI evaluation}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtitle showing the number of pending AI evaluations",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pending",
+  "@pendingStatus": {
+    "description": "Status label for a pending AI evaluation"
+  },
+  "notEvaluatedStatus": "Not evaluated",
+  "@notEvaluatedStatus": {
+    "description": "Status label for an essay question that was not evaluated by AI"
+  },
   "configureApiKeyMessage": "Please configure your AI API Key in Settings.",
   "@configureApiKeyMessage": {
     "description": "Message to configure API key when not set"
@@ -585,6 +666,10 @@
   "errorLabel": "Error:",
   "@errorLabel": {
     "description": "Error label prefix for error messages"
+  },
+  "retryButton": "Retry Evaluation",
+  "@retryButton": {
+    "description": "Button text to retry an AI evaluation"
   },
   "noResponseReceived": "No response received",
   "@noResponseReceived": {
@@ -930,13 +1015,29 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
-  "randomizeAnswersTitle": "Randomize Answer Options",
+  "randomizeQuestionsTitle": "Randomize Questions",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Shuffle the order of questions during quiz execution",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "Questions will appear in their original order",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Randomize Answers Order",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },
   "randomizeAnswersDescription": "Shuffle the order of answer options during quiz execution",
   "@randomizeAnswersDescription": {
     "description": "Description for the randomize answers setting."
+  },
+  "randomizeAnswersOffDescription": "Answer options will appear in their original order",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
   },
   "showCorrectAnswerCountTitle": "Show Correct Answer Count",
   "@showCorrectAnswerCountTitle": {
@@ -945,6 +1046,10 @@
   "showCorrectAnswerCountDescription": "Display the number of correct answers in multiple choice questions",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "The number of correct answers will not be shown for multiple-choice questions",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Select {count} correct answers",
   "@correctAnswersCount": {
@@ -1074,9 +1179,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "Attach a file (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Attach a file (PDF, TXT, MP3, MP4,...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "Drop file here",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Drop image here",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "Number of Questions",
   "@aiNumberQuestionsLabel": {
@@ -1109,6 +1222,22 @@
         "example": "150"
       }
     }
+  },
+  "aiGenerationCategoryLabel": "Content Mode",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Theory",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercises",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixed",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
   },
   "languageSpanish": "Español",
   "@languageSpanish": {
@@ -1356,308 +1485,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Response format instructions for evaluation"
   },
-  "raffleTitle": "Raffle",
-  "@raffleTitle": {
-    "description": "Title of the raffle functionality"
-  },
-  "raffleTooltip": "Start raffle",
-  "@raffleTooltip": {
-    "description": "Tooltip of the raffle button in the app bar"
-  },
-  "participantListTitle": "Participant List",
-  "@participantListTitle": {
-    "description": "Title of the participant list section"
-  },
-  "participantListHint": "Enter one name per line:",
-  "@participantListHint": {
-    "description": "Instruction for the participant input field"
-  },
-  "participantListPlaceholder": "John Doe\nJane Smith\nBob Johnson\n...",
-  "@participantListPlaceholder": {
-    "description": "Example text in the participant field"
-  },
-  "clearList": "Clear List",
-  "@clearList": {
-    "description": "Text of the button to clear the participant list"
-  },
-  "participants": "Participants",
-  "@participants": {
-    "description": "Title of the participants section"
-  },
-  "noParticipants": "No participants",
-  "@noParticipants": {
-    "description": "Message when there are no participants"
-  },
-  "addParticipantsHint": "Add names in the text area",
-  "@addParticipantsHint": {
-    "description": "Suggestion to add participants"
-  },
-  "activeParticipants": "Active Participants",
-  "@activeParticipants": {
-    "description": "Title for active participants"
-  },
-  "alreadySelected": "Already Selected",
-  "@alreadySelected": {
-    "description": "Title for already selected participants"
-  },
-  "totalParticipants": "Total: {count}",
-  "@totalParticipants": {
-    "description": "Total participants",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "10"
-      }
-    }
-  },
-  "activeVsWinners": "Active: {active} | Winners: {winners}",
-  "@activeVsWinners": {
-    "description": "Summary of active participants vs winners",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Start Raffle",
-  "@startRaffle": {
-    "description": "Text of the button to start raffle"
-  },
-  "raffling": "Raffling...",
-  "@raffling": {
-    "description": "Text shown during raffle animation"
-  },
-  "selectingWinner": "Selecting winner...",
-  "@selectingWinner": {
-    "description": "Text shown during winner selection"
-  },
-  "allParticipantsSelected": "All participants have already been selected",
-  "@allParticipantsSelected": {
-    "description": "Message when all participants have been selected"
-  },
-  "addParticipantsToStart": "Add participants to start the raffle",
-  "@addParticipantsToStart": {
-    "description": "Message to add participants before raffling"
-  },
-  "participantsReadyCount": "{count} participant(s) ready for raffle",
-  "@participantsReadyCount": {
-    "description": "Number of participants ready for raffle",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Reset Winners",
-  "@resetWinners": {
-    "description": "Text of the button to reset winners"
-  },
-  "resetWinnersConfirmTitle": "Reset Winners",
-  "@resetWinnersConfirmTitle": {
-    "description": "Title of the confirmation dialog to reset winners"
-  },
-  "resetWinnersConfirmMessage": "Are you sure you want to reset the winners list? All participants will be available for the raffle again.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Confirmation message to reset winners"
-  },
-  "resetRaffleTitle": "Reset Raffle",
-  "@resetRaffleTitle": {
-    "description": "Title of the button and dialog to reset raffle"
-  },
-  "resetRaffleConfirmMessage": "Are you sure you want to reset the raffle? All participants and winners will be lost.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Confirmation message to reset entire raffle"
-  },
-  "cancel": "Cancel",
-  "@cancel": {
-    "description": "Text of the cancel button"
-  },
-  "reset": "Reset",
-  "@reset": {
-    "description": "Text of the reset button"
-  },
-  "viewWinners": "View winners",
-  "@viewWinners": {
-    "description": "Tooltip of the button to view winners"
-  },
-  "congratulations": "🎉 Congratulations! 🎉",
-  "@congratulations": {
-    "description": "Congratulations message in winner dialog"
-  },
-  "positionLabel": "Position: {position}°",
-  "@positionLabel": {
-    "description": "Position label of the winner",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Remaining participants: {count}",
-  "@remainingParticipants": {
-    "description": "Number of remaining participants",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "continueRaffle": "Continue Raffle",
-  "@continueRaffle": {
-    "description": "Text of the button to continue raffle"
-  },
-  "finishRaffle": "Finish Raffle",
-  "@finishRaffle": {
-    "description": "Text of the button to finish raffle"
-  },
-  "winnersTitle": "Raffle Winners",
-  "@winnersTitle": {
-    "description": "Title of the winners screen"
-  },
-  "shareResults": "Share results",
-  "@shareResults": {
-    "description": "Tooltip of the share results button"
-  },
-  "noWinnersYet": "No winners yet",
-  "@noWinnersYet": {
-    "description": "Message when there are no winners"
-  },
-  "performRaffleToSeeWinners": "Perform a raffle to see the winners here",
-  "@performRaffleToSeeWinners": {
-    "description": "Suggestion to perform a raffle"
-  },
-  "goToRaffle": "Go to Raffle",
-  "@goToRaffle": {
-    "description": "Text of the button to go to raffle"
-  },
-  "raffleCompleted": "Raffle Completed",
-  "@raffleCompleted": {
-    "description": "Raffle completed message"
-  },
-  "winnersSelectedCount": "{count} winner(s) selected",
-  "@winnersSelectedCount": {
-    "description": "Number of winners selected",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "New Raffle",
-  "@newRaffle": {
-    "description": "Text of the button for new raffle"
-  },
-  "shareResultsTitle": "Share Results",
-  "@shareResultsTitle": {
-    "description": "Title of the share results dialog"
-  },
-  "raffleResultsLabel": "Raffle results:",
-  "@raffleResultsLabel": {
-    "description": "Label for raffle results"
-  },
-  "close": "Close",
-  "@close": {
-    "description": "Text of the close button"
-  },
-  "share": "Copy",
-  "@share": {
-    "description": "Text of the copy button"
-  },
-  "shareNotImplemented": "Share functionality not implemented",
-  "@shareNotImplemented": {
-    "description": "Message when share functionality is not implemented"
-  },
-  "firstPlace": "1st",
-  "@firstPlace": {
-    "description": "Abbreviation for first place"
-  },
-  "secondPlace": "2nd",
-  "@secondPlace": {
-    "description": "Abbreviation for second place"
-  },
-  "thirdPlace": "3rd",
-  "@thirdPlace": {
-    "description": "Abbreviation for third place"
-  },
-  "nthPlace": "{position}°",
-  "@nthPlace": {
-    "description": "Format for positions higher than third place",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "{position} place",
-  "@placeLabel": {
-    "description": "Place label in winners list",
-    "placeholders": {
-      "position": {
-        "type": "String",
-        "example": "1st"
-      }
-    }
-  },
-  "raffleResultsHeader": "🏆 RAFFLE RESULTS 🏆",
-  "@raffleResultsHeader": {
-    "description": "Header for shared raffle results"
-  },
-  "totalWinners": "Total winners: {count}",
-  "@totalWinners": {
-    "description": "Total winners in shared results",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "noWinnersToShare": "No winners.",
-  "@noWinnersToShare": {
-    "description": "Message when there are no winners to share"
-  },
-  "shareSuccess": "Results copied successfully",
-  "@shareSuccess": {
-    "description": "Success message when raffle results are copied"
-  },
-  "selectLogo": "Select Logo",
-  "@selectLogo": {
-    "description": "Title of the dialog for selecting custom logo"
-  },
-  "logoUrl": "Logo URL",
-  "@logoUrl": {
-    "description": "Label for the logo URL input field"
-  },
-  "logoUrlHint": "Enter the URL of an image to use as a custom logo for the raffle",
-  "@logoUrlHint": {
-    "description": "Help text explaining the logo URL field"
-  },
-  "invalidLogoUrl": "Invalid image URL. Must be a valid URL ending in .jpg, .png, .gif, etc.",
-  "@invalidLogoUrl": {
-    "description": "Error message for invalid logo URL"
-  },
-  "logoPreview": "Preview",
-  "@logoPreview": {
-    "description": "Title of the logo preview section"
-  },
-  "removeLogo": "Remove Logo",
-  "@removeLogo": {
-    "description": "Text of the button to remove custom logo"
-  },
-  "logoTooLargeWarning": "Image is too large to be saved. It will only be used during this session.",
-  "@logoTooLargeWarning": {
-    "description": "Warning message when logo is too large for persistent storage"
-  },
   "aiModeTopicTitle": "Topic Mode",
   "@aiModeTopicTitle": {
     "description": "Title for topic mode in AI assistant"
@@ -1754,7 +1581,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Instant feedback and no timer",
+  "studyModeDescription": "AI assistance available. Instant feedback after each answer with no time limits or penalties.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1762,7 +1589,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard timer and results at the end",
+  "examModeDescription": "No AI assistance. Time limits and penalties for incorrect answers may apply.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1782,9 +1609,13 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
-  "sorteosLabel": "Raffles",
-  "@sorteosLabel": {
-    "description": "Label for the raffles button"
+  "askAiAboutQuestion": "Ask AI about this question",
+  "@askAiAboutQuestion": {
+    "description": "Button label in quiz to open AI chat sidebar for the current question"
+  },
+  "aiHelpWithQuestion": "Help me understand this question",
+  "@aiHelpWithQuestion": {
+    "description": "Auto-filled text in AI chat when user clicks ask AI about question button"
   },
   "edit": "Edit",
   "@edit": {
@@ -1860,8 +1691,13 @@
     "description": "Label for the option to select all questions"
   },
   "subtractPointsLabel": "Subtract points for wrong answer",
+  "subtractPointsDescription": "Subtract points for each incorrect answer.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Incorrect answers do not deduct points.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalty amount",
   "@penaltyAmountLabel": {
@@ -1880,5 +1716,115 @@
   "allQuestionsLabel": "All Questions",
   "@allQuestionsLabel": {
     "description": "Label for the toggle to select all questions"
+  },
+  "startWithSelectedQuestions": "Start with {count} selected",
+  "@startWithSelectedQuestions": {
+    "description": "Button text to start the quiz with only the selected questions",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "5"
+      }
+    }
+  },
+  "advancedSettingsTitle": "Advanced Settings (Debug)",
+  "@advancedSettingsTitle": {
+    "description": "Title for the advanced settings section shown in debug mode"
+  },
+  "appLanguageLabel": "App Language",
+  "@appLanguageLabel": {
+    "description": "Label for the application language override setting"
+  },
+  "appLanguageDescription": "Override application language for testing",
+  "@appLanguageDescription": {
+    "description": "Description for the application language override setting"
+  },
+  "pasteFromClipboard": "Paste from clipboard",
+  "@pasteFromClipboard": {
+    "description": "Label for the paste from clipboard button"
+  },
+  "pasteImage": "Paste",
+  "@pasteImage": {
+    "description": "Short label for paste button when image is already present"
+  },
+  "clipboardNoImage": "No image found in clipboard",
+  "@clipboardNoImage": {
+    "description": "Error message when no image is found in the clipboard"
+  },
+  "close": "Close",
+  "@close": {
+    "description": "Close button text"
+  },
+  "scoringAndLimitsTitle": "Scoring and Limits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Congratulations! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "validationMin1Error": "Minimum 1 minute",
+  "@validationMin1Error": {
+    "description": "Validation message indicating the time limit must be at least 1 minute."
+  },
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithDays": {
+    "description": "Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)",
+    "placeholders": {
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "remainingTimeWithWeeks": "{weeks}w {days}d {hours}:{minutes}:{seconds}",
+  "@remainingTimeWithWeeks": {
+    "description": "Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)",
+    "placeholders": {
+      "weeks": {
+        "type": "String",
+        "example": "1"
+      },
+      "days": {
+        "type": "String",
+        "example": "2"
+      },
+      "hours": {
+        "type": "String",
+        "example": "03"
+      },
+      "minutes": {
+        "type": "String",
+        "example": "45"
+      },
+      "seconds": {
+        "type": "String",
+        "example": "30"
+      }
+    }
+  },
+  "validationMax30DaysError": "Maximum 30 days",
+  "@validationMax30DaysError": {
+    "description": "Validation message indicating the time limit cannot exceed 30 days."
+  },
+  "validationMin0GenericError": "Minimum 0",
+  "@validationMin0GenericError": {
+    "description": "Error message when a field requires a minimum value of 0 without specifying units."
+  },
+  "errorStatus": "Error",
+  "@errorStatus": {
+    "description": "Status label for a failed AI evaluation"
   }
 }

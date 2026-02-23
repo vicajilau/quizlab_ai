@@ -9,6 +9,15 @@ class AppLocalizationsHi extends AppLocalizations {
   AppLocalizationsHi([String locale = 'hi']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'क्विज़ रद्द करें?';
+
+  @override
+  String get abortQuizMessage => 'नई फ़ाइल खोलने से वर्तमान क्विज़ रुक जाएगा।';
+
+  @override
+  String get stopAndOpenButton => 'रोकें और खोलें';
+
+  @override
   String get titleAppBar => 'क्विज़ - परीक्षा सिमुलेटर';
 
   @override
@@ -51,7 +60,20 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'यहाँ क्लिक करें या स्क्रीन पर .quiz फ़ाइल ड्रैग करें';
+      'लोगो पर क्लिक करें या किसी .quiz फ़ाइल को स्क्रीन पर खींचें';
+
+  @override
+  String get errorOpeningFile => 'फ़ाइल खोलने में त्रुटि';
+
+  @override
+  String get replaceFileTitle => 'नया क्विज़ (Quiz) लोड करें';
+
+  @override
+  String get replaceFileMessage =>
+      'एक क्विज़ (Quiz) पहले से लोड है। क्या आप इसे नई फ़ाइल से बदलना चाहते हैं?';
+
+  @override
+  String get replaceButton => 'लोड करें';
 
   @override
   String get clickOrDragFile =>
@@ -93,10 +115,10 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'क्या आप वाकई बिना सेव किए बाहर निकलना चाहते हैं?';
+      'बिना सहेजे गए बदलाव मौजूद हैं। क्या आप बदलावों को रद्द करके बाहर निकलना चाहते हैं?';
 
   @override
-  String get exitButton => 'बाहर निकलें';
+  String get exitButton => 'बिना सहेजे बाहर निकलें';
 
   @override
   String get saveDialogTitle => 'कृपया आउटपुट फ़ाइल चुनें:';
@@ -232,7 +254,7 @@ class AppLocalizationsHi extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total में से $correct सही उत्तर';
   }
 
@@ -264,6 +286,30 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get startQuiz => 'क्विज़ शुरू करें';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'गलत उत्तरों को सीमित करें';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'उत्तीर्ण/अनुत्तीर्ण परीक्षा। कोई संख्यात्मक ग्रेड नहीं है।';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'परीक्षा में 0 से 100 तक संख्यात्मक ग्रेड होता है।';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'अधिकतम अनुमत त्रुटियां';
+
+  @override
+  String get examFailedStatus => 'परीक्षा अनुत्तीर्ण (Fail)';
+
+  @override
+  String get examPassedStatus => 'परीक्षा उत्तीर्ण (Pass)';
+
+  @override
+  String get quizFailedLimitReached =>
+      'परीक्षा समाप्त: अधिकतम त्रुटि सीमा समाप्त हो गई है';
 
   @override
   String get errorInvalidNumber => 'कृपया वैध संख्या दर्ज करें';
@@ -298,7 +344,7 @@ class AppLocalizationsHi extends AppLocalizations {
   String get questionOrderDescendingDesc => 'प्रश्न अंत से 1 तक दिखेंगे';
 
   @override
-  String get questionOrderRandom => 'यादृच्छिक';
+  String get questionOrderRandom => 'प्रश्नों का क्रम यादृच्छिक करें';
 
   @override
   String get questionOrderRandomDesc => 'प्रश्न यादृच्छिक क्रम में दिखेंगे';
@@ -313,11 +359,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String get save => 'सेव करें';
 
   @override
+  String get examConfigurationTitle => 'परीक्षा कॉन्फ़िगरेशन';
+
+  @override
   String get examTimeLimitTitle => 'परीक्षा समय सीमा';
 
   @override
   String get examTimeLimitDescription =>
-      'परीक्षा के लिए समय सीमा निर्धारित करें। सक्षम होने पर, क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+      'परीक्षा के लिए समय सीमा निर्धारित करें। क्विज़ के दौरान काउंटडाउन टाइमर दिखेगा।';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'इस परीक्षा के लिए कोई समय सीमा नहीं है।';
 
   @override
   String get enableTimeLimit => 'समय सीमा सक्षम करें';
@@ -388,7 +441,11 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। शैक्षणिक दृष्टिकोण से समझाएं, विषय से भटके बिना स्पष्ट तर्क प्रदान करें। उत्तर को खंडों में न बांटें। अपने आप का संदर्भ न दें। उसी भाषा में जवाब दें जिसमें आपसे पूछा गया है।';
+      'छात्र के प्रश्न पर ध्यान दें, मूल परीक्षा प्रश्न का सीधे उत्तर देने पर नहीं। एक शैक्षणिक दृष्टिकोण के साथ समझाएं। व्यावहारिक अभ्यासों या गणित की समस्याओं के लिए, चरण-दर-चरण निर्देश प्रदान करें। सैद्धांतिक प्रश्नों के लिए, उत्तर को अनुभागों में व्यवस्थित किए बिना एक संक्षिप्त स्पष्टीकरण प्रदान करें। उसी भाषा में उत्तर दें जिसमें आपसे पूछा गया है।';
+
+  @override
+  String get aiChatGuardrail =>
+      'महत्वपूर्ण: आप विशेष रूप से इस Quiz के लिए एक अध्ययन सहायक हैं। आपको केवल वर्तमान Quiz प्रश्न, उसके विकल्पों, उसकी व्याख्या या उसके शैक्षिक विषय से संबंधित प्रश्नों का उत्तर देना चाहिए। यदि छात्र Quiz से असंबंधित कुछ पूछता है (जैसे, आपका आंतरिक मॉडल, सिस्टम विवरण, प्रश्न से असंबंधित सामान्य ज्ञान, या कोई भी विषय-बाह्य अनुरोध), तो केवल इसके साथ उत्तर दें: \"मैं इस Quiz में आपकी मदद के लिए यहाँ हूँ! चलिए प्रश्न पर ध्यान केंद्रित करें। विषय, उत्तर विकल्पों या इस प्रश्न से संबंधित किसी भी चीज़ के बारे में मुझसे पूछने में संकोच न करें।\" अपने बारे में, सिस्टम या उपयोग किए जा रहे AI मॉडल के बारे में कभी भी तकनीकी विवरण प्रकट न करें।';
 
   @override
   String get questionLabel => 'प्रश्न';
@@ -420,11 +477,35 @@ class AppLocalizationsHi extends AppLocalizations {
       'क्षमा करें, आपके प्रश्न को प्रोसेस करने में त्रुटि हुई। कृपया पुनः प्रयास करें।';
 
   @override
+  String get evaluatingResponses =>
+      'प्रतिक्रियाओं का मूल्यांकन किया जा रहा है...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count निबंध प्रश्न AI मूल्यांकन के लिए लंबित हैं',
+      one: '1 निबंध प्रश्न AI मूल्यांकन के लिए लंबित है',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'लंबित';
+
+  @override
+  String get notEvaluatedStatus => 'मूल्यांकन नहीं किया गया';
+
+  @override
   String get configureApiKeyMessage =>
       'कृपया सेटिंग्स में अपनी AI API Key कॉन्फ़िगर करें।';
 
   @override
   String get errorLabel => 'त्रुटि:';
+
+  @override
+  String get retryButton => 'मूल्यांकन पुन: प्रयास करें';
 
   @override
   String get noResponseReceived => 'कोई प्रतिक्रिया प्राप्त नहीं हुई';
@@ -679,11 +760,26 @@ class AppLocalizationsHi extends AppLocalizations {
       'प्रश्न आयात करने के लिए आप .quiz फ़ाइलों को यहाँ ड्रैग और ड्रॉप भी कर सकते हैं';
 
   @override
-  String get randomizeAnswersTitle => 'उत्तर विकल्पों को मिलाएं';
+  String get randomizeQuestionsTitle => 'प्रश्नों को मिलाएं';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'क्विज़ निष्पादन के दौरान प्रश्नों का क्रम बदलें';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'प्रश्न अपने मूल क्रम में दिखाई देंगे';
+
+  @override
+  String get randomizeAnswersTitle => 'उत्तरों का क्रम यादृच्छिक करें';
 
   @override
   String get randomizeAnswersDescription =>
       'क्विज़ निष्पादन के दौरान उत्तर विकल्पों का क्रम मिलाएं';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'उत्तर विकल्प अपने मूल क्रम में दिखाई देंगे';
 
   @override
   String get showCorrectAnswerCountTitle => 'सही उत्तर संख्या दिखाएं';
@@ -691,6 +787,10 @@ class AppLocalizationsHi extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'बहुविकल्पीय प्रश्नों में सही उत्तरों की संख्या प्रदर्शित करें';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'बहुविकल्पीय प्रश्नों के लिए सही उत्तरों की संख्या नहीं दिखाई जाएगी';
 
   @override
   String correctAnswersCount(int count) {
@@ -782,7 +882,13 @@ class AppLocalizationsHi extends AppLocalizations {
       '\"द्वितीय विश्व युद्ध का इतिहास\" जैसा कोई विषय दर्ज करें या यहां पाठ पेस्ट करें...';
 
   @override
-  String get aiAttachFileHint => 'फ़ाइल संलग्न करें (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'फ़ाइल संलग्न करें (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'फ़ाइल यहाँ छोड़ें';
+
+  @override
+  String get dropImageHere => 'छवि यहाँ छोड़ें';
 
   @override
   String get aiNumberQuestionsLabel => 'प्रश्नों की संख्या';
@@ -802,6 +908,18 @@ class AppLocalizationsHi extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'पाठ मोड ($count शब्द)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'सामग्री मोड';
+
+  @override
+  String get aiGenerationCategoryTheory => 'सिद्धांत';
+
+  @override
+  String get aiGenerationCategoryExercises => 'अभ्यास';
+
+  @override
+  String get aiGenerationCategoryBoth => 'मिश्रित';
 
   @override
   String get languageSpanish => 'Español';
@@ -968,214 +1086,6 @@ class AppLocalizationsHi extends AppLocalizations {
       'उत्तर प्रारूप:\n1. ग्रेड: [X/10] - ग्रेड के लिए संक्षेप में औचित्य दें\n2. शक्तियां: उत्तर के सकारात्मक पहलुओं का उल्लेख करें\n3. सुधार के क्षेत्र: उन पहलुओं को इंगित करें जिन्हें सुधारा जा सकता है\n4. विशिष्ट टिप्पणियां: विस्तृत और रचनात्मक प्रतिक्रिया प्रदान करें\n5. सुझाव: सुधार के लिए विशिष्ट सिफारिशें प्रदान करें\n\nअपने मूल्यांकन में रचनात्मक, विशिष्ट और शैक्षिक बनें। लक्ष्य छात्र को सीखने और सुधारने में मदद करना है। उन्हें द्वितीय व्यक्ति में संबोधित करें और एक पेशेवर और मित्रवत स्वर का उपयोग करें।';
 
   @override
-  String get raffleTitle => 'लॉटरी';
-
-  @override
-  String get raffleTooltip => 'लॉटरी स्क्रीन खोलें';
-
-  @override
-  String get participantListTitle => 'प्रतिभागियों की सूची';
-
-  @override
-  String get participantListHint => 'नई लाइन से अलग किए गए नाम दर्ज करें';
-
-  @override
-  String get participantListPlaceholder =>
-      'प्रतिभागियों के नाम यहाँ दर्ज करें...\nएक लाइन में एक नाम';
-
-  @override
-  String get clearList => 'सूची साफ़ करें';
-
-  @override
-  String get participants => 'प्रतिभागी';
-
-  @override
-  String get noParticipants => 'कोई प्रतिभागी नहीं';
-
-  @override
-  String get addParticipantsHint => 'लॉटरी शुरू करने के लिए प्रतिभागी जोड़ें';
-
-  @override
-  String get activeParticipants => 'सक्रिय प्रतिभागी';
-
-  @override
-  String get alreadySelected => 'पहले से चुने गए';
-
-  @override
-  String totalParticipants(int count) {
-    return 'कुल प्रतिभागी';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active सक्रिय, $winners विजेता';
-  }
-
-  @override
-  String get startRaffle => 'लॉटरी शुरू करें';
-
-  @override
-  String get raffling => 'लॉटरी हो रही है...';
-
-  @override
-  String get selectingWinner => 'विजेता चुना जा रहा है...';
-
-  @override
-  String get allParticipantsSelected => 'सभी प्रतिभागी चुने गए हैं';
-
-  @override
-  String get addParticipantsToStart =>
-      'लॉटरी शुरू करने के लिए प्रतिभागी जोड़ें';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count प्रतिभागी लॉटरी के लिए तैयार';
-  }
-
-  @override
-  String get resetWinners => 'विजेताओं को रीसेट करें';
-
-  @override
-  String get resetWinnersConfirmTitle => 'विजेताओं को रीसेट करें?';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'यह सभी विजेताओं को सक्रिय प्रतिभागी सूची में वापस कर देगा।';
-
-  @override
-  String get resetRaffleTitle => 'लॉटरी रीसेट करें?';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'यह सभी विजेताओं और सक्रिय प्रतिभागियों को रीसेट कर देगा।';
-
-  @override
-  String get cancel => 'रद्द करें';
-
-  @override
-  String get reset => 'रीसेट करें';
-
-  @override
-  String get viewWinners => 'विजेता देखें';
-
-  @override
-  String get congratulations => '🎉 बधाई हो! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'स्थिति $position';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'शेष प्रतिभागी: $count';
-  }
-
-  @override
-  String get continueRaffle => 'लॉटरी जारी रखें';
-
-  @override
-  String get finishRaffle => 'लॉटरी समाप्त करें';
-
-  @override
-  String get winnersTitle => 'विजेता';
-
-  @override
-  String get shareResults => 'परिणाम साझा करें';
-
-  @override
-  String get noWinnersYet => 'अभी तक कोई विजेता नहीं';
-
-  @override
-  String get performRaffleToSeeWinners => 'विजेता देखने के लिए लॉटरी करें';
-
-  @override
-  String get goToRaffle => 'लॉटरी पर जाएं';
-
-  @override
-  String get raffleCompleted => 'लॉटरी पूर्ण!';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count विजेता चुने गए';
-  }
-
-  @override
-  String get newRaffle => 'नई लॉटरी';
-
-  @override
-  String get shareResultsTitle => 'लॉटरी के परिणाम';
-
-  @override
-  String get raffleResultsLabel => 'लॉटरी के परिणाम:';
-
-  @override
-  String get close => 'बंद करें';
-
-  @override
-  String get share => 'कॉपी करें';
-
-  @override
-  String get shareNotImplemented => 'साझा करना अभी तक लागू नहीं है';
-
-  @override
-  String get firstPlace => 'पहला स्थान';
-
-  @override
-  String get secondPlace => 'दूसरा स्थान';
-
-  @override
-  String get thirdPlace => 'तीसरा स्थान';
-
-  @override
-  String nthPlace(int position) {
-    return '$positionवां स्थान';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return 'स्थान';
-  }
-
-  @override
-  String get raffleResultsHeader => 'लॉटरी परिणाम - null विजेता';
-
-  @override
-  String totalWinners(int count) {
-    return 'कुल विजेता: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'साझा करने के लिए कोई विजेता नहीं';
-
-  @override
-  String get shareSuccess => 'परिणाम सफलतापूर्वक कॉपी किए गए';
-
-  @override
-  String get selectLogo => 'लोगो चुनें';
-
-  @override
-  String get logoUrl => 'लोगो URL';
-
-  @override
-  String get logoUrlHint =>
-      'लॉटरी के लिए कस्टम लोगो के रूप में उपयोग करने के लिए एक छवि का URL दर्ज करें';
-
-  @override
-  String get invalidLogoUrl =>
-      'अमान्य छवि URL। यह .jpg, .png, .gif, आदि में समाप्त होने वाला एक वैध URL होना चाहिए।';
-
-  @override
-  String get logoPreview => 'पूर्वावलोकन';
-
-  @override
-  String get removeLogo => 'लोगो हटाएं';
-
-  @override
-  String get logoTooLargeWarning =>
-      'छवि बहुत बड़ी है और सहेजी नहीं जा सकती। इसका उपयोग केवल इस सत्र के दौरान किया जाएगा।';
-
-  @override
   String get aiModeTopicTitle => 'विषय मोड';
 
   @override
@@ -1247,13 +1157,15 @@ class AppLocalizationsHi extends AppLocalizations {
   String get studyModeLabel => 'अध्ययन मोड';
 
   @override
-  String get studyModeDescription => 'तत्काल प्रतिक्रिया और कोई टाइमर नहीं';
+  String get studyModeDescription =>
+      'AI सहायता उपलब्ध है। समय सीमा या दंड के बिना प्रत्येक उत्तर के बाद त्वरित प्रतिक्रिया।';
 
   @override
   String get examModeLabel => 'परीक्षा मोड';
 
   @override
-  String get examModeDescription => 'मानक समय और अंत में परिणाम';
+  String get examModeDescription =>
+      'कोई AI सहायता नहीं। समय सीमा और गलत उत्तरों के लिए जुर्माना लागू हो सकता है।';
 
   @override
   String get checkAnswer => 'जांचें';
@@ -1268,7 +1180,10 @@ class AppLocalizationsHi extends AppLocalizations {
   String get askAiAssistant => 'AI सहायक से पूछें';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'इस प्रश्न के बारे में AI से पूछें';
+
+  @override
+  String get aiHelpWithQuestion => 'इस प्रश्न को समझने में मेरी मदद करो';
 
   @override
   String get edit => 'संपादित करें';
@@ -1335,6 +1250,13 @@ class AppLocalizationsHi extends AppLocalizations {
   String get subtractPointsLabel => 'गलत उत्तर के लिए अंक घटाएं';
 
   @override
+  String get subtractPointsDescription =>
+      'प्रत्येक गलत उत्तर के लिए अंक घटाएं।';
+
+  @override
+  String get subtractPointsOffDescription => 'गलत उत्तर अंक नहीं घटाते हैं।';
+
+  @override
   String get penaltyAmountLabel => 'दंड राशि';
 
   @override
@@ -1344,4 +1266,70 @@ class AppLocalizationsHi extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'सभी प्रश्न';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '$count चयनित के साथ शुरू करें';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'उन्नत सेटिंग्स (डिबग)';
+
+  @override
+  String get appLanguageLabel => 'ऐप की भाषा';
+
+  @override
+  String get appLanguageDescription =>
+      'परीक्षण के लिए एप्लिकेशन भाषा को ओवरराइड करें';
+
+  @override
+  String get pasteFromClipboard => 'क्लिपबोर्ड से पेस्ट करें';
+
+  @override
+  String get pasteImage => 'पेस्ट';
+
+  @override
+  String get clipboardNoImage => 'क्लिपबोर्ड में कोई छवि नहीं मिली';
+
+  @override
+  String get close => 'बंद करें';
+
+  @override
+  String get scoringAndLimitsTitle => 'स्कोरिंग और सीमाएँ';
+
+  @override
+  String get congratulations => '🎉 बधाई हो! 🎉';
+
+  @override
+  String get validationMin1Error => 'न्यूनतम 1 मिनट';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysदिन $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksसप्ताह $daysदिन $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'अधिकतम 30 दिन';
+
+  @override
+  String get validationMin0GenericError => 'न्यूनतम 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

@@ -1,5 +1,8 @@
 {
   "@@locale": "eu",
+  "abortQuizTitle": "Quiz-a abortatu?",
+  "abortQuizMessage": "Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.",
+  "stopAndOpenButton": "Gelditu eta Ireki",
   "titleAppBar": "Quiz - Azterketa Simuladorea",
   "@titleAppBar": {
     "description": "AppBar-ean erakutsitako aplikazioaren izenburua."
@@ -36,7 +39,23 @@
       }
     }
   },
-  "dropFileHere": "Egin klik hemen edo arrastatu .quiz fitxategi bat pantailara",
+  "errorOpeningFile": "Errorea fitxategia irekitzean",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Quiz berria kargatu",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Dagoeneko Quiz bat kargatuta dago. Fitxategi berriarekin ordezkatu nahi duzu?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Kargatu",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
+  "dropFileHere": "Egin klik logoan edo arrastatu .quiz fitxategi bat pantailara",
   "@dropFileHere": {
     "description": "Fitxategiak arrastatzeko eremuan erakusten den testua."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Irtetzearen berrespen elkarrizketaren izenburua."
   },
-  "confirmExitMessage": "Ziur zaude gorde gabe irten nahi duzula?",
+  "confirmExitMessage": "Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?",
   "@confirmExitMessage": {
     "description": "Irtetzearen berrespen elkarrizketaren mezua."
   },
-  "exitButton": "Irten",
+  "exitButton": "Irten gorde gabe",
   "@exitButton": {
     "description": "Irten botoiaren testua."
   },
@@ -242,10 +261,6 @@
   "@finishQuizConfirmation": {
     "description": "Quiz amaitzeko berrespen mezua"
   },
-  "cancel": "Utzi",
-  "@cancel": {
-    "description": "Utzi botoiaren testua"
-  },
   "abandonQuiz": "Quiz Utzi",
   "@abandonQuiz": {
     "description": "Quiz utzi elkarrizketaren izenburua"
@@ -277,7 +292,7 @@
     "description": "Erantzun zuzenen kontaketa",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {
@@ -374,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Galderen orden beherakorrarentzako deskribapena"
   },
-  "questionOrderRandom": "Ausazkoa",
+  "questionOrderRandom": "Galderen ordena ausazkotu",
   "@questionOrderRandom": {
     "description": "Galderen orden ausazkoaren etiketa"
   },
@@ -394,9 +409,13 @@
   "@examTimeLimitTitle": {
     "description": "Azterketaren denbora muga atalaren izenburua"
   },
-  "examTimeLimitDescription": "Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.",
+  "examTimeLimitDescription": "Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.",
   "@examTimeLimitDescription": {
     "description": "Azterketaren denbora muga funtzionalitatearen deskribapena"
+  },
+  "examTimeLimitOffDescription": "Azterketa honetarako ez dago denbora mugarik.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Denbora muga gaitu",
   "@enableTimeLimit": {
@@ -405,6 +424,28 @@
   "timeLimitMinutes": "Denbora muga (minutuak)",
   "@timeLimitMinutes": {
     "description": "Azterketaren denbora muga minutu sarreraren etiketa"
+  },
+  "maxIncorrectAnswersLabel": "Errore muga",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Errore muga konfiguratzeko etiketa"
+  },
+  "maxIncorrectAnswersDescription": "Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Errore muga funtzionalitatearen deskribapena"
+  },
+  "maxIncorrectAnswersOffDescription": "Azterketak 0 eta 100 arteko zenbakizko nota du.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Gehienezko errore kopurua",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Errore kopurua sartzeko eremuaren etiketa"
+  },
+  "examFailedStatus": "Azterketa EZ GAI",
+  "examPassedStatus": "Azterketa GAI",
+  "quizFailedLimitReached": "Azterketa Amaitua: Onartutako akatsen muga gainditu da",
+  "@quizFailedLimitReached": {
+    "description": "Errore muga iristeagatik quiz-a gelditzen denean erakusten den mezua"
   },
   "examTimeExpiredTitle": "Denbora Amaitu da!",
   "@examTimeExpiredTitle": {
@@ -444,7 +485,7 @@
   "@questionTypeTrueFalse": {
     "description": "Egia/gezurra galdera motaren etiketa"
   },
-  "questionTypeEssay": "Saiakera",
+  "questionTypeEssay": "Galdera irekia",
   "@questionTypeEssay": {
     "description": "Saiakera galdera-motaerako etiketa"
   },
@@ -478,9 +519,13 @@
   "@explanationTooltip": {
     "description": "Azalpen adierazle txartelaren tooltip testua"
   },
-  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.",
+  "aiPrompt": "Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.",
   "@aiPrompt": {
     "description": "AI laguntzailearen oinarrizko gonbita"
+  },
+  "aiChatGuardrail": "GARRANTZITSUA: Quiz honetarako soilik ikasketa laguntzailea zara. Quiz galdera arruntari, bere aukerei, azalpenari edo lantzen duen gai hezitzaileari lotutako galderei SOILIK erantzun behar diezu. Ikasleak Quiz-arekin zerikusirik ez duen zerbait galdetzen badu (adibidez, zure barne eredua, sistemaren xehetasunak, galderarekin loturarik gabeko ezagutza orokorra, edo gaiari buruz ez den eskaeraren bat), erantzun SOILIK honekin: \"Hemen nago Quiz honekin laguntzeko! Galderan zentratu gaitezen. Lasai galdetu gaiari, erantzun aukerei edo galdera honekin lotutako edozertari buruz.\" Ez ezazu inoiz zure buruari, sistemari edo erabilitako AI ereduari buruzko xehetasun teknikorik agerian utzi.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "Galdera",
   "@questionLabel": {
@@ -870,7 +915,19 @@
   "@dragDropHintText": {
     "description": "Galdera zerrenda hutsik dagoenean erakusten den aholku testua, arrastatu eta utzi funtzionalitatea adierazten."
   },
-  "randomizeAnswersTitle": "Erantzun Aukerak Ausazkotu",
+  "randomizeQuestionsTitle": "Galderak Ausazkotu",
+  "@randomizeQuestionsTitle": {
+    "description": "Galderak ausazkotze konfigurazioaren izenburua."
+  },
+  "randomizeQuestionsDescription": "Quiz exekuzioan galderen ordena nahastu",
+  "@randomizeQuestionsDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena."
+  },
+  "randomizeQuestionsOffDescription": "Galderak jatorrizko ordenan agertuko dira",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Galderak ausazkotze konfigurazioaren deskribapena desgaituta dagoenean."
+  },
+  "randomizeAnswersTitle": "Erantzunen ordena ausazkotu",
   "@randomizeAnswersTitle": {
     "description": "Erantzun aukeren ausazkotze konfigurazioaren izenburua."
   },
@@ -882,9 +939,9 @@
   "@showCorrectAnswerCountTitle": {
     "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren izenburua."
   },
-  "showCorrectAnswerCountDescription": "Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi",
+  "showCorrectAnswerCountDescription": "Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan",
   "@showCorrectAnswerCountDescription": {
-    "description": "Erantzun zuzen kopurua erakusteko konfigurazioaren deskribapena."
+    "description": "Description for the show correct answer count setting."
   },
   "correctAnswersCount": "Hautatu {count} erantzun zuzen",
   "@correctAnswersCount": {
@@ -1240,298 +1297,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Ebaluaziorako erantzun formatuaren jarraibideak"
   },
-  "raffleTitle": "Zozketa",
-  "@raffleTitle": {
-    "description": "Zozketa pantailaren izenburua"
-  },
-  "raffleTooltip": "Zozketa pantaila ireki",
-  "@raffleTooltip": {
-    "description": "Aplikazio barrako zozketa ikonoaren aholkua"
-  },
-  "participantListTitle": "Parte-hartzaileen Zerrenda",
-  "@participantListTitle": {
-    "description": "Parte-hartzaileen zerrenda atalaren izenburua"
-  },
-  "participantListHint": "Sartu izenak lerro jauziez bereizita",
-  "@participantListHint": {
-    "description": "Parte-hartzaileen sarrera eremuaren aholku testua"
-  },
-  "participantListPlaceholder": "Sartu parte-hartzaileen izenak hemen...\nIzen bat lerro bakoitzeko",
-  "@participantListPlaceholder": {
-    "description": "Parte-hartzaileen sarrera eremuaren leku-marka testua"
-  },
-  "clearList": "Zerrenda Garbitu",
-  "@clearList": {
-    "description": "Parte-hartzaileen zerrenda garbitzeko botoiaren etiketa"
-  },
-  "participants": "Parte-hartzaileak",
-  "@participants": {
-    "description": "Parte-hartzaileen etiketa orokorra"
-  },
-  "noParticipants": "Ez dago parte-hartzailerik",
-  "@noParticipants": {
-    "description": "Parte-hartzailerik ez dagoenean erakusten den mezua"
-  },
-  "addParticipantsHint": "Gehitu parte-hartzaileak zozketa hasteko",
-  "@addParticipantsHint": {
-    "description": "Parte-hartzaileak gehitzeko aholkua"
-  },
-  "activeParticipants": "Parte-hartzaile Aktiboak",
-  "@activeParticipants": {
-    "description": "Parte-hartzaile aktiboen zenbatzailea"
-  },
-  "alreadySelected": "Jadanik Hautatuta",
-  "@alreadySelected": {
-    "description": "Jadanik hautatutako parte-hartzaileen deskribapena"
-  },
-  "totalParticipants": "Parte-hartzaile Guztira",
-  "@totalParticipants": {
-    "description": "Parte-hartzaileen zenbatzaile osoa"
-  },
-  "activeVsWinners": "{active} aktibo, {winners} irabazle",
-  "@activeVsWinners": {
-    "description": "Parte-hartzaile aktiboen eta irabazleen kopurua erakusten du",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Zozketa Hasi",
-  "@startRaffle": {
-    "description": "Zozketa hasteko botoiaren etiketa"
-  },
-  "raffling": "Zozkatzen...",
-  "@raffling": {
-    "description": "Zozketa prozesuan erakusten den testua"
-  },
-  "selectingWinner": "Irabazlea hautatzen...",
-  "@selectingWinner": {
-    "description": "Irabazlea hautatzean erakusten den testua"
-  },
-  "allParticipantsSelected": "Parte-hartzaile guztiak hautatu dira",
-  "@allParticipantsSelected": {
-    "description": "Parte-hartzaile guztiak hautatutakoan erakusten den mezua"
-  },
-  "addParticipantsToStart": "Gehitu parte-hartzaileak zozketa hasteko",
-  "@addParticipantsToStart": {
-    "description": "Zozketarako parte-hartzailerik ez dagoenean erakusten den mezua"
-  },
-  "participantsReadyCount": "{count} parte-hartzaile prest zozketarako",
-  "@participantsReadyCount": {
-    "description": "Zozketarako prest dauden parte-hartzaileen zenbatzailea",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Irabazleak Berrezarri",
-  "@resetWinners": {
-    "description": "Irabazleak berrezartzeko botoiaren etiketa"
-  },
-  "resetWinnersConfirmTitle": "Irabazleak berrezarri?",
-  "@resetWinnersConfirmTitle": {
-    "description": "Irabazleak berrezartzeko baieztapen elkarrizketaren izenburua"
-  },
-  "resetWinnersConfirmMessage": "Honek irabazle guztiak parte-hartzaile aktiboen zerrendara itzuliko ditu.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Irabazleak berrezartzeko baieztapen mezua"
-  },
-  "resetRaffleTitle": "Zozketa berrezarri?",
-  "@resetRaffleTitle": {
-    "description": "Zozketa berrezartzeko baieztapen elkarrizketaren izenburua"
-  },
-  "resetRaffleConfirmMessage": "Honek irabazle eta parte-hartzaile aktibo guztiak berrezarriko ditu.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Zozketa berrezartzeko baieztapen mezua"
-  },
-  "reset": "Berrezarri",
-  "@reset": {
-    "description": "Berrezarpen botoiaren etiketa"
-  },
-  "viewWinners": "Irabazleak Ikusi",
-  "@viewWinners": {
-    "description": "Irabazleak ikusteko botoiaren etiketa"
-  },
-  "congratulations": "🎉 Zorionak! 🎉",
-  "@congratulations": {
-    "description": "Irabazlearentzako zorion mezua"
-  },
-  "positionLabel": "{position}. Posizioa",
-  "@positionLabel": {
-    "description": "Irabazlearen posizioaren etiketa",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Gainerako parte-hartzaileak: {count}",
-  "@remainingParticipants": {
-    "description": "Gainerako parte-hartzaileen zenbatzailea",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "Zozketa Jarraitu",
-  "@continueRaffle": {
-    "description": "Zozketa jarraitzeko botoiaren etiketa"
-  },
-  "finishRaffle": "Zozketa Amaitu",
-  "@finishRaffle": {
-    "description": "Zozketa amaitzeko botoiaren etiketa"
-  },
-  "winnersTitle": "Irabazleak",
-  "@winnersTitle": {
-    "description": "Irabazleen pantailaren izenburua"
-  },
-  "shareResults": "Emaitzak Partekatu",
-  "@shareResults": {
-    "description": "Emaitzak partekatzeko botoiaren etiketa"
-  },
-  "noWinnersYet": "Oraindik ez dago irabazlerik",
-  "@noWinnersYet": {
-    "description": "Irabazlerik ez dagoenean erakusten den mezua"
-  },
-  "performRaffleToSeeWinners": "Egin zozketa irabazleak ikusteko",
-  "@performRaffleToSeeWinners": {
-    "description": "Zozketa egitera bultzatzen duen mezua"
-  },
-  "goToRaffle": "Zozketara Joan",
-  "@goToRaffle": {
-    "description": "Zozketara joateko botoiaren etiketa"
-  },
-  "raffleCompleted": "Zozketa osatuta!",
-  "@raffleCompleted": {
-    "description": "Zozketa osatutakoan erakusten den mezua"
-  },
-  "winnersSelectedCount": "{count} irabazle hautatu dira",
-  "@winnersSelectedCount": {
-    "description": "Hautatutako irabazleen zenbatzailea",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "Zozketa Berria",
-  "@newRaffle": {
-    "description": "Zozketa berria hasteko botoiaren etiketa"
-  },
-  "shareResultsTitle": "Zozketaren Emaitzak",
-  "@shareResultsTitle": {
-    "description": "Emaitzak partekatzeko elkarrizketaren izenburua"
-  },
-  "raffleResultsLabel": "Zozketaren emaitzak:",
-  "@raffleResultsLabel": {
-    "description": "Zozketaren emaitzen etiketa"
-  },
-  "close": "Itxi",
-  "@close": {
-    "description": "Itxi botoiaren etiketa"
-  },
-  "share": "Kopiatu",
-  "@share": {
-    "description": "Kopiatu botoiaren etiketa"
-  },
-  "shareNotImplemented": "Partekatzea ez dago oraindik inplementatuta",
-  "@shareNotImplemented": {
-    "description": "Partekatzea inplementatu ez denean erakusten den mezua"
-  },
-  "firstPlace": "Lehen Posizioa",
-  "@firstPlace": {
-    "description": "Lehen posizioaren etiketa"
-  },
-  "secondPlace": "Bigarren Posizioa",
-  "@secondPlace": {
-    "description": "Bigarren posizioaren etiketa"
-  },
-  "thirdPlace": "Hirugarren Posizioa",
-  "@thirdPlace": {
-    "description": "Hirugarren posizioaren etiketa"
-  },
-  "nthPlace": "{position}. Posizioa",
-  "@nthPlace": {
-    "description": "Edozein zenbakiko posizioaren etiketa",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "Posizioa",
-  "@placeLabel": {
-    "description": "Posizioaren etiketa orokorra"
-  },
-  "raffleResultsHeader": "Zozketaren Emaitzak - {count} irabazle",
-  "@raffleResultsHeader": {
-    "description": "Irabazleen kopuruarekin zozketaren emaitzen goiburua",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "Irabazle guztira: {count}",
-  "@totalWinners": {
-    "description": "Irabazleen zenbatzaile osoa",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "Ez dago irabazlerik partekatzeko",
-  "@noWinnersToShare": {
-    "description": "Partekatzeko irabazlerik ez dagoenean erakusten den mezua"
-  },
-  "shareSuccess": "Emaitzak arrakastaz kopiatu dira",
-  "@shareSuccess": {
-    "description": "Emaitzak kopiatu ondoren erakusten den arrakasta mezua"
-  },
-  "selectLogo": "Logotipoa Aukeratu",
-  "@selectLogo": {
-    "description": "Logo pertsonalizatua aukeratzeko elkarrizketa-koadroaren izenburua"
-  },
-  "logoUrl": "Logoaren URLa",
-  "@logoUrl": {
-    "description": "Logo URLaren sarrera-eremurako etiketa"
-  },
-  "logoUrlHint": "Sartu zozketarako logo pertsonalizatu gisa erabiltzeko irudiaren URLa",
-  "@logoUrlHint": {
-    "description": "Logo URL eremua azaltzen duen laguntza testua"
-  },
-  "invalidLogoUrl": "Irudi URL baliogabea. .jpg, .png, .gif, etab.rekin amaitzen den URL baliozkoa izan behar da.",
-  "@invalidLogoUrl": {
-    "description": "Logo URL baliogaberako errore mezua"
-  },
-  "logoPreview": "Aurrebista",
-  "@logoPreview": {
-    "description": "Logo aurrebista atalaren izenburua"
-  },
-  "removeLogo": "Logotipoa Kendu",
-  "@removeLogo": {
-    "description": "Logo pertsonalizatua kentzeko botoiaren testua"
-  },
-  "logoTooLargeWarning": "Irudia handiegia da gorde ahal izateko. Saio honetan bakarrik erabiliko da.",
-  "@logoTooLargeWarning": {
-    "description": "Abisu mezua logoa handiegia denean iraunkorki gorde ahal izateko"
-  },
   "aiModeTopicTitle": "Gai Modua",
   "@aiModeTopicTitle": {
     "description": "Gai moduaren izenburua AI laguntzailean"
@@ -1625,16 +1390,17 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Ikasteko Modua",
-  "studyModeDescription": "Berehalako feedbacka eta denborarik gabe",
+  "studyModeDescription": "AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.",
   "examModeLabel": "Azterketa Modua",
-  "examModeDescription": "Denbora estandarra eta emaitzak amaieran",
+  "examModeDescription": "AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.",
   "checkAnswer": "Egiaztatu",
   "quizModeTitle": "Galdetegi Modua",
   "skip": "Saltatu",
   "askAiAssistant": "Galdetu AI Laguntzaileari",
+  "askAiAboutQuestion": "Galdetu AIri galdera honi buruz",
+  "aiHelpWithQuestion": "Lagundu galdera hau ulertzen",
   "evaluateWithAI": "Ebaluatu AIrekin",
   "aiEvaluation": "AI Ebaluazioa",
-  "sorteosLabel": "Raffles",
   "edit": "Editatu",
   "enable": "Gaitu",
   "disable": "Desgaitu",
@@ -1689,12 +1455,36 @@
   "aiEnterContentTitle": "Sartu edukia",
   "aiEnterContentDescription": "Sartu gaia edo itsatsi edukia galderak sortzeko",
   "aiContentFieldHint": "Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...",
-  "aiAttachFileHint": "Erantsi fitxategia (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Erantsi fitxategia (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Askatu fitxategia hemen",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Askatu irudia hemen",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Galdera kopurua",
   "backButton": "Itzuli",
   "generateButton": "Sortu",
   "aiTopicModeCount": "Gai modua ({count} hitz)",
   "aiTextModeCount": "Testu modua ({count} hitz)",
+  "aiGenerationCategoryLabel": "Eduki Modua",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Ariketak",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Nahasia",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Guztiak",
   "@allLabel": {
     "description": "Galdera guztiak hautatzeko aukeraren etiketa"
@@ -1710,8 +1500,13 @@
     }
   },
   "subtractPointsLabel": "Kendu puntuak erantzun okerrengatik",
+  "subtractPointsDescription": "Kendu puntuak erantzun oker bakoitzeko.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Erantzun okerrek ez dute punturik kentzen.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Penalizazio kopurua",
   "@penaltyAmountLabel": {
@@ -1727,5 +1522,68 @@
       }
     }
   },
-  "allQuestionsLabel": "Galdera guztiak"
+  "allQuestionsLabel": "Galdera guztiak",
+  "startWithSelectedQuestions": "Hasi {count} hautatuekin",
+  "advancedSettingsTitle": "Ezarpen Aurreratuak (Debug)",
+  "appLanguageLabel": "Aplikazioaren hizkuntza",
+  "appLanguageDescription": "Aplikazioaren hizkuntza gainidatzi probetarako",
+  "pasteFromClipboard": "Itsatsi arbeletik",
+  "pasteImage": "Itsatsi",
+  "clipboardNoImage": "Ez da irudirik aurkitu arbelean",
+  "close": "Itxi",
+  "@close": {
+    "description": "Close button text"
+  },
+  "showCorrectAnswerCountOffDescription": "Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
+  },
+  "randomizeAnswersOffDescription": "Erantzun-aukerak jatorrizko ordenan agertuko dira",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuazioa eta mugak",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Zorionak! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Azterketaren konfigurazioa",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Gutxienez minutu 1",
+  "remainingTimeWithDays": "{days}e {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}a {days}e {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Gehienez 30 egun",
+  "validationMin0GenericError": "Gutxienez 0",
+  "errorStatus": "Error",
+  "evaluatingResponses": "Erantzunak baloratzen...",
+  "@evaluatingResponses": {
+    "description": "Emaitzen pantailan bistaratzen den testua IAren ebaluazioak zain daudenean"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{Garapen-galdera bat IA ebaluazioaren zain} other{{count} garapen-galdera IA ebaluazioaren zain}}",
+  "@pendingEvaluationsCount": {
+    "description": "Zain dauden IA ebaluazioen kopurua erakusten duen azpititulua",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Zain",
+  "@pendingStatus": {
+    "description": "Zain dagoen IA ebaluazio baten egoera-etiketa"
+  },
+  "notEvaluatedStatus": "Ebaluatu gabea",
+  "@notEvaluatedStatus": {
+    "description": "IAk ebaluatu ez duen saiakera-galdera baten egoera-etiketa"
+  },
+  "retryButton": "Ebaluazioa berriro saiatu",
+  "@retryButton": {
+    "description": "IA ebaluazioa berriro saiatzeko botoiaren testua"
+  }
 }

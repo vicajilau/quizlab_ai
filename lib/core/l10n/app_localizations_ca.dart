@@ -9,6 +9,16 @@ class AppLocalizationsCa extends AppLocalizations {
   AppLocalizationsCa([String locale = 'ca']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Avortar Quiz?';
+
+  @override
+  String get abortQuizMessage =>
+      'Obrir un fitxer nou aturarà el qüestionari actual.';
+
+  @override
+  String get stopAndOpenButton => 'Aturar i Obri';
+
+  @override
   String get titleAppBar => 'Quiz - Simulador d\'Exàmens';
 
   @override
@@ -51,7 +61,20 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla';
+      'Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla';
+
+  @override
+  String get errorOpeningFile => 'Error en obrir el fitxer';
+
+  @override
+  String get replaceFileTitle => 'Carregar nou Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?';
+
+  @override
+  String get replaceButton => 'Carregar';
 
   @override
   String get clickOrDragFile =>
@@ -92,10 +115,11 @@ class AppLocalizationsCa extends AppLocalizations {
   String get confirmExitTitle => 'Confirmar sortida';
 
   @override
-  String get confirmExitMessage => 'Esteu segur que voleu sortir sense desar?';
+  String get confirmExitMessage =>
+      'Hi ha canvis sense desar. Voleu sortir descartant els canvis?';
 
   @override
-  String get exitButton => 'Sortir';
+  String get exitButton => 'Sortir sense desar';
 
   @override
   String get saveDialogTitle => 'Seleccioneu un fitxer de sortida:';
@@ -233,7 +257,7 @@ class AppLocalizationsCa extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct de $total respostes correctes';
   }
 
@@ -265,6 +289,30 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get startQuiz => 'Començar quiz';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'Límit d\'errors';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Examen d\'Apte/No Apte. No hi ha nota numèrica, aproves o suspens.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'L\'examen té una nota numèrica del 0 al 100.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Nombre màxim d\'errors';
+
+  @override
+  String get examFailedStatus => 'Examen NO APTE';
+
+  @override
+  String get examPassedStatus => 'Examen APTE';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Examen Finalitzat: S\'ha superat el límit màxim d\'errors permesos';
 
   @override
   String get errorInvalidNumber => 'Si us plau, introduïu un número vàlid';
@@ -301,7 +349,7 @@ class AppLocalizationsCa extends AppLocalizations {
       'Les preguntes apareixeran del final a 1';
 
   @override
-  String get questionOrderRandom => 'Aleatori';
+  String get questionOrderRandom => 'Aleatoritzar l\'ordre de les preguntes';
 
   @override
   String get questionOrderRandomDesc =>
@@ -318,11 +366,18 @@ class AppLocalizationsCa extends AppLocalizations {
   String get save => 'Desar';
 
   @override
+  String get examConfigurationTitle => 'Configuració de l\'examen';
+
+  @override
   String get examTimeLimitTitle => 'Límit de temps de l\'examen';
 
   @override
   String get examTimeLimitDescription =>
-      'Establiu un límit de temps per l\'examen. Quan s\'activi, es mostrarà un temporitzador de compte enrere durant el quiz.';
+      'Estableix un límit de temps per a l\'examen. Es mostrarà un cronòmetre durant el quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'No hi ha límit de temps per a aquest examen.';
 
   @override
   String get enableTimeLimit => 'Activar límit de temps';
@@ -352,7 +407,7 @@ class AppLocalizationsCa extends AppLocalizations {
   String get questionTypeTrueFalse => 'Cert/Fals';
 
   @override
-  String get questionTypeEssay => 'Assaig';
+  String get questionTypeEssay => 'Desenvolupament';
 
   @override
   String get questionTypeRandom => 'Tots';
@@ -394,7 +449,11 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic, proporcionant arguments clars sense divagar ni sortir del tema. No estructureu la resposta en seccions. No us referiu a vosaltres mateixos. Responeu en la mateixa llengua en què se us pregunta.';
+      'Centreu-vos en la pregunta de l\'estudiant, no en respondre directament la pregunta original de l\'examen. Expliqueu amb un enfocament pedagògic. Per a exercicis pràctics o problemes matemàtics, proporcioneu instruccions pas a pas. Per a preguntes teòriques, proporcioneu una explicació concisa sense estructurar la resposta en seccions. Responeu en la mateixa llengua en què se us pregunta.';
+
+  @override
+  String get aiChatGuardrail =>
+      'IMPORTANT: Ets un assistent d\'estudi exclusivament per a aquest Quiz. NOMÉS has de respondre preguntes relacionades amb la pregunta actual del Quiz, les seves opcions, la seva explicació o el tema educatiu que cobreix. Si l\'estudiant pregunta sobre alguna cosa no relacionada amb el Quiz (per exemple, el teu model intern, detalls del sistema, coneixement general no relacionat amb la pregunta, o qualsevol sol·licitud fora de tema), respon ÚNICAMENT amb: \"Sóc aquí per ajudar-te amb aquest Quiz! Centrem-nos en la pregunta. No dubtis a preguntar-me sobre el tema, les opcions de resposta o qualsevol cosa relacionada amb aquesta pregunta.\" Mai revelis detalls tècnics sobre tu mateix, el sistema o el model d\'IA utilitzat.';
 
   @override
   String get questionLabel => 'Pregunta';
@@ -426,11 +485,36 @@ class AppLocalizationsCa extends AppLocalizations {
       'Ho sento, hi ha hagut un error en processar la vostra pregunta. Torneu-ho a provar.';
 
   @override
+  String get evaluatingResponses => 'Avaluant respostes...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other:
+          '$count preguntes de desenvolupament pendents d\'avaluació per part de la IA',
+      one:
+          '1 pregunta de desenvolupament pendent d\'avaluació per part de la IA',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pendent';
+
+  @override
+  String get notEvaluatedStatus => 'No avaluada';
+
+  @override
   String get configureApiKeyMessage =>
       'Si us plau, configureu la vostra Clau API IA a la Configuració.';
 
   @override
   String get errorLabel => 'Error:';
+
+  @override
+  String get retryButton => 'Reintentar avaluació';
 
   @override
   String get noResponseReceived => 'Cap resposta rebuda';
@@ -686,11 +770,26 @@ class AppLocalizationsCa extends AppLocalizations {
       'També podeu arrossegar i deixar anar fitxers .quiz aquí per importar preguntes';
 
   @override
-  String get randomizeAnswersTitle => 'Aleatoritzar opcions de resposta';
+  String get randomizeQuestionsTitle => 'Aleatoritzar preguntes';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Barrejar l\'ordre de les preguntes durant l\'execució del quiz';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Les preguntes apareixeran en el seu ordre original';
+
+  @override
+  String get randomizeAnswersTitle => 'Aleatoritzar l\'ordre de les respostes';
 
   @override
   String get randomizeAnswersDescription =>
       'Barrejar l\'ordre de les opcions de resposta durant l\'execució del quiz';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Les opcions de resposta apareixeran en el seu ordre original';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -699,6 +798,10 @@ class AppLocalizationsCa extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Mostrar el nombre de respostes correctes en preguntes d\'elecció múltiple';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'El nombre de respostes correctes no es mostrarà en les preguntes d\'opció múltiple';
 
   @override
   String correctAnswersCount(int count) {
@@ -791,7 +894,13 @@ class AppLocalizationsCa extends AppLocalizations {
       'Introduïu un tema com \"Història de la Segona Guerra Mundial\" o enganxeu contingut de text aquí...';
 
   @override
-  String get aiAttachFileHint => 'Adjunteu un fitxer (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Adjunteu un fitxer (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Deixeu anar el fitxer aquí';
+
+  @override
+  String get dropImageHere => 'Deixeu anar la imatge aquí';
 
   @override
   String get aiNumberQuestionsLabel => 'Nombre de preguntes';
@@ -811,6 +920,18 @@ class AppLocalizationsCa extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Mode Text ($count paraules)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Modo de Contingut';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoria';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Exercicis';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixt';
 
   @override
   String get languageSpanish => 'Español';
@@ -978,218 +1099,6 @@ class AppLocalizationsCa extends AppLocalizations {
       'Format de resposta:\n1. Puntuació: [X/10] - Justifica breument la puntuació\n2. Punts forts: Indica els aspectes positius de la resposta\n3. Àrees de millora: Assenyala els aspectes que es poden millorar\n4. Comentaris específics: Proporciona retroalimentació detallada i constructiva\n5. Suggeriments: Ofereix recomanacions específiques per millorar\n\nSigues constructiu, específic i educatiu en la teva avaluació. L\'objectiu és ajudar l\'estudiant a aprendre i millorar. Dirigeix-te a ell en segona persona i utilitza un to professional però accessible.';
 
   @override
-  String get raffleTitle => 'Sorteig';
-
-  @override
-  String get raffleTooltip => 'Començar sorteig';
-
-  @override
-  String get participantListTitle => 'Llista de Participants';
-
-  @override
-  String get participantListHint =>
-      'Introdueix noms separats per salt de línia';
-
-  @override
-  String get participantListPlaceholder =>
-      'Introdueix els noms dels participants aquí...\nUn nom per línia';
-
-  @override
-  String get clearList => 'Netejar Llista';
-
-  @override
-  String get participants => 'Participants';
-
-  @override
-  String get noParticipants => 'No hi ha participants';
-
-  @override
-  String get addParticipantsHint =>
-      'Afegeix participants per començar el sorteig';
-
-  @override
-  String get activeParticipants => 'Participants Actius';
-
-  @override
-  String get alreadySelected => 'Ja Seleccionats';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Total de Participants';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active actius, $winners guanyadors';
-  }
-
-  @override
-  String get startRaffle => 'Començar Sorteig';
-
-  @override
-  String get raffling => 'Sortejant...';
-
-  @override
-  String get selectingWinner => 'Seleccionant guanyador...';
-
-  @override
-  String get allParticipantsSelected =>
-      'Tots els participants han estat seleccionats';
-
-  @override
-  String get addParticipantsToStart =>
-      'Afegeix participants per començar el sorteig';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count participants preparats per al sorteig';
-  }
-
-  @override
-  String get resetWinners => 'Reiniciar Guanyadors';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Reiniciar guanyadors?';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Això retornarà tots els guanyadors a la llista de participants actius.';
-
-  @override
-  String get resetRaffleTitle => 'Reiniciar sorteig?';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Això reiniciarà tots els guanyadors i participants actius.';
-
-  @override
-  String get cancel => 'Cancel·lar';
-
-  @override
-  String get reset => 'Reiniciar';
-
-  @override
-  String get viewWinners => 'Veure Guanyadors';
-
-  @override
-  String get congratulations => '🎉 Felicitats! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'Posició $position';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Participants restants: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Continuar Sorteig';
-
-  @override
-  String get finishRaffle => 'Finalitzar Sorteig';
-
-  @override
-  String get winnersTitle => 'Guanyadors';
-
-  @override
-  String get shareResults => 'Compartir Resultats';
-
-  @override
-  String get noWinnersYet => 'Encara no hi ha guanyadors';
-
-  @override
-  String get performRaffleToSeeWinners =>
-      'Realitza un sorteig per veure els guanyadors';
-
-  @override
-  String get goToRaffle => 'Anar al Sorteig';
-
-  @override
-  String get raffleCompleted => 'Sorteig completat!';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count guanyadors seleccionats';
-  }
-
-  @override
-  String get newRaffle => 'Nou Sorteig';
-
-  @override
-  String get shareResultsTitle => 'Resultats del Sorteig';
-
-  @override
-  String get raffleResultsLabel => 'Resultats del sorteig:';
-
-  @override
-  String get close => 'Tancar';
-
-  @override
-  String get share => 'Copiar';
-
-  @override
-  String get shareNotImplemented => 'Compartir encara no està implementat';
-
-  @override
-  String get firstPlace => 'Primer Lloc';
-
-  @override
-  String get secondPlace => 'Segon Lloc';
-
-  @override
-  String get thirdPlace => 'Tercer Lloc';
-
-  @override
-  String nthPlace(int position) {
-    return 'Lloc $position';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return 'Lloc';
-  }
-
-  @override
-  String get raffleResultsHeader => 'Resultats del Sorteig - null guanyadors';
-
-  @override
-  String totalWinners(int count) {
-    return 'Total de guanyadors: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'No hi ha guanyadors per compartir';
-
-  @override
-  String get shareSuccess => 'Resultats copiats amb èxit';
-
-  @override
-  String get selectLogo => 'Seleccionar Logo';
-
-  @override
-  String get logoUrl => 'URL del Logo';
-
-  @override
-  String get logoUrlHint =>
-      'Introdueix la URL d\'una imatge per utilitzar com a logo personalitzat per al sorteig';
-
-  @override
-  String get invalidLogoUrl =>
-      'URL d\'imatge no vàlida. Ha de ser una URL vàlida que acabi en .jpg, .png, .gif, etc.';
-
-  @override
-  String get logoPreview => 'Vista Prèvia';
-
-  @override
-  String get removeLogo => 'Eliminar Logo';
-
-  @override
-  String get logoTooLargeWarning =>
-      'La imatge és massa gran per guardar-se. Només s\'utilitzarà durant aquesta sessió.';
-
-  @override
   String get aiModeTopicTitle => 'Mode Tema';
 
   @override
@@ -1264,14 +1173,14 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Feedback instantani i sense temporitzador';
+      'Assistència d\'IA disponible. Feedback instantani després de cada resposta, sense límits de temps ni penalitzacions.';
 
   @override
   String get examModeLabel => 'Mode examen';
 
   @override
   String get examModeDescription =>
-      'Temporitzador estàndard i resultats al final';
+      'Sense assistència d\'IA. Es poden aplicar límits de temps i penalitzacions per respostes incorrectes.';
 
   @override
   String get checkAnswer => 'Comprovar';
@@ -1286,7 +1195,10 @@ class AppLocalizationsCa extends AppLocalizations {
   String get askAiAssistant => 'Pregunta a l\'assistent d\'IA';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'Pregunta a l\'IA sobre aquesta pregunta';
+
+  @override
+  String get aiHelpWithQuestion => 'Ajuda\'m a entendre aquesta pregunta';
 
   @override
   String get edit => 'Editar';
@@ -1353,6 +1265,14 @@ class AppLocalizationsCa extends AppLocalizations {
   String get subtractPointsLabel => 'Restar punts per resposta incorrecta';
 
   @override
+  String get subtractPointsDescription =>
+      'Resta punts per cada resposta incorrecta.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Les respostes incorrectes no resten punts.';
+
+  @override
   String get penaltyAmountLabel => 'Quantitat de penalització';
 
   @override
@@ -1362,4 +1282,70 @@ class AppLocalizationsCa extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Totes les preguntes';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Iniciar amb $count seleccionades';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'Ajustes Avançats (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Idioma de l\'aplicació';
+
+  @override
+  String get appLanguageDescription =>
+      'Sobreescriure l\'idioma de l\'aplicació per a proves';
+
+  @override
+  String get pasteFromClipboard => 'Enganxar des del porta-retalls';
+
+  @override
+  String get pasteImage => 'Enganxar';
+
+  @override
+  String get clipboardNoImage => 'No s\'ha trobat cap imatge al porta-retalls';
+
+  @override
+  String get close => 'Tancar';
+
+  @override
+  String get scoringAndLimitsTitle => 'Puntuació i límits';
+
+  @override
+  String get congratulations => '🎉 Enhorabona! 🎉';
+
+  @override
+  String get validationMin1Error => 'Mínim 1 minut';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}s ${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Màxim 30 dies';
+
+  @override
+  String get validationMin0GenericError => 'Mínim 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

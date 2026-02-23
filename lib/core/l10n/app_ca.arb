@@ -1,5 +1,8 @@
 {
   "@@locale": "ca",
+  "abortQuizTitle": "Avortar Quiz?",
+  "abortQuizMessage": "Obrir un fitxer nou aturarà el qüestionari actual.",
+  "stopAndOpenButton": "Aturar i Obri",
   "titleAppBar": "Quiz - Simulador d'Exàmens",
   "@titleAppBar": {
     "description": "Títol de l'aplicació mostrat a l'AppBar."
@@ -48,9 +51,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "Adjunteu un fitxer (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Adjunteu un fitxer (PDF, TXT, MP3, MP4,...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "Deixeu anar el fitxer aquí",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Deixeu anar la imatge aquí",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "Nombre de preguntes",
   "@aiNumberQuestionsLabel": {
@@ -75,6 +86,22 @@
     }
   },
   "aiTextModeCount": "Mode Text ({count} paraules)",
+  "aiGenerationCategoryLabel": "Modo de Contingut",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoria",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercicis",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixt",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "@aiTextModeCount": {
     "description": "Text mode with word count",
     "placeholders": {
@@ -108,7 +135,23 @@
       }
     }
   },
-  "dropFileHere": "Feu clic aquí o arrossegueu un fitxer .quiz a la pantalla",
+  "dropFileHere": "Feu clic al logotip o arrossegueu un fitxer .quiz a la pantalla",
+  "errorOpeningFile": "Error en obrir el fitxer",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Carregar nou Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ja hi ha un Quiz carregat. Vols substituir-lo pel nou fitxer?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Carregar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text mostrat a l'àrea de deixar anar per arrossegar fitxers."
   },
@@ -170,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Títol per al diàleg de confirmació en sortir."
   },
-  "confirmExitMessage": "Esteu segur que voleu sortir sense desar?",
+  "confirmExitMessage": "Hi ha canvis sense desar. Voleu sortir descartant els canvis?",
   "@confirmExitMessage": {
     "description": "Missatge al diàleg de confirmació per sortir."
   },
-  "exitButton": "Sortir",
+  "exitButton": "Sortir sense desar",
   "@exitButton": {
     "description": "Text del botó Sortir."
   },
@@ -314,10 +357,6 @@
   "@finishQuizConfirmation": {
     "description": "Missatge de confirmació per acabar el quiz"
   },
-  "cancel": "Cancel·lar",
-  "@cancel": {
-    "description": "Text del botó cancel·lar"
-  },
   "resolveUnansweredQuestions": "Resoldre preguntes",
   "@resolveUnansweredQuestions": {
     "description": "Text del botó per resoldre preguntes sense resposta"
@@ -353,7 +392,7 @@
     "description": "Recompte de respostes correctes",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {
@@ -446,7 +485,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descripció per l'opció ordre descendent de les preguntes"
   },
-  "questionOrderRandom": "Aleatori",
+  "questionOrderRandom": "Aleatoritzar l'ordre de les preguntes",
   "@questionOrderRandom": {
     "description": "Etiqueta per l'opció ordre aleatori de les preguntes"
   },
@@ -466,9 +505,13 @@
   "@examTimeLimitTitle": {
     "description": "Títol per la secció límit de temps de l'examen"
   },
-  "examTimeLimitDescription": "Establiu un límit de temps per l'examen. Quan s'activi, es mostrarà un temporitzador de compte enrere durant el quiz.",
+  "examTimeLimitDescription": "Estableix un límit de temps per a l'examen. Es mostrarà un cronòmetre durant el quiz.",
   "@examTimeLimitDescription": {
     "description": "Descripció per la funcionalitat límit de temps de l'examen"
+  },
+  "examTimeLimitOffDescription": "No hi ha límit de temps per a aquest examen.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Activar límit de temps",
   "@enableTimeLimit": {
@@ -477,6 +520,34 @@
   "timeLimitMinutes": "Límit de temps (minuts)",
   "@timeLimitMinutes": {
     "description": "Etiqueta per l'entrada de minuts del límit de temps de l'examen"
+  },
+  "maxIncorrectAnswersLabel": "Límit d'errors",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Etiqueta per a la configuració del límit d'errors"
+  },
+  "maxIncorrectAnswersDescription": "Examen d'Apte/No Apte. No hi ha nota numèrica, aproves o suspens.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descripció de la funcionalitat del límit d'errors"
+  },
+  "maxIncorrectAnswersOffDescription": "L'examen té una nota numèrica del 0 al 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Nombre màxim d'errors",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Etiqueta per al camp d'entrada del nombre d'errors"
+  },
+  "examFailedStatus": "Examen NO APTE",
+  "@examFailedStatus": {
+    "description": "Estat de l'examen quan no s'ha superat"
+  },
+  "examPassedStatus": "Examen APTE",
+  "@examPassedStatus": {
+    "description": "Estat de l'examen quan s'ha superat"
+  },
+  "quizFailedLimitReached": "Examen Finalitzat: S'ha superat el límit màxim d'errors permesos",
+  "@quizFailedLimitReached": {
+    "description": "Missatge mostrat quan el quiz s'atura per haver arribat al límit d'errors"
   },
   "examTimeExpiredTitle": "Temps esgotat!",
   "@examTimeExpiredTitle": {
@@ -516,7 +587,7 @@
   "@questionTypeTrueFalse": {
     "description": "Etiqueta pel tipus de pregunta cert/fals"
   },
-  "questionTypeEssay": "Assaig",
+  "questionTypeEssay": "Desenvolupament",
   "@questionTypeEssay": {
     "description": "Etiqueta per al tipus de pregunta d'assaig"
   },
@@ -550,9 +621,13 @@
   "@explanationTooltip": {
     "description": "Text del tooltip per l'insígnia indicadora d'explicació"
   },
-  "aiPrompt": "Centreu-vos en la pregunta de l'estudiant, no en respondre directament la pregunta original de l'examen. Expliqueu amb un enfocament pedagògic, proporcionant arguments clars sense divagar ni sortir del tema. No estructureu la resposta en seccions. No us referiu a vosaltres mateixos. Responeu en la mateixa llengua en què se us pregunta.",
+  "aiPrompt": "Centreu-vos en la pregunta de l'estudiant, no en respondre directament la pregunta original de l'examen. Expliqueu amb un enfocament pedagògic. Per a exercicis pràctics o problemes matemàtics, proporcioneu instruccions pas a pas. Per a preguntes teòriques, proporcioneu una explicació concisa sense estructurar la resposta en seccions. Responeu en la mateixa llengua en què se us pregunta.",
   "@aiPrompt": {
     "description": "Prompt base per assistent IA"
+  },
+  "aiChatGuardrail": "IMPORTANT: Ets un assistent d'estudi exclusivament per a aquest Quiz. NOMÉS has de respondre preguntes relacionades amb la pregunta actual del Quiz, les seves opcions, la seva explicació o el tema educatiu que cobreix. Si l'estudiant pregunta sobre alguna cosa no relacionada amb el Quiz (per exemple, el teu model intern, detalls del sistema, coneixement general no relacionat amb la pregunta, o qualsevol sol·licitud fora de tema), respon ÚNICAMENT amb: \"Sóc aquí per ajudar-te amb aquest Quiz! Centrem-nos en la pregunta. No dubtis a preguntar-me sobre el tema, les opcions de resposta o qualsevol cosa relacionada amb aquesta pregunta.\" Mai revelis detalls tècnics sobre tu mateix, el sistema o el model d'IA utilitzat.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "Pregunta",
   "@questionLabel": {
@@ -942,7 +1017,19 @@
   "@dragDropHintText": {
     "description": "Text de pista mostrat quan la llista de preguntes està buida, indicant funcionalitat d'arrossegar i deixar anar."
   },
-  "randomizeAnswersTitle": "Aleatoritzar opcions de resposta",
+  "randomizeQuestionsTitle": "Aleatoritzar preguntes",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "Barrejar l'ordre de les preguntes durant l'execució del quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "Les preguntes apareixeran en el seu ordre original",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Aleatoritzar l'ordre de les respostes",
   "@randomizeAnswersTitle": {
     "description": "Títol per la configuració d'aleatorització d'opcions de resposta."
   },
@@ -957,6 +1044,10 @@
   "showCorrectAnswerCountDescription": "Mostrar el nombre de respostes correctes en preguntes d'elecció múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descripció per la configuració mostrar nombre de respostes correctes."
+  },
+  "showCorrectAnswerCountOffDescription": "El nombre de respostes correctes no es mostrarà en les preguntes d'opció múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Seleccioneu {count} respostes correctes",
   "@correctAnswersCount": {
@@ -1312,298 +1403,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Instruccions de format de resposta per a l'avaluació"
   },
-  "raffleTitle": "Sorteig",
-  "@raffleTitle": {
-    "description": "Títol de la pantalla de sorteig"
-  },
-  "raffleTooltip": "Començar sorteig",
-  "@raffleTooltip": {
-    "description": "Consell de l'icona de sorteig a la barra d'aplicacions"
-  },
-  "participantListTitle": "Llista de Participants",
-  "@participantListTitle": {
-    "description": "Títol de la secció de llista de participants"
-  },
-  "participantListHint": "Introdueix noms separats per salt de línia",
-  "@participantListHint": {
-    "description": "Text de consell per al camp d'entrada de participants"
-  },
-  "participantListPlaceholder": "Introdueix els noms dels participants aquí...\nUn nom per línia",
-  "@participantListPlaceholder": {
-    "description": "Text de marcador de posició per al camp d'entrada de participants"
-  },
-  "clearList": "Netejar Llista",
-  "@clearList": {
-    "description": "Etiqueta del botó per netejar la llista de participants"
-  },
-  "participants": "Participants",
-  "@participants": {
-    "description": "Etiqueta general per als participants"
-  },
-  "noParticipants": "No hi ha participants",
-  "@noParticipants": {
-    "description": "Missatge mostrat quan no hi ha participants"
-  },
-  "addParticipantsHint": "Afegeix participants per començar el sorteig",
-  "@addParticipantsHint": {
-    "description": "Consell per afegir participants"
-  },
-  "activeParticipants": "Participants Actius",
-  "@activeParticipants": {
-    "description": "Comptador de participants actius"
-  },
-  "alreadySelected": "Ja Seleccionats",
-  "@alreadySelected": {
-    "description": "Descripció per als participants ja seleccionats"
-  },
-  "totalParticipants": "Total de Participants",
-  "@totalParticipants": {
-    "description": "Comptador total de participants"
-  },
-  "activeVsWinners": "{active} actius, {winners} guanyadors",
-  "@activeVsWinners": {
-    "description": "Mostra el nombre de participants actius vs guanyadors",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Començar Sorteig",
-  "@startRaffle": {
-    "description": "Etiqueta del botó per començar el sorteig"
-  },
-  "raffling": "Sortejant...",
-  "@raffling": {
-    "description": "Text mostrat durant el procés de sorteig"
-  },
-  "selectingWinner": "Seleccionant guanyador...",
-  "@selectingWinner": {
-    "description": "Text mostrat durant la selecció del guanyador"
-  },
-  "allParticipantsSelected": "Tots els participants han estat seleccionats",
-  "@allParticipantsSelected": {
-    "description": "Missatge mostrat quan tots els participants han estat seleccionats"
-  },
-  "addParticipantsToStart": "Afegeix participants per començar el sorteig",
-  "@addParticipantsToStart": {
-    "description": "Missatge mostrat quan no hi ha participants per al sorteig"
-  },
-  "participantsReadyCount": "{count} participants preparats per al sorteig",
-  "@participantsReadyCount": {
-    "description": "Comptador de participants preparats per al sorteig",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Reiniciar Guanyadors",
-  "@resetWinners": {
-    "description": "Etiqueta del botó per reiniciar els guanyadors"
-  },
-  "resetWinnersConfirmTitle": "Reiniciar guanyadors?",
-  "@resetWinnersConfirmTitle": {
-    "description": "Títol del diàleg de confirmació per reiniciar els guanyadors"
-  },
-  "resetWinnersConfirmMessage": "Això retornarà tots els guanyadors a la llista de participants actius.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Missatge de confirmació per reiniciar els guanyadors"
-  },
-  "resetRaffleTitle": "Reiniciar sorteig?",
-  "@resetRaffleTitle": {
-    "description": "Títol del diàleg de confirmació per reiniciar el sorteig"
-  },
-  "resetRaffleConfirmMessage": "Això reiniciarà tots els guanyadors i participants actius.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Missatge de confirmació per reiniciar el sorteig"
-  },
-  "reset": "Reiniciar",
-  "@reset": {
-    "description": "Etiqueta del botó de reinici"
-  },
-  "viewWinners": "Veure Guanyadors",
-  "@viewWinners": {
-    "description": "Etiqueta del botó per veure els guanyadors"
-  },
-  "congratulations": "🎉 Felicitats! 🎉",
-  "@congratulations": {
-    "description": "Missatge de felicitació per al guanyador"
-  },
-  "positionLabel": "Posició {position}",
-  "@positionLabel": {
-    "description": "Etiqueta de la posició del guanyador",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Participants restants: {count}",
-  "@remainingParticipants": {
-    "description": "Comptador de participants restants",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "Continuar Sorteig",
-  "@continueRaffle": {
-    "description": "Etiqueta del botó per continuar el sorteig"
-  },
-  "finishRaffle": "Finalitzar Sorteig",
-  "@finishRaffle": {
-    "description": "Etiqueta del botó per finalitzar el sorteig"
-  },
-  "winnersTitle": "Guanyadors",
-  "@winnersTitle": {
-    "description": "Títol de la pantalla de guanyadors"
-  },
-  "shareResults": "Compartir Resultats",
-  "@shareResults": {
-    "description": "Etiqueta del botó per compartir els resultats"
-  },
-  "noWinnersYet": "Encara no hi ha guanyadors",
-  "@noWinnersYet": {
-    "description": "Missatge mostrat quan no hi ha guanyadors"
-  },
-  "performRaffleToSeeWinners": "Realitza un sorteig per veure els guanyadors",
-  "@performRaffleToSeeWinners": {
-    "description": "Missatge que anima a realitzar un sorteig"
-  },
-  "goToRaffle": "Anar al Sorteig",
-  "@goToRaffle": {
-    "description": "Etiqueta del botó per anar al sorteig"
-  },
-  "raffleCompleted": "Sorteig completat!",
-  "@raffleCompleted": {
-    "description": "Missatge mostrat quan el sorteig està completat"
-  },
-  "winnersSelectedCount": "{count} guanyadors seleccionats",
-  "@winnersSelectedCount": {
-    "description": "Comptador de guanyadors seleccionats",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "Nou Sorteig",
-  "@newRaffle": {
-    "description": "Etiqueta del botó per començar un nou sorteig"
-  },
-  "shareResultsTitle": "Resultats del Sorteig",
-  "@shareResultsTitle": {
-    "description": "Títol del diàleg per compartir els resultats"
-  },
-  "raffleResultsLabel": "Resultats del sorteig:",
-  "@raffleResultsLabel": {
-    "description": "Etiqueta dels resultats del sorteig"
-  },
-  "close": "Tancar",
-  "@close": {
-    "description": "Etiqueta del botó de tancar"
-  },
-  "share": "Copiar",
-  "@share": {
-    "description": "Etiqueta del botó de copiar"
-  },
-  "shareNotImplemented": "Compartir encara no està implementat",
-  "@shareNotImplemented": {
-    "description": "Missatge quan compartir no està implementat"
-  },
-  "firstPlace": "Primer Lloc",
-  "@firstPlace": {
-    "description": "Etiqueta del primer lloc"
-  },
-  "secondPlace": "Segon Lloc",
-  "@secondPlace": {
-    "description": "Etiqueta del segon lloc"
-  },
-  "thirdPlace": "Tercer Lloc",
-  "@thirdPlace": {
-    "description": "Etiqueta del tercer lloc"
-  },
-  "nthPlace": "Lloc {position}",
-  "@nthPlace": {
-    "description": "Etiqueta del lloc per a qualsevol número",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "Lloc",
-  "@placeLabel": {
-    "description": "Etiqueta general per al lloc"
-  },
-  "raffleResultsHeader": "Resultats del Sorteig - {count} guanyadors",
-  "@raffleResultsHeader": {
-    "description": "Capçalera dels resultats del sorteig amb el nombre de guanyadors",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "Total de guanyadors: {count}",
-  "@totalWinners": {
-    "description": "Comptador total de guanyadors",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "No hi ha guanyadors per compartir",
-  "@noWinnersToShare": {
-    "description": "Missatge mostrat quan no hi ha guanyadors per compartir"
-  },
-  "shareSuccess": "Resultats copiats amb èxit",
-  "@shareSuccess": {
-    "description": "Missatge d'èxit mostrat després de copiar els resultats"
-  },
-  "selectLogo": "Seleccionar Logo",
-  "@selectLogo": {
-    "description": "Títol del diàleg per seleccionar el logo personalitzat"
-  },
-  "logoUrl": "URL del Logo",
-  "@logoUrl": {
-    "description": "Etiqueta per al camp d'entrada de la URL del logo"
-  },
-  "logoUrlHint": "Introdueix la URL d'una imatge per utilitzar com a logo personalitzat per al sorteig",
-  "@logoUrlHint": {
-    "description": "Text d'ajuda que explica el camp URL del logo"
-  },
-  "invalidLogoUrl": "URL d'imatge no vàlida. Ha de ser una URL vàlida que acabi en .jpg, .png, .gif, etc.",
-  "@invalidLogoUrl": {
-    "description": "Missatge d'error per a URL de logo no vàlida"
-  },
-  "logoPreview": "Vista Prèvia",
-  "@logoPreview": {
-    "description": "Títol de la secció de vista prèvia del logo"
-  },
-  "removeLogo": "Eliminar Logo",
-  "@removeLogo": {
-    "description": "Text del botó per eliminar el logo personalitzat"
-  },
-  "logoTooLargeWarning": "La imatge és massa gran per guardar-se. Només s'utilitzarà durant aquesta sessió.",
-  "@logoTooLargeWarning": {
-    "description": "Missatge d'advertència quan el logo és massa gran per a l'emmagatzematge persistent"
-  },
   "aiModeTopicTitle": "Mode Tema",
   "@aiModeTopicTitle": {
     "description": "Títol per al mode tema a l'assistent AI"
@@ -1700,7 +1499,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Feedback instantani i sense temporitzador",
+  "studyModeDescription": "Assistència d'IA disponible. Feedback instantani després de cada resposta, sense límits de temps ni penalitzacions.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1708,7 +1507,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Temporitzador estàndard i resultats al final",
+  "examModeDescription": "Sense assistència d'IA. Es poden aplicar límits de temps i penalitzacions per respostes incorrectes.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1728,6 +1527,8 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
+  "askAiAboutQuestion": "Pregunta a l'IA sobre aquesta pregunta",
+  "aiHelpWithQuestion": "Ajuda'm a entendre aquesta pregunta",
   "evaluateWithAI": "Avaluar amb IA",
   "@evaluateWithAI": {
     "description": "Button label to evaluate essay answer with AI"
@@ -1735,10 +1536,6 @@
   "aiEvaluation": "Avaluació IA",
   "@aiEvaluation": {
     "description": "Label for AI evaluation section"
-  },
-  "sorteosLabel": "Raffles",
-  "@sorteosLabel": {
-    "description": "Label for the raffles button"
   },
   "edit": "Editar",
   "@edit": {
@@ -1809,8 +1606,13 @@
     }
   },
   "subtractPointsLabel": "Restar punts per resposta incorrecta",
+  "subtractPointsDescription": "Resta punts per cada resposta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Les respostes incorrectes no resten punts.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Quantitat de penalització",
   "@penaltyAmountLabel": {
@@ -1826,5 +1628,64 @@
       }
     }
   },
-  "allQuestionsLabel": "Totes les preguntes"
+  "allQuestionsLabel": "Totes les preguntes",
+  "startWithSelectedQuestions": "Iniciar amb {count} seleccionades",
+  "advancedSettingsTitle": "Ajustes Avançats (Debug)",
+  "appLanguageLabel": "Idioma de l'aplicació",
+  "appLanguageDescription": "Sobreescriure l'idioma de l'aplicació per a proves",
+  "pasteFromClipboard": "Enganxar des del porta-retalls",
+  "pasteImage": "Enganxar",
+  "clipboardNoImage": "No s'ha trobat cap imatge al porta-retalls",
+  "close": "Tancar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Les opcions de resposta apareixeran en el seu ordre original",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuació i límits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Enhorabona! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Configuració de l'examen",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mínim 1 minut",
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Màxim 30 dies",
+  "validationMin0GenericError": "Mínim 0",
+  "errorStatus": "Error",
+  "evaluatingResponses": "Avaluant respostes...",
+  "@evaluatingResponses": {
+    "description": "Text mostrat a la pantalla de resultats quan les avaluacions d'IA estan pendents"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 pregunta de desenvolupament pendent d'avaluació per part de la IA} other{{count} preguntes de desenvolupament pendents d'avaluació per part de la IA}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtítol que mostra el nombre d'avaluacions d'IA pendentes",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pendent",
+  "@pendingStatus": {
+    "description": "Etiqueta d'estat per a una avaluació d'IA pendent"
+  },
+  "notEvaluatedStatus": "No avaluada",
+  "@notEvaluatedStatus": {
+    "description": "Etiqueta d'estat per a una pregunta d'assaig que no ha estat avaluada per la IA"
+  },
+  "retryButton": "Reintentar avaluació",
+  "@retryButton": {
+    "description": "Text del botó per reintentar una avaluació d'IA"
+  }
 }

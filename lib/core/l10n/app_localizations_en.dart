@@ -9,6 +9,16 @@ class AppLocalizationsEn extends AppLocalizations {
   AppLocalizationsEn([String locale = 'en']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Abort Quiz?';
+
+  @override
+  String get abortQuizMessage =>
+      'Opening a new file will stop the current quiz.';
+
+  @override
+  String get stopAndOpenButton => 'Stop & Open';
+
+  @override
   String get titleAppBar => 'Quiz - Exam Simulator';
 
   @override
@@ -53,6 +63,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get dropFileHere => 'Click logo or drag a .quiz file to the screen';
 
   @override
+  String get errorOpeningFile => 'Error opening file';
+
+  @override
+  String get replaceFileTitle => 'Load new Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'A Quiz is already loaded. Do you want to replace it with the new file?';
+
+  @override
+  String get replaceButton => 'Load';
+
+  @override
   String get clickOrDragFile =>
       'Click to load or drag a .quiz file to the screen';
 
@@ -91,10 +114,10 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Are you sure you want to leave without saving?';
+      'There are unsaved changes. Do you want to leave and discard changes?';
 
   @override
-  String get exitButton => 'Exit';
+  String get exitButton => 'Exit without saving';
 
   @override
   String get saveDialogTitle => 'Please select an output file:';
@@ -231,7 +254,7 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct of $total correct answers';
   }
 
@@ -263,6 +286,30 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get startQuiz => 'Start Quiz';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'Limit incorrect answers';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Pass/Fail Exam. No numeric grade; you either pass or fail.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'The exam has a numeric grade from 0 to 100.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Maximum allowed errors';
+
+  @override
+  String get examFailedStatus => 'Exam FAILED (Fail)';
+
+  @override
+  String get examPassedStatus => 'Exam PASSED (Pass)';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Exam Finished: Maximum error limit has been reached';
 
   @override
   String get errorInvalidNumber => 'Please enter a valid number';
@@ -298,7 +345,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Questions will appear from the end to 1';
 
   @override
-  String get questionOrderRandom => 'Random';
+  String get questionOrderRandom => 'Randomize Questions Order';
 
   @override
   String get questionOrderRandomDesc => 'Questions will appear in random order';
@@ -313,11 +360,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get save => 'Save';
 
   @override
+  String get examConfigurationTitle => 'Exam Configuration';
+
+  @override
   String get examTimeLimitTitle => 'Exam Time Limit';
 
   @override
   String get examTimeLimitDescription =>
-      'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.';
+      'Set a time limit for the exam. A countdown timer will be displayed during the quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'There is no time limit for this exam.';
 
   @override
   String get enableTimeLimit => 'Enable time limit';
@@ -389,7 +443,11 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.';
+      'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.';
+
+  @override
+  String get aiChatGuardrail =>
+      'IMPORTANT: You are a study assistant exclusively for this Quiz. You must ONLY answer questions related to the current Quiz question, its options, its explanation, or the educational topic it covers. If the student asks about anything unrelated to the Quiz (e.g., your internal model, system details, general knowledge not related to the question, or any off-topic request), respond ONLY with: \"I\'m here to help you with this Quiz! Let\'s focus on the question at hand. Feel free to ask me about the topic, the answer options, or anything related to this question.\" Never reveal technical details about yourself, the system, or the AI model being used.';
 
   @override
   String get questionLabel => 'Question';
@@ -421,11 +479,34 @@ class AppLocalizationsEn extends AppLocalizations {
       'Sorry, there was an error processing your question. Please try again.';
 
   @override
+  String get evaluatingResponses => 'Evaluating responses...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count development questions pending AI evaluation',
+      one: '1 development question pending AI evaluation',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Pending';
+
+  @override
+  String get notEvaluatedStatus => 'Not evaluated';
+
+  @override
   String get configureApiKeyMessage =>
       'Please configure your AI API Key in Settings.';
 
   @override
   String get errorLabel => 'Error:';
+
+  @override
+  String get retryButton => 'Retry Evaluation';
 
   @override
   String get noResponseReceived => 'No response received';
@@ -680,11 +761,26 @@ class AppLocalizationsEn extends AppLocalizations {
       'You can also drag and drop .quiz files here to import questions';
 
   @override
-  String get randomizeAnswersTitle => 'Randomize Answer Options';
+  String get randomizeQuestionsTitle => 'Randomize Questions';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Shuffle the order of questions during quiz execution';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Questions will appear in their original order';
+
+  @override
+  String get randomizeAnswersTitle => 'Randomize Answers Order';
 
   @override
   String get randomizeAnswersDescription =>
       'Shuffle the order of answer options during quiz execution';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Answer options will appear in their original order';
 
   @override
   String get showCorrectAnswerCountTitle => 'Show Correct Answer Count';
@@ -692,6 +788,10 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Display the number of correct answers in multiple choice questions';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'The number of correct answers will not be shown for multiple-choice questions';
 
   @override
   String correctAnswersCount(int count) {
@@ -784,7 +884,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Enter a topic like \"World War II history\" or paste text content here...';
 
   @override
-  String get aiAttachFileHint => 'Attach a file (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Attach a file (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Drop file here';
+
+  @override
+  String get dropImageHere => 'Drop image here';
 
   @override
   String get aiNumberQuestionsLabel => 'Number of Questions';
@@ -804,6 +910,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Text Mode ($count words)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Content Mode';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Theory';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Exercises';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Mixed';
 
   @override
   String get languageSpanish => 'Español';
@@ -970,215 +1088,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'RESPONSE FORMAT:\n1. GRADE: [X/10] - Briefly justify the grade\n2. STRENGTHS: Mention positive aspects of the response\n3. AREAS FOR IMPROVEMENT: Point out aspects that could be improved\n4. SPECIFIC COMMENTS: Provide detailed and constructive feedback\n5. SUGGESTIONS: Offer specific recommendations for improvement\n\nBe constructive, specific, and educational in your evaluation. The goal is to help the student learn and improve. Address them in second person and use a professional and friendly tone.';
 
   @override
-  String get raffleTitle => 'Raffle';
-
-  @override
-  String get raffleTooltip => 'Start raffle';
-
-  @override
-  String get participantListTitle => 'Participant List';
-
-  @override
-  String get participantListHint => 'Enter one name per line:';
-
-  @override
-  String get participantListPlaceholder =>
-      'John Doe\nJane Smith\nBob Johnson\n...';
-
-  @override
-  String get clearList => 'Clear List';
-
-  @override
-  String get participants => 'Participants';
-
-  @override
-  String get noParticipants => 'No participants';
-
-  @override
-  String get addParticipantsHint => 'Add names in the text area';
-
-  @override
-  String get activeParticipants => 'Active Participants';
-
-  @override
-  String get alreadySelected => 'Already Selected';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Total: $count';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return 'Active: $active | Winners: $winners';
-  }
-
-  @override
-  String get startRaffle => 'Start Raffle';
-
-  @override
-  String get raffling => 'Raffling...';
-
-  @override
-  String get selectingWinner => 'Selecting winner...';
-
-  @override
-  String get allParticipantsSelected =>
-      'All participants have already been selected';
-
-  @override
-  String get addParticipantsToStart => 'Add participants to start the raffle';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count participant(s) ready for raffle';
-  }
-
-  @override
-  String get resetWinners => 'Reset Winners';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Reset Winners';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Are you sure you want to reset the winners list? All participants will be available for the raffle again.';
-
-  @override
-  String get resetRaffleTitle => 'Reset Raffle';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Are you sure you want to reset the raffle? All participants and winners will be lost.';
-
-  @override
-  String get cancel => 'Cancel';
-
-  @override
-  String get reset => 'Reset';
-
-  @override
-  String get viewWinners => 'View winners';
-
-  @override
-  String get congratulations => '🎉 Congratulations! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'Position: $position°';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Remaining participants: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Continue Raffle';
-
-  @override
-  String get finishRaffle => 'Finish Raffle';
-
-  @override
-  String get winnersTitle => 'Raffle Winners';
-
-  @override
-  String get shareResults => 'Share results';
-
-  @override
-  String get noWinnersYet => 'No winners yet';
-
-  @override
-  String get performRaffleToSeeWinners =>
-      'Perform a raffle to see the winners here';
-
-  @override
-  String get goToRaffle => 'Go to Raffle';
-
-  @override
-  String get raffleCompleted => 'Raffle Completed';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count winner(s) selected';
-  }
-
-  @override
-  String get newRaffle => 'New Raffle';
-
-  @override
-  String get shareResultsTitle => 'Share Results';
-
-  @override
-  String get raffleResultsLabel => 'Raffle results:';
-
-  @override
-  String get close => 'Close';
-
-  @override
-  String get share => 'Copy';
-
-  @override
-  String get shareNotImplemented => 'Share functionality not implemented';
-
-  @override
-  String get firstPlace => '1st';
-
-  @override
-  String get secondPlace => '2nd';
-
-  @override
-  String get thirdPlace => '3rd';
-
-  @override
-  String nthPlace(int position) {
-    return '$position°';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '$position place';
-  }
-
-  @override
-  String get raffleResultsHeader => '🏆 RAFFLE RESULTS 🏆';
-
-  @override
-  String totalWinners(int count) {
-    return 'Total winners: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'No winners.';
-
-  @override
-  String get shareSuccess => 'Results copied successfully';
-
-  @override
-  String get selectLogo => 'Select Logo';
-
-  @override
-  String get logoUrl => 'Logo URL';
-
-  @override
-  String get logoUrlHint =>
-      'Enter the URL of an image to use as a custom logo for the raffle';
-
-  @override
-  String get invalidLogoUrl =>
-      'Invalid image URL. Must be a valid URL ending in .jpg, .png, .gif, etc.';
-
-  @override
-  String get logoPreview => 'Preview';
-
-  @override
-  String get removeLogo => 'Remove Logo';
-
-  @override
-  String get logoTooLargeWarning =>
-      'Image is too large to be saved. It will only be used during this session.';
-
-  @override
   String get aiModeTopicTitle => 'Topic Mode';
 
   @override
@@ -1251,13 +1160,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get studyModeLabel => 'Study Mode';
 
   @override
-  String get studyModeDescription => 'Instant feedback and no timer';
+  String get studyModeDescription =>
+      'AI assistance available. Instant feedback after each answer with no time limits or penalties.';
 
   @override
   String get examModeLabel => 'Exam Mode';
 
   @override
-  String get examModeDescription => 'Standard timer and results at the end';
+  String get examModeDescription =>
+      'No AI assistance. Time limits and penalties for incorrect answers may apply.';
 
   @override
   String get checkAnswer => 'Check Answer';
@@ -1272,7 +1183,10 @@ class AppLocalizationsEn extends AppLocalizations {
   String get askAiAssistant => 'Ask AI Assistant';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'Ask AI about this question';
+
+  @override
+  String get aiHelpWithQuestion => 'Help me understand this question';
 
   @override
   String get edit => 'Edit';
@@ -1338,6 +1252,14 @@ class AppLocalizationsEn extends AppLocalizations {
   String get subtractPointsLabel => 'Subtract points for wrong answer';
 
   @override
+  String get subtractPointsDescription =>
+      'Subtract points for each incorrect answer.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Incorrect answers do not deduct points.';
+
+  @override
   String get penaltyAmountLabel => 'Penalty amount';
 
   @override
@@ -1347,4 +1269,70 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'All Questions';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Start with $count selected';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'Advanced Settings (Debug)';
+
+  @override
+  String get appLanguageLabel => 'App Language';
+
+  @override
+  String get appLanguageDescription =>
+      'Override application language for testing';
+
+  @override
+  String get pasteFromClipboard => 'Paste from clipboard';
+
+  @override
+  String get pasteImage => 'Paste';
+
+  @override
+  String get clipboardNoImage => 'No image found in clipboard';
+
+  @override
+  String get close => 'Close';
+
+  @override
+  String get scoringAndLimitsTitle => 'Scoring and Limits';
+
+  @override
+  String get congratulations => '🎉 Congratulations! 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimum 1 minute';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}w ${days}d $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Maximum 30 days';
+
+  @override
+  String get validationMin0GenericError => 'Minimum 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

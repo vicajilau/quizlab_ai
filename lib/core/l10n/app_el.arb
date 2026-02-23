@@ -1,5 +1,8 @@
 {
   "@@locale": "el",
+  "abortQuizTitle": "Ακύρωση Quiz;",
+  "abortQuizMessage": "Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.",
+  "stopAndOpenButton": "Διακοπή & Άνοιγμα",
   "titleAppBar": "Κουίζ - Προσομοιωτής Εξετάσεων",
   "create": "Δημιουργία",
   "preview": "Προεπισκόπηση",
@@ -12,16 +15,56 @@
   "aiEnterContentTitle": "Εισαγωγή περιεχομένου",
   "aiEnterContentDescription": "Εισάγετε το θέμα ή επικολλήστε περιεχόμενο για τη δημιουργία ερωτήσεων",
   "aiContentFieldHint": "Εισάγετε ένα θέμα όπως \"Ιστορία του Β' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...",
-  "aiAttachFileHint": "Επισύναψη αρχείου (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Επισύναψη αρχείου (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Αφήστε το αρχείο εδώ",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Αφήστε την εικόνα εδώ",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Αριθμός ερωτήσεων",
   "backButton": "Πίσω",
   "generateButton": "Δημιουργία",
   "aiTopicModeCount": "Λειτουργία θέματος ({count} λέξεις)",
   "aiTextModeCount": "Λειτουργία κειμένου ({count} λέξεις)",
+  "aiGenerationCategoryLabel": "Λειτουργία Περιεχομένου",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Θεωρία",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Ασκήσεις",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Μικτό",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "load": "Φόρτωση",
   "fileLoaded": "Το αρχείο φορτώθηκε: {filePath}",
   "fileSaved": "Το αρχείο αποθηκεύτηκε: {filePath}",
   "dropFileHere": "Κάντε κλικ στο λογότυπο ή σύρετε ένα αρχείο .quiz στην οθόνη",
+  "errorOpeningFile": "Σφάλμα κατά το άνοιγμα του αρχείου",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Φόρτωση νέου Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ένα Quiz είναι ήδη φορτωμένο. Θέλετε να το αντικαταστήσετε με το νέο αρχείο;",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Φόρτωση",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "clickOrDragFile": "Κάντε κλικ για φόρτωση ή σύρετε ένα αρχείο .quiz στην οθόνη",
   "@clickOrDragFile": {
     "description": "Κείμενο που εμφανίζεται κάτω από την περιοχή φόρτωσης"
@@ -35,8 +78,8 @@
   "confirmDeleteMessage": "Είστε σίγουροι ότι θέλετε να διαγράψετε τη διαδικασία `{processName}`;",
   "deleteButton": "Διαγραφή",
   "confirmExitTitle": "Επιβεβαίωση Εξόδου",
-  "confirmExitMessage": "Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;",
-  "exitButton": "Έξοδος",
+  "confirmExitMessage": "Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;",
+  "exitButton": "Έξοδος χωρίς αποθήκευση",
   "saveDialogTitle": "Παρακαλώ επιλέξτε αρχείο εξόδου:",
   "createQuizFileTitle": "Δημιουργία Αρχείου Quiz",
   "editQuizFileTitle": "Επεξεργασία Αρχείου Κουίζ",
@@ -95,12 +138,16 @@
   "questionOrderAscendingDesc": "Οι ερωτήσεις θα εμφανίζονται με σειρά από 1 έως το τέλος",
   "questionOrderDescending": "Φθίνουσα Σειρά",
   "questionOrderDescendingDesc": "Οι ερωτήσεις θα εμφανίζονται από το τέλος προς το 1",
-  "questionOrderRandom": "Τυχαία",
+  "questionOrderRandom": "Τυχαία σειρά ερωτήσεων",
   "questionOrderRandomDesc": "Οι ερωτήσεις θα εμφανίζονται με τυχαία σειρά",
   "questionOrderConfigTooltip": "Διαμόρφωση σειράς ερωτήσεων",
   "save": "Αποθήκευση",
   "examTimeLimitTitle": "Χρονικό Όριο Εξέτασης",
-  "examTimeLimitDescription": "Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.",
+  "examTimeLimitDescription": "Ορίστε χρονικό όριο για την εξέταση. Θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.",
+  "examTimeLimitOffDescription": "Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
+  },
   "enableTimeLimit": "Ενεργοποίηση χρονικού ορίου",
   "timeLimitMinutes": "Χρονικό όριο (λεπτά)",
   "examTimeExpiredTitle": "Τέλος Χρόνου!",
@@ -122,7 +169,8 @@
   "optionsTooltip": "Αριθμός επιλογών απάντησης για αυτή την ερώτηση",
   "imageTooltip": "Αυτή η ερώτηση έχει συσχετισμένη εικόνα",
   "explanationTooltip": "Αυτή η ερώτηση έχει εξήγηση",
-  "aiPrompt": "Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση, παρέχοντας σαφή επιχειρήματα χωρίς να παρεκκλίνετε από το θέμα. Μη δομείτε την απάντηση σε ενότητες. Μην αναφέρεστε στον εαυτό σας. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.",
+  "aiPrompt": "Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση. Για πρακτικές ασκήσεις ή μαθηματικά προβλήματα, παρέχετε οδηγίες βήμα προς βήμα. Για θεωρητικές ερωτήσεις, παρέχετε μια συνοπτική εξήγηση χωρίς να δομείτε την απάντηση σε ενότητες. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.",
+  "aiChatGuardrail": "ΣΗΜΑΝΤΙΚΟ: Είστε βοηθός μελέτης αποκλειστικά για αυτό το Quiz. Πρέπει να απαντάτε ΜΟΝΟ σε ερωτήσεις σχετικές με την τρέχουσα ερώτηση του Quiz, τις επιλογές της, την εξήγησή της ή το εκπαιδευτικό θέμα που καλύπτει. Εάν ο μαθητής ρωτήσει κάτι άσχετο με το Quiz (π.χ. το εσωτερικό σας μοντέλο, λεπτομέρειες του συστήματος, γενικές γνώσεις μη σχετικές με την ερώτηση, ή οποιοδήποτε αίτημα εκτός θέματος), απαντήστε ΜΟΝΟ με: \"Είμαι εδώ για να σας βοηθήσω με αυτό το Quiz! Ας εστιάσουμε στην ερώτηση. Μη διστάσετε να με ρωτήσετε για το θέμα, τις επιλογές απάντησης ή οτιδήποτε σχετικό με αυτή την ερώτηση.\" Μην αποκαλύπτετε ποτέ τεχνικές λεπτομέρειες για τον εαυτό σας, το σύστημα ή το μοντέλο AI που χρησιμοποιείται.",
   "questionLabel": "Ερώτηση",
   "studentComment": "Σχόλιο μαθητή",
   "aiAssistantTitle": "Βοηθός Μελέτης AI",
@@ -213,11 +261,20 @@
   "questionsImportedSuccess": "Εισήχθησαν επιτυχώς {count} ερωτήσεις",
   "importQuestionsTooltip": "Εισαγωγή ερωτήσεων από άλλο αρχείο quiz",
   "dragDropHintText": "Μπορείτε επίσης να σύρετε και να αποθέσετε αρχεία .quiz εδώ για εισαγωγή ερωτήσεων",
-  "randomizeAnswersTitle": "Τυχαία Σειρά Απαντήσεων",
+  "randomizeQuestionsTitle": "Τυχαία Σειρά Ερωτήσεων",
+  "randomizeQuestionsDescription": "Ανακάτεμα της σειράς των ερωτήσεων κατά την εκτέλεση του κουίζ",
+  "randomizeQuestionsOffDescription": "Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά",
+  "randomizeAnswersTitle": "Τυχαία σειρά απαντήσεων",
   "randomizeAnswersDescription": "Ανακάτεμα της σειράς των επιλογών απάντησης κατά την εκτέλεση του κουίζ",
   "showCorrectAnswerCountTitle": "Εμφάνιση Αριθμού Σωστών Απαντήσεων",
   "showCorrectAnswerCountDescription": "Εμφάνιση του αριθμού των σωστών απαντήσεων σε ερωτήσεις πολλαπλής επιλογής",
-  "logoTooLargeWarning": "Η εικόνα είναι πολύ μεγάλη για να αποθηκευτεί. Θα χρησιμοποιηθεί μόνο κατά τη διάρκεια αυτής της συνεδρίας.",
+  "@showCorrectAnswerCountDescription": {
+    "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "Ο αριθμός των σωστών απαντήσεων δεν θα εμφανίζεται για ερωτήσεις πολλαπλής επιλογής",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
+  },
   "correctAnswersCount": "Επιλέξτε {count} σωστές απαντήσεις",
   "correctSelectedLabel": "Σωστό",
   "correctMissedLabel": "Σωστό",
@@ -293,66 +350,6 @@
   "aiEvaluationPromptSpecificInstructions": "ΕΙΔΙΚΕΣ ΟΔΗΓΙΕΣ:\n- Αξιολογήστε πόσο καλά ευθυγραμμίζεται η απάντηση του μαθητή με τα καθιερωμένα κριτήρια\n- Αναλύστε τον βαθμό σύνθεσης και δομής στην απάντηση\n- Προσδιορίστε αν έχει παραλειφθεί κάτι σημαντικό σύμφωνα με τα κριτήρια\n- Εξετάστε το βάθος και την ακρίβεια της ανάλυσης",
   "aiEvaluationPromptGeneralInstructions": "ΓΕΝΙΚΕΣ ΟΔΗΓΙΕΣ:\n- Δεδομένου ότι δεν υπάρχουν καθιερωμένα ειδικά κριτήρια, αξιολογήστε την απάντηση με βάση τα γενικά ακαδημαϊκά πρότυπα\n- Εξετάστε τη σαφήνεια, τη συνοχή και τη δομή της απάντησης\n- Αξιολογήστε αν η απάντηση δείχνει κατανόηση του θέματος\n- Αναλύστε το βάθος της ανάλυσης και την ποιότητα των επιχειρημάτων",
   "aiEvaluationPromptResponseFormat": "ΜΟΡΦΗ ΑΠΑΝΤΗΣΗΣ:\n1. ΒΑΘΜΟΣ: [X/10] - Δικαιολογήστε σύντομα τον βαθμό\n2. ΔΥΝΑΤΑ ΣΗΜΕΙΑ: Αναφέρετε θετικές πτυχές της απάντησης\n3. ΠΕΡΙΟΧΕΣ ΓΙΑ ΒΕΛΤΙΩΣΗ: Επισημάνετε πτυχές που θα μπορούσαν να βελτιωθούν\n4. ΕΙΔΙΚΑ ΣΧΟΛΙΑ: Παρέχετε λεπτομερή και εποικοδομητικά σχόλια\n5. ΠΡΟΤΑΣΕΙΣ: Προσφέρετε συγκεκριμένες συστάσεις για βελτίωση\n\nΝα είστε εποικοδομητικοί, συγκεκριμένοι και εκπαιδευτικοί στην αξιολόγησή σας. Στόχος είναι να βοηθήσετε τον μαθητή να μάθει και να βελτιωθεί. Απευθυνθείτε σε αυτόν στον δεύτερο ενικό και χρησιμοποιήστε επαγγελματικό και φιλικό ύφος.",
-  "raffleTitle": "Κλήρωση",
-  "raffleTooltip": "Κλήρωση",
-  "participantListTitle": "Λίστα Συμμετεχόντων",
-  "participantListHint": "Εισάγετε ένα όνομα ανά γραμμή:",
-  "participantListPlaceholder": "Γιάννης Παπαδόπουλος\nΜαρία Ιωαννίδου\nΝίκος Γεωργίου\n...",
-  "clearList": "Καθαρισμός Λίστας",
-  "participants": "Συμμετέχοντες",
-  "noParticipants": "Κανένας συμμετέχων",
-  "addParticipantsHint": "Προσθέστε ονόματα στην περιοχή κειμένου",
-  "activeParticipants": "Ενεργοί Συμμετέχοντες",
-  "alreadySelected": "Ήδη Επιλεγμένοι",
-  "totalParticipants": "Σύνολο: {count}",
-  "activeVsWinners": "Ενεργοί: {active} | Νικητές: {winners}",
-  "startRaffle": "Έναρξη Κλήρωσης",
-  "raffling": "Κλήρωση...",
-  "selectingWinner": "Επιλογή νικητή...",
-  "allParticipantsSelected": "Όλοι οι συμμετέχοντες έχουν ήδη επιλεγεί",
-  "addParticipantsToStart": "Προσθέστε συμμετέχοντες για να ξεκινήσετε την κλήρωση",
-  "participantsReadyCount": "{count} συμμετέχων/οντες έτοιμος/οι για κλήρωση",
-  "resetWinners": "Επαναφορά Νικητών",
-  "resetWinnersConfirmTitle": "Επαναφορά Νικητών",
-  "resetWinnersConfirmMessage": "Είστε σίγουροι ότι θέλετε να επαναφέρετε τη λίστα νικητών; Όλοι οι συμμετέχοντες θα είναι διαθέσιμοι για την κλήρωση ξανά.",
-  "resetRaffleTitle": "Επαναφορά Κλήρωσης",
-  "resetRaffleConfirmMessage": "Είστε σίγουροι ότι θέλετε να επαναφέρετε την κλήρωση; Όλοι οι συμμετέχοντες και οι νικητές θα χαθούν.",
-  "cancel": "Ακύρωση",
-  "reset": "Επαναφορά",
-  "viewWinners": "Προβολή νικητών",
-  "congratulations": "🎉 Συγχαρητήρια! 🎉",
-  "positionLabel": "Θέση: {position}η",
-  "remainingParticipants": "Υπόλοιποι συμμετέχοντες: {count}",
-  "continueRaffle": "Συνέχεια Κλήρωσης",
-  "finishRaffle": "Ολοκλήρωση Κλήρωσης",
-  "winnersTitle": "Νικητές Κλήρωσης",
-  "shareResults": "Κοινοποίηση αποτελεσμάτων",
-  "noWinnersYet": "Δεν υπάρχουν νικητές ακόμα",
-  "performRaffleToSeeWinners": "Πραγματοποιήστε μια κλήρωση για να δείτε τους νικητές εδώ",
-  "goToRaffle": "Μετάβαση στην Κλήρωση",
-  "raffleCompleted": "Κλήρωση Ολοκληρώθηκε",
-  "winnersSelectedCount": "{count} νικητής/ές επιλέχθηκε/αν",
-  "newRaffle": "Νέα Κλήρωση",
-  "shareResultsTitle": "Κοινοποίηση Αποτελεσμάτων",
-  "raffleResultsLabel": "Αποτελέσματα κλήρωσης:",
-  "close": "Κλείσιμο",
-  "share": "Αντιγραφή",
-  "shareNotImplemented": "Η λειτουργία κοινοποίησης δεν έχει υλοποιηθεί",
-  "firstPlace": "1ος",
-  "secondPlace": "2ος",
-  "thirdPlace": "3ος",
-  "nthPlace": "{position}ος",
-  "placeLabel": "{position} θέση",
-  "raffleResultsHeader": "🏆 ΑΠΟΤΕΛΕΣΜΑΤΑ ΚΛΗΡΩΣΗΣ 🏆",
-  "totalWinners": "Σύνολο νικητών: {count}",
-  "noWinnersToShare": "Κανένας νικητής.",
-  "shareSuccess": "Τα αποτελέσματα αντιγράφηκαν επιτυχώς",
-  "selectLogo": "Επιλογή Λογότυπου",
-  "logoUrl": "URL Λογότυπου",
-  "logoUrlHint": "Εισάγετε το URL μιας εικόνας για χρήση ως προσαρμοσμένο λογότυπο για την κλήρωση",
-  "invalidLogoUrl": "Μη έγκυρο URL εικόνας. Πρέπει να είναι έγκυρο URL που τελειώνει σε .jpg, .png, .gif, κλπ.",
-  "logoPreview": "Προεπισκόπηση",
-  "removeLogo": "Αφαίρεση Λογότυπου",
   "aiModeTopicTitle": "Λειτουργία Θέματος",
   "aiModeTopicDescription": "Δημιουργική εξερεύνηση του θέματος",
   "aiModeContentTitle": "Λειτουργία Περιεχομένου",
@@ -374,14 +371,15 @@
   "aiCommentsHelperText": "Προαιρετικά προσθέστε οδηγίες σχετικά με τον τρόπο δημιουργίας ερωτήσεων από το αρχείο",
   "aiFilePickerError": "Δεν ήταν δυνατή η φόρτωση του επιλεγμένου αρχείου",
   "studyModeLabel": "Λειτουργία Μελέτης",
-  "studyModeDescription": "Άμεση ανατροφοδότηση και χωρίς χρονόμετρο",
+  "studyModeDescription": "Διαθέσιμη βοήθεια AI. Άμεση ανατροφοδότηση μετά από κάθε απάντηση, χωρίς χρονικά όρια ή ποινές.",
   "examModeLabel": "Λειτουργία Εξέτασης",
-  "examModeDescription": "Τυπικός χρόνος και αποτελέσματα στο τέλος",
+  "examModeDescription": "Χωρίς βοήθεια AI. Ενδέχεται να ισχύουν χρονικά όρια και ποινές για λανθασμένες απαντήσεις.",
   "checkAnswer": "Έλεγχος",
   "quizModeTitle": "Λειτουργία Κουίζ",
   "skip": "Παράλειψη",
   "askAiAssistant": "Ρωτήστε τον Βοηθό AI",
-  "sorteosLabel": "Raffles",
+  "askAiAboutQuestion": "Ρωτήστε την AI για αυτήν την ερώτηση",
+  "aiHelpWithQuestion": "Βοήθησέ με να κατανοήσω αυτήν την ερώτηση",
   "edit": "Επεξεργασία",
   "enable": "Ενεργοποίηση",
   "disable": "Απενεργοποίηση",
@@ -442,8 +440,13 @@
     }
   },
   "subtractPointsLabel": "Αφαίρεση πόντων για λάθος απάντηση",
+  "subtractPointsDescription": "Αφαίρεση πόντων για κάθε λάθος απάντηση.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Οι λάθος απαντήσεις δεν αφαιρούν πόντους.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Ποσό ποινής",
   "@penaltyAmountLabel": {
@@ -459,5 +462,86 @@
       }
     }
   },
-  "allQuestionsLabel": "Όλες οι ερωτήσεις"
+  "allQuestionsLabel": "Όλες οι ερωτήσεις",
+  "startWithSelectedQuestions": "Έναρξη με {count} επιλεγμένες",
+  "advancedSettingsTitle": "Σύνθετες Ρυθμίσεις (Debug)",
+  "appLanguageLabel": "Γλώσσα εφαρμογής",
+  "appLanguageDescription": "Παράκαμψη γλώσσας εφαρμογής για δοκιμές",
+  "pasteFromClipboard": "Επικόλληση από πρόχειρο",
+  "pasteImage": "Επικόλληση",
+  "clipboardNoImage": "Δεν βρέθηκε εικόνα στο πρόχειρο",
+  "maxIncorrectAnswersLabel": "Περιορισμός λανθασμένων απαντήσεων",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "Εξέταση Επιτυχίας/Αποτυχίας. Δεν υπάρχει αριθμητική βαθμολογία.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "Η εξέταση έχει αριθμητική βαθμολογία από 0 έως 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "examFailedStatus": "Η εξέταση ΑΠΕΤΥΧΕ",
+  "examPassedStatus": "Η εξέταση ΠΕΤΥΧΕ",
+  "quizFailedLimitReached": "Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "Κλείσιμο",
+  "@close": {
+    "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Οι επιλογές απάντησης θα εμφανίζονται με την αρχική τους σειρά",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Βαθμολογία και όρια",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Συγχαρητήρια! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Διαμόρφωση Εξέτασης",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Ελάχιστο 1 λεπτό",
+  "remainingTimeWithDays": "{days}ημ {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}ε {days}ημ {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Μέγιστο 30 ημέρες",
+  "validationMin0GenericError": "Minimum 0",
+  "errorStatus": "Error",
+  "evaluatingResponses": "Αξιολόγηση απαντήσεων...",
+  "@evaluatingResponses": {
+    "description": "Κείμενο που εμφανίζεται στην οθόνη αποτελεσμάτων όταν οι αξιολογήσεις AI εκκρεμούν"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 ερώτηση ανάπτυξης σε αναμονή αξιολόγησης AI} other{{count} ερωτήσεις ανάπτυξης σε αναμονή αξιολόγησης AI}}",
+  "@pendingEvaluationsCount": {
+    "description": "Υπότιτλος που δείχνει τον αριθμό των εκκρεμών αξιολογήσεων AI",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Σε εκκρεμότητα",
+  "@pendingStatus": {
+    "description": "Ετικέτα κατάστασης για μια εκκρεμή αξιολόγηση AI"
+  },
+  "notEvaluatedStatus": "Δεν αξιολογήθηκε",
+  "@notEvaluatedStatus": {
+    "description": "Ετικέτα κατάστασης για μια ερώτηση ανάπτυξης που δεν αξιολογήθηκε από το AI"
+  },
+  "retryButton": "Επανάλυψη αξιολόγησης",
+  "@retryButton": {
+    "description": "Κείμενο κουμπιού για επανάληψη μιας αξιολόγησης AI"
+  }
 }

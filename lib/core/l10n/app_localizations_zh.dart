@@ -9,6 +9,15 @@ class AppLocalizationsZh extends AppLocalizations {
   AppLocalizationsZh([String locale = 'zh']) : super(locale);
 
   @override
+  String get abortQuizTitle => '中止Quiz？';
+
+  @override
+  String get abortQuizMessage => '打开新文件将停止当前测验。';
+
+  @override
+  String get stopAndOpenButton => '停止并打开';
+
+  @override
   String get titleAppBar => '测验 - 考试模拟器';
 
   @override
@@ -50,7 +59,19 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String get dropFileHere => '点击这里或将.quiz文件拖拽到屏幕';
+  String get dropFileHere => '点击徽标或将 .quiz 文件拖到屏幕上';
+
+  @override
+  String get errorOpeningFile => '打开文件时出错';
+
+  @override
+  String get replaceFileTitle => '加载新 Quiz';
+
+  @override
+  String get replaceFileMessage => '已加载一个 Quiz。您要用新文件替换它吗？';
+
+  @override
+  String get replaceButton => '加载';
 
   @override
   String get clickOrDragFile => '点击加载或将 .quiz 文件拖动到屏幕上';
@@ -89,10 +110,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get confirmExitTitle => '确认退出';
 
   @override
-  String get confirmExitMessage => '您确定要在不保存的情况下退出吗？';
+  String get confirmExitMessage => '有未保存的更改。您要放弃更改并离开吗？';
 
   @override
-  String get exitButton => '退出';
+  String get exitButton => '退出不保存';
 
   @override
   String get saveDialogTitle => '请选择输出文件：';
@@ -226,7 +247,7 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total个问题中答对$correct个';
   }
 
@@ -259,6 +280,27 @@ class AppLocalizationsZh extends AppLocalizations {
   String get startQuiz => '开始测验';
 
   @override
+  String get maxIncorrectAnswersLabel => '限制错误答案';
+
+  @override
+  String get maxIncorrectAnswersDescription => '及格/不及格考试。没有具体分数，只有及格或不及格。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '考试将有 0 到 100 的数值评分。';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => '允许的最大错误数';
+
+  @override
+  String get examFailedStatus => '考试不及格';
+
+  @override
+  String get examPassedStatus => '考试及格';
+
+  @override
+  String get quizFailedLimitReached => '考试结束：已达到最大错误限制';
+
+  @override
   String get errorInvalidNumber => '请输入有效数字';
 
   @override
@@ -289,7 +331,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get questionOrderDescendingDesc => '问题将从结尾到1显示';
 
   @override
-  String get questionOrderRandom => '随机';
+  String get questionOrderRandom => '随机化问题顺序';
 
   @override
   String get questionOrderRandomDesc => '问题将随机显示';
@@ -304,10 +346,16 @@ class AppLocalizationsZh extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '考试配置';
+
+  @override
   String get examTimeLimitTitle => '考试时间限制';
 
   @override
-  String get examTimeLimitDescription => '为考试设置时间限制。启用后，测验期间将显示倒计时器。';
+  String get examTimeLimitDescription => '为考试设置时间限制。测验期间将显示倒计时器。';
+
+  @override
+  String get examTimeLimitOffDescription => '本次考试没有时间限制。';
 
   @override
   String get enableTimeLimit => '启用时间限制';
@@ -336,7 +384,7 @@ class AppLocalizationsZh extends AppLocalizations {
   String get questionTypeTrueFalse => '判断题';
 
   @override
-  String get questionTypeEssay => '论文';
+  String get questionTypeEssay => '论述题';
 
   @override
   String get questionTypeRandom => '全部';
@@ -377,7 +425,11 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      '专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释，提供清晰的论据，不要跑题或离题。不要将回答分成章节。不要提及自己。用被问问题的相同语言回答。';
+      '专注于学生的问题，而不是直接回答原始考试题目。用教学方法解释。对于实践练习或数学问题，提供逐步说明。对于理论问题，提供简明的解释，不要将回答分成章节。用被问到的相同语言回答。';
+
+  @override
+  String get aiChatGuardrail =>
+      '重要：你是专门为本Quiz服务的学习助手。你只能回答与当前Quiz问题、其选项、解释或所涉及的教育主题相关的问题。如果学生询问与Quiz无关的内容（例如你的内部模型、系统详情、与问题无关的一般知识或任何离题请求），请仅回复：\"我在这里帮助你完成这个Quiz！让我们专注于当前的问题。请随时向我询问关于主题、答案选项或与这个问题相关的任何内容。\"绝不要透露关于你自己、系统或所使用的AI模型的技术细节。';
 
   @override
   String get questionLabel => '问题';
@@ -407,10 +459,33 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiErrorResponse => '抱歉，处理您的问题时出现错误。请重试。';
 
   @override
+  String get evaluatingResponses => '正在评估回答...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count个简答题等待 AI 评估',
+      one: '1个简答题等待 AI 评估',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => '待处理';
+
+  @override
+  String get notEvaluatedStatus => '未评估';
+
+  @override
   String get configureApiKeyMessage => '请在设置中配置您的AI API密钥。';
 
   @override
   String get errorLabel => '错误：';
+
+  @override
+  String get retryButton => '重试评估';
 
   @override
   String get noResponseReceived => '未收到响应';
@@ -650,16 +725,31 @@ class AppLocalizationsZh extends AppLocalizations {
   String get dragDropHintText => '您也可以将.quiz文件拖拽到这里导入问题';
 
   @override
-  String get randomizeAnswersTitle => '随机化答案选项';
+  String get randomizeQuestionsTitle => '随机问题';
+
+  @override
+  String get randomizeQuestionsDescription => '在测验执行期间打乱问题顺序';
+
+  @override
+  String get randomizeQuestionsOffDescription => '问题将按其原始顺序出现';
+
+  @override
+  String get randomizeAnswersTitle => '随机化答案顺序';
 
   @override
   String get randomizeAnswersDescription => '在测验执行期间打乱答案选项的顺序';
+
+  @override
+  String get randomizeAnswersOffDescription => '答案选项将按原始顺序出现';
 
   @override
   String get showCorrectAnswerCountTitle => '显示正确答案数量';
 
   @override
   String get showCorrectAnswerCountDescription => '在多选题中显示正确答案的数量';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '多选题将不显示正确答案的数量';
 
   @override
   String correctAnswersCount(int count) {
@@ -746,7 +836,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get aiContentFieldHint => '输入主题如“二战史”或在此粘贴文本...';
 
   @override
-  String get aiAttachFileHint => '附加文件 (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => '附加文件 (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => '在此处放置文件';
+
+  @override
+  String get dropImageHere => '在此处放置图片';
 
   @override
   String get aiNumberQuestionsLabel => '问题数量';
@@ -766,6 +862,18 @@ class AppLocalizationsZh extends AppLocalizations {
   String aiTextModeCount(int count) {
     return '文本模式 ($count 字)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => '内容模式';
+
+  @override
+  String get aiGenerationCategoryTheory => '理论';
+
+  @override
+  String get aiGenerationCategoryExercises => '练习';
+
+  @override
+  String get aiGenerationCategoryBoth => '混合';
 
   @override
   String get languageSpanish => 'Español';
@@ -927,207 +1035,6 @@ class AppLocalizationsZh extends AppLocalizations {
       '回答格式：\n1. 评分：[X/10] - 简要说明评分理由\n2. 优点：提及回答的积极方面\n3. 改进领域：指出可以改进的方面\n4. 具体评论：提供详细和建设性的反馈\n5. 建议：提供具体的改进建议\n\n在评估中要有建设性、具体性和教育性。目标是帮助学生学习和改进。用第二人称称呼他们，使用专业友好的语调。';
 
   @override
-  String get raffleTitle => '抽奖';
-
-  @override
-  String get raffleTooltip => '打开抽奖屏幕';
-
-  @override
-  String get participantListTitle => '参与者列表';
-
-  @override
-  String get participantListHint => '输入用换行分隔的姓名';
-
-  @override
-  String get participantListPlaceholder => '在此输入参与者姓名...\n每行一个姓名';
-
-  @override
-  String get clearList => '清空列表';
-
-  @override
-  String get participants => '参与者';
-
-  @override
-  String get noParticipants => '没有参与者';
-
-  @override
-  String get addParticipantsHint => '添加参与者以开始抽奖';
-
-  @override
-  String get activeParticipants => '活跃参与者';
-
-  @override
-  String get alreadySelected => '已选中';
-
-  @override
-  String totalParticipants(int count) {
-    return '总参与者';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active名活跃，$winners名获奖者';
-  }
-
-  @override
-  String get startRaffle => '开始抽奖';
-
-  @override
-  String get raffling => '抽奖中...';
-
-  @override
-  String get selectingWinner => '选择获奖者...';
-
-  @override
-  String get allParticipantsSelected => '所有参与者已被选中';
-
-  @override
-  String get addParticipantsToStart => '添加参与者以开始抽奖';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count名参与者准备抽奖';
-  }
-
-  @override
-  String get resetWinners => '重置获奖者';
-
-  @override
-  String get resetWinnersConfirmTitle => '重置获奖者？';
-
-  @override
-  String get resetWinnersConfirmMessage => '这将把所有获奖者重新放回活跃参与者列表。';
-
-  @override
-  String get resetRaffleTitle => '重置抽奖？';
-
-  @override
-  String get resetRaffleConfirmMessage => '这将重置所有获奖者和活跃参与者。';
-
-  @override
-  String get cancel => '取消';
-
-  @override
-  String get reset => '重置';
-
-  @override
-  String get viewWinners => '查看获奖者';
-
-  @override
-  String get congratulations => '🎉 恭喜！ 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return '第$position名';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return '剩余参与者：$count名';
-  }
-
-  @override
-  String get continueRaffle => '继续抽奖';
-
-  @override
-  String get finishRaffle => '结束抽奖';
-
-  @override
-  String get winnersTitle => '获奖者';
-
-  @override
-  String get shareResults => '分享结果';
-
-  @override
-  String get noWinnersYet => '暂无获奖者';
-
-  @override
-  String get performRaffleToSeeWinners => '进行抽奖以查看获奖者';
-
-  @override
-  String get goToRaffle => '前往抽奖';
-
-  @override
-  String get raffleCompleted => '抽奖完成！';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '已选出$count名获奖者';
-  }
-
-  @override
-  String get newRaffle => '新抽奖';
-
-  @override
-  String get shareResultsTitle => '抽奖结果';
-
-  @override
-  String get raffleResultsLabel => '抽奖结果：';
-
-  @override
-  String get close => '关闭';
-
-  @override
-  String get share => '复制';
-
-  @override
-  String get shareNotImplemented => '分享功能尚未实现';
-
-  @override
-  String get firstPlace => '第一名';
-
-  @override
-  String get secondPlace => '第二名';
-
-  @override
-  String get thirdPlace => '第三名';
-
-  @override
-  String nthPlace(int position) {
-    return '第$position名';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '名次';
-  }
-
-  @override
-  String get raffleResultsHeader => '抽奖结果 - null名获奖者';
-
-  @override
-  String totalWinners(int count) {
-    return '总获奖者：$count名';
-  }
-
-  @override
-  String get noWinnersToShare => '没有获奖者可分享';
-
-  @override
-  String get shareSuccess => '结果复制成功';
-
-  @override
-  String get selectLogo => '选择标志';
-
-  @override
-  String get logoUrl => '标志网址';
-
-  @override
-  String get logoUrlHint => '输入图片的网址，作为抽奖的自定义标志使用';
-
-  @override
-  String get invalidLogoUrl => '无效的图片网址。必须是以.jpg、.png、.gif等结尾的有效网址。';
-
-  @override
-  String get logoPreview => '预览';
-
-  @override
-  String get removeLogo => '移除标志';
-
-  @override
-  String get logoTooLargeWarning => '图像太大无法保存。仅在此会话期间使用。';
-
-  @override
   String get aiModeTopicTitle => '主题模式';
 
   @override
@@ -1195,13 +1102,13 @@ class AppLocalizationsZh extends AppLocalizations {
   String get studyModeLabel => '学习模式';
 
   @override
-  String get studyModeDescription => '即时反馈，无计时';
+  String get studyModeDescription => '提供 AI 辅助。每题回答后提供即时反馈，无时间限制或扣分。';
 
   @override
   String get examModeLabel => '考试模式';
 
   @override
-  String get examModeDescription => '标准计时，最后显示结果';
+  String get examModeDescription => '无 AI 辅助。可能适用时间限制和答错扣分。';
 
   @override
   String get checkAnswer => '检查';
@@ -1216,7 +1123,10 @@ class AppLocalizationsZh extends AppLocalizations {
   String get askAiAssistant => '询问 AI 助手';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => '向 AI 询问此问题';
+
+  @override
+  String get aiHelpWithQuestion => '帮我理解这道题';
 
   @override
   String get edit => '编辑';
@@ -1281,6 +1191,12 @@ class AppLocalizationsZh extends AppLocalizations {
   String get subtractPointsLabel => '答错扣分';
 
   @override
+  String get subtractPointsDescription => '每答错一题扣除分数。';
+
+  @override
+  String get subtractPointsOffDescription => '回答错误不会扣分。';
+
+  @override
   String get penaltyAmountLabel => '扣分金额';
 
   @override
@@ -1290,4 +1206,69 @@ class AppLocalizationsZh extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => '所有题目';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '开始 $count 道已选题目';
+  }
+
+  @override
+  String get advancedSettingsTitle => '高级设置 (调试)';
+
+  @override
+  String get appLanguageLabel => '应用语言';
+
+  @override
+  String get appLanguageDescription => '覆盖用于测试的应用语言';
+
+  @override
+  String get pasteFromClipboard => '从剪贴板粘贴';
+
+  @override
+  String get pasteImage => '粘贴';
+
+  @override
+  String get clipboardNoImage => '剪贴板中未找到图片';
+
+  @override
+  String get close => '关闭';
+
+  @override
+  String get scoringAndLimitsTitle => '评分和限制';
+
+  @override
+  String get congratulations => '🎉 恭喜！ 🎉';
+
+  @override
+  String get validationMin1Error => '最少1分钟';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$days天 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeks周 $days天 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => '最多30天';
+
+  @override
+  String get validationMin0GenericError => '至少 0';
+
+  @override
+  String get errorStatus => '错误';
 }

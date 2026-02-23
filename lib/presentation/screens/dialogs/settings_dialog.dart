@@ -4,12 +4,11 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quiz_app/core/extensions/string_extensions.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/domain/models/quiz/question_order.dart';
 import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/theme/extensions/confirm_dialog_colors_extension.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
-import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/exam_settings_section.dart';
-import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/question_settings_section.dart';
+import 'package:flutter/foundation.dart';
+import 'package:quiz_app/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
@@ -19,13 +18,8 @@ class SettingsDialog extends StatefulWidget {
 }
 
 class _SettingsDialogState extends State<SettingsDialog> {
-  QuestionOrder _selectedOrder = QuestionOrder.random;
   bool _isLoading = true;
-  bool _examTimeEnabled = false;
-  int _examTimeMinutes = 60;
   bool _aiAssistantEnabled = true;
-  bool _randomizeAnswers = false;
-  bool _showCorrectAnswerCount = false;
   bool _keepAiDraft = true;
   final TextEditingController _openAiApiKeyController = TextEditingController();
   final TextEditingController _geminiApiKeyController = TextEditingController();
@@ -49,22 +43,11 @@ class _SettingsDialogState extends State<SettingsDialog> {
       final service = ConfigurationService.instance;
 
       // Load all configurations
-      _selectedOrder = await service.getQuestionOrder();
-      _examTimeEnabled = await service.getExamTimeEnabled();
-      _examTimeMinutes = await service.getExamTimeMinutes();
-      final savedAiAssistantEnabled = await service.getAIAssistantEnabled();
       final apiKey = await service.getOpenAIApiKey();
       final geminiApiKey = await service.getGeminiApiKey();
-      _randomizeAnswers = await service.getRandomizeAnswers();
-      _showCorrectAnswerCount = await service.getShowCorrectAnswerCount();
       _keepAiDraft = await service.getAiKeepDraft();
       _defaultAIModel = await service.getDefaultAIModel();
-
-      // Only enable AI Assistant if there's at least one API key configured
-      final hasAnyApiKey =
-          (apiKey != null && apiKey.isNotEmpty) ||
-          (geminiApiKey != null && geminiApiKey.isNotEmpty);
-      _aiAssistantEnabled = savedAiAssistantEnabled && hasAnyApiKey;
+      _aiAssistantEnabled = await service.getIsAiAvailable();
 
       if (mounted) {
         setState(() {
@@ -102,7 +85,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
     final hasValidOpenAI = apiKey.isValidOpenAIApiKey;
     final hasValidGemini = geminiApiKey.isValidGeminiApiKey;
 
-    if (_aiAssistantEnabled && !hasValidOpenAI && !hasValidGemini) {
+    if (!hasValidOpenAI && !hasValidGemini) {
       setState(() {
         _apiKeyErrorMessage = AppLocalizations.of(
           context,
@@ -121,15 +104,8 @@ class _SettingsDialogState extends State<SettingsDialog> {
       return; // Don't save if validation fails
     }
 
-    await ConfigurationService.instance.saveQuestionOrder(_selectedOrder);
-    await ConfigurationService.instance.saveExamTimeEnabled(_examTimeEnabled);
-    await ConfigurationService.instance.saveExamTimeMinutes(_examTimeMinutes);
     await ConfigurationService.instance.saveAIAssistantEnabled(
       _aiAssistantEnabled,
-    );
-    await ConfigurationService.instance.saveRandomizeAnswers(_randomizeAnswers);
-    await ConfigurationService.instance.saveShowCorrectAnswerCount(
-      _showCorrectAnswerCount,
     );
     await ConfigurationService.instance.saveAiKeepDraft(_keepAiDraft);
 
@@ -148,7 +124,7 @@ class _SettingsDialogState extends State<SettingsDialog> {
     }
 
     if (mounted) {
-      context.pop(_selectedOrder);
+      context.pop();
     }
   }
 
@@ -257,27 +233,6 @@ class _SettingsDialogState extends State<SettingsDialog> {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          QuestionSettingsSection(
-                            selectedOrder: _selectedOrder,
-                            randomizeAnswers: _randomizeAnswers,
-                            showCorrectAnswerCount: _showCorrectAnswerCount,
-                            onOrderChanged: (value) =>
-                                setState(() => _selectedOrder = value),
-                            onRandomizeAnswersChanged: (value) =>
-                                setState(() => _randomizeAnswers = value),
-                            onShowCorrectAnswerCountChanged: (value) =>
-                                setState(() => _showCorrectAnswerCount = value),
-                          ),
-                          const SizedBox(height: 24),
-                          ExamSettingsSection(
-                            enabled: _examTimeEnabled,
-                            minutes: _examTimeMinutes,
-                            onEnabledChanged: (value) =>
-                                setState(() => _examTimeEnabled = value),
-                            onMinutesChanged: (value) =>
-                                setState(() => _examTimeMinutes = value),
-                          ),
-                          const SizedBox(height: 24),
                           AiSettingsSection(
                             key: _aiSettingsKey,
                             enabled: _aiAssistantEnabled,
@@ -323,6 +278,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                               });
                             },
                           ),
+                          if (kDebugMode) ...[
+                            const SizedBox(height: 24),
+                            const AdvancedSettingsSection(),
+                          ],
                         ],
                       ),
                     ),

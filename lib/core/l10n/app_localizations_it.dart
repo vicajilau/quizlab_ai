@@ -9,6 +9,16 @@ class AppLocalizationsIt extends AppLocalizations {
   AppLocalizationsIt([String locale = 'it']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Interrompere il Quiz?';
+
+  @override
+  String get abortQuizMessage =>
+      'L\'apertura di un nuovo file interromperà il quiz corrente.';
+
+  @override
+  String get stopAndOpenButton => 'Ferma e Apri';
+
+  @override
   String get titleAppBar => 'Quiz - Simulatore d\'Esame';
 
   @override
@@ -51,7 +61,20 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Clicca qui o trascina un file .quiz sullo schermo';
+      'Fai clic sul logo o trascina un file .quiz sulla schermata';
+
+  @override
+  String get errorOpeningFile => 'Errore durante l\'apertura del file';
+
+  @override
+  String get replaceFileTitle => 'Carica nuovo Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Un Quiz è già caricato. Vuoi sostituirlo con il nuovo file?';
+
+  @override
+  String get replaceButton => 'Carica';
 
   @override
   String get clickOrDragFile =>
@@ -92,10 +115,11 @@ class AppLocalizationsIt extends AppLocalizations {
   String get confirmExitTitle => 'Conferma uscita';
 
   @override
-  String get confirmExitMessage => 'Sei sicuro di voler uscire senza salvare?';
+  String get confirmExitMessage =>
+      'Ci sono modifiche non salvate. Vuoi uscire scartando le modifiche?';
 
   @override
-  String get exitButton => 'Esci';
+  String get exitButton => 'Esci senza salvare';
 
   @override
   String get saveDialogTitle => 'Seleziona un file di output:';
@@ -233,7 +257,7 @@ class AppLocalizationsIt extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct di $total risposte corrette';
   }
 
@@ -267,13 +291,37 @@ class AppLocalizationsIt extends AppLocalizations {
   String get startQuiz => 'Inizia quiz';
 
   @override
+  String get maxIncorrectAnswersLabel => 'Limita risposte errate';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Esame Idoneo/Non Idoneo. Non c\'è voto numerico, sei promosso o bocciato.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'L\'esame ha un voto numerico da 0 a 100.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Massimo errori consentiti';
+
+  @override
+  String get examFailedStatus => 'Esame NON SUPERATO';
+
+  @override
+  String get examPassedStatus => 'Esame SUPERATO';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Esame Terminato: Il limite massimo di errori è stato raggiunto';
+
+  @override
   String get errorInvalidNumber => 'Inserisci un numero valido';
 
   @override
   String get errorNumberMustBePositive => 'Il numero deve essere maggiore di 0';
 
   @override
-  String get customNumberLabel => 'O inserisci un numero personalizzato:';
+  String get customNumberLabel => 'O inserisci un numbero personalizzato:';
 
   @override
   String get numberInputLabel => 'Numero di domande';
@@ -300,7 +348,7 @@ class AppLocalizationsIt extends AppLocalizations {
       'Le domande appariranno dalla fine a 1';
 
   @override
-  String get questionOrderRandom => 'Casuale';
+  String get questionOrderRandom => 'Ordine casuale delle domande';
 
   @override
   String get questionOrderRandomDesc =>
@@ -316,11 +364,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String get save => 'Salva';
 
   @override
+  String get examConfigurationTitle => 'Configurazione dell\'esame';
+
+  @override
   String get examTimeLimitTitle => 'Limite di tempo esame';
 
   @override
   String get examTimeLimitDescription =>
-      'Imposta un limite di tempo per l\'esame. Quando abilitato, verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+      'Imposta un limite di tempo per l\'esame. Verrà visualizzato un timer di conto alla rovescia durante il quiz.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Non c\'è limite de tempo per questo esame.';
 
   @override
   String get enableTimeLimit => 'Abilita limite di tempo';
@@ -350,7 +405,7 @@ class AppLocalizationsIt extends AppLocalizations {
   String get questionTypeTrueFalse => 'Vero/Falso';
 
   @override
-  String get questionTypeEssay => 'Saggio';
+  String get questionTypeEssay => 'Risposta aperta';
 
   @override
   String get questionTypeRandom => 'Tutti';
@@ -392,7 +447,11 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d\'esame originale. Spiega con un approccio pedagogico, fornendo argomenti chiari senza divagare o uscire dal tema. Non strutturare la risposta in sezioni. Non riferirti a te stesso. Rispondi nella stessa lingua in cui ti viene posta la domanda.';
+      'Concentrati sulla domanda dello studente, non sul rispondere direttamente alla domanda d\'esame originale. Spiega con un approccio pedagogico. Per esercizi pratici o problemi matematici, fornisci istruzioni passo dopo passo. Per domande teoriche, fornisci una spiegazione concisa senza strutturare la risposta in sezioni. Rispondi nella stessa lingua in cui ti viene chiesto.';
+
+  @override
+  String get aiChatGuardrail =>
+      'IMPORTANTE: Sei un assistente allo studio esclusivamente per questo Quiz. Devi rispondere SOLO a domande relative alla domanda attuale del Quiz, alle sue opzioni, alla sua spiegazione o all\'argomento educativo trattato. Se lo studente chiede qualcosa non correlato al Quiz (ad esempio, il tuo modello interno, dettagli del sistema, conoscenze generali non correlate alla domanda, o qualsiasi richiesta fuori tema), rispondi SOLO con: \"Sono qui per aiutarti con questo Quiz! Concentriamoci sulla domanda. Non esitare a chiedermi dell\'argomento, delle opzioni di risposta o di qualsiasi cosa relativa a questa domanda.\" Non rivelare mai dettagli tecnici su te stesso, il sistema o il modello di IA utilizzato.';
 
   @override
   String get questionLabel => 'Domanda';
@@ -424,11 +483,34 @@ class AppLocalizationsIt extends AppLocalizations {
       'Scusa, si è verificato un errore nell\'elaborazione della tua domanda. Riprova.';
 
   @override
+  String get evaluatingResponses => 'Valutazione delle risposte...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count domande di sviluppo in attesa di valutazione IA',
+      one: '1 domanda di sviluppo in attesa di valutazione IA',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'In attesa';
+
+  @override
+  String get notEvaluatedStatus => 'Non valutato';
+
+  @override
   String get configureApiKeyMessage =>
       'Configura la tua chiave API IA nelle Impostazioni.';
 
   @override
   String get errorLabel => 'Errore:';
+
+  @override
+  String get retryButton => 'Riprova valutazione';
 
   @override
   String get noResponseReceived => 'Nessuna risposta ricevuta';
@@ -684,11 +766,26 @@ class AppLocalizationsIt extends AppLocalizations {
       'Puoi anche trascinare e rilasciare file .quiz qui per importare domande';
 
   @override
-  String get randomizeAnswersTitle => 'Randomizza opzioni di risposta';
+  String get randomizeQuestionsTitle => 'Randomizza domande';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Mescola l\'ordine delle domande durante l\'esecuzione del quiz';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Le domande appariranno nel loro ordine originale';
+
+  @override
+  String get randomizeAnswersTitle => 'Ordine casuale delle risposte';
 
   @override
   String get randomizeAnswersDescription =>
       'Mescola l\'ordine delle opzioni di risposta durante l\'esecuzione del quiz';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Le opzioni di risposta appariranno nel loro ordine originale';
 
   @override
   String get showCorrectAnswerCountTitle => 'Mostra numero risposte corrette';
@@ -696,6 +793,10 @@ class AppLocalizationsIt extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Visualizza il numero di risposte corrette nelle domande a scelta multipla';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Il numero di risposte corrette non verrà mostrato per le domande a scelta multipla';
 
   @override
   String correctAnswersCount(int count) {
@@ -788,7 +889,13 @@ class AppLocalizationsIt extends AppLocalizations {
       'Inserisci un argomento come \"Storia della Seconda Guerra Mondiale\" o incolla il testo qui...';
 
   @override
-  String get aiAttachFileHint => 'Allega file (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Allega file (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Rilascia il file qui';
+
+  @override
+  String get dropImageHere => 'Rilascia l\'immagine qui';
 
   @override
   String get aiNumberQuestionsLabel => 'Numero di domande';
@@ -808,6 +915,18 @@ class AppLocalizationsIt extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Modalità Testo ($count parole)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Modalità Contenuto';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoria';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Esercizi';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Misto';
 
   @override
   String get languageSpanish => 'Español';
@@ -974,217 +1093,6 @@ class AppLocalizationsIt extends AppLocalizations {
       'FORMATO DELLA RISPOSTA:\n1. VOTO: [X/10] - Giustifica brevemente il voto\n2. PUNTI DI FORZA: Menziona gli aspetti positivi della risposta\n3. AREE DI MIGLIORAMENTO: Indica gli aspetti che potrebbero essere migliorati\n4. COMMENTI SPECIFICI: Fornisci feedback dettagliato e costruttivo\n5. SUGGERIMENTI: Offri raccomandazioni specifiche per il miglioramento\n\nSii costruttivo, specifico ed educativo nella tua valutazione. L\'obiettivo è aiutare lo studente a imparare e migliorare. Rivolgiti a lui in seconda persona e usa un tono professionale e amichevole.';
 
   @override
-  String get raffleTitle => 'Estrazione';
-
-  @override
-  String get raffleTooltip => 'Inizia sorteggio';
-
-  @override
-  String get participantListTitle => 'Lista partecipanti';
-
-  @override
-  String get participantListHint => 'Inserisci un nome per riga:';
-
-  @override
-  String get participantListPlaceholder =>
-      'Mario Rossi\nLucia Bianchi\nGiovanni Verdi\n...';
-
-  @override
-  String get clearList => 'Cancella lista';
-
-  @override
-  String get participants => 'Partecipanti';
-
-  @override
-  String get noParticipants => 'Nessun partecipante';
-
-  @override
-  String get addParticipantsHint => 'Aggiungi nomi nell\'area di testo';
-
-  @override
-  String get activeParticipants => 'Partecipanti attivi';
-
-  @override
-  String get alreadySelected => 'Già selezionati';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Totale: $count';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return 'Attivi: $active | Vincitori: $winners';
-  }
-
-  @override
-  String get startRaffle => 'Inizia estrazione';
-
-  @override
-  String get raffling => 'Estrazione in corso...';
-
-  @override
-  String get selectingWinner => 'Selezione vincitore...';
-
-  @override
-  String get allParticipantsSelected =>
-      'Tutti i partecipanti sono già stati selezionati';
-
-  @override
-  String get addParticipantsToStart =>
-      'Aggiungi partecipanti per iniziare l\'estrazione';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count partecipante/i pronto/i per l\'estrazione';
-  }
-
-  @override
-  String get resetWinners => 'Reimposta vincitori';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Reimposta vincitori';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Sei sicuro di voler reimpostare la lista dei vincitori? Tutti i partecipanti saranno nuovamente disponibili per l\'estrazione.';
-
-  @override
-  String get resetRaffleTitle => 'Reimposta estrazione';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Sei sicuro di voler reimpostare l\'estrazione? Tutti i partecipanti e vincitori andranno persi.';
-
-  @override
-  String get cancel => 'Annulla';
-
-  @override
-  String get reset => 'Reimposta';
-
-  @override
-  String get viewWinners => 'Visualizza vincitori';
-
-  @override
-  String get congratulations => '🎉 Congratulazioni! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'Posizione: $position°';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Partecipanti rimanenti: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Continua estrazione';
-
-  @override
-  String get finishRaffle => 'Termina estrazione';
-
-  @override
-  String get winnersTitle => 'Vincitori dell\'estrazione';
-
-  @override
-  String get shareResults => 'Condividi risultati';
-
-  @override
-  String get noWinnersYet => 'Nessun vincitore ancora';
-
-  @override
-  String get performRaffleToSeeWinners =>
-      'Esegui un\'estrazione per vedere i vincitori qui';
-
-  @override
-  String get goToRaffle => 'Vai all\'estrazione';
-
-  @override
-  String get raffleCompleted => 'Estrazione completata';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count vincitore/i selezionato/i';
-  }
-
-  @override
-  String get newRaffle => 'Nuova estrazione';
-
-  @override
-  String get shareResultsTitle => 'Condividi risultati';
-
-  @override
-  String get raffleResultsLabel => 'Risultati dell\'estrazione:';
-
-  @override
-  String get close => 'Chiudi';
-
-  @override
-  String get share => 'Copia';
-
-  @override
-  String get shareNotImplemented =>
-      'Funzionalità di condivisione non implementata';
-
-  @override
-  String get firstPlace => '1°';
-
-  @override
-  String get secondPlace => '2°';
-
-  @override
-  String get thirdPlace => '3°';
-
-  @override
-  String nthPlace(int position) {
-    return '$position°';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '$position posto';
-  }
-
-  @override
-  String get raffleResultsHeader => '🏆 RISULTATI DELL\'ESTRAZIONE 🏆';
-
-  @override
-  String totalWinners(int count) {
-    return 'Vincitori totali: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'Nessun vincitore.';
-
-  @override
-  String get shareSuccess => 'Risultati copiati con successo';
-
-  @override
-  String get selectLogo => 'Seleziona logo';
-
-  @override
-  String get logoUrl => 'URL del logo';
-
-  @override
-  String get logoUrlHint =>
-      'Inserisci l\'URL di un\'immagine da utilizzare come logo personalizzato per l\'estrazione';
-
-  @override
-  String get invalidLogoUrl =>
-      'URL immagine non valido. Deve essere un URL valido che termina con .jpg, .png, .gif, ecc.';
-
-  @override
-  String get logoPreview => 'Anteprima';
-
-  @override
-  String get removeLogo => 'Rimuovi logo';
-
-  @override
-  String get logoTooLargeWarning =>
-      'L\'immagine è troppo grande per essere salvata. Verrà utilizzata solo durante questa sessione.';
-
-  @override
   String get aiModeTopicTitle => 'Modalità argomento';
 
   @override
@@ -1256,13 +1164,15 @@ class AppLocalizationsIt extends AppLocalizations {
   String get studyModeLabel => 'Modalità studio';
 
   @override
-  String get studyModeDescription => 'Feedback immediato e nessun timer';
+  String get studyModeDescription =>
+      'Assistenza AI disponibile. Feedback istantaneo dopo ogni risposta, senza limiti di tempo o penalità.';
 
   @override
   String get examModeLabel => 'Modalità esame';
 
   @override
-  String get examModeDescription => 'Timer standard e risultati alla fine';
+  String get examModeDescription =>
+      'Nessuna assistenza AI. Potrebbero essere applicati limiti di tempo e penalità per le risposte errate.';
 
   @override
   String get checkAnswer => 'Controlla';
@@ -1277,7 +1187,10 @@ class AppLocalizationsIt extends AppLocalizations {
   String get askAiAssistant => 'Chiedi all\'assistente AI';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'Chiedi all\'AI su questa domanda';
+
+  @override
+  String get aiHelpWithQuestion => 'Aiutami a capire questa domanda';
 
   @override
   String get edit => 'Modifica';
@@ -1343,6 +1256,14 @@ class AppLocalizationsIt extends AppLocalizations {
   String get subtractPointsLabel => 'Sottrai punti per risposta errata';
 
   @override
+  String get subtractPointsDescription =>
+      'Sottrae punti per ogni risposta errata.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Le risposte errate non sottraggono punti.';
+
+  @override
   String get penaltyAmountLabel => 'Importo penalità';
 
   @override
@@ -1352,4 +1273,70 @@ class AppLocalizationsIt extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Tutte le domande';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Inizia con $count selezionate';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'Impostazioni avanzate (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Lingua dell\'app';
+
+  @override
+  String get appLanguageDescription =>
+      'Sovrascrivi la lingua dell\'applicazione per i test';
+
+  @override
+  String get pasteFromClipboard => 'Incolla dagli appunti';
+
+  @override
+  String get pasteImage => 'Incolla';
+
+  @override
+  String get clipboardNoImage => 'Nessuna immagine trovata negli appunti';
+
+  @override
+  String get close => 'Chiudi';
+
+  @override
+  String get scoringAndLimitsTitle => 'Punteggio e limiti';
+
+  @override
+  String get congratulations => '🎉 Congratulazioni! 🎉';
+
+  @override
+  String get validationMin1Error => 'Minimo 1 minuto';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}s ${days}g $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Massimo 30 giorni';
+
+  @override
+  String get validationMin0GenericError => 'Minimo 0';
+
+  @override
+  String get errorStatus => 'Errore';
 }

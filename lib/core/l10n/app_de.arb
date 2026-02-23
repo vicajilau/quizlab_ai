@@ -1,5 +1,8 @@
 {
   "@@locale": "de",
+  "abortQuizTitle": "Quiz abbrechen?",
+  "abortQuizMessage": "Das Öffnen einer neuen Datei beendet das aktuelle Quiz.",
+  "stopAndOpenButton": "Stoppen & Öffnen",
   "titleAppBar": "Quiz - Prüfungssimulator",
   "@titleAppBar": {
     "description": "Titel der Anwendung in der AppBar angezeigt."
@@ -48,9 +51,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "Datei anhängen (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Datei anhängen (PDF, TXT, MP3, MP4,...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "Datei hier ablegen",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Bild hier ablegen",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "Anzahl der Fragen",
   "@aiNumberQuestionsLabel": {
@@ -75,6 +86,22 @@
     }
   },
   "aiTextModeCount": "Textmodus ({count} Wörter)",
+  "aiGenerationCategoryLabel": "Inhaltsmodus",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Theorie",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Übungen",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Gemischt",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "@aiTextModeCount": {
     "description": "Text mode with word count",
     "placeholders": {
@@ -108,7 +135,23 @@
       }
     }
   },
-  "dropFileHere": "Hier klicken oder eine .quiz-Datei auf den Bildschirm ziehen",
+  "dropFileHere": "Klicken Sie auf das Logo oder ziehen Sie eine .quiz-Datei auf den Bildschirm",
+  "errorOpeningFile": "Fehler beim Öffnen der Datei",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Neues Quiz laden",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Ein Quiz ist bereits geladen. Möchten Sie es durch die neue Datei ersetzen?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Laden",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Text, der im Ablagebereich zum Ziehen von Dateien angezeigt wird."
   },
@@ -170,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Titel für den Bestätigungsdialog beim Beenden."
   },
-  "confirmExitMessage": "Sind Sie sicher, dass Sie ohne Speichern beenden möchten?",
+  "confirmExitMessage": "Es gibt ungespeicherte Änderungen. Möchten Sie verlassen und die Änderungen verwerfen?",
   "@confirmExitMessage": {
     "description": "Nachricht im Bestätigungsdialog für das Beenden."
   },
-  "exitButton": "Beenden",
+  "exitButton": "Beenden ohne zu speichern",
   "@exitButton": {
     "description": "Beenden-Schaltflächentext."
   },
@@ -345,7 +388,7 @@
     "description": "Anzahl richtiger Antworten",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {
@@ -402,6 +445,28 @@
   "@startQuiz": {
     "description": "Schaltflächentext zum Starten des Quiz"
   },
+  "maxIncorrectAnswersLabel": "Falsche Antworten begrenzen",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Bezeichnung für den Schalter zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersDescription": "Bestanden/Nicht bestanden Prüfung. Es gibt keine numerische Note.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Beschreibung für die Funktion zum Begrenzen falscher Antworten"
+  },
+  "maxIncorrectAnswersOffDescription": "Die Prüfung hat eine numerische Note von 0 bis 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Maximal zulässige Fehler",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Bezeichnung für das Eingabefeld der maximalen falschen Antworten"
+  },
+  "examFailedStatus": "Prüfung NICHT BESTANDEN",
+  "examPassedStatus": "Prüfung BESTANDEN",
+  "quizFailedLimitReached": "Prüfung Beendet: Das maximale Fehlerlimit wurde überschritten",
+  "@quizFailedLimitReached": {
+    "description": "Titel für den Ergebnisbildschirm, wenn das Fehlerlimit erreicht ist"
+  },
   "customNumberLabel": "Oder geben Sie eine benutzerdefinierte Zahl ein:",
   "@customNumberLabel": {
     "description": "Beschriftung für den benutzerdefinierten Zahlen-Eingabebereich"
@@ -442,7 +507,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Beschreibung für die absteigende Fragenreihenfolge-Option"
   },
-  "questionOrderRandom": "Zufällig",
+  "questionOrderRandom": "Fragenreihenfolge zufällig anordnen",
   "@questionOrderRandom": {
     "description": "Beschriftung für die zufällige Fragenreihenfolge-Option"
   },
@@ -462,9 +527,13 @@
   "@examTimeLimitTitle": {
     "description": "Titel für den Prüfungszeit-Limit-Bereich"
   },
-  "examTimeLimitDescription": "Setzen Sie ein Zeitlimit für die Prüfung. Wenn aktiviert, wird während des Quiz ein Countdown-Timer angezeigt.",
+  "examTimeLimitDescription": "Legen Sie ein Zeitlimit für die Prüfung fest. Während des Quiz wird ein Countdown-Timer angezeigt.",
   "@examTimeLimitDescription": {
     "description": "Beschreibung für die Prüfungszeit-Limit-Funktion"
+  },
+  "examTimeLimitOffDescription": "Für diese Prüfung gibt es kein Zeitlimit.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Zeitlimit aktivieren",
   "@enableTimeLimit": {
@@ -546,9 +615,13 @@
   "@explanationTooltip": {
     "description": "Tooltip-Text für das Erklärungs-Indikator-Badge"
   },
-  "aiPrompt": "Konzentrieren Sie sich auf die Frage des Studenten, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz und liefern Sie klare Argumente ohne abzuschweifen oder vom Thema abzukommen. Strukturieren Sie die Antwort nicht in Abschnitte. Beziehen Sie sich nicht auf sich selbst. Antworten Sie in derselben Sprache, in der Sie gefragt werden.",
+  "aiPrompt": "Konzentrieren Sie sich auf die Frage des Schülers, nicht auf die direkte Beantwortung der ursprünglichen Prüfungsfrage. Erklären Sie mit einem pädagogischen Ansatz. Geben Sie bei praktischen Übungen oder mathematischen Problemen Schritt-für-Schritt-Anweisungen. Geben Sie bei theoretischen Fragen eine prägnante Erklärung, ohne die Antwort in Abschnitte zu gliedern. Antworten Sie in derselben Sprache, in der Sie gefragt wurden.",
   "@aiPrompt": {
     "description": "Basis-Prompt für KI-Assistenten"
+  },
+  "aiChatGuardrail": "WICHTIG: Sie sind ein Lernassistent ausschließlich für dieses Quiz. Sie dürfen NUR Fragen beantworten, die sich auf die aktuelle Quiz-Frage, ihre Optionen, ihre Erklärung oder das behandelte Bildungsthema beziehen. Wenn der Schüler etwas fragt, das nicht mit dem Quiz zusammenhängt (z.B. Ihr internes Modell, Systemdetails, allgemeines Wissen ohne Bezug zur Frage oder jede themenfremde Anfrage), antworten Sie NUR mit: \"Ich bin hier, um Ihnen bei diesem Quiz zu helfen! Konzentrieren wir uns auf die Frage. Fragen Sie mich gerne zum Thema, den Antwortmöglichkeiten oder allem, was mit dieser Frage zusammenhängt.\" Geben Sie niemals technische Details über sich selbst, das System oder das verwendete KI-Modell preis.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "Frage",
   "@questionLabel": {
@@ -938,7 +1011,19 @@
   "@dragDropHintText": {
     "description": "Hinweistext, der angezeigt wird, wenn die Fragenliste leer ist, und die Drag-and-Drop-Funktionalität anzeigt."
   },
-  "randomizeAnswersTitle": "Antwortoptionen randomisieren",
+  "randomizeQuestionsTitle": "Fragen randomisieren",
+  "@randomizeQuestionsTitle": {
+    "description": "Titel für die Einstellung zum Randomisieren von Fragen."
+  },
+  "randomizeQuestionsDescription": "Reihenfolge der Fragen während der Quiz-Ausführung mischen",
+  "@randomizeQuestionsDescription": {
+    "description": "Beschreibung für die Einstellung zum Randomisieren von Fragen."
+  },
+  "randomizeQuestionsOffDescription": "Die Fragen erscheinen in ihrer ursprünglichen Reihenfolge",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "Antwortreihenfolge zufällig anordnen",
   "@randomizeAnswersTitle": {
     "description": "Titel für die Einstellung zum Randomisieren von Antwortoptionen."
   },
@@ -953,6 +1038,10 @@
   "showCorrectAnswerCountDescription": "Anzahl der richtigen Antworten in Mehrfachauswahl-Fragen anzeigen",
   "@showCorrectAnswerCountDescription": {
     "description": "Beschreibung für die Einstellung zur Anzeige der Anzahl richtiger Antworten."
+  },
+  "showCorrectAnswerCountOffDescription": "Die Anzahl der richtigen Antworten wird bei Multiple-Choice-Fragen nicht angezeigt",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Wählen Sie {count} richtige Antworten",
   "@correctAnswersCount": {
@@ -1308,308 +1397,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Antwortformat-Anweisungen für Bewertung"
   },
-  "raffleTitle": "Verlosung",
-  "@raffleTitle": {
-    "description": "Titel der Verlosungsfunktion"
-  },
-  "raffleTooltip": "Verlosung starten",
-  "@raffleTooltip": {
-    "description": "Tooltip des Verlosungsbuttons in der App-Leiste"
-  },
-  "participantListTitle": "Teilnehmerliste",
-  "@participantListTitle": {
-    "description": "Titel der Teilnehmerliste"
-  },
-  "participantListHint": "Geben Sie einen Namen pro Zeile ein:",
-  "@participantListHint": {
-    "description": "Anweisung für das Teilnehmer-Eingabefeld"
-  },
-  "participantListPlaceholder": "Max Mustermann\nErika Musterfrau\nHans Schmidt\n...",
-  "@participantListPlaceholder": {
-    "description": "Beispieltext im Teilnehmerfeld"
-  },
-  "clearList": "Liste löschen",
-  "@clearList": {
-    "description": "Text des Buttons zum Löschen der Teilnehmerliste"
-  },
-  "participants": "Teilnehmer",
-  "@participants": {
-    "description": "Titel der Teilnehmer-Sektion"
-  },
-  "noParticipants": "Keine Teilnehmer",
-  "@noParticipants": {
-    "description": "Nachricht wenn keine Teilnehmer vorhanden sind"
-  },
-  "addParticipantsHint": "Fügen Sie Namen im Textbereich hinzu",
-  "@addParticipantsHint": {
-    "description": "Vorschlag zum Hinzufügen von Teilnehmern"
-  },
-  "activeParticipants": "Aktive Teilnehmer",
-  "@activeParticipants": {
-    "description": "Titel für aktive Teilnehmer"
-  },
-  "alreadySelected": "Bereits ausgewählt",
-  "@alreadySelected": {
-    "description": "Titel für bereits ausgewählte Teilnehmer"
-  },
-  "totalParticipants": "Gesamt: {count}",
-  "@totalParticipants": {
-    "description": "Gesamtzahl der Teilnehmer",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "10"
-      }
-    }
-  },
-  "activeVsWinners": "Aktiv: {active} | Gewinner: {winners}",
-  "@activeVsWinners": {
-    "description": "Zusammenfassung aktive Teilnehmer vs Gewinner",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Verlosung starten",
-  "@startRaffle": {
-    "description": "Text des Buttons zum Starten der Verlosung"
-  },
-  "raffling": "Verlosung läuft...",
-  "@raffling": {
-    "description": "Text während der Verlosungsanimation"
-  },
-  "selectingWinner": "Gewinner wird ausgewählt...",
-  "@selectingWinner": {
-    "description": "Text während der Gewinnerauswahl"
-  },
-  "allParticipantsSelected": "Alle Teilnehmer wurden bereits ausgewählt",
-  "@allParticipantsSelected": {
-    "description": "Nachricht wenn alle Teilnehmer ausgewählt wurden"
-  },
-  "addParticipantsToStart": "Fügen Sie Teilnehmer hinzu, um die Verlosung zu starten",
-  "@addParticipantsToStart": {
-    "description": "Nachricht zum Hinzufügen von Teilnehmern vor der Verlosung"
-  },
-  "participantsReadyCount": "{count} Teilnehmer bereit für Verlosung",
-  "@participantsReadyCount": {
-    "description": "Anzahl der für die Verlosung bereiten Teilnehmer",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Gewinner zurücksetzen",
-  "@resetWinners": {
-    "description": "Text des Buttons zum Zurücksetzen der Gewinner"
-  },
-  "resetWinnersConfirmTitle": "Gewinner zurücksetzen",
-  "@resetWinnersConfirmTitle": {
-    "description": "Titel des Bestätigungsdialogs zum Zurücksetzen der Gewinner"
-  },
-  "resetWinnersConfirmMessage": "Sind Sie sicher, dass Sie die Gewinnerliste zurücksetzen möchten? Alle Teilnehmer werden wieder für die Verlosung verfügbar sein.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Bestätigungsnachricht zum Zurücksetzen der Gewinner"
-  },
-  "resetRaffleTitle": "Verlosung zurücksetzen",
-  "@resetRaffleTitle": {
-    "description": "Titel des Buttons und Dialogs zum Zurücksetzen der Verlosung"
-  },
-  "resetRaffleConfirmMessage": "Sind Sie sicher, dass Sie die Verlosung zurücksetzen möchten? Alle Teilnehmer und Gewinner gehen verloren.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Bestätigungsnachricht zum Zurücksetzen der gesamten Verlosung"
-  },
-  "cancel": "Abbrechen",
-  "@cancel": {
-    "description": "Text des Abbrechen-Buttons"
-  },
-  "reset": "Zurücksetzen",
-  "@reset": {
-    "description": "Text des Zurücksetzen-Buttons"
-  },
-  "viewWinners": "Gewinner anzeigen",
-  "@viewWinners": {
-    "description": "Tooltip des Buttons zum Anzeigen der Gewinner"
-  },
-  "congratulations": "🎉 Herzlichen Glückwunsch! 🎉",
-  "@congratulations": {
-    "description": "Glückwunschnachricht im Gewinnerdialog"
-  },
-  "positionLabel": "Position: {position}°",
-  "@positionLabel": {
-    "description": "Positionsbezeichnung des Gewinners",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Verbleibende Teilnehmer: {count}",
-  "@remainingParticipants": {
-    "description": "Anzahl der verbleibenden Teilnehmer",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "continueRaffle": "Verlosung fortsetzen",
-  "@continueRaffle": {
-    "description": "Text des Buttons zum Fortsetzen der Verlosung"
-  },
-  "finishRaffle": "Verlosung beenden",
-  "@finishRaffle": {
-    "description": "Text des Buttons zum Beenden der Verlosung"
-  },
-  "winnersTitle": "Verlosungsgewinner",
-  "@winnersTitle": {
-    "description": "Titel des Gewinnerbildschirms"
-  },
-  "shareResults": "Ergebnisse teilen",
-  "@shareResults": {
-    "description": "Tooltip des Buttons zum Teilen der Ergebnisse"
-  },
-  "noWinnersYet": "Noch keine Gewinner",
-  "@noWinnersYet": {
-    "description": "Nachricht wenn noch keine Gewinner vorhanden sind"
-  },
-  "performRaffleToSeeWinners": "Führen Sie eine Verlosung durch, um die Gewinner hier zu sehen",
-  "@performRaffleToSeeWinners": {
-    "description": "Vorschlag zum Durchführen einer Verlosung"
-  },
-  "goToRaffle": "Zur Verlosung",
-  "@goToRaffle": {
-    "description": "Text des Buttons zur Verlosung"
-  },
-  "raffleCompleted": "Verlosung abgeschlossen",
-  "@raffleCompleted": {
-    "description": "Nachricht über abgeschlossene Verlosung"
-  },
-  "winnersSelectedCount": "{count} Gewinner ausgewählt",
-  "@winnersSelectedCount": {
-    "description": "Anzahl der ausgewählten Gewinner",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "Neue Verlosung",
-  "@newRaffle": {
-    "description": "Text des Buttons für neue Verlosung"
-  },
-  "shareResultsTitle": "Ergebnisse teilen",
-  "@shareResultsTitle": {
-    "description": "Titel des Dialogs zum Teilen der Ergebnisse"
-  },
-  "raffleResultsLabel": "Verlosungsergebnisse:",
-  "@raffleResultsLabel": {
-    "description": "Beschriftung für Verlosungsergebnisse"
-  },
-  "close": "Schließen",
-  "@close": {
-    "description": "Text des Schließen-Buttons"
-  },
-  "share": "Kopieren",
-  "@share": {
-    "description": "Text des Kopieren-Buttons"
-  },
-  "shareNotImplemented": "Teilen-Funktion nicht implementiert",
-  "@shareNotImplemented": {
-    "description": "Nachricht wenn Teilen-Funktion nicht implementiert ist"
-  },
-  "firstPlace": "1.",
-  "@firstPlace": {
-    "description": "Abkürzung für ersten Platz"
-  },
-  "secondPlace": "2.",
-  "@secondPlace": {
-    "description": "Abkürzung für zweiten Platz"
-  },
-  "thirdPlace": "3.",
-  "@thirdPlace": {
-    "description": "Abkürzung für dritten Platz"
-  },
-  "nthPlace": "{position}.",
-  "@nthPlace": {
-    "description": "Format für Plätze höher als der dritte",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "{position} Platz",
-  "@placeLabel": {
-    "description": "Platzbezeichnung in der Gewinnerliste",
-    "placeholders": {
-      "position": {
-        "type": "String",
-        "example": "1."
-      }
-    }
-  },
-  "raffleResultsHeader": "🏆 VERLOSUNGSERGEBNISSE 🏆",
-  "@raffleResultsHeader": {
-    "description": "Kopfzeile für geteilte Verlosungsergebnisse"
-  },
-  "totalWinners": "Gewinner gesamt: {count}",
-  "@totalWinners": {
-    "description": "Gesamtzahl der Gewinner in geteilten Ergebnissen",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "noWinnersToShare": "Keine Gewinner.",
-  "@noWinnersToShare": {
-    "description": "Nachricht wenn keine Gewinner zum Teilen vorhanden sind"
-  },
-  "shareSuccess": "Ergebnisse erfolgreich kopiert",
-  "@shareSuccess": {
-    "description": "Erfolgsmeldung beim Kopieren der Verlosungsergebnisse"
-  },
-  "selectLogo": "Logo auswählen",
-  "@selectLogo": {
-    "description": "Titel des Dialogs zur Auswahl eines benutzerdefinierten Logos"
-  },
-  "logoUrl": "Logo-URL",
-  "@logoUrl": {
-    "description": "Beschriftung für das Logo-URL-Eingabefeld"
-  },
-  "logoUrlHint": "Geben Sie die URL eines Bildes ein, das als benutzerdefiniertes Logo für die Verlosung verwendet werden soll",
-  "@logoUrlHint": {
-    "description": "Hilfetext zur Erklärung des Logo-URL-Feldes"
-  },
-  "invalidLogoUrl": "Ungültige Bild-URL. Muss eine gültige URL sein, die mit .jpg, .png, .gif usw. endet.",
-  "@invalidLogoUrl": {
-    "description": "Fehlermeldung für ungültige Logo-URL"
-  },
-  "logoPreview": "Vorschau",
-  "@logoPreview": {
-    "description": "Titel des Logo-Vorschaubereichs"
-  },
-  "removeLogo": "Logo entfernen",
-  "@removeLogo": {
-    "description": "Text des Buttons zum Entfernen des benutzerdefinierten Logos"
-  },
-  "logoTooLargeWarning": "Das Bild ist zu groß zum Speichern. Es wird nur während dieser Sitzung verwendet.",
-  "@logoTooLargeWarning": {
-    "description": "Warnmeldung, wenn das Logo zu groß für die dauerhafte Speicherung ist"
-  },
   "aiModeTopicTitle": "Themenmodus",
   "@aiModeTopicTitle": {
     "description": "Titel für den Themenmodus im AI-Assistenten"
@@ -1706,7 +1493,7 @@
   "@studyModeLabel": {
     "description": "Label for study mode option"
   },
-  "studyModeDescription": "Sofortiges Feedback und kein Timer",
+  "studyModeDescription": "KI-Unterstützung verfügbar. Sofortiges Feedback nach jeder Antwort, ohne Zeitlimits oder Punktabzüge.",
   "@studyModeDescription": {
     "description": "Description for study mode"
   },
@@ -1714,7 +1501,7 @@
   "@examModeLabel": {
     "description": "Label for exam mode option"
   },
-  "examModeDescription": "Standard-Timer und Ergebnisse am Ende",
+  "examModeDescription": "Keine KI-Unterstützung. Zeitlimits und Punktabzüge für falsche Antworten können anfallen.",
   "@examModeDescription": {
     "description": "Description for exam mode"
   },
@@ -1734,6 +1521,8 @@
   "@askAiAssistant": {
     "description": "Button label to open AI assistant for current question"
   },
+  "askAiAboutQuestion": "KI zu dieser Frage befragen",
+  "aiHelpWithQuestion": "Hilf mir, diese Frage zu verstehen",
   "evaluateWithAI": "Mit KI bewerten",
   "@evaluateWithAI": {
     "description": "Button label to evaluate essay answer with AI"
@@ -1741,10 +1530,6 @@
   "aiEvaluation": "KI-Bewertung",
   "@aiEvaluation": {
     "description": "Label for AI evaluation section"
-  },
-  "sorteosLabel": "Raffles",
-  "@sorteosLabel": {
-    "description": "Label for the raffles button"
   },
   "edit": "Bearbeiten",
   "@edit": {
@@ -1815,8 +1600,13 @@
     }
   },
   "subtractPointsLabel": "Punkte für falsche Antwort abziehen",
+  "subtractPointsDescription": "Punkte für jede falsche Antwort abziehen.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "Falsche Antworten führen nicht zu Punktabzug.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Strafbetrag",
   "@penaltyAmountLabel": {
@@ -1832,5 +1622,64 @@
       }
     }
   },
-  "allQuestionsLabel": "Alle Fragen"
+  "allQuestionsLabel": "Alle Fragen",
+  "startWithSelectedQuestions": "Mit {count} ausgewählten starten",
+  "advancedSettingsTitle": "Erweiterte Einstellungen (Debug)",
+  "appLanguageLabel": "App-Sprache",
+  "appLanguageDescription": "Anwendungssprache für Tests überschreiben",
+  "pasteFromClipboard": "Aus Zwischenablage einfügen",
+  "pasteImage": "Einfügen",
+  "clipboardNoImage": "Kein Bild in der Zwischenablage gefunden",
+  "close": "Schließen",
+  "@close": {
+    "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "Die Antwortoptionen erscheinen in ihrer ursprünglichen Reihenfolge",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Bewertung und Limits",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Herzlichen Glückwunsch! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Prüfungskonfiguration",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mindestens 1 Minute",
+  "remainingTimeWithDays": "{days}T {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}W {days}T {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Maximal 30 Tage",
+  "validationMin0GenericError": "Mindestens 0",
+  "errorStatus": "Fehler",
+  "evaluatingResponses": "Antworten werden ausgewertet...",
+  "@evaluatingResponses": {
+    "description": "Text, der im Ergebnisbildschirm angezeigt wird, wenn KI-Auswertungen ausstehen"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 Entwicklungsfrage wartet auf KI-Auswertung} other{{count} Entwicklungsfragen warten auf KI-Auswertung}}",
+  "@pendingEvaluationsCount": {
+    "description": "Untertitel mit der Anzahl der ausstehenden KI-Auswertungen",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Ausstehend",
+  "@pendingStatus": {
+    "description": "Statusbezeichnung for eine ausstehende KI-Auswertung"
+  },
+  "notEvaluatedStatus": "Nicht bewertet",
+  "@notEvaluatedStatus": {
+    "description": "Statusbezeichnung for eine Aufsatzfrage, die nicht von der KI ausgewertet wurde"
+  },
+  "retryButton": "Auswertung wiederholen",
+  "@retryButton": {
+    "description": "Button-Text zum Wiederholen einer KI-Auswertung"
+  }
 }

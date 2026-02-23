@@ -9,6 +9,16 @@ class AppLocalizationsAr extends AppLocalizations {
   AppLocalizationsAr([String locale = 'ar']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'إلغاء Quiz؟';
+
+  @override
+  String get abortQuizMessage =>
+      'سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.';
+
+  @override
+  String get stopAndOpenButton => 'إيقاف وفتح';
+
+  @override
   String get titleAppBar => 'اختبار - محاكي الامتحان';
 
   @override
@@ -53,6 +63,19 @@ class AppLocalizationsAr extends AppLocalizations {
   String get dropFileHere => 'انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة';
 
   @override
+  String get errorOpeningFile => 'خطأ في فتح الملف';
+
+  @override
+  String get replaceFileTitle => 'تحميل اختبار Quiz جديد';
+
+  @override
+  String get replaceFileMessage =>
+      'هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟';
+
+  @override
+  String get replaceButton => 'تحميل';
+
+  @override
   String get clickOrDragFile => 'انقر للتحميل أو اسحب ملف .quiz إلى الشاشة';
 
   @override
@@ -89,10 +112,11 @@ class AppLocalizationsAr extends AppLocalizations {
   String get confirmExitTitle => 'تأكيد الخروج';
 
   @override
-  String get confirmExitMessage => 'هل أنت متأكد من أنك تريد الخروج بدون حفظ؟';
+  String get confirmExitMessage =>
+      'هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟';
 
   @override
-  String get exitButton => 'خروج';
+  String get exitButton => 'خروج بدون حفظ';
 
   @override
   String get saveDialogTitle => 'يرجى اختيار ملف الإخراج:';
@@ -228,7 +252,7 @@ class AppLocalizationsAr extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct من $total إجابات صحيحة';
   }
 
@@ -260,6 +284,30 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get startQuiz => 'بدء الاختبار';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'تقييد الإجابات الخاطئة';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'امتحان نجاح/رسوب. لا توجد درجة رقمية، إما أن تنجح أو ترسب.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'للامتحان درجة رقمية من 0 إلى 100.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'الحد الأقصى للأخطاء المسموح بها';
+
+  @override
+  String get examFailedStatus => 'اختبار لم يجتز';
+
+  @override
+  String get examPassedStatus => 'اختبار اجتيز';
+
+  @override
+  String get quizFailedLimitReached =>
+      'انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها';
 
   @override
   String get errorInvalidNumber => 'يرجى إدخال رقم صالح';
@@ -294,7 +342,7 @@ class AppLocalizationsAr extends AppLocalizations {
   String get questionOrderDescendingDesc => 'ستظهر الأسئلة من النهاية إلى 1';
 
   @override
-  String get questionOrderRandom => 'عشوائي';
+  String get questionOrderRandom => 'ترتيب عشوائي للأسئلة';
 
   @override
   String get questionOrderRandomDesc => 'ستظهر الأسئلة بترتيب عشوائي';
@@ -309,11 +357,17 @@ class AppLocalizationsAr extends AppLocalizations {
   String get save => 'حفظ';
 
   @override
+  String get examConfigurationTitle => 'إعدادات الامتحان';
+
+  @override
   String get examTimeLimitTitle => 'حد وقت الامتحان';
 
   @override
   String get examTimeLimitDescription =>
-      'تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.';
+      'قم بتعيين حد زمني للاختبار. سيتم عرض مؤقت تنازلي أثناء الاختبار.';
+
+  @override
+  String get examTimeLimitOffDescription => 'لا يوجد حد زمني لهذا الاختبار.';
 
   @override
   String get enableTimeLimit => 'تفعيل الحد الزمني';
@@ -384,7 +438,11 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي، مقدماً حججاً واضحة دون الاستطراد أو الخروج عن الموضوع. لا تنظم الإجابة في أقسام. لا تشر إلى نفسك. استجب بنفس اللغة التي يُطرح بها السؤال.';
+      'ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي. بالنسبة للتمارين العملية أو المسائل الرياضية، قدم تعليمات خطوة بخطوة. بالنسبة للأسئلة النظرية، قدم شرحًا موجزًا دون تنظيم الإجابة في أقسام. أجب بنفس اللغة التي سُئلت بها.';
+
+  @override
+  String get aiChatGuardrail =>
+      'مهم: أنت مساعد دراسة حصريًا لهذا الـ Quiz. يجب عليك الإجابة فقط على الأسئلة المتعلقة بسؤال الـ Quiz الحالي أو خياراته أو شرحه أو الموضوع التعليمي الذي يغطيه. إذا سأل الطالب عن شيء غير متعلق بالـ Quiz (مثل نموذجك الداخلي أو تفاصيل النظام أو معرفة عامة غير متعلقة بالسؤال أو أي طلب خارج الموضوع)، أجب فقط بـ: \"أنا هنا لمساعدتك في هذا الـ Quiz! دعنا نركز على السؤال. لا تتردد في سؤالي عن الموضوع أو خيارات الإجابة أو أي شيء متعلق بهذا السؤال.\" لا تكشف أبدًا عن تفاصيل تقنية عن نفسك أو النظام أو نموذج الذكاء الاصطناعي المستخدم.';
 
   @override
   String get questionLabel => 'السؤال';
@@ -416,11 +474,34 @@ class AppLocalizationsAr extends AppLocalizations {
       'عذراً، حدث خطأ في معالجة سؤالك. يرجى المحاولة مرة أخرى.';
 
   @override
+  String get evaluatingResponses => 'جاري تقييم الردود...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count أسئلة مقالية قيد انتظار تقييم الذكاء الاصطناعي',
+      one: 'سؤال مقالي واحد قيد انتظار تقييم الذكاء الاصطناعي',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'قيد الانتظار';
+
+  @override
+  String get notEvaluatedStatus => 'لم يتم التقييم';
+
+  @override
   String get configureApiKeyMessage =>
       'يرجى تكوين مفتاح API للذكاء الاصطناعي في الإعدادات.';
 
   @override
   String get errorLabel => 'خطأ:';
+
+  @override
+  String get retryButton => 'إعادة محاولة التقييم';
 
   @override
   String get noResponseReceived => 'لم يتم استلام رد';
@@ -673,11 +754,26 @@ class AppLocalizationsAr extends AppLocalizations {
       'يمكنك أيضاً سحب وإفلات ملفات .quiz هنا لاستيراد الأسئلة';
 
   @override
-  String get randomizeAnswersTitle => 'عشوائية خيارات الإجابة';
+  String get randomizeQuestionsTitle => 'عشوائية الأسئلة';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'خلط ترتيب الأسئلة أثناء تنفيذ الاختبار';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'ستظهر الأسئلة بترتيبها الأصلي';
+
+  @override
+  String get randomizeAnswersTitle => 'ترتيب عشوائي للإجابات';
 
   @override
   String get randomizeAnswersDescription =>
       'خلط ترتيب خيارات الإجابة أثناء تنفيذ الاختبار';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'ستظهر خيارات الإجابة بترتيبها الأصلي';
 
   @override
   String get showCorrectAnswerCountTitle => 'إظهار عدد الإجابات الصحيحة';
@@ -685,6 +781,10 @@ class AppLocalizationsAr extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'عرض عدد الإجابات الصحيحة في أسئلة الاختيار المتعدد';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'لن يتم عرض عدد الإجابات الصحيحة لأسئلة الاختيار من متعدد';
 
   @override
   String correctAnswersCount(int count) {
@@ -776,7 +876,13 @@ class AppLocalizationsAr extends AppLocalizations {
       'أدخل موضوعاً مثل \"تاريخ الحرب العالمية الثانية\" أو الصق محتوى نصي هنا...';
 
   @override
-  String get aiAttachFileHint => 'إرفاق ملف (PDF، TXT، DOCX)';
+  String get aiAttachFileHint => 'إرفاق ملف (PDF، TXT، MP3، MP4،...)';
+
+  @override
+  String get dropAttachmentHere => 'أفلت الملف هنا';
+
+  @override
+  String get dropImageHere => 'أفلت الصورة هنا';
 
   @override
   String get aiNumberQuestionsLabel => 'عدد الأسئلة';
@@ -796,6 +902,18 @@ class AppLocalizationsAr extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'وضع النص ($count كلمات)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'وضع المحتوى';
+
+  @override
+  String get aiGenerationCategoryTheory => 'نظرية';
+
+  @override
+  String get aiGenerationCategoryExercises => 'تمارين';
+
+  @override
+  String get aiGenerationCategoryBoth => 'مختلط';
 
   @override
   String get languageSpanish => 'Español';
@@ -961,212 +1079,6 @@ class AppLocalizationsAr extends AppLocalizations {
       'تنسيق الإجابة:\n1. الدرجة: [X/10] - اذكر مبرراً مختصراً للدرجة\n2. نقاط القوة: اذكر الجوانب الإيجابية في الإجابة\n3. مجالات التحسين: أشر إلى الجوانب التي يمكن تحسينها\n4. تعليقات محددة: قدم ملاحظات مفصلة وبناءة\n5. اقتراحات: قدم توصيات محددة للتحسين\n\nكن بناءً ومحدداً وتعليمياً في تقييمك. الهدف هو مساعدة الطالب على التعلم والتحسن. اخاطبه بصيغة المخاطب واستخدم نبرة مهنية وودية.';
 
   @override
-  String get raffleTitle => 'سحب القرعة';
-
-  @override
-  String get raffleTooltip => 'فتح شاشة السحب';
-
-  @override
-  String get participantListTitle => 'قائمة المشاركين';
-
-  @override
-  String get participantListHint => 'أدخل الأسماء مفصولة بسطر جديد';
-
-  @override
-  String get participantListPlaceholder =>
-      'أدخل أسماء المشاركين هنا...\nاسم واحد في كل سطر';
-
-  @override
-  String get clearList => 'محو القائمة';
-
-  @override
-  String get participants => 'مشاركون';
-
-  @override
-  String get noParticipants => 'لا يوجد مشاركون';
-
-  @override
-  String get addParticipantsHint => 'أضف مشاركين لبدء السحب';
-
-  @override
-  String get activeParticipants => 'المشاركون النشطون';
-
-  @override
-  String get alreadySelected => 'تم اختيارهم مسبقاً';
-
-  @override
-  String totalParticipants(int count) {
-    return 'إجمالي المشاركين';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active نشطون، $winners فائزون';
-  }
-
-  @override
-  String get startRaffle => 'بدء السحب';
-
-  @override
-  String get raffling => 'جاري السحب...';
-
-  @override
-  String get selectingWinner => 'اختيار الفائز...';
-
-  @override
-  String get allParticipantsSelected => 'تم اختيار جميع المشاركين';
-
-  @override
-  String get addParticipantsToStart => 'أضف مشاركين لبدء السحب';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count مشاركون جاهزون للسحب';
-  }
-
-  @override
-  String get resetWinners => 'إعادة تعيين الفائزين';
-
-  @override
-  String get resetWinnersConfirmTitle => 'إعادة تعيين الفائزين؟';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'هذا سيعيد جميع الفائزين إلى قائمة المشاركين النشطين.';
-
-  @override
-  String get resetRaffleTitle => 'إعادة تعيين السحب؟';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'هذا سيعيد تعيين جميع الفائزين والمشاركين النشطين.';
-
-  @override
-  String get cancel => 'إلغاء';
-
-  @override
-  String get reset => 'إعادة تعيين';
-
-  @override
-  String get viewWinners => 'عرض الفائزين';
-
-  @override
-  String get congratulations => '🎉 تهانينا! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'المركز $position';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'مشاركون متبقون: $count';
-  }
-
-  @override
-  String get continueRaffle => 'متابعة السحب';
-
-  @override
-  String get finishRaffle => 'إنهاء السحب';
-
-  @override
-  String get winnersTitle => 'الفائزون';
-
-  @override
-  String get shareResults => 'مشاركة النتائج';
-
-  @override
-  String get noWinnersYet => 'لا يوجد فائزون بعد';
-
-  @override
-  String get performRaffleToSeeWinners => 'قم بإجراء سحب لرؤية الفائزين';
-
-  @override
-  String get goToRaffle => 'الذهاب إلى السحب';
-
-  @override
-  String get raffleCompleted => 'اكتمل السحب!';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return 'تم اختيار $count فائزين';
-  }
-
-  @override
-  String get newRaffle => 'سحب جديد';
-
-  @override
-  String get shareResultsTitle => 'نتائج السحب';
-
-  @override
-  String get raffleResultsLabel => 'نتائج السحب:';
-
-  @override
-  String get close => 'إغلاق';
-
-  @override
-  String get share => 'نسخ';
-
-  @override
-  String get shareNotImplemented => 'المشاركة غير مطبقة بعد';
-
-  @override
-  String get firstPlace => 'المركز الأول';
-
-  @override
-  String get secondPlace => 'المركز الثاني';
-
-  @override
-  String get thirdPlace => 'المركز الثالث';
-
-  @override
-  String nthPlace(int position) {
-    return 'المركز $position';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return 'المركز';
-  }
-
-  @override
-  String get raffleResultsHeader => 'نتائج السحب - null فائزين';
-
-  @override
-  String totalWinners(int count) {
-    return 'إجمالي الفائزين: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'لا يوجد فائزون للمشاركة';
-
-  @override
-  String get shareSuccess => 'تم نسخ النتائج بنجاح';
-
-  @override
-  String get selectLogo => 'اختيار الشعار';
-
-  @override
-  String get logoUrl => 'رابط الشعار';
-
-  @override
-  String get logoUrlHint => 'أدخل رابط صورة لاستخدامها كشعار مخصص للسحب';
-
-  @override
-  String get invalidLogoUrl =>
-      'رابط صورة غير صالح. يجب أن يكون رابطاً صالحاً ينتهي بـ .jpg أو .png أو .gif إلخ.';
-
-  @override
-  String get logoPreview => 'معاينة';
-
-  @override
-  String get removeLogo => 'إزالة الشعار';
-
-  @override
-  String get logoTooLargeWarning =>
-      'الصورة كبيرة جداً ولا يمكن حفظها. سيتم استخدامها فقط خلال هذه الجلسة.';
-
-  @override
   String get aiModeTopicTitle => 'وضع الموضوع';
 
   @override
@@ -1236,13 +1148,15 @@ class AppLocalizationsAr extends AppLocalizations {
   String get studyModeLabel => 'وضع الدراسة';
 
   @override
-  String get studyModeDescription => 'ردود فعل فورية وبلا توقيت';
+  String get studyModeDescription =>
+      'مساعدة الذكاء الاصطناعي متاحة. تعليقات فورية بعد كل إجابة بدون حدود زمنية أو عقوبات.';
 
   @override
   String get examModeLabel => 'وضع الاختبار';
 
   @override
-  String get examModeDescription => 'توقيت قياسي ونتائج في النهاية';
+  String get examModeDescription =>
+      'بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.';
 
   @override
   String get checkAnswer => 'تحقق';
@@ -1257,7 +1171,10 @@ class AppLocalizationsAr extends AppLocalizations {
   String get askAiAssistant => 'اسأل مساعد الذكاء الاصطناعي';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'اسأل الذكاء الاصطناعي عن هذا السؤال';
+
+  @override
+  String get aiHelpWithQuestion => 'ساعدني في فهم هذا السؤال';
 
   @override
   String get edit => 'تعديل';
@@ -1323,6 +1240,12 @@ class AppLocalizationsAr extends AppLocalizations {
   String get subtractPointsLabel => 'خصم نقاط للإجابة الخاطئة';
 
   @override
+  String get subtractPointsDescription => 'خصم نقاط عن كل إجابة خاطئة.';
+
+  @override
+  String get subtractPointsOffDescription => 'الإجابات الخاطئة لا تخصم نقاطا.';
+
+  @override
   String get penaltyAmountLabel => 'مبلغ الغرامة';
 
   @override
@@ -1332,4 +1255,69 @@ class AppLocalizationsAr extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'جميع الأسئلة';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'ابدأ بـ $count محددة';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'إعدادات متقدمة (تصحيح الأخطاء)';
+
+  @override
+  String get appLanguageLabel => 'لغة التطبيق';
+
+  @override
+  String get appLanguageDescription => 'تجاوز لغة التطبيق للاختبار';
+
+  @override
+  String get pasteFromClipboard => 'لصق من الحافظة';
+
+  @override
+  String get pasteImage => 'لصق';
+
+  @override
+  String get clipboardNoImage => 'لم يتم العثور على صورة في الحافظة';
+
+  @override
+  String get close => 'إغلاق';
+
+  @override
+  String get scoringAndLimitsTitle => 'الدرجات والحدود';
+
+  @override
+  String get congratulations => '🎉 تهانينا! 🎉';
+
+  @override
+  String get validationMin1Error => 'دقيقة واحدة كحد أدنى';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksأ $daysي $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'كحد أقصى 30 يومًا';
+
+  @override
+  String get validationMin0GenericError => 'بحد أدنى 0';
+
+  @override
+  String get errorStatus => 'خطأ';
 }

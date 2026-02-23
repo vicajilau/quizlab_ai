@@ -1,15 +1,17 @@
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:mime/mime.dart';
+import 'package:quiz_app/core/context_extension.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
-import 'package:quiz_app/data/services/ai/ai_question_generation_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service.dart';
 import 'package:quiz_app/data/services/ai/ai_service_selector.dart';
 import 'package:quiz_app/domain/models/ai/ai_file_attachment.dart';
 import 'package:quiz_app/domain/models/ai/ai_generation_stored_settings.dart';
+import 'package:quiz_app/domain/models/ai/ai_question_type.dart';
 import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_generate_step1_widget.dart';
 import 'package:quiz_app/presentation/screens/dialogs/widgets/ai_generate_step2_widget.dart';
+import 'package:quiz_app/presentation/utils/clipboard_image_helper.dart';
 
 class AiGenerateQuestionsDialog extends StatefulWidget {
   const AiGenerateQuestionsDialog({super.key});
@@ -21,13 +23,11 @@ class AiGenerateQuestionsDialog extends StatefulWidget {
 
 class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
   final _textController = TextEditingController();
-  final _questionCountController = TextEditingController();
+  final _questionCountController = TextEditingController(text: '5');
 
   int _currentStep = 0; // 0: Configuration, 1: Content
 
-  Set<AiQuestionType> _selectedQuestionTypes = AiQuestionType.values
-      .where((type) => type != AiQuestionType.random)
-      .toSet();
+  Set<AiQuestionType> _selectedQuestionTypes = {AiQuestionType.random};
   String _selectedLanguage = 'en';
   List<AIService> _availableServices = [];
   AIService? _selectedService;
@@ -162,6 +162,12 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
     } else {
       // Establish defaults if no draft
       if (services.isNotEmpty) {
+        if (mounted) {
+          setState(() {
+            _questionCount = 5;
+            _questionCountController.text = '5';
+          });
+        }
         final defaultService = await ConfigurationService.instance
             .getDefaultAIService();
         if (defaultService != null) {
@@ -201,12 +207,13 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
     final systemLocale = Localizations.localeOf(context);
     final systemLanguageCode = systemLocale.languageCode;
     if (_supportedLanguages.contains(systemLanguageCode)) {
-      // Only set if not already set (e.g. by draft)
+      // Only set if we don't have a specific language set yet
+      // This is a loose check; _loadDraft will perform the authoritative set
       if (_selectedLanguage == 'en' && _textController.text.isEmpty) {
-        // simplistic check
-        // we let _loadDraft handle the definitive set, this is just a fallback
+        setState(() {
+          _selectedLanguage = systemLanguageCode;
+        });
       }
-      // For now, let's just default to system if not loaded
     }
   }
 
@@ -294,6 +301,19 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
     }
   }
 
+  Future<void> _pasteFromClipboard() async {
+    final attachment =
+        await ClipboardImageHelper.getClipboardImageAsAttachment();
+    if (!mounted) return;
+    if (attachment != null) {
+      setState(() {
+        _fileAttachment = attachment;
+      });
+    } else {
+      context.presentSnackBar(AppLocalizations.of(context)!.clipboardNoImage);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     if (_currentStep == 0) {
@@ -362,7 +382,6 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
             _currentStep = 1;
           });
         },
-        getLanguageName: _getLanguageName,
       );
     } else {
       return AiGenerateStep2Widget(
@@ -375,9 +394,15 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
         selectedService: _selectedService,
         selectedModel: _selectedModel,
         onPickFile: _pickFile,
+        onPasteFromClipboard: _pasteFromClipboard,
         onRemoveFile: () {
           setState(() {
             _fileAttachment = null;
+          });
+        },
+        onFileDropped: (attachment) {
+          setState(() {
+            _fileAttachment = attachment;
           });
         },
         onBack: () {
@@ -397,41 +422,6 @@ class _AiGenerateQuestionsDialogState extends State<AiGenerateQuestionsDialog> {
         getWordCount: _getWordCount,
         getTopicCount: _getTopicCount,
       );
-    }
-  }
-
-  String _getLanguageName(String code, AppLocalizations localizations) {
-    switch (code) {
-      case 'es':
-        return localizations.languageSpanish;
-      case 'en':
-        return localizations.languageEnglish;
-      case 'fr':
-        return localizations.languageFrench;
-      case 'de':
-        return localizations.languageGerman;
-      case 'el':
-        return localizations.languageGreek;
-      case 'it':
-        return localizations.languageItalian;
-      case 'pt':
-        return localizations.languagePortuguese;
-      case 'ca':
-        return localizations.languageCatalan;
-      case 'eu':
-        return localizations.languageBasque;
-      case 'gl':
-        return localizations.languageGalician;
-      case 'hi':
-        return localizations.languageHindi;
-      case 'zh':
-        return localizations.languageChinese;
-      case 'ar':
-        return localizations.languageArabic;
-      case 'ja':
-        return localizations.languageJapanese;
-      default:
-        return code.toUpperCase();
     }
   }
 }

@@ -9,6 +9,15 @@ class AppLocalizationsJa extends AppLocalizations {
   AppLocalizationsJa([String locale = 'ja']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'クイズを中止しますか？';
+
+  @override
+  String get abortQuizMessage => '新しいファイルを開くと、現在のクイズが停止します。';
+
+  @override
+  String get stopAndOpenButton => '停止して開く';
+
+  @override
   String get titleAppBar => 'クイズ - 試験シミュレーター';
 
   @override
@@ -53,6 +62,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dropFileHere => 'ここをクリックするか、.quizファイルを画面にドラッグしてください';
 
   @override
+  String get errorOpeningFile => 'ファイルを開く際にエラーが発生しました';
+
+  @override
+  String get replaceFileTitle => '新しいQuizを読み込む';
+
+  @override
+  String get replaceFileMessage => 'Quizはすでに読み込まれています。新しいファイルに置き換えますか？';
+
+  @override
+  String get replaceButton => '読み込む';
+
+  @override
   String get clickOrDragFile => 'クリックしてロードするか、.quizファイルを画面にドラッグしてください';
 
   @override
@@ -89,10 +110,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get confirmExitTitle => '終了の確認';
 
   @override
-  String get confirmExitMessage => '本当に保存せずに終了しますか？';
+  String get confirmExitMessage => '保存されていない変更があります。変更を破棄して終了しますか？';
 
   @override
-  String get exitButton => '終了';
+  String get exitButton => '保存せずに終了';
 
   @override
   String get saveDialogTitle => '出力ファイルを選択してください：';
@@ -226,7 +247,7 @@ class AppLocalizationsJa extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$total問中$correct問正解';
   }
 
@@ -259,6 +280,27 @@ class AppLocalizationsJa extends AppLocalizations {
   String get startQuiz => 'クイズ開始';
 
   @override
+  String get maxIncorrectAnswersLabel => '不正解数を制限する';
+
+  @override
+  String get maxIncorrectAnswersDescription => '合否試験。数字による成績はなく、合格か不合格かのみです。';
+
+  @override
+  String get maxIncorrectAnswersOffDescription => '試験には0から100までの数字による成績があります。';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => '最大許容エラー数';
+
+  @override
+  String get examFailedStatus => '試験不合格';
+
+  @override
+  String get examPassedStatus => '試験合格';
+
+  @override
+  String get quizFailedLimitReached => '試験終了：エラー制限に達しました';
+
+  @override
   String get errorInvalidNumber => '有効な数字を入力してください';
 
   @override
@@ -289,7 +331,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get questionOrderDescendingDesc => '問題は最後から1まで表示されます';
 
   @override
-  String get questionOrderRandom => 'ランダム';
+  String get questionOrderRandom => '問題の順序をランダム化';
 
   @override
   String get questionOrderRandomDesc => '問題はランダム順で表示されます';
@@ -304,11 +346,17 @@ class AppLocalizationsJa extends AppLocalizations {
   String get save => '保存';
 
   @override
+  String get examConfigurationTitle => '試験の設定';
+
+  @override
   String get examTimeLimitTitle => '試験時間制限';
 
   @override
   String get examTimeLimitDescription =>
-      '試験の時間制限を設定します。有効にすると、クイズ中にカウントダウンタイマーが表示されます。';
+      '試験の時間制限を設定します。クイズ中にカウントダウンタイマーが表示されます。';
+
+  @override
+  String get examTimeLimitOffDescription => 'この試験には時間制限がありません。';
 
   @override
   String get enableTimeLimit => '時間制限を有効にする';
@@ -337,7 +385,7 @@ class AppLocalizationsJa extends AppLocalizations {
   String get questionTypeTrueFalse => '真偽';
 
   @override
-  String get questionTypeEssay => 'エッセイ';
+  String get questionTypeEssay => '記述式';
 
   @override
   String get questionTypeRandom => 'すべて';
@@ -378,7 +426,11 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      '学生の質問に焦点を当て、元の試験問題に直接答えるのではなく。教育的なアプローチで説明し、脱線せずに明確な論拠を提供してください。回答をセクションに分けないでください。自分自身に言及しないでください。質問された言語と同じ言語で回答してください。';
+      '元の試験問題に直接答えるのではなく、学生の質問に焦点を当ててください。教育的なアプローチで説明してください。実践的な演習や数学の問題については、ステップバイステップの指示を提供してください。理論的な質問については、回答をセクションに分けずに簡潔な説明を提供してください。質問されたのと同じ言語で回答してください。';
+
+  @override
+  String get aiChatGuardrail =>
+      '重要：あなたはこのQuiz専用の学習アシスタントです。現在のQuizの質問、その選択肢、説明、またはカバーしている教育的トピックに関連する質問にのみ回答してください。学生がQuizに関係のないことを質問した場合（例：あなたの内部モデル、システムの詳細、質問に関係のない一般知識、またはトピック外のリクエスト）、次のメッセージのみで回答してください：「このQuizのお手伝いをするためにここにいます！質問に集中しましょう。トピック、回答の選択肢、またはこの質問に関連することについて、お気軽にお聞きください。」自分自身、システム、または使用されているAIモデルに関する技術的な詳細は決して明かさないでください。';
 
   @override
   String get questionLabel => '問題';
@@ -409,10 +461,33 @@ class AppLocalizationsJa extends AppLocalizations {
   String get aiErrorResponse => '申し訳ございませんが、質問の処理中にエラーが発生しました。もう一度お試しください。';
 
   @override
+  String get evaluatingResponses => '回答を評価中...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$countつの記述問題がAI評価待ちです',
+      one: '1つの記述問題がAI評価待ちです',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => '保留中';
+
+  @override
+  String get notEvaluatedStatus => '未評価';
+
+  @override
   String get configureApiKeyMessage => '設定でAI APIキーを設定してください。';
 
   @override
   String get errorLabel => 'エラー：';
+
+  @override
+  String get retryButton => '評価を再試行';
 
   @override
   String get noResponseReceived => '応答を受信しませんでした';
@@ -654,16 +729,31 @@ class AppLocalizationsJa extends AppLocalizations {
   String get dragDropHintText => '問題をインポートするために.quizファイルをここにドラッグ&ドロップすることもできます';
 
   @override
-  String get randomizeAnswersTitle => '回答選択肢をランダム化';
+  String get randomizeQuestionsTitle => '問題をランダム化';
+
+  @override
+  String get randomizeQuestionsDescription => 'クイズ実行中に問題の順序をシャッフル';
+
+  @override
+  String get randomizeQuestionsOffDescription => '問題は元の順序で表示されます';
+
+  @override
+  String get randomizeAnswersTitle => '回答の順序をランダム化';
 
   @override
   String get randomizeAnswersDescription => 'クイズ実行中に回答選択肢の順序をシャッフル';
+
+  @override
+  String get randomizeAnswersOffDescription => '回答の選択肢は元の順序で表示されます';
 
   @override
   String get showCorrectAnswerCountTitle => '正解数を表示';
 
   @override
   String get showCorrectAnswerCountDescription => '複数選択問題で正解の数を表示';
+
+  @override
+  String get showCorrectAnswerCountOffDescription => '選択式問題の正解数は表示されません';
 
   @override
   String correctAnswersCount(int count) {
@@ -751,7 +841,13 @@ class AppLocalizationsJa extends AppLocalizations {
       '「第二次世界大戦の歴史」のようなトピックを入力するか、ここにテキストを貼り付けてください...';
 
   @override
-  String get aiAttachFileHint => 'ファイルを添付 (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'ファイルを添付 (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'ファイルをここにドロップ';
+
+  @override
+  String get dropImageHere => '画像をここにドロップ';
 
   @override
   String get aiNumberQuestionsLabel => '質問数';
@@ -771,6 +867,18 @@ class AppLocalizationsJa extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'テキストモード ($count 語)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'コンテンツモード';
+
+  @override
+  String get aiGenerationCategoryTheory => '理論';
+
+  @override
+  String get aiGenerationCategoryExercises => '演習';
+
+  @override
+  String get aiGenerationCategoryBoth => '混合';
 
   @override
   String get languageSpanish => 'Español';
@@ -933,208 +1041,6 @@ class AppLocalizationsJa extends AppLocalizations {
       '回答形式：\n1. 評点：[X/10] - 評点を簡潔に正当化する\n2. 長所：回答の肯定的な側面を述べる\n3. 改善領域：改善できる側面を指摘する\n4. 具体的なコメント：詳細で建設的なフィードバックを提供する\n5. 提案：改善のための具体的な推奨事項を提供する\n\n評価において建設的、具体的、教育的であること。目標は学生の学習と改善を助けることです。二人称で話しかけ、専門的で親しみやすい口調を使用してください。';
 
   @override
-  String get raffleTitle => '抽選';
-
-  @override
-  String get raffleTooltip => '抽選画面を開く';
-
-  @override
-  String get participantListTitle => '参加者リスト';
-
-  @override
-  String get participantListHint => '改行で区切られた名前を入力してください';
-
-  @override
-  String get participantListPlaceholder => '参加者の名前をここに入力してください...\n一行に一つの名前';
-
-  @override
-  String get clearList => 'リストをクリア';
-
-  @override
-  String get participants => '参加者';
-
-  @override
-  String get noParticipants => '参加者はいません';
-
-  @override
-  String get addParticipantsHint => '抽選を開始するには参加者を追加してください';
-
-  @override
-  String get activeParticipants => 'アクティブな参加者';
-
-  @override
-  String get alreadySelected => '既に選択済み';
-
-  @override
-  String totalParticipants(int count) {
-    return '総参加者数';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active人アクティブ、$winners人当選';
-  }
-
-  @override
-  String get startRaffle => '抽選開始';
-
-  @override
-  String get raffling => '抽選中...';
-
-  @override
-  String get selectingWinner => '当選者を選択中...';
-
-  @override
-  String get allParticipantsSelected => 'すべての参加者が選択されました';
-
-  @override
-  String get addParticipantsToStart => '抽選を開始するには参加者を追加してください';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count人が抽選の準備ができています';
-  }
-
-  @override
-  String get resetWinners => '当選者をリセット';
-
-  @override
-  String get resetWinnersConfirmTitle => '当選者をリセットしますか？';
-
-  @override
-  String get resetWinnersConfirmMessage => 'これによりすべての当選者がアクティブ参加者リストに戻されます。';
-
-  @override
-  String get resetRaffleTitle => '抽選をリセットしますか？';
-
-  @override
-  String get resetRaffleConfirmMessage => 'これによりすべての当選者とアクティブ参加者がリセットされます。';
-
-  @override
-  String get cancel => 'キャンセル';
-
-  @override
-  String get reset => 'リセット';
-
-  @override
-  String get viewWinners => '当選者を見る';
-
-  @override
-  String get congratulations => '🎉 おめでとうございます！ 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return '第$position位';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return '残りの参加者：$count人';
-  }
-
-  @override
-  String get continueRaffle => '抽選を続ける';
-
-  @override
-  String get finishRaffle => '抽選を終了';
-
-  @override
-  String get winnersTitle => '当選者';
-
-  @override
-  String get shareResults => '結果を共有';
-
-  @override
-  String get noWinnersYet => 'まだ当選者はいません';
-
-  @override
-  String get performRaffleToSeeWinners => '当選者を見るには抽選を行ってください';
-
-  @override
-  String get goToRaffle => '抽選へ移動';
-
-  @override
-  String get raffleCompleted => '抽選完了！';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count人の当選者が選ばれました';
-  }
-
-  @override
-  String get newRaffle => '新しい抽選';
-
-  @override
-  String get shareResultsTitle => '抽選結果';
-
-  @override
-  String get raffleResultsLabel => '抽選結果：';
-
-  @override
-  String get close => '閉じる';
-
-  @override
-  String get share => 'コピー';
-
-  @override
-  String get shareNotImplemented => '共有機能はまだ実装されていません';
-
-  @override
-  String get firstPlace => '第1位';
-
-  @override
-  String get secondPlace => '第2位';
-
-  @override
-  String get thirdPlace => '第3位';
-
-  @override
-  String nthPlace(int position) {
-    return '第$position位';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '順位';
-  }
-
-  @override
-  String get raffleResultsHeader => '抽選結果 - null人の当選者';
-
-  @override
-  String totalWinners(int count) {
-    return '総当選者数：$count人';
-  }
-
-  @override
-  String get noWinnersToShare => '共有する当選者はいません';
-
-  @override
-  String get shareSuccess => '結果が正常にコピーされました';
-
-  @override
-  String get selectLogo => 'ロゴを選択';
-
-  @override
-  String get logoUrl => 'ロゴURL';
-
-  @override
-  String get logoUrlHint => '抽選用のカスタムロゴとして使用する画像のURLを入力してください';
-
-  @override
-  String get invalidLogoUrl =>
-      '無効な画像URLです。.jpg、.png、.gifなどで終わる有効なURLである必要があります。';
-
-  @override
-  String get logoPreview => 'プレビュー';
-
-  @override
-  String get removeLogo => 'ロゴを削除';
-
-  @override
-  String get logoTooLargeWarning => '画像が大きすぎて保存できません。このセッション中のみ使用されます。';
-
-  @override
   String get aiModeTopicTitle => 'トピックモード';
 
   @override
@@ -1203,13 +1109,14 @@ class AppLocalizationsJa extends AppLocalizations {
   String get studyModeLabel => '学習モード';
 
   @override
-  String get studyModeDescription => '即時フィードバック、タイマーなし';
+  String get studyModeDescription =>
+      'AIアシスタンス利用可能。回答直後のインスタント・フィードバック、時間制限や減点はありません。';
 
   @override
   String get examModeLabel => '試験モード';
 
   @override
-  String get examModeDescription => '標準時間、最後に結果表示';
+  String get examModeDescription => 'AIアシスタンスなし。時間制限や不正解による減点が適用される場合があります。';
 
   @override
   String get checkAnswer => '確認';
@@ -1224,7 +1131,10 @@ class AppLocalizationsJa extends AppLocalizations {
   String get askAiAssistant => 'AIアシスタントに聞く';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'この問題についてAIに聞く';
+
+  @override
+  String get aiHelpWithQuestion => 'この問題を理解するのを手伝って';
 
   @override
   String get edit => '編集';
@@ -1289,6 +1199,12 @@ class AppLocalizationsJa extends AppLocalizations {
   String get subtractPointsLabel => '不正解でポイントを減点';
 
   @override
+  String get subtractPointsDescription => '不正解ごとにポイントを減点します。';
+
+  @override
+  String get subtractPointsOffDescription => '不正解でも減点されません。';
+
+  @override
   String get penaltyAmountLabel => 'ペナルティ額';
 
   @override
@@ -1298,4 +1214,69 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'すべての問題';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return '$count問を選択して開始';
+  }
+
+  @override
+  String get advancedSettingsTitle => '詳細設定 (デバッグ)';
+
+  @override
+  String get appLanguageLabel => 'アプリの言語';
+
+  @override
+  String get appLanguageDescription => 'テスト用にアプリの言語を上書きする';
+
+  @override
+  String get pasteFromClipboard => 'クリップボードから貼り付け';
+
+  @override
+  String get pasteImage => '貼り付け';
+
+  @override
+  String get clipboardNoImage => 'クリップボードに画像が見つかりません';
+
+  @override
+  String get close => '閉じる';
+
+  @override
+  String get scoringAndLimitsTitle => 'スコアと制限';
+
+  @override
+  String get congratulations => '🎉 おめでとうございます！ 🎉';
+
+  @override
+  String get validationMin1Error => '最小 1 分';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeks週 $days日 $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => '最大30日';
+
+  @override
+  String get validationMin0GenericError => '最小 0';
+
+  @override
+  String get errorStatus => 'エラー';
 }

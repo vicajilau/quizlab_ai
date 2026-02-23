@@ -6,9 +6,29 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [1.7.0]
-
+- feat: Automated AI evaluation for essay questions in Study Mode with automated trigger, persistence across navigation, and navigation locking during processing.
+- ui: Fixed error state styling for the "Maximum allowed errors" input field to match other inputs.
+- feat: Restructured settings by moving quiz-related options into the quiz start section.
+- refactor: Refactored AI Assistant UI to use `AiAssistantTheme` extension and implemented Shift + Enter shortcuts for better multi-line input handling.
+- refactor: Removed all Raffle Mode functionality (screens, blocs, models, and routes) as it has been migrated to a separate repository.
+- feat: Added initial window size (1024x800) and minimum window size (500x500) for desktop platforms to ensure proper visibility and resizing.
+- ui: Improved adaptability of quiz completion buttons "Try Again" and "Retry Errors" on mobile devices to prevent text overflow.
+- feat: Added "Paste from clipboard" image attachment support in manual question creation and AI generation dialogs using the `pasteboard` package.
+- feat: Disable penalty in Study Mode and add max incorrect answers limit for Exam Mode with auto-termination.
+- ui: Added branded loading screen with animated spinner in `index.html` to replace blank white screen during app initialization, with light/dark theme support.
 - feat: Allow manual editing of the number of questions in the AI generation dialog via a text field.
+- feat: Added "Content Mode" selection (Theory, Exercises,Mixed) to AI generation to refine results and avoid unwanted generic exercises.
 - fix: Prevent collapsing a `QuestionPreviewCard` when tapping collapsible content.
+- feat: Allow execute a quiz with only-selected questions.
+- feat: Set default question count to 5 in AI generation dialog when no preferences exist.
+- fix: Ensured "All" (Random) question type is selected by default in the AI generation dialog when no preferences exist.
+- feature: Add drag & drop file support for the AI question generation and manual question creation dialogs, with a guard to prevent conflicts with the global .quiz file drop handler.
+- fix: Resolved a crash on iOS when saving a new quiz file by ensuring a valid default filename is generated.
+- refactor: Upgraded project to Flutter 3.41.0.
+- refactor: Migrated iOS app to UIScene lifecycle to ensure compatibility with future iOS versions.
+- ui: Auto-scroll bottom action bar to the start when selecting or modifying questions.
+- feat: Added AI chat guardrails to keep the study assistant focused on quiz content and prevent off-topic or system-revealing responses.
+- feat: Replaced AI Study Assistant modal dialog with a persistent sidebar panel on desktop (collapsible, 400px) and a full-screen slide-in panel on mobile, preserving chat history across questions and layout changes.
 
 ## [1.6.0] - 2026-02-11
 

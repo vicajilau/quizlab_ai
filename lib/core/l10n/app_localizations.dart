@@ -122,6 +122,24 @@ abstract class AppLocalizations {
     Locale('zh'),
   ];
 
+  /// No description provided for @abortQuizTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Abort Quiz?'**
+  String get abortQuizTitle;
+
+  /// No description provided for @abortQuizMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening a new file will stop the current quiz.'**
+  String get abortQuizMessage;
+
+  /// No description provided for @stopAndOpenButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop & Open'**
+  String get stopAndOpenButton;
+
   /// Title of the application displayed in the AppBar.
   ///
   /// In en, this message translates to:
@@ -200,6 +218,30 @@ abstract class AppLocalizations {
   /// **'Click logo or drag a .quiz file to the screen'**
   String get dropFileHere;
 
+  /// Generic error message when opening a file fails.
+  ///
+  /// In en, this message translates to:
+  /// **'Error opening file'**
+  String get errorOpeningFile;
+
+  /// Title of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load new Quiz'**
+  String get replaceFileTitle;
+
+  /// Message of the confirmation dialog to replace the current file.
+  ///
+  /// In en, this message translates to:
+  /// **'A Quiz is already loaded. Do you want to replace it with the new file?'**
+  String get replaceFileMessage;
+
+  /// Button to confirm replacing the file.
+  ///
+  /// In en, this message translates to:
+  /// **'Load'**
+  String get replaceButton;
+
   /// Text displayed below the drop area
   ///
   /// In en, this message translates to:
@@ -263,13 +305,13 @@ abstract class AppLocalizations {
   /// Message in the confirmation dialog for exiting.
   ///
   /// In en, this message translates to:
-  /// **'Are you sure you want to leave without saving?'**
+  /// **'There are unsaved changes. Do you want to leave and discard changes?'**
   String get confirmExitMessage;
 
   /// Exit button text.
   ///
   /// In en, this message translates to:
-  /// **'Exit'**
+  /// **'Exit without saving'**
   String get exitButton;
 
   /// Title for the save dialog.
@@ -510,7 +552,7 @@ abstract class AppLocalizations {
   ///
   /// In en, this message translates to:
   /// **'{correct} of {total} correct answers'**
-  String correctAnswers(int correct, int total);
+  String correctAnswers(String correct, int total);
 
   /// Retry button text
   ///
@@ -559,6 +601,48 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Start Quiz'**
   String get startQuiz;
+
+  /// Label for the toggle to limit incorrect answers
+  ///
+  /// In en, this message translates to:
+  /// **'Limit incorrect answers'**
+  String get maxIncorrectAnswersLabel;
+
+  /// Description for the limit incorrect answers feature
+  ///
+  /// In en, this message translates to:
+  /// **'Pass/Fail Exam. No numeric grade; you either pass or fail.'**
+  String get maxIncorrectAnswersDescription;
+
+  /// Description shown when max incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'The exam has a numeric grade from 0 to 100.'**
+  String get maxIncorrectAnswersOffDescription;
+
+  /// Label for the input field of maximum incorrect answers
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum allowed errors'**
+  String get maxIncorrectAnswersLimitLabel;
+
+  /// Status of a failed exam
+  ///
+  /// In en, this message translates to:
+  /// **'Exam FAILED (Fail)'**
+  String get examFailedStatus;
+
+  /// Status of a passed exam
+  ///
+  /// In en, this message translates to:
+  /// **'Exam PASSED (Pass)'**
+  String get examPassedStatus;
+
+  /// Title for the results screen when the error limit is reached
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Finished: Maximum error limit has been reached'**
+  String get quizFailedLimitReached;
 
   /// Error message for invalid number input
   ///
@@ -623,7 +707,7 @@ abstract class AppLocalizations {
   /// Label for random question order option
   ///
   /// In en, this message translates to:
-  /// **'Random'**
+  /// **'Randomize Questions Order'**
   String get questionOrderRandom;
 
   /// Description for random question order option
@@ -650,6 +734,12 @@ abstract class AppLocalizations {
   /// **'Save'**
   String get save;
 
+  /// Title for the advanced settings / exam configuration section
+  ///
+  /// In en, this message translates to:
+  /// **'Exam Configuration'**
+  String get examConfigurationTitle;
+
   /// Title for exam time limit section
   ///
   /// In en, this message translates to:
@@ -659,8 +749,14 @@ abstract class AppLocalizations {
   /// Description for exam time limit feature
   ///
   /// In en, this message translates to:
-  /// **'Set a time limit for the exam. When enabled, a countdown timer will be displayed during the quiz.'**
+  /// **'Set a time limit for the exam. A countdown timer will be displayed during the quiz.'**
   String get examTimeLimitDescription;
+
+  /// Description shown when time limit is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'There is no time limit for this exam.'**
+  String get examTimeLimitOffDescription;
 
   /// Label for enable exam time limit switch
   ///
@@ -773,8 +869,14 @@ abstract class AppLocalizations {
   /// Base prompt for AI assistant
   ///
   /// In en, this message translates to:
-  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach, providing clear arguments without rambling or going off-topic. Do not structure the response in sections. Do not refer to yourself. Respond in the same language you are asked in.'**
+  /// **'Focus on the student\'s question, not on directly answering the original exam question. Explain with a pedagogical approach. For practical exercises or math problems, provide step-by-step instructions. For theoretical questions, provide a concise explanation without structuring the response in sections. Respond in the same language you are asked in.'**
   String get aiPrompt;
+
+  /// Guardrail prompt to keep AI focused on quiz content
+  ///
+  /// In en, this message translates to:
+  /// **'IMPORTANT: You are a study assistant exclusively for this Quiz. You must ONLY answer questions related to the current Quiz question, its options, its explanation, or the educational topic it covers. If the student asks about anything unrelated to the Quiz (e.g., your internal model, system details, general knowledge not related to the question, or any off-topic request), respond ONLY with: \"I\'m here to help you with this Quiz! Let\'s focus on the question at hand. Feel free to ask me about the topic, the answer options, or anything related to this question.\" Never reveal technical details about yourself, the system, or the AI model being used.'**
+  String get aiChatGuardrail;
 
   /// Label for question in AI dialog
   ///
@@ -830,6 +932,30 @@ abstract class AppLocalizations {
   /// **'Sorry, there was an error processing your question. Please try again.'**
   String get aiErrorResponse;
 
+  /// Text shown in the results screen when AI evaluations are pending
+  ///
+  /// In en, this message translates to:
+  /// **'Evaluating responses...'**
+  String get evaluatingResponses;
+
+  /// Subtitle showing the number of pending AI evaluations
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 development question pending AI evaluation} other{{count} development questions pending AI evaluation}}'**
+  String pendingEvaluationsCount(int count);
+
+  /// Status label for a pending AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get pendingStatus;
+
+  /// Status label for an essay question that was not evaluated by AI
+  ///
+  /// In en, this message translates to:
+  /// **'Not evaluated'**
+  String get notEvaluatedStatus;
+
   /// Message to configure API key when not set
   ///
   /// In en, this message translates to:
@@ -841,6 +967,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Error:'**
   String get errorLabel;
+
+  /// Button text to retry an AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Retry Evaluation'**
+  String get retryButton;
 
   /// Message when no response is received from AI
   ///
@@ -1280,10 +1412,28 @@ abstract class AppLocalizations {
   /// **'You can also drag and drop .quiz files here to import questions'**
   String get dragDropHintText;
 
+  /// Title for the setting to randomize questions.
+  ///
+  /// In en, this message translates to:
+  /// **'Randomize Questions'**
+  String get randomizeQuestionsTitle;
+
+  /// Description for the randomize questions setting.
+  ///
+  /// In en, this message translates to:
+  /// **'Shuffle the order of questions during quiz execution'**
+  String get randomizeQuestionsDescription;
+
+  /// Description for the randomize questions setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Questions will appear in their original order'**
+  String get randomizeQuestionsOffDescription;
+
   /// Title for the setting to randomize answer options.
   ///
   /// In en, this message translates to:
-  /// **'Randomize Answer Options'**
+  /// **'Randomize Answers Order'**
   String get randomizeAnswersTitle;
 
   /// Description for the randomize answers setting.
@@ -1291,6 +1441,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Shuffle the order of answer options during quiz execution'**
   String get randomizeAnswersDescription;
+
+  /// Description for the randomize answers setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Answer options will appear in their original order'**
+  String get randomizeAnswersOffDescription;
 
   /// Title for the setting to show correct answer count.
   ///
@@ -1303,6 +1459,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Display the number of correct answers in multiple choice questions'**
   String get showCorrectAnswerCountDescription;
+
+  /// Description for the show correct answer count setting when disabled.
+  ///
+  /// In en, this message translates to:
+  /// **'The number of correct answers will not be shown for multiple-choice questions'**
+  String get showCorrectAnswerCountOffDescription;
 
   /// Text showing how many correct answers to select in a multiple choice question.
   ///
@@ -1457,8 +1619,20 @@ abstract class AppLocalizations {
   /// Hint text for the file attachment area
   ///
   /// In en, this message translates to:
-  /// **'Attach a file (PDF, TXT, DOCX)'**
+  /// **'Attach a file (PDF, TXT, MP3, MP4,...)'**
   String get aiAttachFileHint;
+
+  /// Hint shown when dragging a file over the attachment area
+  ///
+  /// In en, this message translates to:
+  /// **'Drop file here'**
+  String get dropAttachmentHere;
+
+  /// Hint shown when dragging an image over the image section
+  ///
+  /// In en, this message translates to:
+  /// **'Drop image here'**
+  String get dropImageHere;
 
   /// Label for number of questions input
   ///
@@ -1489,6 +1663,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Text Mode ({count} words)'**
   String aiTextModeCount(int count);
+
+  /// Label for AI generation category selector
+  ///
+  /// In en, this message translates to:
+  /// **'Content Mode'**
+  String get aiGenerationCategoryLabel;
+
+  /// Label for theory category
+  ///
+  /// In en, this message translates to:
+  /// **'Theory'**
+  String get aiGenerationCategoryTheory;
+
+  /// Label for exercises category
+  ///
+  /// In en, this message translates to:
+  /// **'Exercises'**
+  String get aiGenerationCategoryExercises;
+
+  /// Label for mixed category
+  ///
+  /// In en, this message translates to:
+  /// **'Mixed'**
+  String get aiGenerationCategoryBoth;
 
   /// Spanish language name.
   ///
@@ -1772,372 +1970,6 @@ abstract class AppLocalizations {
   /// **'RESPONSE FORMAT:\n1. GRADE: [X/10] - Briefly justify the grade\n2. STRENGTHS: Mention positive aspects of the response\n3. AREAS FOR IMPROVEMENT: Point out aspects that could be improved\n4. SPECIFIC COMMENTS: Provide detailed and constructive feedback\n5. SUGGESTIONS: Offer specific recommendations for improvement\n\nBe constructive, specific, and educational in your evaluation. The goal is to help the student learn and improve. Address them in second person and use a professional and friendly tone.'**
   String get aiEvaluationPromptResponseFormat;
 
-  /// Title of the raffle functionality
-  ///
-  /// In en, this message translates to:
-  /// **'Raffle'**
-  String get raffleTitle;
-
-  /// Tooltip of the raffle button in the app bar
-  ///
-  /// In en, this message translates to:
-  /// **'Start raffle'**
-  String get raffleTooltip;
-
-  /// Title of the participant list section
-  ///
-  /// In en, this message translates to:
-  /// **'Participant List'**
-  String get participantListTitle;
-
-  /// Instruction for the participant input field
-  ///
-  /// In en, this message translates to:
-  /// **'Enter one name per line:'**
-  String get participantListHint;
-
-  /// Example text in the participant field
-  ///
-  /// In en, this message translates to:
-  /// **'John Doe\nJane Smith\nBob Johnson\n...'**
-  String get participantListPlaceholder;
-
-  /// Text of the button to clear the participant list
-  ///
-  /// In en, this message translates to:
-  /// **'Clear List'**
-  String get clearList;
-
-  /// Title of the participants section
-  ///
-  /// In en, this message translates to:
-  /// **'Participants'**
-  String get participants;
-
-  /// Message when there are no participants
-  ///
-  /// In en, this message translates to:
-  /// **'No participants'**
-  String get noParticipants;
-
-  /// Suggestion to add participants
-  ///
-  /// In en, this message translates to:
-  /// **'Add names in the text area'**
-  String get addParticipantsHint;
-
-  /// Title for active participants
-  ///
-  /// In en, this message translates to:
-  /// **'Active Participants'**
-  String get activeParticipants;
-
-  /// Title for already selected participants
-  ///
-  /// In en, this message translates to:
-  /// **'Already Selected'**
-  String get alreadySelected;
-
-  /// Total participants
-  ///
-  /// In en, this message translates to:
-  /// **'Total: {count}'**
-  String totalParticipants(int count);
-
-  /// Summary of active participants vs winners
-  ///
-  /// In en, this message translates to:
-  /// **'Active: {active} | Winners: {winners}'**
-  String activeVsWinners(int active, int winners);
-
-  /// Text of the button to start raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Start Raffle'**
-  String get startRaffle;
-
-  /// Text shown during raffle animation
-  ///
-  /// In en, this message translates to:
-  /// **'Raffling...'**
-  String get raffling;
-
-  /// Text shown during winner selection
-  ///
-  /// In en, this message translates to:
-  /// **'Selecting winner...'**
-  String get selectingWinner;
-
-  /// Message when all participants have been selected
-  ///
-  /// In en, this message translates to:
-  /// **'All participants have already been selected'**
-  String get allParticipantsSelected;
-
-  /// Message to add participants before raffling
-  ///
-  /// In en, this message translates to:
-  /// **'Add participants to start the raffle'**
-  String get addParticipantsToStart;
-
-  /// Number of participants ready for raffle
-  ///
-  /// In en, this message translates to:
-  /// **'{count} participant(s) ready for raffle'**
-  String participantsReadyCount(int count);
-
-  /// Text of the button to reset winners
-  ///
-  /// In en, this message translates to:
-  /// **'Reset Winners'**
-  String get resetWinners;
-
-  /// Title of the confirmation dialog to reset winners
-  ///
-  /// In en, this message translates to:
-  /// **'Reset Winners'**
-  String get resetWinnersConfirmTitle;
-
-  /// Confirmation message to reset winners
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to reset the winners list? All participants will be available for the raffle again.'**
-  String get resetWinnersConfirmMessage;
-
-  /// Title of the button and dialog to reset raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Reset Raffle'**
-  String get resetRaffleTitle;
-
-  /// Confirmation message to reset entire raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Are you sure you want to reset the raffle? All participants and winners will be lost.'**
-  String get resetRaffleConfirmMessage;
-
-  /// Text of the cancel button
-  ///
-  /// In en, this message translates to:
-  /// **'Cancel'**
-  String get cancel;
-
-  /// Text of the reset button
-  ///
-  /// In en, this message translates to:
-  /// **'Reset'**
-  String get reset;
-
-  /// Tooltip of the button to view winners
-  ///
-  /// In en, this message translates to:
-  /// **'View winners'**
-  String get viewWinners;
-
-  /// Congratulations message in winner dialog
-  ///
-  /// In en, this message translates to:
-  /// **'🎉 Congratulations! 🎉'**
-  String get congratulations;
-
-  /// Position label of the winner
-  ///
-  /// In en, this message translates to:
-  /// **'Position: {position}°'**
-  String positionLabel(int position);
-
-  /// Number of remaining participants
-  ///
-  /// In en, this message translates to:
-  /// **'Remaining participants: {count}'**
-  String remainingParticipants(int count);
-
-  /// Text of the button to continue raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Continue Raffle'**
-  String get continueRaffle;
-
-  /// Text of the button to finish raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Finish Raffle'**
-  String get finishRaffle;
-
-  /// Title of the winners screen
-  ///
-  /// In en, this message translates to:
-  /// **'Raffle Winners'**
-  String get winnersTitle;
-
-  /// Tooltip of the share results button
-  ///
-  /// In en, this message translates to:
-  /// **'Share results'**
-  String get shareResults;
-
-  /// Message when there are no winners
-  ///
-  /// In en, this message translates to:
-  /// **'No winners yet'**
-  String get noWinnersYet;
-
-  /// Suggestion to perform a raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Perform a raffle to see the winners here'**
-  String get performRaffleToSeeWinners;
-
-  /// Text of the button to go to raffle
-  ///
-  /// In en, this message translates to:
-  /// **'Go to Raffle'**
-  String get goToRaffle;
-
-  /// Raffle completed message
-  ///
-  /// In en, this message translates to:
-  /// **'Raffle Completed'**
-  String get raffleCompleted;
-
-  /// Number of winners selected
-  ///
-  /// In en, this message translates to:
-  /// **'{count} winner(s) selected'**
-  String winnersSelectedCount(int count);
-
-  /// Text of the button for new raffle
-  ///
-  /// In en, this message translates to:
-  /// **'New Raffle'**
-  String get newRaffle;
-
-  /// Title of the share results dialog
-  ///
-  /// In en, this message translates to:
-  /// **'Share Results'**
-  String get shareResultsTitle;
-
-  /// Label for raffle results
-  ///
-  /// In en, this message translates to:
-  /// **'Raffle results:'**
-  String get raffleResultsLabel;
-
-  /// Text of the close button
-  ///
-  /// In en, this message translates to:
-  /// **'Close'**
-  String get close;
-
-  /// Text of the copy button
-  ///
-  /// In en, this message translates to:
-  /// **'Copy'**
-  String get share;
-
-  /// Message when share functionality is not implemented
-  ///
-  /// In en, this message translates to:
-  /// **'Share functionality not implemented'**
-  String get shareNotImplemented;
-
-  /// Abbreviation for first place
-  ///
-  /// In en, this message translates to:
-  /// **'1st'**
-  String get firstPlace;
-
-  /// Abbreviation for second place
-  ///
-  /// In en, this message translates to:
-  /// **'2nd'**
-  String get secondPlace;
-
-  /// Abbreviation for third place
-  ///
-  /// In en, this message translates to:
-  /// **'3rd'**
-  String get thirdPlace;
-
-  /// Format for positions higher than third place
-  ///
-  /// In en, this message translates to:
-  /// **'{position}°'**
-  String nthPlace(int position);
-
-  /// Place label in winners list
-  ///
-  /// In en, this message translates to:
-  /// **'{position} place'**
-  String placeLabel(String position);
-
-  /// Header for shared raffle results
-  ///
-  /// In en, this message translates to:
-  /// **'🏆 RAFFLE RESULTS 🏆'**
-  String get raffleResultsHeader;
-
-  /// Total winners in shared results
-  ///
-  /// In en, this message translates to:
-  /// **'Total winners: {count}'**
-  String totalWinners(int count);
-
-  /// Message when there are no winners to share
-  ///
-  /// In en, this message translates to:
-  /// **'No winners.'**
-  String get noWinnersToShare;
-
-  /// Success message when raffle results are copied
-  ///
-  /// In en, this message translates to:
-  /// **'Results copied successfully'**
-  String get shareSuccess;
-
-  /// Title of the dialog for selecting custom logo
-  ///
-  /// In en, this message translates to:
-  /// **'Select Logo'**
-  String get selectLogo;
-
-  /// Label for the logo URL input field
-  ///
-  /// In en, this message translates to:
-  /// **'Logo URL'**
-  String get logoUrl;
-
-  /// Help text explaining the logo URL field
-  ///
-  /// In en, this message translates to:
-  /// **'Enter the URL of an image to use as a custom logo for the raffle'**
-  String get logoUrlHint;
-
-  /// Error message for invalid logo URL
-  ///
-  /// In en, this message translates to:
-  /// **'Invalid image URL. Must be a valid URL ending in .jpg, .png, .gif, etc.'**
-  String get invalidLogoUrl;
-
-  /// Title of the logo preview section
-  ///
-  /// In en, this message translates to:
-  /// **'Preview'**
-  String get logoPreview;
-
-  /// Text of the button to remove custom logo
-  ///
-  /// In en, this message translates to:
-  /// **'Remove Logo'**
-  String get removeLogo;
-
-  /// Warning message when logo is too large for persistent storage
-  ///
-  /// In en, this message translates to:
-  /// **'Image is too large to be saved. It will only be used during this session.'**
-  String get logoTooLargeWarning;
-
   /// Title for topic mode in AI assistant
   ///
   /// In en, this message translates to:
@@ -2267,7 +2099,7 @@ abstract class AppLocalizations {
   /// Description for study mode
   ///
   /// In en, this message translates to:
-  /// **'Instant feedback and no timer'**
+  /// **'AI assistance available. Instant feedback after each answer with no time limits or penalties.'**
   String get studyModeDescription;
 
   /// Label for exam mode option
@@ -2279,7 +2111,7 @@ abstract class AppLocalizations {
   /// Description for exam mode
   ///
   /// In en, this message translates to:
-  /// **'Standard timer and results at the end'**
+  /// **'No AI assistance. Time limits and penalties for incorrect answers may apply.'**
   String get examModeDescription;
 
   /// Button label to check the answer in study mode
@@ -2306,11 +2138,17 @@ abstract class AppLocalizations {
   /// **'Ask AI Assistant'**
   String get askAiAssistant;
 
-  /// Label for the raffles button
+  /// Button label in quiz to open AI chat sidebar for the current question
   ///
   /// In en, this message translates to:
-  /// **'Raffles'**
-  String get sorteosLabel;
+  /// **'Ask AI about this question'**
+  String get askAiAboutQuestion;
+
+  /// Auto-filled text in AI chat when user clicks ask AI about question button
+  ///
+  /// In en, this message translates to:
+  /// **'Help me understand this question'**
+  String get aiHelpWithQuestion;
 
   /// Button label to edit a question
   ///
@@ -2432,6 +2270,18 @@ abstract class AppLocalizations {
   /// **'Subtract points for wrong answer'**
   String get subtractPointsLabel;
 
+  /// No description provided for @subtractPointsDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Subtract points for each incorrect answer.'**
+  String get subtractPointsDescription;
+
+  /// Description shown when subtract points for incorrect answers is disabled
+  ///
+  /// In en, this message translates to:
+  /// **'Incorrect answers do not deduct points.'**
+  String get subtractPointsOffDescription;
+
   /// Label for the input field to set the penalty amount
   ///
   /// In en, this message translates to:
@@ -2449,6 +2299,113 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'All Questions'**
   String get allQuestionsLabel;
+
+  /// Button text to start the quiz with only the selected questions
+  ///
+  /// In en, this message translates to:
+  /// **'Start with {count} selected'**
+  String startWithSelectedQuestions(int count);
+
+  /// Title for the advanced settings section shown in debug mode
+  ///
+  /// In en, this message translates to:
+  /// **'Advanced Settings (Debug)'**
+  String get advancedSettingsTitle;
+
+  /// Label for the application language override setting
+  ///
+  /// In en, this message translates to:
+  /// **'App Language'**
+  String get appLanguageLabel;
+
+  /// Description for the application language override setting
+  ///
+  /// In en, this message translates to:
+  /// **'Override application language for testing'**
+  String get appLanguageDescription;
+
+  /// Label for the paste from clipboard button
+  ///
+  /// In en, this message translates to:
+  /// **'Paste from clipboard'**
+  String get pasteFromClipboard;
+
+  /// Short label for paste button when image is already present
+  ///
+  /// In en, this message translates to:
+  /// **'Paste'**
+  String get pasteImage;
+
+  /// Error message when no image is found in the clipboard
+  ///
+  /// In en, this message translates to:
+  /// **'No image found in clipboard'**
+  String get clipboardNoImage;
+
+  /// Close button text
+  ///
+  /// In en, this message translates to:
+  /// **'Close'**
+  String get close;
+
+  /// Title for the scoring and limits section in advanced settings
+  ///
+  /// In en, this message translates to:
+  /// **'Scoring and Limits'**
+  String get scoringAndLimitsTitle;
+
+  /// Congratulations message in winner dialog
+  ///
+  /// In en, this message translates to:
+  /// **'🎉 Congratulations! 🎉'**
+  String get congratulations;
+
+  /// Validation message indicating the time limit must be at least 1 minute.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 1 minute'**
+  String get validationMin1Error;
+
+  /// Format for remaining time display when it exceeds 24 hours (days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Format for remaining time display when it exceeds 7 days (weeks days hours:minutes:seconds)
+  ///
+  /// In en, this message translates to:
+  /// **'{weeks}w {days}d {hours}:{minutes}:{seconds}'**
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  );
+
+  /// Validation message indicating the time limit cannot exceed 30 days.
+  ///
+  /// In en, this message translates to:
+  /// **'Maximum 30 days'**
+  String get validationMax30DaysError;
+
+  /// Error message when a field requires a minimum value of 0 without specifying units.
+  ///
+  /// In en, this message translates to:
+  /// **'Minimum 0'**
+  String get validationMin0GenericError;
+
+  /// Status label for a failed AI evaluation
+  ///
+  /// In en, this message translates to:
+  /// **'Error'**
+  String get errorStatus;
 }
 
 class _AppLocalizationsDelegate

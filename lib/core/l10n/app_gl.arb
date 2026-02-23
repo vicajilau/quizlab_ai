@@ -1,5 +1,8 @@
 {
   "@@locale": "gl",
+  "abortQuizTitle": "Abortar Quiz?",
+  "abortQuizMessage": "Abrir un novo ficheiro deterá o cuestionario actual.",
+  "stopAndOpenButton": "Deter e Abrir",
   "titleAppBar": "Quiz - Simulador de Exames",
   "@titleAppBar": {
     "description": "Título da aplicación mostrado na AppBar."
@@ -36,7 +39,23 @@
       }
     }
   },
-  "dropFileHere": "Preme aquí ou arrastra un ficheiro .quiz á pantalla",
+  "dropFileHere": "Fai clic no logotipo ou arrastra un ficheiro .quiz á pantalla",
+  "errorOpeningFile": "Erro ao abrir o ficheiro",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "Cargar novo Quiz",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "Xa hai un Quiz cargado. Queres substituílo polo novo ficheiro?",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "Cargar",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "Texto mostrado na área de soltar para arrastrar ficheiros."
   },
@@ -98,11 +117,11 @@
   "@confirmExitTitle": {
     "description": "Título para o diálogo de confirmación en saír."
   },
-  "confirmExitMessage": "Estás seguro de que queres saír sen gardar?",
+  "confirmExitMessage": "Hai cambios sen gardar. Queres saír descartando os cambios?",
   "@confirmExitMessage": {
     "description": "Mensaxe no diálogo de confirmación para saír."
   },
-  "exitButton": "Saír",
+  "exitButton": "Saír sen gardar",
   "@exitButton": {
     "description": "Texto do botón Saír."
   },
@@ -242,10 +261,6 @@
   "@finishQuizConfirmation": {
     "description": "Mensaxe de confirmación para rematar o quiz"
   },
-  "cancel": "Cancelar",
-  "@cancel": {
-    "description": "Texto do botón cancelar"
-  },
   "resolveUnansweredQuestions": "Resolver preguntas",
   "@resolveUnansweredQuestions": {
     "description": "Texto do botón para resolver preguntas sen responder"
@@ -281,7 +296,7 @@
     "description": "Reconto de respostas correctas",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {
@@ -374,7 +389,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Descrición para a opción orde descendente das preguntas"
   },
-  "questionOrderRandom": "Aleatorio",
+  "questionOrderRandom": "Aleatorizar a orde das preguntas",
   "@questionOrderRandom": {
     "description": "Etiqueta para a opción orde aleatorio das preguntas"
   },
@@ -394,9 +409,13 @@
   "@examTimeLimitTitle": {
     "description": "Título para a sección límite de tempo do exame"
   },
-  "examTimeLimitDescription": "Estabelece un límite de tempo para o exame. Cando se active, mostrarásee un temporizador de conta atrás durante o quiz.",
+  "examTimeLimitDescription": "Establece un límite de tempo para o exame. Mostrarase un cronómetro durante o quiz.",
   "@examTimeLimitDescription": {
     "description": "Descrición para a funcionalidade límite de tempo do exame"
+  },
+  "examTimeLimitOffDescription": "Non hai límite de tempo para este exame.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "Activar límite de tempo",
   "@enableTimeLimit": {
@@ -405,6 +424,28 @@
   "timeLimitMinutes": "Límite de tempo (minutos)",
   "@timeLimitMinutes": {
     "description": "Etiqueta para a entrada de minutos do límite de tempo do exame"
+  },
+  "maxIncorrectAnswersLabel": "Límite de erros",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Etiqueta para a configuración do límite de erros"
+  },
+  "maxIncorrectAnswersDescription": "Exame de Apto/Non Apto. Non hai nota numérica, aprobas ou suspendes.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Descrición da funcionalidade do límite de erros"
+  },
+  "maxIncorrectAnswersOffDescription": "O exame ten unha nota numérica do 0 ao 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "Número máximo de erros",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Etiqueta para o campo de entrada do número de erros"
+  },
+  "examFailedStatus": "Exame NON APTO",
+  "examPassedStatus": "Exame APTO",
+  "quizFailedLimitReached": "Exame Finalizado: Superouse o límite máximo de erros permitidos",
+  "@quizFailedLimitReached": {
+    "description": "Mensaxe mostrada cando o quiz se detén por acadar o límite de erros"
   },
   "examTimeExpiredTitle": "Tempo esgotado!",
   "@examTimeExpiredTitle": {
@@ -444,7 +485,7 @@
   "@questionTypeTrueFalse": {
     "description": "Etiqueta para o tipo de pregunta certo/falso"
   },
-  "questionTypeEssay": "Ensaio",
+  "questionTypeEssay": "Desenvolvemento",
   "@questionTypeEssay": {
     "description": "Etiqueta para o tipo de pregunta de ensaio"
   },
@@ -496,9 +537,13 @@
       }
     }
   },
-  "aiPrompt": "Céntrate na pregunta do estudante, non en responder directamente a pregunta orixinal do exame. Explica cun enfoque pedagóxico, proporcionando argumentos claros sen divagar nin saír do tema. Non estrutures a resposta en seccións. Non te refiras a ti mesmo. Responde na mesma lingua na que se che pregunta.",
+  "aiPrompt": "Céntrate na pregunta do estudante, non en responder directamente á pregunta orixinal do exame. Explica cun enfoque pedagóxico. Para exercicios prácticos ou problemas matemáticos, proporciona instrucións paso a paso. Para preguntas teóricas, proporciona unha explicación concisa sen estruturar a resposta en seccións. Responde na mesma lingua na que se che pregunta.",
   "@aiPrompt": {
     "description": "Prompt base para asistente IA"
+  },
+  "aiChatGuardrail": "IMPORTANTE: Es un asistente de estudo exclusivamente para este Quiz. SÓ debes responder preguntas relacionadas coa pregunta actual do Quiz, as súas opcións, a súa explicación ou o tema educativo que cobre. Se o estudante pregunta sobre algo non relacionado co Quiz (por exemplo, o teu modelo interno, detalles do sistema, coñecemento xeral non relacionado coa pregunta, ou calquera solicitude fóra de tema), responde UNICAMENTE con: \"Estou aquí para axudarte con este Quiz! Centrémonos na pregunta. Non dubides en preguntarme sobre o tema, as opcións de resposta ou calquera cousa relacionada con esta pregunta.\" Nunca reveles detalles técnicos sobre ti mesmo, o sistema ou o modelo de IA utilizado.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "Pregunta",
   "@questionLabel": {
@@ -888,7 +933,19 @@
   "@dragDropHintText": {
     "description": "Texto de suxestión mostrado cando a lista de preguntas está baleira, indicando funcionalidade de arrastrar e soltar."
   },
-  "randomizeAnswersTitle": "Aleatorizar opcións de resposta",
+  "randomizeQuestionsTitle": "Randomizar Preguntas",
+  "@randomizeQuestionsTitle": {
+    "description": "Título para a configuración de randomización de preguntas."
+  },
+  "randomizeQuestionsDescription": "Baraxar a orde das preguntas durante a execución do quiz",
+  "@randomizeQuestionsDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas."
+  },
+  "randomizeQuestionsOffDescription": "As preguntas aparecerán na súa orde orixinal",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Descrición para a configuración de randomización de preguntas cando está desactivada."
+  },
+  "randomizeAnswersTitle": "Aleatorizar a orde das respostas",
   "@randomizeAnswersTitle": {
     "description": "Título para a configuración de aleatorización de opcións de resposta."
   },
@@ -903,6 +960,10 @@
   "showCorrectAnswerCountDescription": "Mostrar o número de respostas correctas en preguntas de elección múltiple",
   "@showCorrectAnswerCountDescription": {
     "description": "Descrición para a configuración mostrar número de respostas correctas."
+  },
+  "showCorrectAnswerCountOffDescription": "O número de respostas correctas non se mostrará nas preguntas de opción múltiple",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "Selecciona {count} respostas correctas",
   "@correctAnswersCount": {
@@ -1258,298 +1319,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "Instrucións de formato de resposta para a avaliación"
   },
-  "raffleTitle": "Sorteo",
-  "@raffleTitle": {
-    "description": "Título da pantalla de sorteo"
-  },
-  "raffleTooltip": "Comezar sorteo",
-  "@raffleTooltip": {
-    "description": "Consello da icona de sorteo na barra de aplicacións"
-  },
-  "participantListTitle": "Lista de Participantes",
-  "@participantListTitle": {
-    "description": "Título da sección de lista de participantes"
-  },
-  "participantListHint": "Introduce nomes separados por salto de liña",
-  "@participantListHint": {
-    "description": "Texto de consello para o campo de entrada de participantes"
-  },
-  "participantListPlaceholder": "Introduce os nomes dos participantes aquí...\nUn nome por liña",
-  "@participantListPlaceholder": {
-    "description": "Texto de marcador de posición para o campo de entrada de participantes"
-  },
-  "clearList": "Limpar Lista",
-  "@clearList": {
-    "description": "Etiqueta do botón para limpar a lista de participantes"
-  },
-  "participants": "Participantes",
-  "@participants": {
-    "description": "Etiqueta xeral para os participantes"
-  },
-  "noParticipants": "Non hai participantes",
-  "@noParticipants": {
-    "description": "Mensaxe mostrada cando non hai participantes"
-  },
-  "addParticipantsHint": "Engade participantes para comezar o sorteo",
-  "@addParticipantsHint": {
-    "description": "Consello para engadir participantes"
-  },
-  "activeParticipants": "Participantes Activos",
-  "@activeParticipants": {
-    "description": "Contador de participantes activos"
-  },
-  "alreadySelected": "Xa Seleccionados",
-  "@alreadySelected": {
-    "description": "Descrición para os participantes xa seleccionados"
-  },
-  "totalParticipants": "Total de Participantes",
-  "@totalParticipants": {
-    "description": "Contador total de participantes"
-  },
-  "activeVsWinners": "{active} activos, {winners} gañadores",
-  "@activeVsWinners": {
-    "description": "Mostra o número de participantes activos vs gañadores",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "Comezar Sorteo",
-  "@startRaffle": {
-    "description": "Etiqueta do botón para comezar o sorteo"
-  },
-  "raffling": "Sorteando...",
-  "@raffling": {
-    "description": "Texto mostrado durante o proceso de sorteo"
-  },
-  "selectingWinner": "Seleccionando gañador...",
-  "@selectingWinner": {
-    "description": "Texto mostrado durante a selección do gañador"
-  },
-  "allParticipantsSelected": "Todos os participantes foron seleccionados",
-  "@allParticipantsSelected": {
-    "description": "Mensaxe mostrada cando todos os participantes foron seleccionados"
-  },
-  "addParticipantsToStart": "Engade participantes para comezar o sorteo",
-  "@addParticipantsToStart": {
-    "description": "Mensaxe mostrada cando non hai participantes para o sorteo"
-  },
-  "participantsReadyCount": "{count} participantes listos para o sorteo",
-  "@participantsReadyCount": {
-    "description": "Contador de participantes listos para o sorteo",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "Reiniciar Gañadores",
-  "@resetWinners": {
-    "description": "Etiqueta do botón para reiniciar os gañadores"
-  },
-  "resetWinnersConfirmTitle": "Reiniciar gañadores?",
-  "@resetWinnersConfirmTitle": {
-    "description": "Título do diálogo de confirmación para reiniciar os gañadores"
-  },
-  "resetWinnersConfirmMessage": "Isto devolverá todos os gañadores á lista de participantes activos.",
-  "@resetWinnersConfirmMessage": {
-    "description": "Mensaxe de confirmación para reiniciar os gañadores"
-  },
-  "resetRaffleTitle": "Reiniciar sorteo?",
-  "@resetRaffleTitle": {
-    "description": "Título do diálogo de confirmación para reiniciar o sorteo"
-  },
-  "resetRaffleConfirmMessage": "Isto reiniciará todos os gañadores e participantes activos.",
-  "@resetRaffleConfirmMessage": {
-    "description": "Mensaxe de confirmación para reiniciar o sorteo"
-  },
-  "reset": "Reiniciar",
-  "@reset": {
-    "description": "Etiqueta do botón de reinicio"
-  },
-  "viewWinners": "Ver Gañadores",
-  "@viewWinners": {
-    "description": "Etiqueta do botón para ver os gañadores"
-  },
-  "congratulations": "🎉 Parabéns! 🎉",
-  "@congratulations": {
-    "description": "Mensaxe de felicitación para o gañador"
-  },
-  "positionLabel": "Posición {position}",
-  "@positionLabel": {
-    "description": "Etiqueta da posición do gañador",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "Participantes restantes: {count}",
-  "@remainingParticipants": {
-    "description": "Contador de participantes restantes",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "Continuar Sorteo",
-  "@continueRaffle": {
-    "description": "Etiqueta do botón para continuar o sorteo"
-  },
-  "finishRaffle": "Finalizar Sorteo",
-  "@finishRaffle": {
-    "description": "Etiqueta do botón para finalizar o sorteo"
-  },
-  "winnersTitle": "Gañadores",
-  "@winnersTitle": {
-    "description": "Título da pantalla de gañadores"
-  },
-  "shareResults": "Compartir Resultados",
-  "@shareResults": {
-    "description": "Etiqueta do botón para compartir os resultados"
-  },
-  "noWinnersYet": "Aínda non hai gañadores",
-  "@noWinnersYet": {
-    "description": "Mensaxe mostrada cando non hai gañadores"
-  },
-  "performRaffleToSeeWinners": "Realiza un sorteo para ver os gañadores",
-  "@performRaffleToSeeWinners": {
-    "description": "Mensaxe que anima a realizar un sorteo"
-  },
-  "goToRaffle": "Ir ao Sorteo",
-  "@goToRaffle": {
-    "description": "Etiqueta do botón para ir ao sorteo"
-  },
-  "raffleCompleted": "Sorteo completado!",
-  "@raffleCompleted": {
-    "description": "Mensaxe mostrada cando o sorteo está completado"
-  },
-  "winnersSelectedCount": "{count} gañadores seleccionados",
-  "@winnersSelectedCount": {
-    "description": "Contador de gañadores seleccionados",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "Novo Sorteo",
-  "@newRaffle": {
-    "description": "Etiqueta do botón para comezar un novo sorteo"
-  },
-  "shareResultsTitle": "Resultados do Sorteo",
-  "@shareResultsTitle": {
-    "description": "Título do diálogo para compartir os resultados"
-  },
-  "raffleResultsLabel": "Resultados do sorteo:",
-  "@raffleResultsLabel": {
-    "description": "Etiqueta dos resultados do sorteo"
-  },
-  "close": "Pechar",
-  "@close": {
-    "description": "Etiqueta do botón de pechar"
-  },
-  "share": "Copiar",
-  "@share": {
-    "description": "Etiqueta do botón de copiar"
-  },
-  "shareNotImplemented": "Compartir aínda non está implementado",
-  "@shareNotImplemented": {
-    "description": "Mensaxe cando compartir non está implementado"
-  },
-  "firstPlace": "Primeiro Lugar",
-  "@firstPlace": {
-    "description": "Etiqueta do primeiro lugar"
-  },
-  "secondPlace": "Segundo Lugar",
-  "@secondPlace": {
-    "description": "Etiqueta do segundo lugar"
-  },
-  "thirdPlace": "Terceiro Lugar",
-  "@thirdPlace": {
-    "description": "Etiqueta do terceiro lugar"
-  },
-  "nthPlace": "Lugar {position}",
-  "@nthPlace": {
-    "description": "Etiqueta do lugar para calquera número",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "Lugar",
-  "@placeLabel": {
-    "description": "Etiqueta xeral para o lugar"
-  },
-  "raffleResultsHeader": "Resultados do Sorteo - {count} gañadores",
-  "@raffleResultsHeader": {
-    "description": "Cabeceira dos resultados do sorteo co número de gañadores",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "Total de gañadores: {count}",
-  "@totalWinners": {
-    "description": "Contador total de gañadores",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "Non hai gañadores para compartir",
-  "@noWinnersToShare": {
-    "description": "Mensaxe mostrada cando non hai gañadores para compartir"
-  },
-  "shareSuccess": "Resultados copiados exitosamente",
-  "@shareSuccess": {
-    "description": "Mensaxe de éxito mostrada despois de copiar os resultados"
-  },
-  "selectLogo": "Seleccionar Logo",
-  "@selectLogo": {
-    "description": "Título do diálogo para seleccionar o logo personalizado"
-  },
-  "logoUrl": "URL do Logo",
-  "@logoUrl": {
-    "description": "Etiqueta para o campo de entrada da URL do logo"
-  },
-  "logoUrlHint": "Introduce a URL dunha imaxe para usar como logo personalizado para o sorteo",
-  "@logoUrlHint": {
-    "description": "Texto de axuda que explica o campo URL do logo"
-  },
-  "invalidLogoUrl": "URL de imaxe non válida. Debe ser unha URL válida que remate en .jpg, .png, .gif, etc.",
-  "@invalidLogoUrl": {
-    "description": "Mensaxe de erro para URL de logo non válida"
-  },
-  "logoPreview": "Vista Previa",
-  "@logoPreview": {
-    "description": "Título da sección de vista previa do logo"
-  },
-  "removeLogo": "Eliminar Logo",
-  "@removeLogo": {
-    "description": "Texto do botón para eliminar o logo personalizado"
-  },
-  "logoTooLargeWarning": "A imaxe é demasiado grande para gardarse. Só se usará durante esta sesión.",
-  "@logoTooLargeWarning": {
-    "description": "Mensaxe de aviso cando o logo é demasiado grande para o almacenamento persistente"
-  },
   "aiModeTopicTitle": "Modo Tema",
   "@aiModeTopicTitle": {
     "description": "Título para o modo tema no asistente AI"
@@ -1643,16 +1412,17 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "Modo estudo",
-  "studyModeDescription": "Retroalimentación instantánea e sen tempo",
+  "studyModeDescription": "Asistencia de IA dispoñible. Feedback instantáneo tras cada resposta, sen límites de tiempo nin penalizacións.",
   "examModeLabel": "Modo exame",
-  "examModeDescription": "Tempo estándar e resultados ao final",
+  "examModeDescription": "Sen asistencia de IA. Poden aplicarse límites de tempo e penalizacións por respostas incorrectas.",
   "checkAnswer": "Comprobar",
   "quizModeTitle": "Modo cuestionario",
   "skip": "Saltar",
   "askAiAssistant": "Preguntar ao asistente de IA",
+  "askAiAboutQuestion": "Preguntar á IA sobre esta pregunta",
+  "aiHelpWithQuestion": "Axúdame a entender esta pregunta",
   "evaluateWithAI": "Avaliar con IA",
   "aiEvaluation": "Avaliación de IA",
-  "sorteosLabel": "Raffles",
   "edit": "Editar",
   "enable": "Activar",
   "disable": "Desactivar",
@@ -1689,12 +1459,36 @@
   "aiEnterContentTitle": "Introducir contido",
   "aiEnterContentDescription": "Introduza o tema ou pegue o contido para xerar preguntas",
   "aiContentFieldHint": "Introduza un tema como \"Historia da Segunda Guerra Mundial\" ou pegue texto aquí...",
-  "aiAttachFileHint": "Anexar ficheiro (PDF, TXT, DOCX)",
+  "aiAttachFileHint": "Anexar ficheiro (PDF, TXT, MP3, MP4,...)",
+  "dropAttachmentHere": "Solte o ficheiro aquí",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "Solte a imaxe aquí",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
+  },
   "aiNumberQuestionsLabel": "Número de preguntas",
   "backButton": "Atrás",
   "generateButton": "Xerar",
   "aiTopicModeCount": "Modo Tema ({count} palabras)",
   "aiTextModeCount": "Modo Texto ({count} palabras)",
+  "aiGenerationCategoryLabel": "Modo de Contido",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "Teoría",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "Exercicios",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "Mixto",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "allLabel": "Todas",
   "@allLabel": {
     "description": "Etiqueta para a opción de seleccionar todas as preguntas"
@@ -1710,8 +1504,13 @@
     }
   },
   "subtractPointsLabel": "Restar puntos por resposta incorrecta",
+  "subtractPointsDescription": "Resta puntos por cada resposta incorrecta.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "As respostas incorrectas no restan puntos.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "Cantidade de penalización",
   "@penaltyAmountLabel": {
@@ -1727,5 +1526,64 @@
       }
     }
   },
-  "allQuestionsLabel": "Todas as preguntas"
+  "allQuestionsLabel": "Todas as preguntas",
+  "startWithSelectedQuestions": "Iniciar con {count} seleccionadas",
+  "advancedSettingsTitle": "Axustes Avanzados (Debug)",
+  "appLanguageLabel": "Idioma da aplicación",
+  "appLanguageDescription": "Sobrescribir o idioma da aplicación para probas",
+  "pasteFromClipboard": "Pegar dende o portapapeis",
+  "pasteImage": "Pegar",
+  "clipboardNoImage": "Non se atopou imaxe no portapapeis",
+  "close": "Pechar",
+  "@close": {
+    "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "As opcións de resposta aparecerán na súa orde orixinal",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "Puntuación e límites",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 Parabéns! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "Configuración do exame",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "Mínimo 1 minuto",
+  "remainingTimeWithDays": "{days}d {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}s {days}d {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "Máximo 30 días",
+  "validationMin0GenericError": "Minimum 0",
+  "errorStatus": "Error",
+  "evaluatingResponses": "Avaliando respostas...",
+  "@evaluatingResponses": {
+    "description": "Texto mostrado na pantalla de resultados cando as avaliacions de IA están pendentes"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{1 pregunta de desenvolvemento pendente de avaliación pola IA} other{{count} preguntas de desenvolvemento pendentes de avaliación pola IA}}",
+  "@pendingEvaluationsCount": {
+    "description": "Subtítulo que mostra o número de avaliacións de IA pendentes",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "Pendente",
+  "@pendingStatus": {
+    "description": "Etiqueta de estado para unha avaliación de IA pendente"
+  },
+  "notEvaluatedStatus": "Non avaliada",
+  "@notEvaluatedStatus": {
+    "description": "Etiqueta de estado para unha pregunta de ensaio que non foi avaliada pola IA"
+  },
+  "retryButton": "Reintentar avaliación",
+  "@retryButton": {
+    "description": "Texto do botón para reintentar unha avaliación de IA"
+  }
 }

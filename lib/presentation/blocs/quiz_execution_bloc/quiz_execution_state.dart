@@ -1,9 +1,21 @@
 import 'package:quiz_app/domain/models/quiz/question.dart';
 import 'package:quiz_app/domain/models/quiz/question_type.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config.dart';
+import 'package:quiz_app/domain/models/quiz/essay_ai_evaluation.dart';
+import 'package:quiz_app/presentation/blocs/quiz_execution_bloc/quiz_scoring_helper.dart';
 
 /// Abstract class representing the base state for quiz execution.
-abstract class QuizExecutionState {}
+abstract class QuizExecutionState {
+  Map<int, EssayAiEvaluation> get aiEvaluations => {};
+
+  /// Get the number of pending AI evaluations
+  int get pendingAiEvaluationsCount =>
+      aiEvaluations.values.where((e) => e.isPending).length;
+
+  /// Whether any AI evaluation is currently pending
+  bool get hasPendingAiEvaluations =>
+      aiEvaluations.values.any((e) => e.isPending);
+}
 
 /// Initial state when no quiz execution is in progress.
 class QuizExecutionInitial extends QuizExecutionState {}
@@ -20,17 +32,27 @@ class QuizExecutionInProgress extends QuizExecutionState {
   validatedQuestions; // Indices of questions that have been checked in Study Mode
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final int incorrectAnswersCount;
+  @override
+  final Map<int, EssayAiEvaluation> aiEvaluations; // questionIndex -> evaluation data
+  final bool isAiEvaluating;
+  final bool wasLimitReached;
 
   QuizExecutionInProgress({
     required this.questions,
     required this.currentQuestionIndex,
     required this.userAnswers,
     required this.quizConfig,
+    this.incorrectAnswersCount = 0,
+    this.isAiEvaluating = false,
+    this.wasLimitReached = false,
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
   }) : totalQuestions = questions.length,
        essayAnswers = essayAnswers ?? {},
        validatedQuestions = validatedQuestions ?? {},
+       aiEvaluations = aiEvaluations ?? {},
        isStudyMode = quizConfig.isStudyMode;
 
   /// Get the current question
@@ -49,6 +71,10 @@ class QuizExecutionInProgress extends QuizExecutionState {
   /// Check if current question has been validated (checked)
   bool get isCurrentQuestionValidated =>
       validatedQuestions.contains(currentQuestionIndex);
+
+  /// Check if an AI evaluation already exists for the current question
+  EssayAiEvaluation? get currentAiEvaluation =>
+      aiEvaluations[currentQuestionIndex];
 
   /// Check if an option is selected for current question
   bool isOptionSelected(int optionIndex) {
@@ -92,6 +118,10 @@ class QuizExecutionInProgress extends QuizExecutionState {
     Map<int, String>? essayAnswers,
     Set<int>? validatedQuestions,
     QuizConfig? quizConfig,
+    int? incorrectAnswersCount,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+    bool? isAiEvaluating,
+    bool? wasLimitReached,
   }) {
     return QuizExecutionInProgress(
       questions: questions ?? this.questions,
@@ -100,6 +130,11 @@ class QuizExecutionInProgress extends QuizExecutionState {
       essayAnswers: essayAnswers ?? this.essayAnswers,
       validatedQuestions: validatedQuestions ?? this.validatedQuestions,
       quizConfig: quizConfig ?? this.quizConfig,
+      incorrectAnswersCount:
+          incorrectAnswersCount ?? this.incorrectAnswersCount,
+      aiEvaluations: aiEvaluations ?? this.aiEvaluations,
+      isAiEvaluating: isAiEvaluating ?? this.isAiEvaluating,
+      wasLimitReached: wasLimitReached ?? this.wasLimitReached,
     );
   }
 }
@@ -109,11 +144,14 @@ class QuizExecutionCompleted extends QuizExecutionState {
   final List<Question> questions;
   final Map<int, List<int>> userAnswers;
   final Map<int, String> essayAnswers;
-  final int correctAnswers;
+  @override
+  final Map<int, EssayAiEvaluation> aiEvaluations;
+  final double correctAnswers;
   final int totalQuestions;
   final double score; // percentage
   final bool isStudyMode;
   final QuizConfig quizConfig;
+  final bool wasLimitReached;
 
   QuizExecutionCompleted({
     required this.questions,
@@ -123,7 +161,10 @@ class QuizExecutionCompleted extends QuizExecutionState {
     required this.totalQuestions,
     required this.quizConfig,
     required this.score,
-  }) : isStudyMode = quizConfig.isStudyMode;
+    this.wasLimitReached = false,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+  }) : isStudyMode = quizConfig.isStudyMode,
+       aiEvaluations = aiEvaluations ?? {};
 
   /// Get details for each question
   List<QuestionResult> get questionResults {
@@ -132,7 +173,18 @@ class QuizExecutionCompleted extends QuizExecutionState {
       final question = entry.value;
       final userAnswer = userAnswers[index] ?? [];
       final essayAnswer = essayAnswers[index] ?? '';
-      final isCorrect = _isAnswerCorrect(question, userAnswer, essayAnswer);
+      final aiEvaluation = aiEvaluations[index];
+
+      final isCorrect = QuizScoringHelper.isAnswerCorrect(
+        question,
+        userAnswer,
+        essayAnswer,
+        aiEvaluation: aiEvaluation,
+      );
+
+      final isAnswered =
+          (userAnswers.containsKey(index) && userAnswers[index]!.isNotEmpty) ||
+          essayAnswers[index]?.trim().isNotEmpty == true;
 
       return QuestionResult(
         question: question,
@@ -140,25 +192,43 @@ class QuizExecutionCompleted extends QuizExecutionState {
         essayAnswer: essayAnswer,
         correctAnswers: question.correctAnswers,
         isCorrect: isCorrect,
+        isAnswered: isAnswered,
+        aiEvaluation: aiEvaluation,
       );
     }).toList();
   }
 
-  bool _isAnswerCorrect(
-    Question question,
-    List<int> userAnswers,
-    String essayAnswer,
-  ) {
-    // Essay questions are always considered "correct" since they require manual grading
-    if (question.type == QuestionType.essay) {
-      return essayAnswer.trim().isNotEmpty;
-    }
+  @override
+  int get pendingAiEvaluationsCount =>
+      aiEvaluations.values.where((e) => e.isPending).length;
 
-    final correctAnswers = question.correctAnswers;
-    if (correctAnswers.length != userAnswers.length) return false;
-    final sortedCorrect = List<int>.from(correctAnswers)..sort();
-    final sortedUser = List<int>.from(userAnswers)..sort();
-    return sortedCorrect.toString() == sortedUser.toString();
+  @override
+  bool get hasPendingAiEvaluations =>
+      aiEvaluations.values.any((e) => e.isPending);
+
+  /// Copy with method for state updates
+  QuizExecutionCompleted copyWith({
+    List<Question>? questions,
+    Map<int, List<int>>? userAnswers,
+    Map<int, String>? essayAnswers,
+    Map<int, EssayAiEvaluation>? aiEvaluations,
+    double? correctAnswers,
+    int? totalQuestions,
+    double? score,
+    QuizConfig? quizConfig,
+    bool? wasLimitReached,
+  }) {
+    return QuizExecutionCompleted(
+      questions: questions ?? this.questions,
+      userAnswers: userAnswers ?? this.userAnswers,
+      essayAnswers: essayAnswers ?? this.essayAnswers,
+      aiEvaluations: aiEvaluations ?? this.aiEvaluations,
+      correctAnswers: correctAnswers ?? this.correctAnswers,
+      totalQuestions: totalQuestions ?? this.totalQuestions,
+      score: score ?? this.score,
+      quizConfig: quizConfig ?? this.quizConfig,
+      wasLimitReached: wasLimitReached ?? this.wasLimitReached,
+    );
   }
 }
 
@@ -169,6 +239,8 @@ class QuestionResult {
   final String essayAnswer;
   final List<int> correctAnswers;
   final bool isCorrect;
+  final bool isAnswered;
+  final EssayAiEvaluation? aiEvaluation;
 
   QuestionResult({
     required this.question,
@@ -176,5 +248,7 @@ class QuestionResult {
     required this.essayAnswer,
     required this.correctAnswers,
     required this.isCorrect,
+    required this.isAnswered,
+    this.aiEvaluation,
   });
 }

@@ -4,8 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quiz_app/core/context_extension.dart';
 import 'package:quiz_app/domain/models/custom_exceptions/bad_quiz_file_exception.dart';
+import 'package:quiz_app/presentation/utils/dialog_drop_guard.dart';
 
-import 'package:quiz_app/core/file_handler.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/service_locator.dart';
 import 'package:quiz_app/routes/app_router.dart';
@@ -15,6 +15,7 @@ import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_state.dart';
 import 'package:quiz_app/presentation/screens/dialogs/quiz_metadata_dialog.dart';
 import 'package:quiz_app/presentation/screens/dialogs/settings_dialog.dart';
+import 'package:quiz_app/domain/models/ai/ai_generation_config.dart';
 import 'package:quiz_app/presentation/screens/dialogs/ai_generate_questions_dialog.dart';
 import 'package:quiz_app/presentation/screens/dialogs/custom_confirm_dialog.dart';
 import 'package:quiz_app/data/services/configuration_service.dart';
@@ -171,9 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
         listener: (context, state) async {
           if (state is FileLoaded) {
             setState(() => _isLoading = false);
-            final _ = await context.push(AppRoutes.fileLoadedScreen);
-            if (!context.mounted) return;
-            context.read<FileBloc>().add(QuizFileReset());
+            context.go(AppRoutes.fileLoadedScreen);
           }
           if (state is FileError && context.mounted) {
             setState(() => _isLoading = false);
@@ -192,10 +191,13 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: Builder(
           builder: (context) {
-            checkDeepLink(context);
             return Scaffold(
               body: DropTarget(
                 onDragDone: (details) {
+                  if (DialogDropGuard.isActive) {
+                    setState(() => _isDragging = false);
+                    return;
+                  }
                   if (details.files.isNotEmpty && !_isLoading) {
                     if (context.currentRoute != AppRoutes.home) return;
 
@@ -213,12 +215,16 @@ class _HomeScreenState extends State<HomeScreen> {
                   }
                   setState(() => _isDragging = false);
                 },
-                onDragEntered: (_) => setState(() => _isDragging = true),
+                onDragEntered: (_) {
+                  if (!DialogDropGuard.isActive) {
+                    setState(() => _isDragging = true);
+                  }
+                },
                 onDragExited: (_) => setState(() => _isDragging = false),
-                child: SafeArea(
-                  child: Stack(
-                    children: [
-                      LayoutBuilder(
+                child: Stack(
+                  children: [
+                    SafeArea(
+                      child: LayoutBuilder(
                         builder: (context, constraints) {
                           final isMobile = constraints.maxWidth < 600;
                           // Calculate the visual top margin:
@@ -266,17 +272,17 @@ class _HomeScreenState extends State<HomeScreen> {
                           );
                         },
                       ),
-                      if (_isLoading)
-                        Positioned.fill(
-                          child: Container(
-                            color: Colors.black.withValues(alpha: 0.3),
-                            child: const Center(
-                              child: CircularProgressIndicator(),
-                            ),
+                    ),
+                    if (_isLoading)
+                      Positioned.fill(
+                        child: Container(
+                          color: Colors.black.withValues(alpha: 0.3),
+                          child: const Center(
+                            child: CircularProgressIndicator(),
                           ),
                         ),
-                    ],
-                  ),
+                      ),
+                  ],
                 ),
               ),
             );
@@ -284,11 +290,5 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ),
     );
-  }
-
-  void checkDeepLink(BuildContext c) {
-    FileHandler.initialize((filePath) {
-      c.read<FileBloc>().add(FileDropped(filePath));
-    });
   }
 }

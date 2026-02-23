@@ -9,6 +9,16 @@ class AppLocalizationsEu extends AppLocalizations {
   AppLocalizationsEu([String locale = 'eu']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Quiz-a abortatu?';
+
+  @override
+  String get abortQuizMessage =>
+      'Fitxategi berri bat irekitzeak uneko galdetegia geldituko du.';
+
+  @override
+  String get stopAndOpenButton => 'Gelditu eta Ireki';
+
+  @override
   String get titleAppBar => 'Quiz - Azterketa Simuladorea';
 
   @override
@@ -51,7 +61,20 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get dropFileHere =>
-      'Egin klik hemen edo arrastatu .quiz fitxategi bat pantailara';
+      'Egin klik logoan edo arrastatu .quiz fitxategi bat pantailara';
+
+  @override
+  String get errorOpeningFile => 'Errorea fitxategia irekitzean';
+
+  @override
+  String get replaceFileTitle => 'Quiz berria kargatu';
+
+  @override
+  String get replaceFileMessage =>
+      'Dagoeneko Quiz bat kargatuta dago. Fitxategi berriarekin ordezkatu nahi duzu?';
+
+  @override
+  String get replaceButton => 'Kargatu';
 
   @override
   String get clickOrDragFile =>
@@ -92,10 +115,11 @@ class AppLocalizationsEu extends AppLocalizations {
   String get confirmExitTitle => 'Irteera Berretsi';
 
   @override
-  String get confirmExitMessage => 'Ziur zaude gorde gabe irten nahi duzula?';
+  String get confirmExitMessage =>
+      'Gorde gabeko aldaketak daude. Aldaketak baztertuz irten nahi duzu?';
 
   @override
-  String get exitButton => 'Irten';
+  String get exitButton => 'Irten gorde gabe';
 
   @override
   String get saveDialogTitle => 'Hautatu irteera fitxategia:';
@@ -232,7 +256,7 @@ class AppLocalizationsEu extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct / $total erantzun zuzen';
   }
 
@@ -264,6 +288,30 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get startQuiz => 'Quiz Hasi';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'Errore muga';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Gai/Ez gai azterketa. Ez dago zenbakizko notarik, gainditu edo huts egin.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Azterketak 0 eta 100 arteko zenbakizko nota du.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel => 'Gehienezko errore kopurua';
+
+  @override
+  String get examFailedStatus => 'Azterketa EZ GAI';
+
+  @override
+  String get examPassedStatus => 'Azterketa GAI';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Azterketa Amaitua: Onartutako akatsen muga gainditu da';
 
   @override
   String get errorInvalidNumber => 'Mesedez, sartu zenbaki baliozkoa';
@@ -300,7 +348,7 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak azkenatik 1era ordenean agertuko dira';
 
   @override
-  String get questionOrderRandom => 'Ausazkoa';
+  String get questionOrderRandom => 'Galderen ordena ausazkotu';
 
   @override
   String get questionOrderRandomDesc =>
@@ -316,11 +364,18 @@ class AppLocalizationsEu extends AppLocalizations {
   String get save => 'Gorde';
 
   @override
+  String get examConfigurationTitle => 'Azterketaren konfigurazioa';
+
+  @override
   String get examTimeLimitTitle => 'Azterketaren Denbora Muga';
 
   @override
   String get examTimeLimitDescription =>
-      'Ezarri azterketarentzako denbora muga. Aktibatutakoan, denbora atzera-kontaketa erakutsiko da quiz-ean zehar.';
+      'Ezarri denbora-muga azterketarako. Atzerako kontagailua agertuko da galdetegian.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Azterketa honetarako ez dago denbora mugarik.';
 
   @override
   String get enableTimeLimit => 'Denbora muga gaitu';
@@ -350,7 +405,7 @@ class AppLocalizationsEu extends AppLocalizations {
   String get questionTypeTrueFalse => 'Egia/Gezurra';
 
   @override
-  String get questionTypeEssay => 'Saiakera';
+  String get questionTypeEssay => 'Galdera irekia';
 
   @override
   String get questionTypeRandom => 'Guztiak';
@@ -391,7 +446,11 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin, argudio argiak emanez gaia alboratzen gabe. Ez egituratu erantzuna ataletan. Ez erreferentziatu zeure burua. Beti erantzun galdetu zaizun hizkuntza berean.';
+      'Zentratu ikaslearen galderan, ez jatorrizko azterketa galderari zuzenean erantzutean. Azaldu ikuspegi pedagogiko batekin. Ariketa praktikoetarako edo arazo matematikoetarako, eman urratsez urratseko argibideak. Galdera teorikoetarako, eman azalpen zehatza erantzuna ataletan egituratu gabe. Erantzun beti galdetu zaizun hizkuntza berean.';
+
+  @override
+  String get aiChatGuardrail =>
+      'GARRANTZITSUA: Quiz honetarako soilik ikasketa laguntzailea zara. Quiz galdera arruntari, bere aukerei, azalpenari edo lantzen duen gai hezitzaileari lotutako galderei SOILIK erantzun behar diezu. Ikasleak Quiz-arekin zerikusirik ez duen zerbait galdetzen badu (adibidez, zure barne eredua, sistemaren xehetasunak, galderarekin loturarik gabeko ezagutza orokorra, edo gaiari buruz ez den eskaeraren bat), erantzun SOILIK honekin: \"Hemen nago Quiz honekin laguntzeko! Galderan zentratu gaitezen. Lasai galdetu gaiari, erantzun aukerei edo galdera honekin lotutako edozertari buruz.\" Ez ezazu inoiz zure buruari, sistemari edo erabilitako AI ereduari buruzko xehetasun teknikorik agerian utzi.';
 
   @override
   String get questionLabel => 'Galdera';
@@ -423,11 +482,34 @@ class AppLocalizationsEu extends AppLocalizations {
       'Barkatu, errore bat izan da zure galdera prozesatzean. Saiatu berriro.';
 
   @override
+  String get evaluatingResponses => 'Erantzunak baloratzen...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count garapen-galdera IA ebaluazioaren zain',
+      one: 'Garapen-galdera bat IA ebaluazioaren zain',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Zain';
+
+  @override
+  String get notEvaluatedStatus => 'Ebaluatu gabea';
+
+  @override
   String get configureApiKeyMessage =>
       'Mesedez, konfigura ezazu zure AI API Gakoa Ezarpenetan.';
 
   @override
   String get errorLabel => 'Errorea:';
+
+  @override
+  String get retryButton => 'Ebaluazioa berriro saiatu';
 
   @override
   String get noResponseReceived => 'Ez da erantzunik jaso';
@@ -685,18 +767,37 @@ class AppLocalizationsEu extends AppLocalizations {
       'Galderak inportatzeko .quiz fitxategiak hona arrastatu eta utz ditzakezu ere';
 
   @override
-  String get randomizeAnswersTitle => 'Erantzun Aukerak Ausazkotu';
+  String get randomizeQuestionsTitle => 'Galderak Ausazkotu';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Quiz exekuzioan galderen ordena nahastu';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Galderak jatorrizko ordenan agertuko dira';
+
+  @override
+  String get randomizeAnswersTitle => 'Erantzunen ordena ausazkotu';
 
   @override
   String get randomizeAnswersDescription =>
       'Quiz exekuzioan erantzun aukeren ordena nahastu';
 
   @override
+  String get randomizeAnswersOffDescription =>
+      'Erantzun-aukerak jatorrizko ordenan agertuko dira';
+
+  @override
   String get showCorrectAnswerCountTitle => 'Erantzun Zuzen Kopurua Erakutsi';
 
   @override
   String get showCorrectAnswerCountDescription =>
-      'Aukera anitzeko galderetako erantzun zuzen kopurua erakutsi';
+      'Erantzun zuzenen kopurua erakutsi aukera anitzeko galderetan';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Aukera anitzeko galderetan ez da erantzun zuzenen kopurua erakutsiko';
 
   @override
   String correctAnswersCount(int count) {
@@ -790,7 +891,13 @@ class AppLocalizationsEu extends AppLocalizations {
       'Sartu gai bat, adibidez \"Bigarren Mundu Gerrako historia\" edo itsatsi testua hemen...';
 
   @override
-  String get aiAttachFileHint => 'Erantsi fitxategia (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Erantsi fitxategia (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Askatu fitxategia hemen';
+
+  @override
+  String get dropImageHere => 'Askatu irudia hemen';
 
   @override
   String get aiNumberQuestionsLabel => 'Galdera kopurua';
@@ -810,6 +917,18 @@ class AppLocalizationsEu extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Testu modua ($count hitz)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Eduki Modua';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Teoria';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Ariketak';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Nahasia';
 
   @override
   String get languageSpanish => 'Español';
@@ -977,215 +1096,6 @@ class AppLocalizationsEu extends AppLocalizations {
       'Erantzun formatua:\n1. Puntuazioa: [X/10] - Justifikatu labur puntuazioa\n2. Indar puntuak: Adierazi erantzunaren alderdi positiboak\n3. Hobekuntza arloak: Seinalatu hobetu daitezkeen alderdiak\n4. Iruzkin zehatzak: Eman feedback zehatza eta eraikitzailea\n5. Iradokizunak: Eskaini hobetzeko gomendio zehatzak\n\nIzan eraikitzailea, zehatza eta hezigarria zure ebaluazioan. Helburua ikaslea ikastera eta hobetzen laguntzea da. Zuzendu pertsona bigarrenean eta erabili tonu profesionala baina hurbilgarria.';
 
   @override
-  String get raffleTitle => 'Zozketa';
-
-  @override
-  String get raffleTooltip => 'Zozketa pantaila ireki';
-
-  @override
-  String get participantListTitle => 'Parte-hartzaileen Zerrenda';
-
-  @override
-  String get participantListHint => 'Sartu izenak lerro jauziez bereizita';
-
-  @override
-  String get participantListPlaceholder =>
-      'Sartu parte-hartzaileen izenak hemen...\nIzen bat lerro bakoitzeko';
-
-  @override
-  String get clearList => 'Zerrenda Garbitu';
-
-  @override
-  String get participants => 'Parte-hartzaileak';
-
-  @override
-  String get noParticipants => 'Ez dago parte-hartzailerik';
-
-  @override
-  String get addParticipantsHint => 'Gehitu parte-hartzaileak zozketa hasteko';
-
-  @override
-  String get activeParticipants => 'Parte-hartzaile Aktiboak';
-
-  @override
-  String get alreadySelected => 'Jadanik Hautatuta';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Parte-hartzaile Guztira';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return '$active aktibo, $winners irabazle';
-  }
-
-  @override
-  String get startRaffle => 'Zozketa Hasi';
-
-  @override
-  String get raffling => 'Zozkatzen...';
-
-  @override
-  String get selectingWinner => 'Irabazlea hautatzen...';
-
-  @override
-  String get allParticipantsSelected => 'Parte-hartzaile guztiak hautatu dira';
-
-  @override
-  String get addParticipantsToStart =>
-      'Gehitu parte-hartzaileak zozketa hasteko';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count parte-hartzaile prest zozketarako';
-  }
-
-  @override
-  String get resetWinners => 'Irabazleak Berrezarri';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Irabazleak berrezarri?';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Honek irabazle guztiak parte-hartzaile aktiboen zerrendara itzuliko ditu.';
-
-  @override
-  String get resetRaffleTitle => 'Zozketa berrezarri?';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Honek irabazle eta parte-hartzaile aktibo guztiak berrezarriko ditu.';
-
-  @override
-  String get cancel => 'Utzi';
-
-  @override
-  String get reset => 'Berrezarri';
-
-  @override
-  String get viewWinners => 'Irabazleak Ikusi';
-
-  @override
-  String get congratulations => '🎉 Zorionak! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return '$position. Posizioa';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Gainerako parte-hartzaileak: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Zozketa Jarraitu';
-
-  @override
-  String get finishRaffle => 'Zozketa Amaitu';
-
-  @override
-  String get winnersTitle => 'Irabazleak';
-
-  @override
-  String get shareResults => 'Emaitzak Partekatu';
-
-  @override
-  String get noWinnersYet => 'Oraindik ez dago irabazlerik';
-
-  @override
-  String get performRaffleToSeeWinners => 'Egin zozketa irabazleak ikusteko';
-
-  @override
-  String get goToRaffle => 'Zozketara Joan';
-
-  @override
-  String get raffleCompleted => 'Zozketa osatuta!';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count irabazle hautatu dira';
-  }
-
-  @override
-  String get newRaffle => 'Zozketa Berria';
-
-  @override
-  String get shareResultsTitle => 'Zozketaren Emaitzak';
-
-  @override
-  String get raffleResultsLabel => 'Zozketaren emaitzak:';
-
-  @override
-  String get close => 'Itxi';
-
-  @override
-  String get share => 'Kopiatu';
-
-  @override
-  String get shareNotImplemented =>
-      'Partekatzea ez dago oraindik inplementatuta';
-
-  @override
-  String get firstPlace => 'Lehen Posizioa';
-
-  @override
-  String get secondPlace => 'Bigarren Posizioa';
-
-  @override
-  String get thirdPlace => 'Hirugarren Posizioa';
-
-  @override
-  String nthPlace(int position) {
-    return '$position. Posizioa';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return 'Posizioa';
-  }
-
-  @override
-  String get raffleResultsHeader => 'Zozketaren Emaitzak - null irabazle';
-
-  @override
-  String totalWinners(int count) {
-    return 'Irabazle guztira: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'Ez dago irabazlerik partekatzeko';
-
-  @override
-  String get shareSuccess => 'Emaitzak arrakastaz kopiatu dira';
-
-  @override
-  String get selectLogo => 'Logotipoa Aukeratu';
-
-  @override
-  String get logoUrl => 'Logoaren URLa';
-
-  @override
-  String get logoUrlHint =>
-      'Sartu zozketarako logo pertsonalizatu gisa erabiltzeko irudiaren URLa';
-
-  @override
-  String get invalidLogoUrl =>
-      'Irudi URL baliogabea. .jpg, .png, .gif, etab.rekin amaitzen den URL baliozkoa izan behar da.';
-
-  @override
-  String get logoPreview => 'Aurrebista';
-
-  @override
-  String get removeLogo => 'Logotipoa Kendu';
-
-  @override
-  String get logoTooLargeWarning =>
-      'Irudia handiegia da gorde ahal izateko. Saio honetan bakarrik erabiliko da.';
-
-  @override
   String get aiModeTopicTitle => 'Gai Modua';
 
   @override
@@ -1258,13 +1168,15 @@ class AppLocalizationsEu extends AppLocalizations {
   String get studyModeLabel => 'Ikasteko Modua';
 
   @override
-  String get studyModeDescription => 'Berehalako feedbacka eta denborarik gabe';
+  String get studyModeDescription =>
+      'AI laguntza eskuragarri. Erantzun bakoitzaren ondoren feedbacka berehala, denbora-mugarik eta zigorrrik gabe.';
 
   @override
   String get examModeLabel => 'Azterketa Modua';
 
   @override
-  String get examModeDescription => 'Denbora estandarra eta emaitzak amaieran';
+  String get examModeDescription =>
+      'AI laguntzarik gabe. Denbora-mugak eta erantzun okerrengatiko zigorrak aplika daitezke.';
 
   @override
   String get checkAnswer => 'Egiaztatu';
@@ -1279,7 +1191,10 @@ class AppLocalizationsEu extends AppLocalizations {
   String get askAiAssistant => 'Galdetu AI Laguntzaileari';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'Galdetu AIri galdera honi buruz';
+
+  @override
+  String get aiHelpWithQuestion => 'Lagundu galdera hau ulertzen';
 
   @override
   String get edit => 'Editatu';
@@ -1346,6 +1261,14 @@ class AppLocalizationsEu extends AppLocalizations {
   String get subtractPointsLabel => 'Kendu puntuak erantzun okerrengatik';
 
   @override
+  String get subtractPointsDescription =>
+      'Kendu puntuak erantzun oker bakoitzeko.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Erantzun okerrek ez dute punturik kentzen.';
+
+  @override
   String get penaltyAmountLabel => 'Penalizazio kopurua';
 
   @override
@@ -1355,4 +1278,70 @@ class AppLocalizationsEu extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Galdera guztiak';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Hasi $count hautatuekin';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'Ezarpen Aurreratuak (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Aplikazioaren hizkuntza';
+
+  @override
+  String get appLanguageDescription =>
+      'Aplikazioaren hizkuntza gainidatzi probetarako';
+
+  @override
+  String get pasteFromClipboard => 'Itsatsi arbeletik';
+
+  @override
+  String get pasteImage => 'Itsatsi';
+
+  @override
+  String get clipboardNoImage => 'Ez da irudirik aurkitu arbelean';
+
+  @override
+  String get close => 'Itxi';
+
+  @override
+  String get scoringAndLimitsTitle => 'Puntuazioa eta mugak';
+
+  @override
+  String get congratulations => '🎉 Zorionak! 🎉';
+
+  @override
+  String get validationMin1Error => 'Gutxienez minutu 1';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '${weeks}a ${days}e $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Gehienez 30 egun';
+
+  @override
+  String get validationMin0GenericError => 'Gutxienez 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

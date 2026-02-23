@@ -4,10 +4,7 @@ enum QuestionOrder {
   random('random'),
 
   /// Questions are shown in their original creation order.
-  ascending('ascending'),
-
-  /// Questions are shown in reverse creation order.
-  descending('descending');
+  ascending('ascending');
 
   /// The internal string value used for serialization and persistence.
   final String value;

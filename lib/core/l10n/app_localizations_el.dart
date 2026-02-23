@@ -9,6 +9,16 @@ class AppLocalizationsEl extends AppLocalizations {
   AppLocalizationsEl([String locale = 'el']) : super(locale);
 
   @override
+  String get abortQuizTitle => 'Ακύρωση Quiz;';
+
+  @override
+  String get abortQuizMessage =>
+      'Το άνοιγμα ενός νέου αρχείου θα διακόψει το τρέχον κουίζ.';
+
+  @override
+  String get stopAndOpenButton => 'Διακοπή & Άνοιγμα';
+
+  @override
   String get titleAppBar => 'Κουίζ - Προσομοιωτής Εξετάσεων';
 
   @override
@@ -54,6 +64,19 @@ class AppLocalizationsEl extends AppLocalizations {
       'Κάντε κλικ στο λογότυπο ή σύρετε ένα αρχείο .quiz στην οθόνη';
 
   @override
+  String get errorOpeningFile => 'Σφάλμα κατά το άνοιγμα του αρχείου';
+
+  @override
+  String get replaceFileTitle => 'Φόρτωση νέου Quiz';
+
+  @override
+  String get replaceFileMessage =>
+      'Ένα Quiz είναι ήδη φορτωμένο. Θέλετε να το αντικαταστήσετε με το νέο αρχείο;';
+
+  @override
+  String get replaceButton => 'Φόρτωση';
+
+  @override
   String get clickOrDragFile =>
       'Κάντε κλικ για φόρτωση ή σύρετε ένα αρχείο .quiz στην οθόνη';
 
@@ -93,10 +116,10 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get confirmExitMessage =>
-      'Είστε σίγουροι ότι θέλετε να φύγετε χωρίς αποθήκευση;';
+      'Υπάρχουν μη αποθηκευμένες αλλαγές. Θέλετε να φύγετε απορρίπτοντας τις αλλαγές;';
 
   @override
-  String get exitButton => 'Έξοδος';
+  String get exitButton => 'Έξοδος χωρίς αποθήκευση';
 
   @override
   String get saveDialogTitle => 'Παρακαλώ επιλέξτε αρχείο εξόδου:';
@@ -235,7 +258,7 @@ class AppLocalizationsEl extends AppLocalizations {
   }
 
   @override
-  String correctAnswers(int correct, int total) {
+  String correctAnswers(String correct, int total) {
     return '$correct από $total σωστές απαντήσεις';
   }
 
@@ -267,6 +290,31 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get startQuiz => 'Έναρξη Κουίζ';
+
+  @override
+  String get maxIncorrectAnswersLabel => 'Περιορισμός λανθασμένων απαντήσεων';
+
+  @override
+  String get maxIncorrectAnswersDescription =>
+      'Εξέταση Επιτυχίας/Αποτυχίας. Δεν υπάρχει αριθμητική βαθμολογία.';
+
+  @override
+  String get maxIncorrectAnswersOffDescription =>
+      'Η εξέταση έχει αριθμητική βαθμολογία από 0 έως 100.';
+
+  @override
+  String get maxIncorrectAnswersLimitLabel =>
+      'Μέγιστος αριθμός επιτρεπόμενων σφαλμάτων';
+
+  @override
+  String get examFailedStatus => 'Η εξέταση ΑΠΕΤΥΧΕ';
+
+  @override
+  String get examPassedStatus => 'Η εξέταση ΠΕΤΥΧΕ';
+
+  @override
+  String get quizFailedLimitReached =>
+      'Η εξέταση ολοκληρώθηκε: Συμπληρώθηκε το μέγιστο όριο σφαλμάτων';
 
   @override
   String get errorInvalidNumber => 'Παρακαλώ εισάγετε έγκυρο αριθμό';
@@ -303,7 +351,7 @@ class AppLocalizationsEl extends AppLocalizations {
       'Οι ερωτήσεις θα εμφανίζονται από το τέλος προς το 1';
 
   @override
-  String get questionOrderRandom => 'Τυχαία';
+  String get questionOrderRandom => 'Τυχαία σειρά ερωτήσεων';
 
   @override
   String get questionOrderRandomDesc =>
@@ -319,11 +367,18 @@ class AppLocalizationsEl extends AppLocalizations {
   String get save => 'Αποθήκευση';
 
   @override
+  String get examConfigurationTitle => 'Διαμόρφωση Εξέτασης';
+
+  @override
   String get examTimeLimitTitle => 'Χρονικό Όριο Εξέτασης';
 
   @override
   String get examTimeLimitDescription =>
-      'Ορίστε χρονικό όριο για την εξέταση. Όταν ενεργοποιηθεί, θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+      'Ορίστε χρονικό όριο για την εξέταση. Θα εμφανίζεται χρονόμετρο κατά τη διάρκεια του κουίζ.';
+
+  @override
+  String get examTimeLimitOffDescription =>
+      'Δεν υπάρχει χρονικό όριο για αυτήν την εξέταση.';
 
   @override
   String get enableTimeLimit => 'Ενεργοποίηση χρονικού ορίου';
@@ -395,7 +450,11 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get aiPrompt =>
-      'Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση, παρέχοντας σαφή επιχειρήματα χωρίς να παρεκκλίνετε από το θέμα. Μη δομείτε την απάντηση σε ενότητες. Μην αναφέρεστε στον εαυτό σας. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.';
+      'Εστιάστε στην ερώτηση του μαθητή, όχι στο να απαντήσετε απευθείας την αρχική ερώτηση εξέτασης. Εξηγήστε με παιδαγωγική προσέγγιση. Για πρακτικές ασκήσεις ή μαθηματικά προβλήματα, παρέχετε οδηγίες βήμα προς βήμα. Για θεωρητικές ερωτήσεις, παρέχετε μια συνοπτική εξήγηση χωρίς να δομείτε την απάντηση σε ενότητες. Απαντάτε στην ίδια γλώσσα που σας ρωτούν.';
+
+  @override
+  String get aiChatGuardrail =>
+      'ΣΗΜΑΝΤΙΚΟ: Είστε βοηθός μελέτης αποκλειστικά για αυτό το Quiz. Πρέπει να απαντάτε ΜΟΝΟ σε ερωτήσεις σχετικές με την τρέχουσα ερώτηση του Quiz, τις επιλογές της, την εξήγησή της ή το εκπαιδευτικό θέμα που καλύπτει. Εάν ο μαθητής ρωτήσει κάτι άσχετο με το Quiz (π.χ. το εσωτερικό σας μοντέλο, λεπτομέρειες του συστήματος, γενικές γνώσεις μη σχετικές με την ερώτηση, ή οποιοδήποτε αίτημα εκτός θέματος), απαντήστε ΜΟΝΟ με: \"Είμαι εδώ για να σας βοηθήσω με αυτό το Quiz! Ας εστιάσουμε στην ερώτηση. Μη διστάσετε να με ρωτήσετε για το θέμα, τις επιλογές απάντησης ή οτιδήποτε σχετικό με αυτή την ερώτηση.\" Μην αποκαλύπτετε ποτέ τεχνικές λεπτομέρειες για τον εαυτό σας, το σύστημα ή το μοντέλο AI που χρησιμοποιείται.';
 
   @override
   String get questionLabel => 'Ερώτηση';
@@ -427,11 +486,34 @@ class AppLocalizationsEl extends AppLocalizations {
       'Λυπούμαστε, υπήρξε σφάλμα κατά την επεξεργασία της ερώτησής σας. Παρακαλώ δοκιμάστε ξανά.';
 
   @override
+  String get evaluatingResponses => 'Αξιολόγηση απαντήσεων...';
+
+  @override
+  String pendingEvaluationsCount(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count ερωτήσεις ανάπτυξης σε αναμονή αξιολόγησης AI',
+      one: '1 ερώτηση ανάπτυξης σε αναμονή αξιολόγησης AI',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get pendingStatus => 'Σε εκκρεμότητα';
+
+  @override
+  String get notEvaluatedStatus => 'Δεν αξιολογήθηκε';
+
+  @override
   String get configureApiKeyMessage =>
       'Παρακαλώ ρυθμίστε το κλειδί API AI στις Ρυθμίσεις.';
 
   @override
   String get errorLabel => 'Σφάλμα:';
+
+  @override
+  String get retryButton => 'Επανάλυψη αξιολόγησης';
 
   @override
   String get noResponseReceived => 'Δεν ελήφθη απάντηση';
@@ -689,11 +771,26 @@ class AppLocalizationsEl extends AppLocalizations {
       'Μπορείτε επίσης να σύρετε και να αποθέσετε αρχεία .quiz εδώ για εισαγωγή ερωτήσεων';
 
   @override
-  String get randomizeAnswersTitle => 'Τυχαία Σειρά Απαντήσεων';
+  String get randomizeQuestionsTitle => 'Τυχαία Σειρά Ερωτήσεων';
+
+  @override
+  String get randomizeQuestionsDescription =>
+      'Ανακάτεμα της σειράς των ερωτήσεων κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeQuestionsOffDescription =>
+      'Οι ερωτήσεις θα εμφανίζονται στην αρχική τους σειρά';
+
+  @override
+  String get randomizeAnswersTitle => 'Τυχαία σειρά απαντήσεων';
 
   @override
   String get randomizeAnswersDescription =>
       'Ανακάτεμα της σειράς των επιλογών απάντησης κατά την εκτέλεση του κουίζ';
+
+  @override
+  String get randomizeAnswersOffDescription =>
+      'Οι επιλογές απάντησης θα εμφανίζονται με την αρχική τους σειρά';
 
   @override
   String get showCorrectAnswerCountTitle =>
@@ -702,6 +799,10 @@ class AppLocalizationsEl extends AppLocalizations {
   @override
   String get showCorrectAnswerCountDescription =>
       'Εμφάνιση του αριθμού των σωστών απαντήσεων σε ερωτήσεις πολλαπλής επιλογής';
+
+  @override
+  String get showCorrectAnswerCountOffDescription =>
+      'Ο αριθμός των σωστών απαντήσεων δεν θα εμφανίζεται για ερωτήσεις πολλαπλής επιλογής';
 
   @override
   String correctAnswersCount(int count) {
@@ -795,7 +896,13 @@ class AppLocalizationsEl extends AppLocalizations {
       'Εισάγετε ένα θέμα όπως \"Ιστορία του Β\' Παγκόσμιου Πολέμου\" ή επικολλήστε κείμενο εδώ...';
 
   @override
-  String get aiAttachFileHint => 'Επισύναψη αρχείου (PDF, TXT, DOCX)';
+  String get aiAttachFileHint => 'Επισύναψη αρχείου (PDF, TXT, MP3, MP4,...)';
+
+  @override
+  String get dropAttachmentHere => 'Αφήστε το αρχείο εδώ';
+
+  @override
+  String get dropImageHere => 'Αφήστε την εικόνα εδώ';
 
   @override
   String get aiNumberQuestionsLabel => 'Αριθμός ερωτήσεων';
@@ -815,6 +922,18 @@ class AppLocalizationsEl extends AppLocalizations {
   String aiTextModeCount(int count) {
     return 'Λειτουργία κειμένου ($count λέξεις)';
   }
+
+  @override
+  String get aiGenerationCategoryLabel => 'Λειτουργία Περιεχομένου';
+
+  @override
+  String get aiGenerationCategoryTheory => 'Θεωρία';
+
+  @override
+  String get aiGenerationCategoryExercises => 'Ασκήσεις';
+
+  @override
+  String get aiGenerationCategoryBoth => 'Μικτό';
 
   @override
   String get languageSpanish => 'Ισπανικά';
@@ -982,217 +1101,6 @@ class AppLocalizationsEl extends AppLocalizations {
       'ΜΟΡΦΗ ΑΠΑΝΤΗΣΗΣ:\n1. ΒΑΘΜΟΣ: [X/10] - Δικαιολογήστε σύντομα τον βαθμό\n2. ΔΥΝΑΤΑ ΣΗΜΕΙΑ: Αναφέρετε θετικές πτυχές της απάντησης\n3. ΠΕΡΙΟΧΕΣ ΓΙΑ ΒΕΛΤΙΩΣΗ: Επισημάνετε πτυχές που θα μπορούσαν να βελτιωθούν\n4. ΕΙΔΙΚΑ ΣΧΟΛΙΑ: Παρέχετε λεπτομερή και εποικοδομητικά σχόλια\n5. ΠΡΟΤΑΣΕΙΣ: Προσφέρετε συγκεκριμένες συστάσεις για βελτίωση\n\nΝα είστε εποικοδομητικοί, συγκεκριμένοι και εκπαιδευτικοί στην αξιολόγησή σας. Στόχος είναι να βοηθήσετε τον μαθητή να μάθει και να βελτιωθεί. Απευθυνθείτε σε αυτόν στον δεύτερο ενικό και χρησιμοποιήστε επαγγελματικό και φιλικό ύφος.';
 
   @override
-  String get raffleTitle => 'Κλήρωση';
-
-  @override
-  String get raffleTooltip => 'Κλήρωση';
-
-  @override
-  String get participantListTitle => 'Λίστα Συμμετεχόντων';
-
-  @override
-  String get participantListHint => 'Εισάγετε ένα όνομα ανά γραμμή:';
-
-  @override
-  String get participantListPlaceholder =>
-      'Γιάννης Παπαδόπουλος\nΜαρία Ιωαννίδου\nΝίκος Γεωργίου\n...';
-
-  @override
-  String get clearList => 'Καθαρισμός Λίστας';
-
-  @override
-  String get participants => 'Συμμετέχοντες';
-
-  @override
-  String get noParticipants => 'Κανένας συμμετέχων';
-
-  @override
-  String get addParticipantsHint => 'Προσθέστε ονόματα στην περιοχή κειμένου';
-
-  @override
-  String get activeParticipants => 'Ενεργοί Συμμετέχοντες';
-
-  @override
-  String get alreadySelected => 'Ήδη Επιλεγμένοι';
-
-  @override
-  String totalParticipants(int count) {
-    return 'Σύνολο: $count';
-  }
-
-  @override
-  String activeVsWinners(int active, int winners) {
-    return 'Ενεργοί: $active | Νικητές: $winners';
-  }
-
-  @override
-  String get startRaffle => 'Έναρξη Κλήρωσης';
-
-  @override
-  String get raffling => 'Κλήρωση...';
-
-  @override
-  String get selectingWinner => 'Επιλογή νικητή...';
-
-  @override
-  String get allParticipantsSelected =>
-      'Όλοι οι συμμετέχοντες έχουν ήδη επιλεγεί';
-
-  @override
-  String get addParticipantsToStart =>
-      'Προσθέστε συμμετέχοντες για να ξεκινήσετε την κλήρωση';
-
-  @override
-  String participantsReadyCount(int count) {
-    return '$count συμμετέχων/οντες έτοιμος/οι για κλήρωση';
-  }
-
-  @override
-  String get resetWinners => 'Επαναφορά Νικητών';
-
-  @override
-  String get resetWinnersConfirmTitle => 'Επαναφορά Νικητών';
-
-  @override
-  String get resetWinnersConfirmMessage =>
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε τη λίστα νικητών; Όλοι οι συμμετέχοντες θα είναι διαθέσιμοι για την κλήρωση ξανά.';
-
-  @override
-  String get resetRaffleTitle => 'Επαναφορά Κλήρωσης';
-
-  @override
-  String get resetRaffleConfirmMessage =>
-      'Είστε σίγουροι ότι θέλετε να επαναφέρετε την κλήρωση; Όλοι οι συμμετέχοντες και οι νικητές θα χαθούν.';
-
-  @override
-  String get cancel => 'Ακύρωση';
-
-  @override
-  String get reset => 'Επαναφορά';
-
-  @override
-  String get viewWinners => 'Προβολή νικητών';
-
-  @override
-  String get congratulations => '🎉 Συγχαρητήρια! 🎉';
-
-  @override
-  String positionLabel(int position) {
-    return 'Θέση: $positionη';
-  }
-
-  @override
-  String remainingParticipants(int count) {
-    return 'Υπόλοιποι συμμετέχοντες: $count';
-  }
-
-  @override
-  String get continueRaffle => 'Συνέχεια Κλήρωσης';
-
-  @override
-  String get finishRaffle => 'Ολοκλήρωση Κλήρωσης';
-
-  @override
-  String get winnersTitle => 'Νικητές Κλήρωσης';
-
-  @override
-  String get shareResults => 'Κοινοποίηση αποτελεσμάτων';
-
-  @override
-  String get noWinnersYet => 'Δεν υπάρχουν νικητές ακόμα';
-
-  @override
-  String get performRaffleToSeeWinners =>
-      'Πραγματοποιήστε μια κλήρωση για να δείτε τους νικητές εδώ';
-
-  @override
-  String get goToRaffle => 'Μετάβαση στην Κλήρωση';
-
-  @override
-  String get raffleCompleted => 'Κλήρωση Ολοκληρώθηκε';
-
-  @override
-  String winnersSelectedCount(int count) {
-    return '$count νικητής/ές επιλέχθηκε/αν';
-  }
-
-  @override
-  String get newRaffle => 'Νέα Κλήρωση';
-
-  @override
-  String get shareResultsTitle => 'Κοινοποίηση Αποτελεσμάτων';
-
-  @override
-  String get raffleResultsLabel => 'Αποτελέσματα κλήρωσης:';
-
-  @override
-  String get close => 'Κλείσιμο';
-
-  @override
-  String get share => 'Αντιγραφή';
-
-  @override
-  String get shareNotImplemented =>
-      'Η λειτουργία κοινοποίησης δεν έχει υλοποιηθεί';
-
-  @override
-  String get firstPlace => '1ος';
-
-  @override
-  String get secondPlace => '2ος';
-
-  @override
-  String get thirdPlace => '3ος';
-
-  @override
-  String nthPlace(int position) {
-    return '$positionος';
-  }
-
-  @override
-  String placeLabel(String position) {
-    return '$position θέση';
-  }
-
-  @override
-  String get raffleResultsHeader => '🏆 ΑΠΟΤΕΛΕΣΜΑΤΑ ΚΛΗΡΩΣΗΣ 🏆';
-
-  @override
-  String totalWinners(int count) {
-    return 'Σύνολο νικητών: $count';
-  }
-
-  @override
-  String get noWinnersToShare => 'Κανένας νικητής.';
-
-  @override
-  String get shareSuccess => 'Τα αποτελέσματα αντιγράφηκαν επιτυχώς';
-
-  @override
-  String get selectLogo => 'Επιλογή Λογότυπου';
-
-  @override
-  String get logoUrl => 'URL Λογότυπου';
-
-  @override
-  String get logoUrlHint =>
-      'Εισάγετε το URL μιας εικόνας για χρήση ως προσαρμοσμένο λογότυπο για την κλήρωση';
-
-  @override
-  String get invalidLogoUrl =>
-      'Μη έγκυρο URL εικόνας. Πρέπει να είναι έγκυρο URL που τελειώνει σε .jpg, .png, .gif, κλπ.';
-
-  @override
-  String get logoPreview => 'Προεπισκόπηση';
-
-  @override
-  String get removeLogo => 'Αφαίρεση Λογότυπου';
-
-  @override
-  String get logoTooLargeWarning =>
-      'Η εικόνα είναι πολύ μεγάλη για να αποθηκευτεί. Θα χρησιμοποιηθεί μόνο κατά τη διάρκεια αυτής της συνεδρίας.';
-
-  @override
   String get aiModeTopicTitle => 'Λειτουργία Θέματος';
 
   @override
@@ -1268,13 +1176,14 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get studyModeDescription =>
-      'Άμεση ανατροφοδότηση και χωρίς χρονόμετρο';
+      'Διαθέσιμη βοήθεια AI. Άμεση ανατροφοδότηση μετά από κάθε απάντηση, χωρίς χρονικά όρια ή ποινές.';
 
   @override
   String get examModeLabel => 'Λειτουργία Εξέτασης';
 
   @override
-  String get examModeDescription => 'Τυπικός χρόνος και αποτελέσματα στο τέλος';
+  String get examModeDescription =>
+      'Χωρίς βοήθεια AI. Ενδέχεται να ισχύουν χρονικά όρια και ποινές για λανθασμένες απαντήσεις.';
 
   @override
   String get checkAnswer => 'Έλεγχος';
@@ -1289,7 +1198,10 @@ class AppLocalizationsEl extends AppLocalizations {
   String get askAiAssistant => 'Ρωτήστε τον Βοηθό AI';
 
   @override
-  String get sorteosLabel => 'Raffles';
+  String get askAiAboutQuestion => 'Ρωτήστε την AI για αυτήν την ερώτηση';
+
+  @override
+  String get aiHelpWithQuestion => 'Βοήθησέ με να κατανοήσω αυτήν την ερώτηση';
 
   @override
   String get edit => 'Επεξεργασία';
@@ -1356,6 +1268,14 @@ class AppLocalizationsEl extends AppLocalizations {
   String get subtractPointsLabel => 'Αφαίρεση πόντων για λάθος απάντηση';
 
   @override
+  String get subtractPointsDescription =>
+      'Αφαίρεση πόντων για κάθε λάθος απάντηση.';
+
+  @override
+  String get subtractPointsOffDescription =>
+      'Οι λάθος απαντήσεις δεν αφαιρούν πόντους.';
+
+  @override
   String get penaltyAmountLabel => 'Ποσό ποινής';
 
   @override
@@ -1365,4 +1285,70 @@ class AppLocalizationsEl extends AppLocalizations {
 
   @override
   String get allQuestionsLabel => 'Όλες οι ερωτήσεις';
+
+  @override
+  String startWithSelectedQuestions(int count) {
+    return 'Έναρξη με $count επιλεγμένες';
+  }
+
+  @override
+  String get advancedSettingsTitle => 'Σύνθετες Ρυθμίσεις (Debug)';
+
+  @override
+  String get appLanguageLabel => 'Γλώσσα εφαρμογής';
+
+  @override
+  String get appLanguageDescription =>
+      'Παράκαμψη γλώσσας εφαρμογής για δοκιμές';
+
+  @override
+  String get pasteFromClipboard => 'Επικόλληση από πρόχειρο';
+
+  @override
+  String get pasteImage => 'Επικόλληση';
+
+  @override
+  String get clipboardNoImage => 'Δεν βρέθηκε εικόνα στο πρόχειρο';
+
+  @override
+  String get close => 'Κλείσιμο';
+
+  @override
+  String get scoringAndLimitsTitle => 'Βαθμολογία και όρια';
+
+  @override
+  String get congratulations => '🎉 Συγχαρητήρια! 🎉';
+
+  @override
+  String get validationMin1Error => 'Ελάχιστο 1 λεπτό';
+
+  @override
+  String remainingTimeWithDays(
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String remainingTimeWithWeeks(
+    String weeks,
+    String days,
+    String hours,
+    String minutes,
+    String seconds,
+  ) {
+    return '$weeksε $daysημ $hours:$minutes:$seconds';
+  }
+
+  @override
+  String get validationMax30DaysError => 'Μέγιστο 30 ημέρες';
+
+  @override
+  String get validationMin0GenericError => 'Minimum 0';
+
+  @override
+  String get errorStatus => 'Error';
 }

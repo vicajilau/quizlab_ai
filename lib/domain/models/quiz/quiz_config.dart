@@ -1,3 +1,5 @@
+import 'package:quiz_app/domain/models/quiz/question_order.dart';
+
 /// Configuration settings for a quiz session.
 class QuizConfig {
   /// The total number of questions to be included in the quiz.
@@ -18,6 +20,24 @@ class QuizConfig {
   /// The amount of points to subtract for each incorrect answer.
   final double penaltyAmount;
 
+  /// Whether to use only the user-selected questions instead of a random subset.
+  final bool useSelectedOnly;
+
+  /// Whether a limit for incorrect answers is enabled.
+  final bool enableMaxIncorrectAnswers;
+
+  /// The maximum number of incorrect answers allowed before the quiz ends.
+  final int? maxIncorrectAnswers;
+
+  /// The order in which questions should be presented.
+  final QuestionOrder questionOrder;
+
+  /// Whether to randomize the order of answers for each question.
+  final bool randomizeAnswers;
+
+  /// Whether to show the count of correct options for multiple-choice questions.
+  final bool showCorrectAnswerCount;
+
   /// Creates a [QuizConfig] instance with the specified settings.
   const QuizConfig({
     required this.questionCount,
@@ -26,6 +46,12 @@ class QuizConfig {
     this.timeLimitMinutes,
     this.subtractPoints = false,
     this.penaltyAmount = 0.0,
+    this.useSelectedOnly = false,
+    this.enableMaxIncorrectAnswers = false,
+    this.maxIncorrectAnswers,
+    this.questionOrder = QuestionOrder.random,
+    this.randomizeAnswers = false,
+    this.showCorrectAnswerCount = false,
   });
 
   @override
@@ -38,7 +64,12 @@ class QuizConfig {
         other.enableTimeLimit == enableTimeLimit &&
         other.timeLimitMinutes == timeLimitMinutes &&
         other.subtractPoints == subtractPoints &&
-        other.penaltyAmount == penaltyAmount;
+        other.penaltyAmount == penaltyAmount &&
+        other.useSelectedOnly == useSelectedOnly &&
+        other.enableMaxIncorrectAnswers == enableMaxIncorrectAnswers &&
+        other.questionOrder == questionOrder &&
+        other.randomizeAnswers == randomizeAnswers &&
+        other.showCorrectAnswerCount == showCorrectAnswerCount;
   }
 
   @override
@@ -48,9 +79,15 @@ class QuizConfig {
       enableTimeLimit.hashCode ^
       timeLimitMinutes.hashCode ^
       subtractPoints.hashCode ^
-      penaltyAmount.hashCode;
+      penaltyAmount.hashCode ^
+      useSelectedOnly.hashCode ^
+      enableMaxIncorrectAnswers.hashCode ^
+      maxIncorrectAnswers.hashCode ^
+      questionOrder.hashCode ^
+      randomizeAnswers.hashCode ^
+      showCorrectAnswerCount.hashCode;
 
   @override
   String toString() =>
-      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount)';
+      'QuizConfig(questionCount: $questionCount, isStudyMode: $isStudyMode, enableTimeLimit: $enableTimeLimit, timeLimitMinutes: $timeLimitMinutes, subtractPoints: $subtractPoints, penaltyAmount: $penaltyAmount, useSelectedOnly: $useSelectedOnly, enableMaxIncorrectAnswers: $enableMaxIncorrectAnswers, maxIncorrectAnswers: $maxIncorrectAnswers, questionOrder: $questionOrder, randomizeAnswers: $randomizeAnswers, showCorrectAnswerCount: $showCorrectAnswerCount)';
 }

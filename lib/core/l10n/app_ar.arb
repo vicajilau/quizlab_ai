@@ -1,5 +1,8 @@
 {
   "@@locale": "ar",
+  "abortQuizTitle": "إلغاء Quiz؟",
+  "abortQuizMessage": "سيؤدي فتح ملف جديد إلى إيقاف الاختبار الحالي.",
+  "stopAndOpenButton": "إيقاف وفتح",
   "titleAppBar": "اختبار - محاكي الامتحان",
   "@titleAppBar": {
     "description": "Title of the application displayed in the AppBar."
@@ -48,9 +51,17 @@
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"
   },
-  "aiAttachFileHint": "إرفاق ملف (PDF، TXT، DOCX)",
+  "aiAttachFileHint": "إرفاق ملف (PDF، TXT، MP3، MP4،...)",
   "@aiAttachFileHint": {
     "description": "Hint text for the file attachment area"
+  },
+  "dropAttachmentHere": "أفلت الملف هنا",
+  "@dropAttachmentHere": {
+    "description": "Hint shown when dragging a file over the attachment area"
+  },
+  "dropImageHere": "أفلت الصورة هنا",
+  "@dropImageHere": {
+    "description": "Hint shown when dragging an image over the image section"
   },
   "aiNumberQuestionsLabel": "عدد الأسئلة",
   "@aiNumberQuestionsLabel": {
@@ -75,6 +86,22 @@
     }
   },
   "aiTextModeCount": "وضع النص ({count} كلمات)",
+  "aiGenerationCategoryLabel": "وضع المحتوى",
+  "@aiGenerationCategoryLabel": {
+    "description": "Label for AI generation category selector"
+  },
+  "aiGenerationCategoryTheory": "نظرية",
+  "@aiGenerationCategoryTheory": {
+    "description": "Label for theory category"
+  },
+  "aiGenerationCategoryExercises": "تمارين",
+  "@aiGenerationCategoryExercises": {
+    "description": "Label for exercises category"
+  },
+  "aiGenerationCategoryBoth": "مختلط",
+  "@aiGenerationCategoryBoth": {
+    "description": "Label for mixed category"
+  },
   "@aiTextModeCount": {
     "description": "Text mode with word count",
     "placeholders": {
@@ -109,6 +136,22 @@
     }
   },
   "dropFileHere": "انقر فوق الشعار أو اسحب ملف .quiz إلى الشاشة",
+  "errorOpeningFile": "خطأ في فتح الملف",
+  "@errorOpeningFile": {
+    "description": "Generic error message when opening a file fails."
+  },
+  "replaceFileTitle": "تحميل اختبار Quiz جديد",
+  "@replaceFileTitle": {
+    "description": "Title of the confirmation dialog to replace the current file."
+  },
+  "replaceFileMessage": "هناك اختبار Quiz محمل بالفعل. هل تريد استبداله بالملف الجديد؟",
+  "@replaceFileMessage": {
+    "description": "Message of the confirmation dialog to replace the current file."
+  },
+  "replaceButton": "تحميل",
+  "@replaceButton": {
+    "description": "Button to confirm replacing the file."
+  },
   "@dropFileHere": {
     "description": "النص المعروض داخل منطقة الإفلات لسحب الملفات."
   },
@@ -170,11 +213,11 @@
   "@confirmExitTitle": {
     "description": "Title for the confirmation dialog when exiting."
   },
-  "confirmExitMessage": "هل أنت متأكد من أنك تريد الخروج بدون حفظ؟",
+  "confirmExitMessage": "هناك تغييرات غير محفوظة. هل تريد الخروج وتجاهل التغييرات؟",
   "@confirmExitMessage": {
     "description": "Message in the confirmation dialog for exiting."
   },
-  "exitButton": "خروج",
+  "exitButton": "خروج بدون حفظ",
   "@exitButton": {
     "description": "Exit button text."
   },
@@ -322,10 +365,6 @@
   "@finishQuizConfirmation": {
     "description": "Confirmation message for finishing quiz"
   },
-  "cancel": "إلغاء",
-  "@cancel": {
-    "description": "Cancel button text"
-  },
   "abandonQuiz": "التخلي عن الاختبار",
   "@abandonQuiz": {
     "description": "Title of abandon quiz dialog"
@@ -357,7 +396,7 @@
     "description": "Correct answers count",
     "placeholders": {
       "correct": {
-        "type": "int",
+        "type": "String",
         "example": "8"
       },
       "total": {
@@ -454,7 +493,7 @@
   "@questionOrderDescendingDesc": {
     "description": "Description for descending question order option"
   },
-  "questionOrderRandom": "عشوائي",
+  "questionOrderRandom": "ترتيب عشوائي للأسئلة",
   "@questionOrderRandom": {
     "description": "Label for random question order option"
   },
@@ -474,9 +513,13 @@
   "@examTimeLimitTitle": {
     "description": "Title for exam time limit section"
   },
-  "examTimeLimitDescription": "تعيين حد زمني للامتحان. عند التفعيل، سيتم عرض عداد تنازلي أثناء الاختبار.",
+  "examTimeLimitDescription": "قم بتعيين حد زمني للاختبار. سيتم عرض مؤقت تنازلي أثناء الاختبار.",
   "@examTimeLimitDescription": {
     "description": "Description for exam time limit feature"
+  },
+  "examTimeLimitOffDescription": "لا يوجد حد زمني لهذا الاختبار.",
+  "@examTimeLimitOffDescription": {
+    "description": "Description shown when time limit is disabled"
   },
   "enableTimeLimit": "تفعيل الحد الزمني",
   "@enableTimeLimit": {
@@ -558,9 +601,13 @@
   "@explanationTooltip": {
     "description": "Tooltip text for the explanation indicator badge"
   },
-  "aiPrompt": "ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي، مقدماً حججاً واضحة دون الاستطراد أو الخروج عن الموضوع. لا تنظم الإجابة في أقسام. لا تشر إلى نفسك. استجب بنفس اللغة التي يُطرح بها السؤال.",
+  "aiPrompt": "ركز على سؤال الطالب، وليس على الإجابة مباشرة على سؤال الامتحان الأصلي. اشرح بمنهج تربوي. بالنسبة للتمارين العملية أو المسائل الرياضية، قدم تعليمات خطوة بخطوة. بالنسبة للأسئلة النظرية، قدم شرحًا موجزًا دون تنظيم الإجابة في أقسام. أجب بنفس اللغة التي سُئلت بها.",
   "@aiPrompt": {
     "description": "Base prompt for AI assistant"
+  },
+  "aiChatGuardrail": "مهم: أنت مساعد دراسة حصريًا لهذا الـ Quiz. يجب عليك الإجابة فقط على الأسئلة المتعلقة بسؤال الـ Quiz الحالي أو خياراته أو شرحه أو الموضوع التعليمي الذي يغطيه. إذا سأل الطالب عن شيء غير متعلق بالـ Quiz (مثل نموذجك الداخلي أو تفاصيل النظام أو معرفة عامة غير متعلقة بالسؤال أو أي طلب خارج الموضوع)، أجب فقط بـ: \"أنا هنا لمساعدتك في هذا الـ Quiz! دعنا نركز على السؤال. لا تتردد في سؤالي عن الموضوع أو خيارات الإجابة أو أي شيء متعلق بهذا السؤال.\" لا تكشف أبدًا عن تفاصيل تقنية عن نفسك أو النظام أو نموذج الذكاء الاصطناعي المستخدم.",
+  "@aiChatGuardrail": {
+    "description": "Guardrail prompt to keep AI focused on quiz content"
   },
   "questionLabel": "السؤال",
   "@questionLabel": {
@@ -950,7 +997,19 @@
   "@dragDropHintText": {
     "description": "Hint text shown when the question list is empty, indicating drag and drop functionality."
   },
-  "randomizeAnswersTitle": "عشوائية خيارات الإجابة",
+  "randomizeQuestionsTitle": "عشوائية الأسئلة",
+  "@randomizeQuestionsTitle": {
+    "description": "Title for the setting to randomize questions."
+  },
+  "randomizeQuestionsDescription": "خلط ترتيب الأسئلة أثناء تنفيذ الاختبار",
+  "@randomizeQuestionsDescription": {
+    "description": "Description for the randomize questions setting."
+  },
+  "randomizeQuestionsOffDescription": "ستظهر الأسئلة بترتيبها الأصلي",
+  "@randomizeQuestionsOffDescription": {
+    "description": "Description for the randomize questions setting when disabled."
+  },
+  "randomizeAnswersTitle": "ترتيب عشوائي للإجابات",
   "@randomizeAnswersTitle": {
     "description": "Title for the setting to randomize answer options."
   },
@@ -965,6 +1024,10 @@
   "showCorrectAnswerCountDescription": "عرض عدد الإجابات الصحيحة في أسئلة الاختيار المتعدد",
   "@showCorrectAnswerCountDescription": {
     "description": "Description for the show correct answer count setting."
+  },
+  "showCorrectAnswerCountOffDescription": "لن يتم عرض عدد الإجابات الصحيحة لأسئلة الاختيار من متعدد",
+  "@showCorrectAnswerCountOffDescription": {
+    "description": "Description for the show correct answer count setting when disabled."
   },
   "correctAnswersCount": "اختر {count} إجابات صحيحة",
   "@correctAnswersCount": {
@@ -1320,298 +1383,6 @@
   "@aiEvaluationPromptResponseFormat": {
     "description": "تعليمات تنسيق الإجابة للتقييم"
   },
-  "raffleTitle": "سحب القرعة",
-  "@raffleTitle": {
-    "description": "عنوان شاشة السحب"
-  },
-  "raffleTooltip": "فتح شاشة السحب",
-  "@raffleTooltip": {
-    "description": "تلميح أيقونة السحب في شريط التطبيق"
-  },
-  "participantListTitle": "قائمة المشاركين",
-  "@participantListTitle": {
-    "description": "عنوان قسم قائمة المشاركين"
-  },
-  "participantListHint": "أدخل الأسماء مفصولة بسطر جديد",
-  "@participantListHint": {
-    "description": "نص التلميح لحقل إدخال المشاركين"
-  },
-  "participantListPlaceholder": "أدخل أسماء المشاركين هنا...\nاسم واحد في كل سطر",
-  "@participantListPlaceholder": {
-    "description": "نص العنصر النائب لحقل إدخال المشاركين"
-  },
-  "clearList": "محو القائمة",
-  "@clearList": {
-    "description": "تسمية زر محو قائمة المشاركين"
-  },
-  "participants": "مشاركون",
-  "@participants": {
-    "description": "تسمية عامة للمشاركين"
-  },
-  "noParticipants": "لا يوجد مشاركون",
-  "@noParticipants": {
-    "description": "رسالة تظهر عندما لا يوجد مشاركون"
-  },
-  "addParticipantsHint": "أضف مشاركين لبدء السحب",
-  "@addParticipantsHint": {
-    "description": "تلميح لإضافة مشاركين"
-  },
-  "activeParticipants": "المشاركون النشطون",
-  "@activeParticipants": {
-    "description": "عداد المشاركين النشطين"
-  },
-  "alreadySelected": "تم اختيارهم مسبقاً",
-  "@alreadySelected": {
-    "description": "وصف للمشاركين الذين تم اختيارهم بالفعل"
-  },
-  "totalParticipants": "إجمالي المشاركين",
-  "@totalParticipants": {
-    "description": "عداد إجمالي المشاركين"
-  },
-  "activeVsWinners": "{active} نشطون، {winners} فائزون",
-  "@activeVsWinners": {
-    "description": "عرض عدد المشاركين النشطين مقابل الفائزين",
-    "placeholders": {
-      "active": {
-        "type": "int",
-        "example": "5"
-      },
-      "winners": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "startRaffle": "بدء السحب",
-  "@startRaffle": {
-    "description": "تسمية زر بدء السحب"
-  },
-  "raffling": "جاري السحب...",
-  "@raffling": {
-    "description": "نص يظهر أثناء عملية السحب"
-  },
-  "selectingWinner": "اختيار الفائز...",
-  "@selectingWinner": {
-    "description": "نص يظهر أثناء اختيار الفائز"
-  },
-  "allParticipantsSelected": "تم اختيار جميع المشاركين",
-  "@allParticipantsSelected": {
-    "description": "رسالة تظهر عندما يتم اختيار جميع المشاركين"
-  },
-  "addParticipantsToStart": "أضف مشاركين لبدء السحب",
-  "@addParticipantsToStart": {
-    "description": "رسالة تظهر عندما لا يوجد مشاركون للسحب"
-  },
-  "participantsReadyCount": "{count} مشاركون جاهزون للسحب",
-  "@participantsReadyCount": {
-    "description": "عداد المشاركين الجاهزين للسحب",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "resetWinners": "إعادة تعيين الفائزين",
-  "@resetWinners": {
-    "description": "تسمية زر إعادة تعيين الفائزين"
-  },
-  "resetWinnersConfirmTitle": "إعادة تعيين الفائزين؟",
-  "@resetWinnersConfirmTitle": {
-    "description": "عنوان حوار تأكيد إعادة تعيين الفائزين"
-  },
-  "resetWinnersConfirmMessage": "هذا سيعيد جميع الفائزين إلى قائمة المشاركين النشطين.",
-  "@resetWinnersConfirmMessage": {
-    "description": "رسالة تأكيد إعادة تعيين الفائزين"
-  },
-  "resetRaffleTitle": "إعادة تعيين السحب؟",
-  "@resetRaffleTitle": {
-    "description": "عنوان حوار تأكيد إعادة تعيين السحب"
-  },
-  "resetRaffleConfirmMessage": "هذا سيعيد تعيين جميع الفائزين والمشاركين النشطين.",
-  "@resetRaffleConfirmMessage": {
-    "description": "رسالة تأكيد إعادة تعيين السحب"
-  },
-  "reset": "إعادة تعيين",
-  "@reset": {
-    "description": "تسمية زر إعادة التعيين"
-  },
-  "viewWinners": "عرض الفائزين",
-  "@viewWinners": {
-    "description": "تسمية زر عرض الفائزين"
-  },
-  "congratulations": "🎉 تهانينا! 🎉",
-  "@congratulations": {
-    "description": "رسالة تهنئة للفائز"
-  },
-  "positionLabel": "المركز {position}",
-  "@positionLabel": {
-    "description": "تسمية مركز الفائز",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "1"
-      }
-    }
-  },
-  "remainingParticipants": "مشاركون متبقون: {count}",
-  "@remainingParticipants": {
-    "description": "عداد المشاركين المتبقين",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "continueRaffle": "متابعة السحب",
-  "@continueRaffle": {
-    "description": "تسمية زر متابعة السحب"
-  },
-  "finishRaffle": "إنهاء السحب",
-  "@finishRaffle": {
-    "description": "تسمية زر إنهاء السحب"
-  },
-  "winnersTitle": "الفائزون",
-  "@winnersTitle": {
-    "description": "عنوان شاشة الفائزين"
-  },
-  "shareResults": "مشاركة النتائج",
-  "@shareResults": {
-    "description": "تسمية زر مشاركة النتائج"
-  },
-  "noWinnersYet": "لا يوجد فائزون بعد",
-  "@noWinnersYet": {
-    "description": "رسالة تظهر عندما لا يوجد فائزون"
-  },
-  "performRaffleToSeeWinners": "قم بإجراء سحب لرؤية الفائزين",
-  "@performRaffleToSeeWinners": {
-    "description": "رسالة تشجع على إجراء سحب"
-  },
-  "goToRaffle": "الذهاب إلى السحب",
-  "@goToRaffle": {
-    "description": "تسمية زر الذهاب إلى السحب"
-  },
-  "raffleCompleted": "اكتمل السحب!",
-  "@raffleCompleted": {
-    "description": "رسالة تظهر عند اكتمال السحب"
-  },
-  "winnersSelectedCount": "تم اختيار {count} فائزين",
-  "@winnersSelectedCount": {
-    "description": "عداد الفائزين المختارين",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "newRaffle": "سحب جديد",
-  "@newRaffle": {
-    "description": "تسمية زر بدء سحب جديد"
-  },
-  "shareResultsTitle": "نتائج السحب",
-  "@shareResultsTitle": {
-    "description": "عنوان حوار مشاركة النتائج"
-  },
-  "raffleResultsLabel": "نتائج السحب:",
-  "@raffleResultsLabel": {
-    "description": "تسمية نتائج السحب"
-  },
-  "close": "إغلاق",
-  "@close": {
-    "description": "تسمية زر الإغلاق"
-  },
-  "share": "نسخ",
-  "@share": {
-    "description": "تسمية زر النسخ"
-  },
-  "shareNotImplemented": "المشاركة غير مطبقة بعد",
-  "@shareNotImplemented": {
-    "description": "رسالة عندما تكون المشاركة غير مطبقة"
-  },
-  "firstPlace": "المركز الأول",
-  "@firstPlace": {
-    "description": "تسمية المركز الأول"
-  },
-  "secondPlace": "المركز الثاني",
-  "@secondPlace": {
-    "description": "تسمية المركز الثاني"
-  },
-  "thirdPlace": "المركز الثالث",
-  "@thirdPlace": {
-    "description": "تسمية المركز الثالث"
-  },
-  "nthPlace": "المركز {position}",
-  "@nthPlace": {
-    "description": "تسمية المركز لأي رقم",
-    "placeholders": {
-      "position": {
-        "type": "int",
-        "example": "4"
-      }
-    }
-  },
-  "placeLabel": "المركز",
-  "@placeLabel": {
-    "description": "تسمية عامة للمركز"
-  },
-  "raffleResultsHeader": "نتائج السحب - {count} فائزين",
-  "@raffleResultsHeader": {
-    "description": "رأس نتائج السحب مع عدد الفائزين",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "3"
-      }
-    }
-  },
-  "totalWinners": "إجمالي الفائزين: {count}",
-  "@totalWinners": {
-    "description": "عداد إجمالي الفائزين",
-    "placeholders": {
-      "count": {
-        "type": "int",
-        "example": "5"
-      }
-    }
-  },
-  "noWinnersToShare": "لا يوجد فائزون للمشاركة",
-  "@noWinnersToShare": {
-    "description": "رسالة تظهر عندما لا يوجد فائزون للمشاركة"
-  },
-  "shareSuccess": "تم نسخ النتائج بنجاح",
-  "@shareSuccess": {
-    "description": "رسالة نجاح تظهر بعد نسخ النتائج"
-  },
-  "selectLogo": "اختيار الشعار",
-  "@selectLogo": {
-    "description": "عنوان مربع الحوار لاختيار الشعار المخصص"
-  },
-  "logoUrl": "رابط الشعار",
-  "@logoUrl": {
-    "description": "تسمية حقل إدخال رابط الشعار"
-  },
-  "logoUrlHint": "أدخل رابط صورة لاستخدامها كشعار مخصص للسحب",
-  "@logoUrlHint": {
-    "description": "نص المساعدة الذي يشرح حقل رابط الشعار"
-  },
-  "invalidLogoUrl": "رابط صورة غير صالح. يجب أن يكون رابطاً صالحاً ينتهي بـ .jpg أو .png أو .gif إلخ.",
-  "@invalidLogoUrl": {
-    "description": "رسالة خطأ لرابط شعار غير صالح"
-  },
-  "logoPreview": "معاينة",
-  "@logoPreview": {
-    "description": "عنوان قسم معاينة الشعار"
-  },
-  "removeLogo": "إزالة الشعار",
-  "@removeLogo": {
-    "description": "نص الزر لإزالة الشعار المخصص"
-  },
-  "logoTooLargeWarning": "الصورة كبيرة جداً ولا يمكن حفظها. سيتم استخدامها فقط خلال هذه الجلسة.",
-  "@logoTooLargeWarning": {
-    "description": "رسالة تحذير عندما يكون الشعار كبيراً جداً للتخزين المستمر"
-  },
   "aiModeTopicTitle": "وضع الموضوع",
   "@aiModeTopicTitle": {
     "description": "عنوان وضع الموضوع في مساعد الذكاء الاصطناعي"
@@ -1705,15 +1476,16 @@
     "description": "Error message when file picker fails"
   },
   "studyModeLabel": "وضع الدراسة",
-  "studyModeDescription": "ردود فعل فورية وبلا توقيت",
+  "studyModeDescription": "مساعدة الذكاء الاصطناعي متاحة. تعليقات فورية بعد كل إجابة بدون حدود زمنية أو عقوبات.",
   "examModeLabel": "وضع الاختبار",
-  "examModeDescription": "توقيت قياسي ونتائج في النهاية",
+  "examModeDescription": "بدون مساعدة الذكاء الاصطناعي. قد يتم تطبيق حدود زمنية وعقوبات على الإجابات غير الصحيحة.",
   "checkAnswer": "تحقق",
   "quizModeTitle": "وضع الاختبار",
   "askAiAssistant": "اسأل مساعد الذكاء الاصطناعي",
+  "askAiAboutQuestion": "اسأل الذكاء الاصطناعي عن هذا السؤال",
+  "aiHelpWithQuestion": "ساعدني في فهم هذا السؤال",
   "evaluateWithAI": "تقييم بالذكاء الاصطناعي",
   "aiEvaluation": "تقييم الذكاء الاصطناعي",
-  "sorteosLabel": "Raffles",
   "edit": "تعديل",
   "enable": "تفعيل",
   "disable": "تعطيل",
@@ -1770,8 +1542,13 @@
     }
   },
   "subtractPointsLabel": "خصم نقاط للإجابة الخاطئة",
+  "subtractPointsDescription": "خصم نقاط عن كل إجابة خاطئة.",
   "@subtractPointsLabel": {
     "description": "Label for the checkbox to subtract points for incorrect answers"
+  },
+  "subtractPointsOffDescription": "الإجابات الخاطئة لا تخصم نقاطا.",
+  "@subtractPointsOffDescription": {
+    "description": "Description shown when subtract points for incorrect answers is disabled"
   },
   "penaltyAmountLabel": "مبلغ الغرامة",
   "@penaltyAmountLabel": {
@@ -1787,5 +1564,86 @@
       }
     }
   },
-  "allQuestionsLabel": "جميع الأسئلة"
+  "allQuestionsLabel": "جميع الأسئلة",
+  "startWithSelectedQuestions": "ابدأ بـ {count} محددة",
+  "advancedSettingsTitle": "إعدادات متقدمة (تصحيح الأخطاء)",
+  "appLanguageLabel": "لغة التطبيق",
+  "appLanguageDescription": "تجاوز لغة التطبيق للاختبار",
+  "pasteFromClipboard": "لصق من الحافظة",
+  "pasteImage": "لصق",
+  "clipboardNoImage": "لم يتم العثور على صورة في الحافظة",
+  "maxIncorrectAnswersLabel": "تقييد الإجابات الخاطئة",
+  "@maxIncorrectAnswersLabel": {
+    "description": "Label for the toggle to limit incorrect answers"
+  },
+  "maxIncorrectAnswersDescription": "امتحان نجاح/رسوب. لا توجد درجة رقمية، إما أن تنجح أو ترسب.",
+  "@maxIncorrectAnswersDescription": {
+    "description": "Description for the limit incorrect answers feature"
+  },
+  "maxIncorrectAnswersOffDescription": "للامتحان درجة رقمية من 0 إلى 100.",
+  "@maxIncorrectAnswersOffDescription": {
+    "description": "Description shown when max incorrect answers is disabled"
+  },
+  "maxIncorrectAnswersLimitLabel": "الحد الأقصى للأخطاء المسموح بها",
+  "@maxIncorrectAnswersLimitLabel": {
+    "description": "Label for the input field of maximum incorrect answers"
+  },
+  "examFailedStatus": "اختبار لم يجتز",
+  "examPassedStatus": "اختبار اجتيز",
+  "quizFailedLimitReached": "انتهى الاختبار: تم تجاوز الحد الأقصى للأخطاء المسموح بها",
+  "@quizFailedLimitReached": {
+    "description": "Title for the results screen when the error limit is reached"
+  },
+  "close": "إغلاق",
+  "@close": {
+    "description": "Close button text"
+  },
+  "randomizeAnswersOffDescription": "ستظهر خيارات الإجابة بترتيبها الأصلي",
+  "@randomizeAnswersOffDescription": {
+    "description": "Description for the randomize answers setting when disabled."
+  },
+  "scoringAndLimitsTitle": "الدرجات والحدود",
+  "@scoringAndLimitsTitle": {
+    "description": "Title for the scoring and limits section in advanced settings"
+  },
+  "congratulations": "🎉 تهانينا! 🎉",
+  "@congratulations": {
+    "description": "Congratulations message in winner dialog"
+  },
+  "examConfigurationTitle": "إعدادات الامتحان",
+  "@examConfigurationTitle": {
+    "description": "Title for the advanced settings / exam configuration section"
+  },
+  "validationMin1Error": "دقيقة واحدة كحد أدنى",
+  "remainingTimeWithDays": "{days}ي {hours}:{minutes}:{seconds}",
+  "remainingTimeWithWeeks": "{weeks}أ {days}ي {hours}:{minutes}:{seconds}",
+  "validationMax30DaysError": "كحد أقصى 30 يومًا",
+  "validationMin0GenericError": "بحد أدنى 0",
+  "errorStatus": "خطأ",
+  "evaluatingResponses": "جاري تقييم الردود...",
+  "@evaluatingResponses": {
+    "description": "النص المعروض في شاشة النتائج عندما تكون تقييمات الذكاء الاصطناعي قيد الانتظار"
+  },
+  "pendingEvaluationsCount": "{count, plural, =1{سؤال مقالي واحد قيد انتظار تقييم الذكاء الاصطناعي} other{{count} أسئلة مقالية قيد انتظار تقييم الذكاء الاصطناعي}}",
+  "@pendingEvaluationsCount": {
+    "description": "عنوان فرعي يوضح عدد تقييمات الذكاء الاصطناعي قيد الانتظار",
+    "placeholders": {
+      "count": {
+        "type": "int",
+        "example": "2"
+      }
+    }
+  },
+  "pendingStatus": "قيد الانتظار",
+  "@pendingStatus": {
+    "description": "تسمية الحالة لتقييم ذكاء اصطناعي قيد الانتظار"
+  },
+  "notEvaluatedStatus": "لم يتم التقييم",
+  "@notEvaluatedStatus": {
+    "description": "تسمية الحالة لسؤال مقالي لم يتم تقييمه بواسطة الذكاء الاصطناعي"
+  },
+  "retryButton": "إعادة محاولة التقييم",
+  "@retryButton": {
+    "description": "نص الزر لإعادة محاولة تقييم الذكاء الاصطناعي"
+  }
 }
