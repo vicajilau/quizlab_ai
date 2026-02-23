@@ -2,15 +2,13 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:quiz_app/domain/models/quiz/question_order.dart';
 import 'package:quiz_app/domain/models/ai/ai_generation_stored_settings.dart';
 import 'package:quiz_app/domain/models/quiz/quiz_config_stored_settings.dart';
-import 'package:quiz_app/core/security/encryption_service.dart';
+import 'package:quiz_app/core/security/secure_storage_service.dart';
 
 class ConfigurationService {
   static const String _questionOrderKey = 'question_order';
   static const String _examTimeEnabledKey = 'exam_time_enabled';
   static const String _examTimeMinutesKey = 'exam_time_minutes';
   static const String _aiAssistantEnabledKey = 'ai_assistant_enabled';
-  static const String _openaiApiKeyKey = 'openai_api_key';
-  static const String _geminiApiKeyKey = 'gemini_api_key';
   static const String _randomizeAnswersKey = 'randomize_answers';
   static const String _showCorrectAnswerCountKey = 'show_correct_answer_count';
   static const String _defaultAIServiceKey = 'default_ai_service';
@@ -93,55 +91,29 @@ class ConfigurationService {
     return prefs.getBool(_aiAssistantEnabledKey) ?? true;
   }
 
-  /// Saves OpenAI API Key securely (encrypted)
-  Future<void> saveOpenAIApiKey(String apiKey) async {
-    final prefs = await SharedPreferences.getInstance();
-    final encryptedApiKey = EncryptionService.encrypt(apiKey);
-    await prefs.setString(_openaiApiKeyKey, encryptedApiKey);
-  }
+  /// Saves OpenAI API Key in platform-native secure storage
+  Future<void> saveOpenAIApiKey(String apiKey) =>
+      SecureStorageService.instance.saveOpenAIApiKey(apiKey);
 
-  /// Gets OpenAI API Key (decrypted)
-  Future<String?> getOpenAIApiKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    final encryptedApiKey = prefs.getString(_openaiApiKeyKey);
+  /// Gets OpenAI API Key from secure storage
+  Future<String?> getOpenAIApiKey() =>
+      SecureStorageService.instance.getOpenAIApiKey();
 
-    if (encryptedApiKey == null || encryptedApiKey.isEmpty) {
-      return null;
-    }
+  /// Deletes OpenAI API Key from secure storage
+  Future<void> deleteOpenAIApiKey() =>
+      SecureStorageService.instance.deleteOpenAIApiKey();
 
-    return EncryptionService.decrypt(encryptedApiKey);
-  }
+  /// Saves Gemini API Key in platform-native secure storage
+  Future<void> saveGeminiApiKey(String apiKey) =>
+      SecureStorageService.instance.saveGeminiApiKey(apiKey);
 
-  /// Deletes OpenAI API Key
-  Future<void> deleteOpenAIApiKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_openaiApiKeyKey);
-  }
+  /// Gets Gemini API Key from secure storage
+  Future<String?> getGeminiApiKey() =>
+      SecureStorageService.instance.getGeminiApiKey();
 
-  /// Saves Gemini API Key securely (encrypted)
-  Future<void> saveGeminiApiKey(String apiKey) async {
-    final prefs = await SharedPreferences.getInstance();
-    final encryptedApiKey = EncryptionService.encrypt(apiKey);
-    await prefs.setString(_geminiApiKeyKey, encryptedApiKey);
-  }
-
-  /// Gets Gemini API Key (decrypted)
-  Future<String?> getGeminiApiKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    final encryptedApiKey = prefs.getString(_geminiApiKeyKey);
-
-    if (encryptedApiKey == null || encryptedApiKey.isEmpty) {
-      return null;
-    }
-
-    return EncryptionService.decrypt(encryptedApiKey);
-  }
-
-  /// Deletes Gemini API Key
-  Future<void> deleteGeminiApiKey() async {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.remove(_geminiApiKeyKey);
-  }
+  /// Deletes Gemini API Key from secure storage
+  Future<void> deleteGeminiApiKey() =>
+      SecureStorageService.instance.deleteGeminiApiKey();
 
   /// Saves whether answers should be randomized
   Future<void> saveRandomizeAnswers(bool randomize) async {

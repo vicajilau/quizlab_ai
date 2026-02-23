@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:crypto/crypto.dart';
 
+@Deprecated('Use SecureStorageService instead. '
+    'Kept temporarily for migration compatibility.')
 class EncryptionService {
   static const String _salt = 'QuizApp2025Salt';
 

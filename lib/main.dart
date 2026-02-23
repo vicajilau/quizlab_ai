@@ -6,14 +6,16 @@ import 'package:quiz_app/core/theme/app_theme.dart';
 import 'package:quiz_app/core/file_handler.dart';
 import 'package:quiz_app/core/l10n/app_localizations.dart';
 import 'package:quiz_app/core/service_locator.dart';
+import 'package:quiz_app/core/security/key_migration_service.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quiz_app/presentation/blocs/file_bloc/file_event.dart';
 import 'package:quiz_app/presentation/blocs/locale_cubit/locale_cubit.dart';
 import 'package:quiz_app/presentation/blocs/locale_cubit/locale_state.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await KeyMigrationService.migrateIfNeeded();
   setUrlStrategy(null);
   ServiceLocator.instance.setup();
 
