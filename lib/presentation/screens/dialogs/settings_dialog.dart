@@ -9,6 +9,7 @@ import 'package:quizlab_ai/presentation/widgets/quizlab_ai_button.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/ai_settings_section.dart';
 import 'package:flutter/foundation.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/settings_widgets/advanced_settings_section.dart';
+import 'package:quizlab_ai/routes/app_router.dart';
 
 class SettingsDialog extends StatefulWidget {
   const SettingsDialog({super.key});
@@ -282,6 +283,10 @@ class _SettingsDialogState extends State<SettingsDialog> {
                             const SizedBox(height: 24),
                             const AdvancedSettingsSection(),
                           ],
+                          const SizedBox(height: 24),
+                          Divider(color: colors.border),
+                          const SizedBox(height: 16),
+                          _OnboardingRow(colors: colors),
                         ],
                       ),
                     ),
@@ -294,6 +299,76 @@ class _SettingsDialogState extends State<SettingsDialog> {
                 isLoading: _isLoading,
                 onPressed: _isLoading ? null : _saveSettings,
               ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _OnboardingRow extends StatelessWidget {
+  final ConfirmingDialogColorsExtension colors;
+
+  const _OnboardingRow({required this.colors});
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      borderRadius: BorderRadius.circular(12),
+      onTap: () async {
+        await ConfigurationService.instance.setOnboardingCompleted(false);
+        if (context.mounted) {
+          context.pop();
+          context.push('${AppRoutes.onboarding}?from=settings');
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 8),
+        child: Row(
+          children: [
+            Container(
+              width: 40,
+              height: 40,
+              decoration: BoxDecoration(
+                color: colors.surface,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                LucideIcons.graduationCap,
+                size: 20,
+                color: colors.subtitle,
+              ),
+            ),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.showOnboarding,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w600,
+                      color: colors.title,
+                    ),
+                  ),
+                  Text(
+                    AppLocalizations.of(context)!.showOnboardingDescription,
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      fontSize: 12,
+                      color: colors.subtitle,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Icon(
+              LucideIcons.chevronRight,
+              size: 18,
+              color: colors.subtitle,
             ),
           ],
         ),
