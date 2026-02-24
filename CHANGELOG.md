@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - fix: Disable/lock essay answer textarea after "Check answer" in Study Mode to prevent modifications during review.
 - feat: Renamed the application across all platforms to "QuizLab AI" for consistent branding.
 - feat: Defined and replaced all the buttons in order to follow the proper design guidelines.
+- feat: Added onboarding flow with 4 screens (Welcome, Start Quiz, Create Questions, AI Features) shown on first launch, with responsive mobile/desktop layouts, skip/back/next navigation, and re-open option from Settings.
 
 ## [1.7.0] - 2026-02-23
 
