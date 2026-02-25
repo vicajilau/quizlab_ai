@@ -64,7 +64,7 @@ def create_smaller_background_icon(input_path, output_path, size=1024, corner_ra
 
 def main():
     # Rutas de archivos
-    input_image = "images/QUIZ.png"
+    input_image = "images/QuizLab_AI.png"
     output_image = "images/QUIZ_macos.png"
     
     # Verificar que existe la imagen original

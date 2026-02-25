@@ -256,7 +256,7 @@ quiz_app/
 │   │   └── deploy-web.yml           # Web deployment
 │   └── assets/                      # Demo images and branding
 │       ├── demo.png                # App screenshots
-│       └── quiz.png                # App icon
+│       └── QuizLab_AI.png                # App icon
 │
 ├── lib/                             # Main application code
 │   ├── main.dart                    # Application entry point

@@ -367,7 +367,6 @@ class _QuestionCountSelectionDialogState
     final controlIconColor = isDark
         ? const Color(0xFFA1A1AA)
         : const Color(0xFF3F3F46);
-    final primaryColor = const Color(0xFF8B5CF6);
     final l10n = AppLocalizations.of(context)!;
     return Dialog(
       backgroundColor: Colors.transparent,
@@ -490,7 +489,9 @@ class _QuestionCountSelectionDialogState
                                       }
                                     });
                                   },
-                                  activeTrackColor: primaryColor,
+                                  activeTrackColor: Theme.of(
+                                    context,
+                                  ).primaryColor,
                                   activeThumbColor: Colors.white,
                                   inactiveThumbColor: Colors.white,
                                   inactiveTrackColor: isDark
@@ -632,7 +633,7 @@ class _QuestionCountSelectionDialogState
                                 CountControlButton(
                                   icon: LucideIcons.plus,
                                   onTap: _incrementCount,
-                                  bgColor: primaryColor,
+                                  bgColor: Theme.of(context).primaryColor,
                                   iconColor: Colors.white,
                                 ),
                               ],
@@ -655,7 +656,7 @@ class _QuestionCountSelectionDialogState
                           }
                         });
                       },
-                      primaryColor: primaryColor,
+                      primaryColor: Theme.of(context).primaryColor,
                       controlBgColor: controlBgColor,
                       subTextColor: subTextColor,
                     ),
@@ -669,7 +670,7 @@ class _QuestionCountSelectionDialogState
                         textColor: textColor,
                         subTextColor: subTextColor,
                         borderColor: borderColor,
-                        primaryColor: primaryColor,
+                        primaryColor: Theme.of(context).primaryColor,
                         controlBgColor: controlBgColor,
                         controlIconColor: controlIconColor,
                         subtractPoints: _subtractPoints,

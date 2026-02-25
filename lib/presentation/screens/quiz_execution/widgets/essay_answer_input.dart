@@ -156,7 +156,7 @@ class _EssayAnswerInputState extends State<EssayAnswerInput> {
                 hintText: AppLocalizations.of(context)!.explanationHint,
                 border: InputBorder.none,
                 hintStyle: TextStyle(
-                  color: Colors.white.withValues(alpha: 0.5),
+                  color: Theme.of(context).hintColor,
                   fontFamily: 'Inter',
                 ),
                 contentPadding: const EdgeInsets.all(16),

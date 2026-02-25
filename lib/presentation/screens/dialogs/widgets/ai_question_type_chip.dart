@@ -18,7 +18,6 @@ import 'package:lucide_icons/lucide_icons.dart';
 import 'package:quizlab_ai/core/l10n/app_localizations.dart';
 import 'package:quizlab_ai/domain/models/ai/ai_question_type.dart';
 import 'package:quizlab_ai/domain/models/quiz/question_type.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/core/theme/extensions/confirm_dialog_colors_extension.dart';
 
 class AiQuestionTypeChip extends StatelessWidget {
@@ -70,7 +69,7 @@ class AiQuestionTypeChip extends StatelessWidget {
         height: 36,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         decoration: BoxDecoration(
-          color: isSelected ? AppTheme.primaryColor : colors.surface,
+          color: isSelected ? Theme.of(context).primaryColor : colors.surface,
           borderRadius: BorderRadius.circular(18),
         ),
         child: Row(

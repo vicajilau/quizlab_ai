@@ -230,9 +230,9 @@ class _QuizInProgressViewState extends State<QuizInProgressView>
                                 : BorderSide(color: closeBtnBorder),
                           ),
                         ),
-                        icon: const Icon(
+                        icon: Icon(
                           LucideIcons.sparkles,
-                          color: AppTheme.primaryColor,
+                          color: Theme.of(context).primaryColor,
                           size: 24,
                         ),
                       ),

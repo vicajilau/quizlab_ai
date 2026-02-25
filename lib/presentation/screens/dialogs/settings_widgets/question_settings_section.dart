@@ -230,7 +230,7 @@ class _QuestionSettingsSectionState extends State<QuestionSettingsSection> {
     required bool isSelected,
   }) {
     final colors = context.appColors;
-    const activeColor = AppTheme.primaryColor;
+    final activeColor = Theme.of(context).primaryColor;
     final activeText = Colors.white;
 
     String label;
@@ -317,7 +317,7 @@ class _QuestionSettingsSectionState extends State<QuestionSettingsSection> {
             value: value,
             onChanged: onChanged,
             activeThumbColor: Colors.white,
-            activeTrackColor: AppTheme.primaryColor,
+            activeTrackColor: Theme.of(context).primaryColor,
             inactiveThumbColor: Colors.white,
             inactiveTrackColor: isDark ? AppTheme.zinc600 : AppTheme.zinc300,
             trackOutlineColor: WidgetStateProperty.all(Colors.transparent),

@@ -240,7 +240,7 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                                   fontFamily: 'Inter',
                                   fontSize: 12,
                                   color: widget.getTopicCount() > 10
-                                      ? AppTheme.primaryColor
+                                      ? Theme.of(context).primaryColor
                                       : colors.subtitle,
                                   fontWeight: FontWeight.w500,
                                 ),
@@ -259,12 +259,14 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                           width: double.infinity,
                           decoration: BoxDecoration(
                             color: _isDragging
-                                ? AppTheme.primaryColor.withValues(alpha: 0.05)
+                                ? Theme.of(
+                                    context,
+                                  ).primaryColor.withValues(alpha: 0.05)
                                 : Colors.transparent,
                             borderRadius: BorderRadius.circular(12),
                             border: Border.all(
                               color: _isDragging
-                                  ? AppTheme.primaryColor
+                                  ? Theme.of(context).primaryColor
                                   : attachStroke,
                               width: 2,
                             ),
@@ -282,7 +284,7 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                                         ? LucideIcons.download
                                         : LucideIcons.paperclip,
                                     color: _isDragging
-                                        ? AppTheme.primaryColor
+                                        ? Theme.of(context).primaryColor
                                         : colors.subtitle,
                                     size: 20,
                                   ),
@@ -290,11 +292,11 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                                   if (_isDragging)
                                     Text(
                                       localizations.dropAttachmentHere,
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         fontFamily: 'Inter',
                                         fontSize: 14,
                                         fontWeight: FontWeight.w500,
-                                        color: AppTheme.primaryColor,
+                                        color: Theme.of(context).primaryColor,
                                       ),
                                       overflow: TextOverflow.ellipsis,
                                     )
@@ -397,7 +399,9 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                               },
                           showSelectedIcon: false,
                           style: SegmentedButton.styleFrom(
-                            selectedBackgroundColor: AppTheme.primaryColor,
+                            selectedBackgroundColor: Theme.of(
+                              context,
+                            ).primaryColor,
                             selectedForegroundColor: Colors.white,
                             backgroundColor: inputBg,
                             side: BorderSide(color: attachStroke),
@@ -510,7 +514,7 @@ class _AiGenerateStep2WidgetState extends State<AiGenerateStep2Widget> {
                               width: 44,
                               height: 44,
                               decoration: BoxDecoration(
-                                color: AppTheme.primaryColor,
+                                color: Theme.of(context).primaryColor,
                                 borderRadius: BorderRadius.circular(12),
                               ),
                               child: const Icon(
