@@ -12,37 +12,15 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+
+      - name: Build & Publish android
+        uses: Spaccesi/flutter-actions-suite@main
         with:
-          channel: stable
+          run-test: 'false'
+          run-build-runner: 'false'
+          run-analyze: 'false'
+          run-license: 'false'
+          build-platform: 'linux'
+          publish-destination: 'store'
+          snap-store-token: ${{ secrets.SNAPCRAFT_LOGIN }}
 
-      - name: Install Linux build dependencies
-        run: sudo apt-get update && sudo apt-get install -y curl git unzip xz-utils zip libglu1-mesa clang cmake git ninja-build pkg-config liblzma-dev libstdc++-12-dev libgtk-3-dev
-
-      - name: Install Snapcraft
-        run: sudo snap install snapcraft --classic
-
-      - name: Install core24 snap
-        run: sudo snap install core24 --channel=latest/stable
-
-      - name: Setup LXD (for managed builds)
-        uses: canonical/setup-lxd@main
-
-      - name: Extract Flutter version
-        id: flutter_version
-        run: |
-          VERSION=$(grep '^version:' pubspec.yaml | sed 's/version: //;s/+.*//')
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
-
-      - name: Update snapcraft.yaml version
-        run: |
-          sed -i "s/^version: .*/version: \"$VERSION\"/" snap/snapcraft.yaml
-
-      - name: Build snap
-        run: snapcraft pack --debug --use-lxd
-
-      - name: Publish to Snap Store
-        run: snapcraft upload quiz-app*.snap --release=stable
-        env:
-          SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAPCRAFT_LOGIN }}
