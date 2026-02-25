@@ -16,7 +16,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:quizlab_ai/core/context_extension.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 import 'package:quizlab_ai/domain/models/quiz/question.dart';
 import 'package:quizlab_ai/domain/models/quiz/quiz_file.dart';
 import 'package:quizlab_ai/presentation/screens/dialogs/add_edit_question_dialog.dart';
@@ -97,7 +96,7 @@ class _QuestionListWidgetState extends State<QuestionListWidget> {
                       vertical: 6,
                     ),
                     decoration: BoxDecoration(
-                      color: AppTheme.primaryColor,
+                      color: Theme.of(context).primaryColor,
                       borderRadius: BorderRadius.circular(16),
                       boxShadow: [
                         BoxShadow(

@@ -151,7 +151,7 @@ class _RequestFileNameDialogState extends State<RequestFileNameDialog> {
                     fontFamily: 'Inter',
                     fontSize: 16,
                   ),
-                  cursorColor: AppTheme.primaryColor,
+                  cursorColor: Theme.of(context).primaryColor,
                   decoration: InputDecoration(
                     filled: true,
                     fillColor: AppTheme.zinc700, // Zinc 700
@@ -174,8 +174,8 @@ class _RequestFileNameDialogState extends State<RequestFileNameDialog> {
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12),
-                      borderSide: const BorderSide(
-                        color: AppTheme.primaryColor, // Violet 500
+                      borderSide: BorderSide(
+                        color: Theme.of(context).primaryColor, // Violet 500
                         width: 2,
                       ),
                     ),

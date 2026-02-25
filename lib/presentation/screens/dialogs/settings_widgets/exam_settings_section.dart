@@ -82,7 +82,7 @@ class ExamSettingsSection extends StatelessWidget {
                 value: enabled,
                 onChanged: onEnabledChanged,
                 activeThumbColor: Colors.white,
-                activeTrackColor: AppTheme.primaryColor,
+                activeTrackColor: Theme.of(context).primaryColor,
                 inactiveThumbColor: Colors.white,
                 inactiveTrackColor: isDark
                     ? AppTheme.zinc600
@@ -120,7 +120,7 @@ class ExamSettingsSection extends StatelessWidget {
               ),
               focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(12),
-                borderSide: const BorderSide(color: AppTheme.primaryColor),
+                borderSide: BorderSide(color: Theme.of(context).primaryColor),
               ),
               suffixText: AppLocalizations.of(context)!.minutesAbbreviation,
             ),

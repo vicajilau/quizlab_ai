@@ -14,7 +14,6 @@
 // along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 import 'package:flutter/material.dart';
-import 'package:quizlab_ai/core/theme/app_theme.dart';
 
 class OnboardingPageIndicator extends StatelessWidget {
   final int currentPage;
@@ -40,7 +39,7 @@ class OnboardingPageIndicator extends StatelessWidget {
           height: 8,
           decoration: BoxDecoration(
             color: isActive
-                ? AppTheme.primaryColor
+                ? Theme.of(context).primaryColor
                 : Theme.of(context).dividerColor,
             borderRadius: BorderRadius.circular(4),
           ),

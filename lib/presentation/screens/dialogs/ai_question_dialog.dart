@@ -258,9 +258,9 @@ class _AIQuestionDialogState extends State<AIQuestionDialog> {
                 Expanded(
                   child: Row(
                     children: [
-                      const Icon(
+                      Icon(
                         LucideIcons.sparkles,
-                        color: AppTheme.primaryColor, // Violet 500
+                        color: Theme.of(context).primaryColor, // Violet 500
                         size: 24,
                       ),
                       const SizedBox(width: 12),

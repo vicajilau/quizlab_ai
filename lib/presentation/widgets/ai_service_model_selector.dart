@@ -270,10 +270,10 @@ class _AiServiceModelSelectorState extends State<AiServiceModelSelector> {
         ),
         child: Row(
           children: [
-            const Icon(
+            Icon(
               LucideIcons.sparkles,
               size: 16,
-              color: Color(0xFF8B5CF6), // Violet 500
+              color: Theme.of(context).primaryColor, // Violet 500
             ),
             const SizedBox(width: 8),
             Text(

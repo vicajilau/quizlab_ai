@@ -78,8 +78,8 @@ class QuizProgressIndicator extends StatelessWidget {
                   child: LinearProgressIndicator(
                     value: state.progress,
                     backgroundColor: barBgColor,
-                    valueColor: const AlwaysStoppedAnimation<Color>(
-                      AppTheme.primaryColor,
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Theme.of(context).primaryColor,
                     ),
                   ),
                 ),

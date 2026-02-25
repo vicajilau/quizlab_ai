@@ -75,7 +75,7 @@ class AiGenerateStep1Widget extends StatelessWidget {
     );
 
     final geminiBgColor = isGeminiSelected
-        ? AppTheme.primaryColor
+        ? Theme.of(context).primaryColor
         : (isDark ? AppTheme.borderColorDark : AppTheme.cardColorLight);
     final geminiContentColor = isGeminiSelected
         ? AppTheme.zinc50

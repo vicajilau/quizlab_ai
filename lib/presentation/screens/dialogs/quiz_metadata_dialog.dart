@@ -161,7 +161,7 @@ class _QuizMetadataDialogState extends State<QuizMetadataDialog> {
             fontFamily: 'Inter',
             fontSize: 16,
           ),
-          cursorColor: AppTheme.primaryColor,
+          cursorColor: Theme.of(context).primaryColor,
           decoration: InputDecoration(
             filled: true,
             fillColor: AppTheme.borderColorDark,
@@ -184,8 +184,8 @@ class _QuizMetadataDialogState extends State<QuizMetadataDialog> {
             ),
             focusedBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
-              borderSide: const BorderSide(
-                color: AppTheme.primaryColor,
+              borderSide: BorderSide(
+                color: Theme.of(context).primaryColor,
                 width: 2,
               ),
             ),

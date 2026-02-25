@@ -307,9 +307,9 @@ class AiStudioChatSidePanelState extends State<AiStudioChatSidePanel> {
                   Expanded(
                     child: Row(
                       children: [
-                        const Icon(
+                        Icon(
                           LucideIcons.sparkles,
-                          color: AppTheme.primaryColor,
+                          color: Theme.of(context).primaryColor,
                           size: 22,
                         ),
                         const SizedBox(width: 12),

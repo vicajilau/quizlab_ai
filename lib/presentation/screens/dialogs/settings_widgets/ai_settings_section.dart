@@ -121,10 +121,10 @@ class AiSettingsSection extends StatelessWidget {
                   children: [
                     Row(
                       children: [
-                        const Icon(
+                        Icon(
                           Icons.auto_awesome,
                           size: 16,
-                          color: AppTheme.primaryColor,
+                          color: Theme.of(context).primaryColor,
                         ),
                         const SizedBox(width: 6),
                         Flexible(
@@ -161,7 +161,7 @@ class AiSettingsSection extends StatelessWidget {
                 value: enabled,
                 onChanged: onEnabledChanged,
                 activeThumbColor: Colors.white,
-                activeTrackColor: AppTheme.primaryColor,
+                activeTrackColor: Theme.of(context).primaryColor,
                 inactiveThumbColor: Colors.white,
                 inactiveTrackColor: isDark
                     ? AppTheme.zinc600
@@ -215,7 +215,7 @@ class AiSettingsSection extends StatelessWidget {
                   value: keepDraft,
                   onChanged: onKeepDraftChanged,
                   activeThumbColor: Colors.white,
-                  activeTrackColor: AppTheme.primaryColor,
+                  activeTrackColor: Theme.of(context).primaryColor,
                   inactiveThumbColor: Colors.white,
                   inactiveTrackColor: isDark
                       ? AppTheme.zinc600

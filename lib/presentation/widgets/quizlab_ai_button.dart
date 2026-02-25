@@ -30,12 +30,13 @@ extension on QuizlabAIButtonSize {
 }
 
 extension _ButtonColors on ThemeData {
-  Color enabledButtonColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => AppTheme.primaryColor,
-    QuizlabAIButtonType.secondary => cardColor,
-    QuizlabAIButtonType.tertiary => Colors.transparent,
-    QuizlabAIButtonType.warning => AppTheme.errorColor,
-  };
+  Color enabledButtonColor(BuildContext context, QuizlabAIButtonType type) =>
+      switch (type) {
+        QuizlabAIButtonType.primary => Theme.of(context).primaryColor,
+        QuizlabAIButtonType.secondary => cardColor,
+        QuizlabAIButtonType.tertiary => Colors.transparent,
+        QuizlabAIButtonType.warning => AppTheme.errorColor,
+      };
 
   Color disabledButtonColor(QuizlabAIButtonType type) => switch (type) {
     QuizlabAIButtonType.primary => AppTheme.zinc700,
@@ -44,12 +45,13 @@ extension _ButtonColors on ThemeData {
     QuizlabAIButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
   };
 
-  Color enabledTextColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => Colors.white,
-    QuizlabAIButtonType.secondary => colorScheme.onSurface,
-    QuizlabAIButtonType.tertiary => AppTheme.primaryColor,
-    QuizlabAIButtonType.warning => Colors.white,
-  };
+  Color enabledTextColor(BuildContext context, QuizlabAIButtonType type) =>
+      switch (type) {
+        QuizlabAIButtonType.primary => Colors.white,
+        QuizlabAIButtonType.secondary => colorScheme.onSurface,
+        QuizlabAIButtonType.tertiary => Theme.of(context).primaryColor,
+        QuizlabAIButtonType.warning => Colors.white,
+      };
 
   Color disabledTextColor(QuizlabAIButtonType type) => switch (type) {
     QuizlabAIButtonType.primary => Colors.white,
@@ -60,12 +62,13 @@ extension _ButtonColors on ThemeData {
     QuizlabAIButtonType.warning => Colors.white.withValues(alpha: 0.5),
   };
 
-  Color enabledBorderColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => AppTheme.primaryColor,
-    QuizlabAIButtonType.secondary => dividerColor,
-    QuizlabAIButtonType.tertiary => Colors.transparent,
-    QuizlabAIButtonType.warning => AppTheme.errorColor,
-  };
+  Color enabledBorderColor(BuildContext context, QuizlabAIButtonType type) =>
+      switch (type) {
+        QuizlabAIButtonType.primary => Theme.of(context).primaryColor,
+        QuizlabAIButtonType.secondary => dividerColor,
+        QuizlabAIButtonType.tertiary => Colors.transparent,
+        QuizlabAIButtonType.warning => AppTheme.errorColor,
+      };
 
   Color disabledBorderColor(QuizlabAIButtonType type) => switch (type) {
     QuizlabAIButtonType.primary => AppTheme.zinc700,
@@ -74,12 +77,13 @@ extension _ButtonColors on ThemeData {
     QuizlabAIButtonType.warning => AppTheme.errorColor.withValues(alpha: .5),
   };
 
-  Color loaderColor(QuizlabAIButtonType type) => switch (type) {
-    QuizlabAIButtonType.primary => Colors.white,
-    QuizlabAIButtonType.secondary => AppTheme.zinc200,
-    QuizlabAIButtonType.tertiary => AppTheme.primaryColor,
-    QuizlabAIButtonType.warning => Colors.white,
-  };
+  Color loaderColor(BuildContext context, QuizlabAIButtonType type) =>
+      switch (type) {
+        QuizlabAIButtonType.primary => Colors.white,
+        QuizlabAIButtonType.secondary => AppTheme.zinc200,
+        QuizlabAIButtonType.tertiary => Theme.of(context).primaryColor,
+        QuizlabAIButtonType.warning => Colors.white,
+      };
 
   double borderWidth(QuizlabAIButtonType type) => switch (type) {
     QuizlabAIButtonType.secondary => 2,
@@ -119,16 +123,16 @@ class QuizLabAIButton extends StatelessWidget {
     final bgColor = disabled
         ? (backgroundColor?.withValues(alpha: 0.5) ??
               theme.disabledButtonColor(type))
-        : (backgroundColor ?? theme.enabledButtonColor(type));
+        : (backgroundColor ?? theme.enabledButtonColor(context, type));
     final textColor = isLoading
         ? Colors.transparent
         : disabled
         ? theme.disabledTextColor(type)
-        : theme.enabledTextColor(type);
+        : theme.enabledTextColor(context, type);
     final borderColor = disabled
         ? (backgroundColor?.withValues(alpha: 0.5) ??
               theme.disabledBorderColor(type))
-        : (backgroundColor ?? theme.enabledBorderColor(type));
+        : (backgroundColor ?? theme.enabledBorderColor(context, type));
 
     final button = ElevatedButton(
       onPressed: isLoading ? () {} : onPressed,
@@ -179,7 +183,9 @@ class QuizLabAIButton extends StatelessWidget {
               child: Transform.scale(
                 scale: 0.7,
                 child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation(theme.loaderColor(type)),
+                  valueColor: AlwaysStoppedAnimation(
+                    theme.loaderColor(context, type),
+                  ),
                 ),
               ),
             ),
