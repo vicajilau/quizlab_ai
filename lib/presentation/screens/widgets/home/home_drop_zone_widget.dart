@@ -69,7 +69,7 @@ class HomeDropZoneWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      'images/QuizLab AI.svg',
+                      'images/QuizLab_AI.svg',
                       height: 180,
                       fit: BoxFit.contain,
                     ),
