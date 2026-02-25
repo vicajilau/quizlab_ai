@@ -12,19 +12,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v5
 
-      - name: Set up Flutter
-        uses: subosito/flutter-action@v2
+      - name: Build & Publish android
+        uses: Spaccesi/flutter-actions-suite@main
         with:
-          channel: stable
-
-      - uses: microsoft/setup-msstore-cli@v1.3
-      - run: msstore reconfigure --tenantId ${{ secrets.PARTNER_CENTER_TENANT_ID }} --sellerId ${{ secrets.PARTNER_CENTER_SELLER_ID }} --clientId ${{ secrets.PARTNER_CENTER_CLIENT_ID }} --clientSecret ${{ secrets.PARTNER_CENTER_CLIENT_SECRET }}
-
-      - name: Install Dart dependencies
-        run: flutter pub get
-        
-      - name: Create MSIX package
-        run: msstore package .
-
-      - name: Publish MSIX to the Microsoft Store
-        run: msstore publish --appId ${{ secrets.MS_STORE_APP_ID }} -v
+          run-test: 'false'
+          run-build-runner: 'false'
+          run-analyze: 'false'
+          run-license: 'false'
+          build-platform: 'windows'
+          publish-destination: 'store'
+          microsoft-partner-center-tenant-id: ${{ secrets.PARTNER_CENTER_TENANT_ID }}
+          microsoft-partner-center-seller-id: ${{ secrets.PARTNER_CENTER_SELLER_ID }}
+          microsoft-center-client-id: ${{ secrets.PARTNER_CENTER_CLIENT_ID }}
+          microsoft-partner-center-client-secret: ${{ secrets.PARTNER_CENTER_CLIENT_SECRET }}
