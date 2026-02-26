@@ -23,14 +23,14 @@ import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_page_d
 import 'package:quizdy/presentation/screens/onboarding/widgets/onboarding_page_indicator.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class OnboardingDesktopLayout extends StatelessWidget {
+class OnboardingMobileLayout extends StatelessWidget {
   final OnboardingState state;
   final List<OnboardingPageData> pages;
   final PageController pageController;
   final OnboardingCubit cubit;
   final VoidCallback onFinish;
 
-  const OnboardingDesktopLayout({
+  const OnboardingMobileLayout({
     super.key,
     required this.state,
     required this.pages,
@@ -44,10 +44,10 @@ class OnboardingDesktopLayout extends StatelessWidget {
     final theme = Theme.of(context);
 
     return Padding(
-      padding: const EdgeInsets.all(40),
+      padding: const EdgeInsets.fromLTRB(20, 20, 20, 40),
       child: Column(
         children: [
-          // Two-column content with floating Skip button
+          // Page content with floating Skip button
           Expanded(
             child: Stack(
               children: [
@@ -57,7 +57,7 @@ class OnboardingDesktopLayout extends StatelessWidget {
                   itemCount: pages.length,
                   itemBuilder: (context, index) {
                     final page = pages[index];
-                    return OnboardingDesktopPageContent(page: page);
+                    return OnboardingMobilePageContent(page: page);
                   },
                 ),
                 if (!state.isLastPage)
@@ -82,25 +82,21 @@ class OnboardingDesktopLayout extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // Bottom bar
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              OnboardingPageIndicator(
-                currentPage: state.currentPage,
-                totalPages: state.totalPages,
-              ),
-              SizedBox(
-                width: state.isFirstPage ? 200 : 360,
-                child: OnboardingNavButtons(
-                  isFirstPage: state.isFirstPage,
-                  isLastPage: state.isLastPage,
-                  onBack: cubit.previousPage,
-                  onNext: cubit.nextPage,
-                  onFinish: onFinish,
-                ),
-              ),
-            ],
+          // Page indicator
+          OnboardingPageIndicator(
+            currentPage: state.currentPage,
+            totalPages: state.totalPages,
+          ),
+
+          const SizedBox(height: 24),
+
+          // Nav buttons
+          OnboardingNavButtons(
+            isFirstPage: state.isFirstPage,
+            isLastPage: state.isLastPage,
+            onBack: cubit.previousPage,
+            onNext: cubit.nextPage,
+            onFinish: onFinish,
           ),
         ],
       ),
@@ -108,83 +104,69 @@ class OnboardingDesktopLayout extends StatelessWidget {
   }
 }
 
-class OnboardingDesktopPageContent extends StatelessWidget {
+class OnboardingMobilePageContent extends StatelessWidget {
   final OnboardingPageData page;
 
-  const OnboardingDesktopPageContent({super.key, required this.page});
+  const OnboardingMobilePageContent({super.key, required this.page});
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
 
-    return Row(
-      children: [
-        // Left column - illustration
-        Expanded(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              if (page.imagePath != null)
-                SvgPicture.asset(page.imagePath!, width: 400, height: 400)
-              else
-                Container(
-                  width: 160,
-                  height: 160,
-                  decoration: BoxDecoration(
-                    color: theme.primaryColor.withValues(alpha: 0.12),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Icon(page.icon, color: theme.primaryColor, size: 72),
-                ),
-              const SizedBox(height: 24),
-              Text(
-                page.subtitle ?? '',
-                style: theme.textTheme.bodyMedium?.copyWith(
-                  fontSize: 16,
-                  color: theme.hintColor,
-                ),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          const SizedBox(height: 24),
+
+          // Icon or Image
+          if (page.imagePath != null)
+            SvgPicture.asset(page.imagePath!, width: 250, height: 250)
+          else
+            Container(
+              width: 120,
+              height: 120,
+              decoration: BoxDecoration(
+                color: theme.primaryColor.withValues(alpha: 0.12),
+                shape: BoxShape.circle,
               ),
-            ],
-          ),
-        ),
+              child: Icon(page.icon, color: theme.primaryColor, size: 56),
+            ),
 
-        const SizedBox(width: 64),
+          const SizedBox(height: 32),
 
-        // Right column - text + content
-        Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  page.title,
-                  style: GoogleFonts.plusJakartaSans(
-                    fontSize: 36,
-                    fontWeight: FontWeight.w700,
-                    color: theme.colorScheme.onSurface,
-                  ),
-                ),
-
-                const SizedBox(height: 16),
-
-                Text(
-                  page.description,
-                  style: theme.textTheme.bodyMedium?.copyWith(
-                    fontSize: 16,
-                    height: 1.6,
-                    color: theme.hintColor,
-                  ),
-                ),
-
-                const SizedBox(height: 28),
-
-                page.contentBuilder(context),
-              ],
+          // Title
+          Text(
+            page.title,
+            textAlign: TextAlign.center,
+            style: GoogleFonts.plusJakartaSans(
+              fontSize: 28,
+              fontWeight: FontWeight.w700,
+              color: theme.colorScheme.onSurface,
             ),
           ),
-        ),
-      ],
+
+          const SizedBox(height: 16),
+
+          // Description
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: Text(
+              page.description,
+              textAlign: TextAlign.center,
+              style: theme.textTheme.bodyMedium?.copyWith(
+                fontSize: 15,
+                height: 1.5,
+                color: theme.hintColor,
+              ),
+            ),
+          ),
+
+          const SizedBox(height: 32),
+
+          // Content
+          page.contentBuilder(context),
+        ],
+      ),
     );
   }
 }
