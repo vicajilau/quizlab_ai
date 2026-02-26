@@ -2,31 +2,34 @@ name: Flutter CI
 on:
   push:
     branches:
-      - main
+      - feature/github-action-update
   workflow_dispatch:
 
-  pull_request:
-    branches:
-      - main
+  # pull_request:
+  #   branches:
+  #     - main
 
 jobs:
   flutter_ci:
     name: Run flutter test and analyze
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: subosito/flutter-action@v2
+      - name: Checkout repositoy
+        uses: actions/checkout@v5
+
+      - name: Install flutter
+        uses: subosito/flutter-action@v2
         with:
           channel: "stable"
 
-      - name: Prepare
+      - name: Prepare repository
         uses: Spaccesi/flutter-actions-suite/prepare@main
         with:
           run-build-runner: 'false' 
           run-gen-l10n: 'true'
           gen-l10n-fails-if-untranslated: 'true'
 
-      - name: Check
+      - name: Check repository
         uses: Spaccesi/flutter-actions-suite/check@main
         with:
           run-license: 'true'
@@ -42,3 +45,12 @@ jobs:
           else
             echo "✅ All files have the correct GPL-3.0 license header."
           fi
+
+      - name: Upload prepared workspace
+        uses: actions/upload-artifact@v4
+        with:
+          name: prepared-repo
+          path: |
+            .
+            !.git
+          retention-days: 1
