@@ -5,12 +5,78 @@
     "version": "1.0.0",
     "author": "System"
   },
+  "study": {
+    "content": {
+      "coverage_percentage": 30.5,
+      "total_chunks": 10,
+      "processed_chunks": 3,
+      "cache": [
+        {
+          "chunk_index": 0,
+          "status": "completed",
+          "source_reference": {
+            "document_id": "doc_12345",
+            "start_page": 1,
+            "end_page": 1,
+            "start_offset": 1024,
+            "end_offset": 1500,
+            "block_type": "formula_summary"
+          },
+          "ai_summary": "Resumen generado por Gemini...",
+          "slides": [
+            {
+              "ui_elements": [
+                {
+                  "component_type": "ConceptHighlight",
+                  "props": {
+                    "concept": "Neuroplasticity",
+                    "definition": "The brain's ability to reorganize itself...",
+                    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/The_Brain_-_Human_Brain_-_Brain_Anatomy.jpg/250px-The_Brain_-_Human_Brain_-_Brain_Anatomy.jpg"
+                  }
+                },
+                {
+                  "component_type": "SummaryList",
+                  "props": {
+                    "items": [
+                      "Point 1",
+                      "Point 2"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "ui_elements": [
+                {
+                  "component_type": "SummaryList",
+                  "props": {
+                    "items": [
+                      "Point 1",
+                      "Point 2"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
   "questions": [
     {
       "type": "multiple_choice",
       "text": "[Short] Which numbers are prime?",
-      "options": ["1", "2", "4", "5"],
-      "correct_answers": [1, 3],
+      "options": [
+        "1",
+        "2",
+        "4",
+        "5"
+      ],
+      "correct_answers": [
+        1,
+        3
+      ],
       "explanation": "Prime numbers are numbers greater than 1 that have only two factors: 1 and themselves. 2 and 5 are prime. 1 is not prime (it has only one factor), and 4 is composite (2x2)."
     },
     {
@@ -22,14 +88,24 @@
         "It strengthens the connection between neurons through high-frequency stimulation, leading to a persistent increase in signal transmission known as Hebbian learning.",
         "It causes a temporary reduction in cognitive function to allow the brain to 'reboot', effectively clearing short-term memory buffers to make space for new information."
       ],
-      "correct_answers": [0, 2],
+      "correct_answers": [
+        0,
+        2
+      ],
       "explanation": "Long-term potentiation (LTP) is a persistent strengthening of synapses based on recent patterns of activity. It involves the growth of dendritic spines and Hebbian learning ('cells that fire together, wire together')."
     },
     {
       "type": "single_choice",
       "text": "[Short] What is the capital of France?",
-      "options": ["London", "Berlin", "Paris", "Madrid"],
-      "correct_answers": [2],
+      "options": [
+        "London",
+        "Berlin",
+        "Paris",
+        "Madrid"
+      ],
+      "correct_answers": [
+        2
+      ],
       "explanation": "Paris is the capital and most populous city of France."
     },
     {
@@ -41,21 +117,33 @@
         "The Montreal Protocol, which is designed to protect the ozone layer by phasing out the production of numerous substances that are responsible for ozone depletion.",
         "The Copenhagen Accord, which took note of the collective commitment by developed countries to provide new and additional resources."
       ],
-      "correct_answers": [1],
+      "correct_answers": [
+        1
+      ],
       "explanation": "The Paris Agreement is a legally binding international treaty on climate change adopted by 196 Parties at COP 21 in Paris, on 12 December 2015."
     },
     {
       "type": "true_false",
       "text": "[Short] Water boils at 100°C at sea level.",
-      "options": ["True", "False"],
-      "correct_answers": [0],
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answers": [
+        0
+      ],
       "explanation": "True. The boiling point of water is 100 degrees Celsius (212 degrees Fahrenheit) at standard atmospheric pressure (sea level)."
     },
     {
       "type": "true_false",
       "text": "[Long] Although often attributed solely to Thomas Edison, the invention of the lightbulb was actually a cumulative process involving contributions from numerous inventors over several decades, including Humphry Davy, Warren de la Rue, and Joseph Swan, meaning the statement 'Thomas Edison single-handedly invented the lightbulb from scratch' is historically inaccurate.",
-      "options": ["True", "False"],
-      "correct_answers": [0],
+      "options": [
+        "True",
+        "False"
+      ],
+      "correct_answers": [
+        0
+      ],
       "explanation": "True. Innovation is often cumulative. Edison improved on existing designs to create a commercially viable lightbulb."
     },
     {
@@ -81,7 +169,9 @@
         "$x = \\frac{b \\pm \\sqrt{b^2 - 4ac}}{2a}$",
         "$x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2c}$"
       ],
-      "correct_answers": [0],
+      "correct_answers": [
+        0
+      ],
       "explanation": "The quadratic formula is $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$."
     },
     {
@@ -93,7 +183,9 @@
         "If $r=5$, then $A = 10\\pi$ (Incorrect)",
         "None of the above options contains $\\pi$"
       ],
-      "correct_answers": [0],
+      "correct_answers": [
+        0
+      ],
       "explanation": "The area $A$ is given by $\\pi r^2$. With $r=5$, $A = \\pi (5^2) = 25\\pi$."
     },
     {
@@ -105,7 +197,9 @@
         "Jupiter",
         "Saturn"
       ],
-      "correct_answers": [2]
+      "correct_answers": [
+        2
+      ]
     }
   ]
 }
