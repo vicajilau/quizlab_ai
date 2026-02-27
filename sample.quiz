@@ -30,8 +30,7 @@
                   "component_type": "ConceptHighlight",
                   "props": {
                     "concept": "Neuroplasticity",
-                    "definition": "The brain's ability to reorganize itself...",
-                    "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/The_Brain_-_Human_Brain_-_Brain_Anatomy.jpg/250px-The_Brain_-_Human_Brain_-_Brain_Anatomy.jpg"
+                    "definition": "The brain's ability to reorganize itself..."
                   }
                 },
                 {
