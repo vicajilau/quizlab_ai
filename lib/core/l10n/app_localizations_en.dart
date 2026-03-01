@@ -880,11 +880,6 @@ class AppLocalizationsEn extends AppLocalizations {
       'Provide unformatted text or attach files to convert into study topics automatically.';
 
   @override
-  String chunkingProgress(int current, int total) {
-    return 'Analysing Document ($current of ~$total)...';
-  }
-
-  @override
   String get aiContentFieldHint =>
       'Enter a topic like \"World War II history\" or paste text content here...';
 

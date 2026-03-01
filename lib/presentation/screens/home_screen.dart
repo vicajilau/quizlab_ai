@@ -250,13 +250,6 @@ class _HomeScreenState extends State<HomeScreen> {
           documentText,
           documentId,
           localizations,
-          onProgress: (current, total) {
-            if (mounted) {
-              setState(() {
-                _loadingText = localizations.chunkingProgress(current, total);
-              });
-            }
-          },
         );
 
         if (sourceReferences.isEmpty) {

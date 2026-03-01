@@ -1175,14 +1175,6 @@
   "@aiEnterContentDescription": {
     "description": "Description telling the user to enter text or attach files"
   },
-  "chunkingProgress": "Analysing Document ({current} of ~{total})...",
-  "@chunkingProgress": {
-    "description": "Progress indicator shown while splitting and analyzing huge documents",
-    "placeholders": {
-        "current": { "type": "int", "example": "1" },
-        "total": { "type": "int", "example": "5" }
-    }
-  },
   "aiContentFieldHint": "Enter a topic like \"World War II history\" or paste text content here...",
   "@aiContentFieldHint": {
     "description": "Hint text for the content input field"

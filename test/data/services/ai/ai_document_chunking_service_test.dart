@@ -25,28 +25,27 @@ class MockAppLocalizations implements AppLocalizations {
 }
 
 void main() {
-  // Nota: Al usar GeminiService de forma directa en el AiDocumentChunkingService
-  // que es un singleton estático, la prueba unitaria ideal usaría GetIt o inyección.
-  // Por ahora lo probaremos con el fallback de Exception si no hay Token provisto
-  // o haciendo mock del resultado de _parseJsonToSourceReferences mediante un proxy si se refactoriza.
-
-  // Como `_parseJsonToSourceReferences` es privado, debemos simular su comportamiento
-  // comprobado mediante reflection o probando el manejo de errores generales.
   test(
-    'Handling empty API keys throws Exception smoothly depending on config',
+    'Chunking service slices string locally and creates references without Gemini',
     () async {
       final localizations = MockAppLocalizations();
 
-      // As Gemini token isn't provided here, we expect an exception describing the context
-      // instead of an application crash.
-      await expectLater(
-        () => AiDocumentChunkingService.instance.chunkDocument(
-          'Test text',
-          'doc1',
-          localizations,
-        ),
-        throwsA(isA<Exception>()),
+      // Creates a dummy text of 10000 characters
+      final String longText = List.generate(1000, (i) => '1234567890').join('');
+      expect(longText.length, 10000);
+
+      final refs = await AiDocumentChunkingService.instance.chunkDocument(
+        longText,
+        'doc1',
+        localizations,
       );
+
+      // It chunks about 3000 chars per batch, so 10000 / 3000 ~ 4 chunks expected
+      expect(refs.isNotEmpty, isTrue);
+      expect(refs.length, 4);
+      expect(refs.first.startOffset, 0);
+      expect(refs.last.endOffset, 10000);
+      expect(refs.first.blockType, contains('Section'));
     },
   );
 }

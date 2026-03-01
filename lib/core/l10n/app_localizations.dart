@@ -1610,12 +1610,6 @@ abstract class AppLocalizations {
   /// **'Provide unformatted text or attach files to convert into study topics automatically.'**
   String get aiEnterContentDescription;
 
-  /// Progress indicator shown while splitting and analyzing huge documents
-  ///
-  /// In en, this message translates to:
-  /// **'Analysing Document ({current} of ~{total})...'**
-  String chunkingProgress(int current, int total);
-
   /// Hint text for the content input field
   ///
   /// In en, this message translates to:

@@ -886,11 +886,6 @@ class AppLocalizationsEs extends AppLocalizations {
       'Pega un texto cualquiera o adjunta archivos para esquematizarlos en temas de estudio.';
 
   @override
-  String chunkingProgress(int current, int total) {
-    return 'Analizando Documento ($current de ~$total)...';
-  }
-
-  @override
   String get aiContentFieldHint =>
       'Introduce un tema como \"Historia de la Segunda Guerra Mundial\" o pega el contenido de texto aquí...';
 

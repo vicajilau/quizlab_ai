@@ -7,17 +7,13 @@
 //
 // This program is distributed in the hope that it will be useful,
 // but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 // GNU General Public License for more details.
 //
 // You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <https://www.gnu.org/licenses/>.
+// along with this program. If not, see <https://www.gnu.org/licenses/>.
 
-import 'dart:convert';
-import 'dart:math' as math;
-import 'package:flutter/foundation.dart';
 import 'package:quizdy/core/l10n/app_localizations.dart';
-import 'package:quizdy/data/services/ai/gemini_service.dart';
 import 'package:quizdy/domain/models/quiz/source_reference.dart';
 
 class _TextBatch {
@@ -27,7 +23,7 @@ class _TextBatch {
   const _TextBatch({required this.text, required this.baseOffset});
 }
 
-/// Service responsible for parsing documents into semantic chunks using AI.
+/// Service responsible for parsing documents into semantic chunks locally.
 class AiDocumentChunkingService {
   static AiDocumentChunkingService? _instance;
 
@@ -37,122 +33,54 @@ class AiDocumentChunkingService {
 
   AiDocumentChunkingService._();
 
-  /// Identifies semantic chunks within a document using Gemini.
+  /// Identifies structural chunks within a document locally.
   ///
-  /// The AI processes the full [documentText] iteratively in ~15K character bursts
-  /// to avoid output tokens limitations when parsing big files like PDFs.
+  /// Splits the text iteratively in ~3000 character bursts suitable for
+  /// later Just-In-Time semantic processing while avoiding UI locks.
   ///
   /// - [documentText]: The full text extracted from the document.
   /// - [documentId]: A unique identifier for the document.
-  /// - [localizations]: Localization bundle for error messages.
+  /// - [localizations]: Localization bundle for default names.
   /// - Returns: A mapped global list of `SourceReference` indicating the text slices.
   Future<List<SourceReference>> chunkDocument(
     String documentText,
     String documentId,
-    AppLocalizations localizations, {
-    void Function(int currentChunk, int totalChunks)? onProgress,
-  }) async {
-    const maxCharsPerBatch = 15000;
+    AppLocalizations localizations,
+  ) async {
+    const maxCharsPerBatch = 3000;
     List<SourceReference> allReferences = [];
     int currentGlobalOffset = 0;
     final int textLength = documentText.length;
 
-    // Pre-calculate the total possible chunks for progress visualization
-    final totalEstimatedChunks = (textLength / maxCharsPerBatch).ceil();
     int currentIteration = 0;
 
     while (currentGlobalOffset < textLength) {
       currentIteration++;
-      debugPrint(
-        'Chunking Iteration: $currentIteration / ~$totalEstimatedChunks (Global Offset: $currentGlobalOffset / $textLength)',
-      );
-      if (onProgress != null) {
-        onProgress(currentIteration, totalEstimatedChunks);
-      }
 
       final batch = _getNextBatch(
         documentText,
         currentGlobalOffset,
         maxCharsPerBatch,
       );
-      final prompt = _buildSystemPrompt(batch.text);
 
-      try {
-        final responseBody = await GeminiService.instance.getChatResponse(
-          prompt,
-          localizations,
-          responseMimeType: 'application/json',
-        );
+      final reference = SourceReference(
+        documentId: documentId,
+        startOffset: batch.baseOffset,
+        endOffset: batch.baseOffset + batch.text.length,
+        startPage:
+            1, // Will be mapped later if PDF layout is supported natively
+        endPage: 1,
+        blockType: 'Section $currentIteration', // Generic initial state
+      );
 
-        final cleanJsonString = _extractJsonFromResponse(responseBody);
-        List<SourceReference> parsedReferences = [];
+      allReferences.add(reference);
 
-        try {
-          parsedReferences = _parseJsonToSourceReferences(
-            cleanJsonString,
-            documentId,
-            localizations,
-          );
-        } catch (parseError) {
-          if (parseError is FormatException) {
-            // Attempt to repair truncated JSON arrays returned by LM limits
-            final repairedJson = _repairTruncatedJsonArray(cleanJsonString);
-            try {
-              parsedReferences = _parseJsonToSourceReferences(
-                repairedJson,
-                documentId,
-                localizations,
-              );
-            } catch (e) {
-              // If we cannot salvage anything, we gracefully skip to avoid infinite loops
-              debugPrint('Failed to salvage truncated JSON: $e');
-            }
-          } else {
-            rethrow;
-          }
-        }
-
-        if (parsedReferences.isEmpty) {
-          // AI returned nothing parsable, force advance to avoid infinite loop
-          currentGlobalOffset = batch.baseOffset + batch.text.length;
-          continue;
-        }
-
-        // Map the relative chunk offsets back to the global document offsets
-        for (final ref in parsedReferences) {
-          allReferences.add(
-            ref.copyWith(
-              startOffset: ref.startOffset + batch.baseOffset,
-              endOffset: ref.endOffset + batch.baseOffset,
-            ),
-          );
-        }
-
-        // The AI might have truncated the payload. Advance our global pointer
-        // only up to the last SUCCESSFULLY mapped offset so we ask AI for the remainder in the next loop.
-        final lastRefOffset = parsedReferences.last.endOffset;
-
-        if (lastRefOffset <= 0) {
-          currentGlobalOffset = batch.baseOffset + batch.text.length;
-        } else {
-          // Ensure we don't jump further than the batch itself if the AI hallucinates larger offsets
-          final safeJump = math.min(lastRefOffset, batch.text.length);
-          currentGlobalOffset = batch.baseOffset + safeJump;
-        }
-      } catch (e) {
-        throw Exception('${localizations.aiErrorResponse}: $e');
-      }
+      // Safety advance minimum 1 character to avoid infinite loops if breakIndex matches start
+      currentGlobalOffset =
+          batch.baseOffset + (batch.text.isNotEmpty ? batch.text.length : 1);
     }
 
     return allReferences;
-  }
-
-  String _repairTruncatedJsonArray(String jsonString) {
-    int lastBrace = jsonString.lastIndexOf('}');
-    if (lastBrace != -1) {
-      return '${jsonString.substring(0, lastBrace + 1)}]';
-    }
-    return '[]';
   }
 
   _TextBatch _getNextBatch(String text, int startOffset, int maxChars) {
@@ -191,77 +119,5 @@ class AiDocumentChunkingService {
       text: text.substring(startOffset, breakIndex),
       baseOffset: startOffset,
     );
-  }
-
-  /// Builds the instruction set and appends the document text.
-  String _buildSystemPrompt(String text) {
-    return '''
-You are an expert document parser. Your task is to divide the provided text into logical, semantic chunks suitable for generating interactive study material.
-Each chunk should represent a distinct concept, topic, or section.
-You must return the result ONLY as a JSON array of objects. Do not include any other text, markdown formatting (like ```json), or explanations.
-
-Each object in the JSON array must have the following exact schema:
-{
-  "start_offset": <integer, the character index where the chunk begins>,
-  "end_offset": <integer, the character index where the chunk ends>,
-  "block_type": <string, a short descriptor of the content (e.g., "introduction", "definition", "concept", "summary")>
-}
-
-Ensure that the chunks cover the important parts of the text sequentially without unnecessary overlapping, although minor overlaps for context are acceptable. The offsets refer to the character indices in the provided text.
-
-Document Text:
-"""
-$text
-"""
-''';
-  }
-
-  /// Extracts the JSON array string from the LLM response, stripping markdown if present.
-  String _extractJsonFromResponse(String response) {
-    String cleanResponse = response.trim();
-    if (cleanResponse.startsWith('```json')) {
-      cleanResponse = cleanResponse.substring('```json'.length);
-    } else if (cleanResponse.startsWith('```')) {
-      cleanResponse = cleanResponse.substring('```'.length);
-    }
-
-    if (cleanResponse.endsWith('```')) {
-      cleanResponse = cleanResponse.substring(0, cleanResponse.length - 3);
-    }
-
-    return cleanResponse.trim();
-  }
-
-  /// Parses the raw JSON array string into `SourceReference` models.
-  List<SourceReference> _parseJsonToSourceReferences(
-    String jsonString,
-    String documentId,
-    AppLocalizations localizations,
-  ) {
-    try {
-      final decoded = jsonDecode(jsonString);
-      if (decoded is! List) {
-        throw const FormatException('Expected a JSON array.');
-      }
-
-      return decoded.map((item) {
-        final map = item as Map<String, dynamic>;
-
-        // startPage and endPage are unknown at this pure-text chunking stage.
-        // Defaulting to 1, capable of being mapped later if PDF layout context is integrated.
-        return SourceReference(
-          documentId: documentId,
-          startPage: (map['start_page'] as num?)?.toInt() ?? 1,
-          endPage: (map['end_page'] as num?)?.toInt() ?? 1,
-          startOffset: (map['start_offset'] as num?)?.toInt() ?? 0,
-          endOffset: (map['end_offset'] as num?)?.toInt() ?? 0,
-          blockType: map['block_type'] as String? ?? 'unknown',
-        );
-      }).toList();
-    } catch (e) {
-      throw FormatException(
-        'Failed to parse AI JSON array response: $e\nResponse String: $jsonString',
-      );
-    }
   }
 }

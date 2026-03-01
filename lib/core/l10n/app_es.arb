@@ -1131,7 +1131,6 @@
     "description": "Título para el paso 2 de la generación de preguntas con IA"
   },
   "aiEnterContentDescription": "Pega un texto cualquiera o adjunta archivos para esquematizarlos en temas de estudio.",
-  "chunkingProgress": "Analizando Documento ({current} de ~{total})...",
   "@aiEnterContentDescription": {
     "description": "Descripción para el paso de entrada de contenido"
   },
